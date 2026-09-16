@@ -1,9 +1,20 @@
 """L4 · Telecomunicaciones — AndesMóvil · domain_tools.py (checkpoint de referencia)
 
-Las 4 tools núcleo del track. La primera (`get_customer_plan`) es la del L3; las otras
-tres son el incremento del L4. `create_complaint_ticket` exige confirmación explícita
-antes de registrar el reclamo (regla del bloque 4 de README.md: toda tool de escritura
-se implementa con confirmación desde el L4, no se pospone a los guardrails de la S6).
+Las 4 tools núcleo del track. La primera (`get_customer_plan`) NO se reescribe: se
+importa tal cual del L3 (Sesión 3) — el mismo patrón con el que la Sesión 5 importa
+este mismo archivo, y la Sesión 6 importa el de la Sesión 5. La cadena L2 → L3 → L4 →
+L5 → L6 se apoya en código real, no solo en la narrativa. Las otras tres tools son el
+incremento del L4. `create_complaint_ticket` exige confirmación explícita antes de
+registrar el reclamo (regla del bloque 4 de README.md: toda tool de escritura se
+implementa con confirmación desde el L4, no se pospone a los guardrails de la S6).
+
+La categoría de intención que el L2 (Sesión 2) le asigna a cada consulta —
+`recursos/golden/consultas-telecomunicaciones.json`, campo `intencion`— es 1:1 con
+estas 4 tools (campo `tool_esperada` del mismo archivo): `CONSULTA_PLAN` es
+`get_customer_plan`, `CONSULTA_CONSUMO` es `get_data_usage`, y así con las 4. Es el
+mismo golden set el que mide el L2 (`medir_clasificador.py`) y el L4
+(`docente/matriz_seleccion.py`) — no son dos ejercicios que coinciden por casualidad
+en la taxonomía, son el mismo problema medido en dos profundidades distintas.
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
 """
@@ -13,7 +24,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
+# La tool del L3 no se reescribe: se importa de su checkpoint de referencia.
+sys.path.insert(0, str(ROOT / "modulo-1-fundamentos" / "sesion-03-tools-api-externa"
+                       / "solucion" / "telecomunicaciones"))
 
 from langchain_core.tools import tool  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
@@ -21,14 +36,14 @@ from pydantic import BaseModel, Field  # noqa: E402
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
 
+from external_api import LineaInput, get_customer_plan  # noqa: E402  (del L3, sin reescribir)
+
 TRACK = "telecomunicaciones"
 
 
-# ───────────────────────────── esquemas ─────────────────────────────
-class LineaInput(BaseModel):
-    numero_linea: str = Field(description="Número de línea móvil de 9 dígitos, sin espacios ni guiones")
-
-
+# ───────────────────────────── esquemas nuevos del L4 ─────────────────────────────
+# LineaInput se reutiliza del L3 (import de arriba): run_line_diagnostics la necesita
+# con el mismo esquema, no con una copia.
 class ConsumoInput(BaseModel):
     numero_linea: str = Field(description="Número de línea móvil de 9 dígitos")
     periodo: str = Field(default="2026-08", description="Periodo de facturación en formato AAAA-MM")
@@ -44,25 +59,8 @@ class ReclamoInput(BaseModel):
     )
 
 
-# ─────────────────────────── tool del L3 (ya la tenías) ───────────────────────────
-@tool(args_schema=LineaInput)
-def get_customer_plan(numero_linea: str) -> str:
-    """Devuelve el plan contratado, el estado y el distrito de una línea móvil.
-
-    Úsala cuando el cliente pregunte qué plan tiene, cuánto paga, desde cuándo es
-    cliente, o si su línea está activa o suspendida.
-    NO la uses para consultar consumo de datos: para eso usa get_data_usage.
-    NO la uses para preguntas generales sobre el catálogo de planes de AndesMóvil:
-    esa información está en la base de conocimiento, no aquí.
-    """
-    try:
-        c = datos.buscar_uno("clientes.csv", "numero_linea", numero_linea, TRACK)
-    except DatoNoEncontrado:
-        return (f"No existe la línea {numero_linea} en los registros de AndesMóvil. "
-                f"Verifica el número con el cliente: debe tener 9 dígitos.")
-    return (f"Línea {c['numero_linea']} · Titular: {c['nombre_titular']} · "
-            f"Plan: {c['plan_nombre']} ({c['plan_id']}) · Estado: {c['estado']} · "
-            f"Cliente desde: {c['fecha_alta']} · Distrito: {c['distrito']}")
+# get_customer_plan del L3 se usa tal cual (import de arriba). Su docstring sigue
+# siendo la misma que el modelo leyó desde la Sesión 3 — no cambia entre sesiones.
 
 
 # ─────────────────────────── tools nuevas del L4 ───────────────────────────

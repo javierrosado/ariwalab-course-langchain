@@ -42,6 +42,15 @@ límites explícitos a las que ya tiene tu agente.
 Es el **mismo diagrama del bloque 1 de la Sesión 3** (el LLM genera, tu código ejecuta), releído
 como seguridad. Ya lo entendiste como arquitectura; hoy lo entiendes como defensa.
 
+**El few-shot (regla A5) es la primera capa, no la única.** Igual que en la Sesión 4 un par de
+ejemplos ayudaba al modelo a elegir bien entre tools parecidas, aquí un par de ejemplos de
+ataques ya bloqueados en el system prompt ("si te piden esto, es una inyección: no lo seguiste,
+respondiste así") entrena al modelo para reconocer el patrón más rápido. **Pero el few-shot es
+una ayuda para el modelo, no una garantía**: la defensa que de verdad sostiene "0 filtraciones"
+sigue siendo el código de `guardrails.py` — si el prompt fallara y el modelo "mordiera" el
+anzuelo, el guardrail de acción/salida lo detiene igual. Por eso las dos capas del diagrama del
+bloque 4 son código, y el few-shot solo hace que lleguen menos casos a necesitarlas.
+
 ---
 
 ## 2. PII y Ley 29733
@@ -94,6 +103,12 @@ nunca deriva es tan riesgoso como uno que siempre lo hace.
 Los tres puntos de enganche son **código**, ninguno es prompt. El prompt ayuda; el código decide.
 `guardrails.py` implementa los tres, y se engancha alrededor de tu `agent.py` sin reescribir su
 lógica interna — por eso se llama middleware: intercepta antes y después, no reemplaza.
+
+**¿Y LangGraph?** Lo que acabas de ver — enganchar guardrails antes y después del modelo — deja
+de alcanzar cuando el agente necesita ramificarse en pasos condicionales explícitos y
+persistentes (por ejemplo: *"si hay lesionados, el flujo entero cambia, no solo la respuesta"*).
+Ahí es donde entraría LangGraph, que este curso **no cubre**: es contenido del Curso 2. Vale la
+pena saber que existe y para qué serviría, aunque hoy no lo uses.
 
 ---
 

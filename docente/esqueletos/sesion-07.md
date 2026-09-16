@@ -146,6 +146,17 @@ cabe** y hay que partirla entre la S7 y los primeros 20 min de la S8 — igual q
 | **Evidencia de pruebas** | 20 % | `INFORME-L7.md` con ≥ 10 casos reales, no descritos. Las pruebas corren |
 | **Comunicación técnica** | 10 % | La demo y la defensa del documento de diseño |
 
+> **Corrección VALIDACION-INTEGRAL H2 (2026-09-16).** La regla A4 (tope de iteraciones) se
+> enseña en la S3 y la S4 y hasta ahora no se medía en ningún sitio. El criterio
+> **"Guardrails y manejo de errores"** de arriba incluye, explícitamente, esta comprobación de
+> la familia 3 (servicio caído): *ante `?_fallo=error503` sostenido durante toda la conversación
+> (o, en `tests/`, con la tool parcheada para fallar siempre), el agente debe terminar en
+> **como máximo `MAX_ITERATIONS`** llamadas al modelo y emitir un mensaje explícito al usuario
+> — nunca colgarse, nunca reintentar en silencio hasta agotar la cuota.* Es una línea de código
+> en el enunciado del L7, no un capítulo nuevo: `docente/esqueletos/README.md` §"Trabajo previo"
+> ya lo trae como tarea, y `solucion/<track>/tests/test_casos_borde.py` de esta sesión lo
+> implementa como parte de la familia 3.
+
 **La regla del piso del A1 sigue vigente**, adaptada: si las pruebas de `tests/` pasan con el
 agente llamado directamente y el informe documenta los 10 casos, el equipo no baja de *Competente*
 aunque en la demo en vivo el caos le arruine un turno. **Es exactamente lo que la sesión enseña:**
@@ -190,6 +201,15 @@ un sistema no determinístico se juzga por su diseño y su evidencia, no por una
 | **4.17** | `conceptos-previos.md` | Testing no determinístico + los 6 fallos del simulador |
 | **4.18** | `lab/` | L7 × 4 tracks: guion de la clínica y plantilla de `INFORME-L7.md` |
 | **4.19** | `proyecto-m2.md` | Enunciado, entregables, rúbrica 4×5, regla del piso y calendario |
+
+> ⚠️ **Ampliación 2026-09-16.** El pacto original de esta sesión no incluía `code/` ni
+> `solucion/` (bloque 2 de §5 dice que la "ronda de demos" es de los propios equipos, no de
+> Code). Por pedido explícito se añadieron los pasos **4.20** y **4.21** para que el bloque 0
+> (invariantes, familias, repetición) tenga demos ejecutables y para que el criterio de
+> `tests/` del §7 tenga un checkpoint de referencia, igual que las demás sesiones del módulo.
+
+| **4.20** | `code/` | 3 demos: por qué falla `assert ==`, invariantes en aislamiento, repetir y medir + `README.md` |
+| **4.21** | `solucion/` | `tests/invariantes.py` + `tests/test_casos_borde.py` × 4 tracks, con las 4 familias del bloque 0 medidas por repetición e invariantes |
 
 ### Trabajo previo
 

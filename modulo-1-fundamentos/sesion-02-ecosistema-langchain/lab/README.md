@@ -52,14 +52,14 @@ def clasificar(modelo, consulta: str) -> Intencion:
 
 ## Parte 3 · `medir_clasificador.py` (15 min)
 
-Corre las 26 consultas de `recursos/golden/consultas-<tu-track>.json` (campo `intencion`) e
+Corre las 30 consultas de `recursos/golden/consultas-<tu-track>.json` (campo `intencion`) e
 imprime: acierto global, matriz de confusión por categoría, y cuántas extracciones necesitaron
 reintento (`al_primer_intento`) — es el primer dato de fiabilidad que mides con tus manos, y se
 retoma en la Sesión 10.
 
 ## Parte 4 · Tus 5 consultas propias
 
-Añádelas al final de tu medición (no al archivo del curso) y reporta el acierto sobre las 31.
+Añádelas al final de tu medición (no al archivo del curso) y reporta el acierto sobre las 35.
 
 ---
 
@@ -74,8 +74,8 @@ Añádelas al final de tu medición (no al archivo del curso) y reporta el acier
 
 ## Criterio de aceptación
 
-- **≥ 90 % de acierto** sobre las 26 consultas del golden set del curso.
-- Reportas el acierto sobre las 26 + tus 5 propias (31 en total).
+- **≥ 90 % de acierto** sobre las 30 consultas del golden set del curso.
+- Reportas el acierto sobre las 30 + tus 5 propias (35 en total).
 - Reportas cuántas extracciones necesitaron reintento.
 
 > ⚠️ **El umbral del 90 % está sin verificar contra el endpoint real** (nota del esqueleto de

@@ -1,162 +1,216 @@
 {
-  "_comentario": "Fuente única de consultas del track seguros (Andina Seguros). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['seguros'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/seguros/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5).",
+  "_comentario": "Fuente única de consultas del track seguros (Andina Seguros). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['seguros'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/seguros/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5). Ampliado a 30 casos (2026-09-16, Sesion 10): 20 'con tool' (antes 16) + 10 'OTRO', con el campo 'respuesta_esperada' para el evaluator de exactitud. Las 20 'con tool' usan identificadores ilustrativos (no existen en el dataset real): su 'respuesta_esperada' es la frase de 'no existe' propia de cada tool -- el evaluator aqui comprueba que el agente NO invente un dato, no que cite uno real. La exactitud de contenido real se mide en las 10 'OTRO', con hechos verificables del corpus.",
   "track": "seguros",
   "consultas": [
     {
       "consulta": "¿Mi SOAT está vigente? La placa es ABC-123",
       "intencion": "CONSULTA_POLIZA",
       "categoria": "directa",
-      "tool_esperada": "get_policy_by_plate"
+      "tool_esperada": "get_policy_by_plate",
+      "respuesta_esperada": "No hay ninguna póliza"
     },
     {
       "consulta": "¿Hasta cuándo me cubre la póliza de la placa XYZ-789?",
       "intencion": "CONSULTA_POLIZA",
       "categoria": "directa",
-      "tool_esperada": "get_policy_by_plate"
+      "tool_esperada": "get_policy_by_plate",
+      "respuesta_esperada": "No hay ninguna póliza"
     },
     {
       "consulta": "Necesito saber si la placa D2P-450 tiene SOAT con ustedes",
       "intencion": "CONSULTA_POLIZA",
       "categoria": "directa",
-      "tool_esperada": "get_policy_by_plate"
+      "tool_esperada": "get_policy_by_plate",
+      "respuesta_esperada": "No hay ninguna póliza"
     },
     {
       "consulta": "¿Cuánto me costaría el SOAT de la placa ABC-123?",
       "intencion": "COTIZACION",
       "categoria": "directa",
-      "tool_esperada": "quote_soat"
+      "tool_esperada": "quote_soat",
+      "respuesta_esperada": "No hay datos del vehículo"
     },
     {
       "consulta": "Quiero cotizar el SOAT para mi auto, placa XYZ-789",
       "intencion": "COTIZACION",
       "categoria": "directa",
-      "tool_esperada": "quote_soat"
+      "tool_esperada": "quote_soat",
+      "respuesta_esperada": "No hay datos del vehículo"
     },
     {
       "consulta": "Dame el precio de renovación del SOAT de la D2P-450",
       "intencion": "COTIZACION",
       "categoria": "directa",
-      "tool_esperada": "quote_soat"
+      "tool_esperada": "quote_soat",
+      "respuesta_esperada": "No hay datos del vehículo"
     },
     {
       "consulta": "¿En qué va mi siniestro SIN-2026-0021?",
       "intencion": "ESTADO_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "get_claim_status"
+      "tool_esperada": "get_claim_status",
+      "respuesta_esperada": "No existe el expediente"
     },
     {
       "consulta": "Consulten el expediente SIN-2026-0044, por favor",
       "intencion": "ESTADO_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "get_claim_status"
+      "tool_esperada": "get_claim_status",
+      "respuesta_esperada": "No existe el expediente"
     },
     {
       "consulta": "¿Ya aprobaron mi caso SIN-2026-0098?",
       "intencion": "ESTADO_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "get_claim_status"
+      "tool_esperada": "get_claim_status",
+      "respuesta_esperada": "No existe el expediente"
     },
     {
       "consulta": "Acabo de chocar en Ate, placa ABC-123, hay un lesionado",
       "intencion": "REPORTE_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "open_claim"
+      "tool_esperada": "open_claim",
+      "respuesta_esperada": "No hay póliza registrada"
     },
     {
       "consulta": "Quiero reportar un choque simple en Surco con la placa XYZ-789",
       "intencion": "REPORTE_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "open_claim"
+      "tool_esperada": "open_claim",
+      "respuesta_esperada": "No hay póliza registrada"
     },
     {
       "consulta": "Necesito abrir un siniestro, me chocaron en San Miguel, placa D2P-450, sin heridos",
       "intencion": "REPORTE_SINIESTRO",
       "categoria": "directa",
-      "tool_esperada": "open_claim"
+      "tool_esperada": "open_claim",
+      "respuesta_esperada": "No hay póliza registrada"
     },
     {
       "consulta": "Mi SOAT venció, ¿cuánto pagaría por renovarlo? Placa ABC-123",
       "intencion": "COTIZACION",
       "categoria": "confusable",
-      "tool_esperada": "quote_soat"
+      "tool_esperada": "quote_soat",
+      "respuesta_esperada": "No hay datos del vehículo"
     },
     {
       "consulta": "Reporté un choque la semana pasada, ¿en qué estado está el expediente SIN-2026-0021?",
       "intencion": "ESTADO_SINIESTRO",
       "categoria": "confusable",
-      "tool_esperada": "get_claim_status"
+      "tool_esperada": "get_claim_status",
+      "respuesta_esperada": "No existe el expediente"
     },
     {
       "consulta": "Me chocaron hace una hora en Ate, placa D2P-450, dos personas heridas",
       "intencion": "REPORTE_SINIESTRO",
       "categoria": "confusable",
-      "tool_esperada": "open_claim"
+      "tool_esperada": "open_claim",
+      "respuesta_esperada": "No hay póliza registrada"
     },
     {
       "consulta": "Antes de reportar el choque quiero confirmar que mi póliza está vigente, placa ABC-123",
       "intencion": "CONSULTA_POLIZA",
       "categoria": "confusable",
-      "tool_esperada": "get_policy_by_plate"
+      "tool_esperada": "get_policy_by_plate",
+      "respuesta_esperada": "No hay ninguna póliza"
     },
     {
       "consulta": "¿Cuánto cubre el SOAT por gastos de sepelio?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "1 UIT"
     },
     {
       "consulta": "¿Qué documentos debo llevar a la clínica después de un accidente?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "Buenos días",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "¿El SOAT cubre a los peatones?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "¿Cuánto tiempo tengo de plazo para reportar un accidente después de que pasó?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "5 días"
     },
     {
       "consulta": "¿El SOAT me cubre si el conductor había tomado alcohol?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "derecho de repetición"
     },
     {
       "consulta": "¿Cuánto cubre el SOAT por muerte de un ocupante del vehículo?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "4 UIT"
     },
     {
       "consulta": "¿En cuánto tiempo me pagan si aprueban mi siniestro?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "10 días"
     },
     {
       "consulta": "¿Cuánto cuesta el SOAT de un auto particular al año?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "S/92"
     },
     {
       "consulta": "¿Hasta cuántos años tengo de plazo para reclamar por un accidente antiguo?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "2 años"
+    },
+    {
+      "consulta": "¿Podrían confirmarme si la placa QRS-111 tiene SOAT vigente?",
+      "intencion": "CONSULTA_POLIZA",
+      "categoria": "directa",
+      "tool_esperada": "get_policy_by_plate",
+      "respuesta_esperada": "No hay ninguna póliza"
+    },
+    {
+      "consulta": "¿Cuánto costaría el SOAT para la placa TUV-222?",
+      "intencion": "COTIZACION",
+      "categoria": "directa",
+      "tool_esperada": "quote_soat",
+      "respuesta_esperada": "No hay datos del vehículo"
+    },
+    {
+      "consulta": "¿En qué estado está el siniestro SIN-2026-0500?",
+      "intencion": "ESTADO_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "get_claim_status",
+      "respuesta_esperada": "No existe el expediente"
+    },
+    {
+      "consulta": "Necesito reportar un choque leve, placa WXY-333, sin heridos",
+      "intencion": "REPORTE_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "open_claim",
+      "respuesta_esperada": "No hay póliza registrada"
     }
   ]
 }

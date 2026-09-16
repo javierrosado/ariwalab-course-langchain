@@ -67,6 +67,31 @@ Y con eso decide. Cuando falla, falla de tres maneras:
 Cada tipo tiene su celda propia en la matriz de confusión de `docente/matriz_seleccion.py`, y una
 corrección distinta. Es lo que vas a practicar en el bloque 6 de hoy, sobre tu propio catálogo.
 
+**De dónde salen las 30 consultas que arma la matriz:** `recursos/golden/consultas-<tu-track>.json`
+— el mismo archivo que ya usaste en la Sesión 2 para medir tu clasificador (`medir_clasificador.py`,
+campo `intencion`). Aquí el script lee el campo `tool_esperada` de esas mismas 30 filas. No es
+casualidad que coincidan: es la razón de que el archivo exista en un solo lugar (ver Sesión 2,
+sección "El conjunto de prueba").
+
+### 2.1 Few-shot para desambiguar tools (regla A5)
+
+La docstring no es la única palanca contra el solapamiento. Cuando dos tools quedan cerca en el
+espacio de decisión del modelo, **un par de ejemplos en el system prompt** (el mismo mecanismo
+de la Sesión 2, aplicado aquí a selección de herramientas en vez de a clasificación) suele
+resolver la confusión más rápido que seguir puliendo la docstring:
+
+```
+system prompt del track
+  + identidad, jerga, límites (ya lo conoces de comun/prompts_industria.py)
+  + 2 ejemplos: "cuando el cliente dice X, la tool correcta es Y — y NO Z porque..."
+```
+
+**Cuándo usarlo:** solo si, después de corregir las docstrings (bloque 2), la matriz sigue
+mostrando confusión concentrada entre las mismas dos tools. Añadir few-shot sin haber corregido
+antes la docstring es tratar el síntoma, no la causa — y cada ejemplo se paga en tokens en cada
+llamada del agente, no solo en el momento de medir (recuerda `code/04_tokens_y_costo.py` de la
+Sesión 2).
+
 ---
 
 ## 3. Por qué 4 y no 6 (regla A1)

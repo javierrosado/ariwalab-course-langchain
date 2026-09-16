@@ -4,6 +4,13 @@ Las 4 tools núcleo del track — las 4 son de solo lectura (ver la nota de READ
 la única acción de escritura del track, el bloqueo de tarjeta, es irreversible y
 queda como tool opcional de reto, no como núcleo).
 
+La primera tool (`get_account_balance`) NO se reescribe: se importa tal cual del L3
+(Sesión 3) — el mismo patrón con el que la Sesión 5 importa este archivo y la Sesión 6
+importa el de la Sesión 5. La cadena L2 → L3 → L4 → L5 → L6 se apoya en código real.
+La categoría del L2 (`recursos/golden/consultas-banca.json`, campo `intencion`) es 1:1
+con estas 4 tools (campo `tool_esperada`): es el mismo golden set el que mide el L2
+(`medir_clasificador.py`) y el L4 (`docente/matriz_seleccion.py`).
+
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
 """
 
@@ -13,7 +20,11 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
+# La tool del L3 no se reescribe: se importa de su checkpoint de referencia.
+sys.path.insert(0, str(ROOT / "modulo-1-fundamentos" / "sesion-03-tools-api-externa"
+                       / "solucion" / "banca"))
 
 from langchain_core.tools import tool  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
@@ -21,15 +32,15 @@ from pydantic import BaseModel, Field  # noqa: E402
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
 
+from external_api import CuentaInput, get_account_balance  # noqa: E402  (del L3, sin reescribir)
+
 TRACK = "banca"
 HOY = date(2026, 9, 5)  # fecha de referencia del curso
 
 
-# ───────────────────────────── esquemas ─────────────────────────────
-class CuentaInput(BaseModel):
-    numero_cuenta: str = Field(description="Número de cuenta en formato 191-XXXXXXX-0-XX")
-
-
+# ───────────────────── esquemas nuevos del L4 ─────────────────────
+# CuentaInput se reutiliza del L3 (import de arriba): get_card_info la necesita
+# con el mismo esquema, no con una copia.
 class MovimientosInput(BaseModel):
     numero_cuenta: str = Field(description="Número de cuenta en formato 191-XXXXXXX-0-XX")
     dias: int = Field(default=30, ge=1, le=90, description="Días hacia atrás a consultar, entre 1 y 90")
@@ -39,24 +50,7 @@ class MovimientoInput(BaseModel):
     movimiento_id: str = Field(description="Identificador del movimiento en formato MOV-NNNNNNN")
 
 
-# ─────────────────────────── tool del L3 (ya la tenías) ───────────────────────────
-@tool(args_schema=CuentaInput)
-def get_account_balance(numero_cuenta: str) -> str:
-    """Devuelve el saldo, la moneda y el estado de una cuenta.
-
-    Úsala cuando el cliente pregunte cuánto tiene, su saldo disponible,
-    o si su cuenta está activa o bloqueada.
-    NO la uses para ver movimientos o consumos: para eso usa list_transactions.
-    """
-    try:
-        c = datos.buscar_uno("cuentas.csv", "numero_cuenta", numero_cuenta, TRACK)
-    except DatoNoEncontrado:
-        return (f"No existe la cuenta {numero_cuenta} en Banco Inti. "
-                f"Verifica el número con el cliente: el formato es 191-XXXXXXX-0-XX.")
-    simbolo = "S/" if c["moneda"] == "PEN" else "USD"
-    alerta = " ATENCIÓN: la cuenta está BLOQUEADA." if c["estado"] == "BLOQUEADA" else ""
-    return (f"Cuenta {c['numero_cuenta']} ({c['tipo_cuenta']}) · Titular: {c['titular']} · "
-            f"Saldo: {simbolo} {c['saldo']} · Estado: {c['estado']}.{alerta}")
+# get_account_balance del L3 se usa tal cual (import de arriba).
 
 
 # ─────────────────────────── tools nuevas del L4 ───────────────────────────

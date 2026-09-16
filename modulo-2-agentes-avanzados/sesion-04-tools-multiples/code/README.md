@@ -20,7 +20,7 @@ tool. Si el agente inventó un precio, es la prueba en vivo de por qué existe l
 (Sesión 5).
 
 **Demo 2 — Matriz didáctica.** Que con solo 5 consultas ya se ve un acierto directo, una
-confusión y un "sin tool" correcto — la versión completa (26 consultas, matriz de confusión) es
+confusión y un "sin tool" correcto — la versión completa (30 consultas, matriz de confusión) es
 `docente/matriz_seleccion.py`, que corres sobre tu propio catálogo en el laboratorio.
 
 **Demo 3 — Tope de iteraciones.** Que "sin tope" no significa "no funciona": significa que
