@@ -281,10 +281,21 @@ como continuación literal de `external_api.py` de esta sesión, no un archivo n
       (20 con tool + 10 otro, según exige `sesion-10.md`) y con el campo `respuesta_esperada`
       añadido a las 30 filas de los 4 tracks. Referencias cruzadas a "26"/"104" corregidas en
       10 archivos. Verificado: `matriz_seleccion.py --simular` → 100 % global
+- [x] **4.24** Hallazgo H7 de `VALIDACION-INTEGRAL.md` (2026-09-17): `comun/structured.py`
+      (regla A3) se usaba solo en el L2. Cerrado:
+      - `sesion-10-evaluacion-optimizacion/code/03_llm_as_judge.py` — el juez ahora responde con
+        un esquema `Veredicto` (`aprueba: bool`, `motivo: str`, `confianza: Enum`) extraído con
+        `extraer()`, en vez de texto libre parseado a mano
+      - `domain_tools.py` de telecomunicaciones, retail y seguros (L4) — la tool de escritura de
+        cada track normaliza su enum con `extraer()` antes de pedir confirmación
+      - `domain_tools.py` de banca — nota explícita de por qué no aplica (el track no tiene tool
+        de escritura en su núcleo)
+      - Verificado con pruebas funcionales (modelo simulado) para los 3 tracks afectados y
+        `docente/matriz_seleccion.py --simular` (100 % global, sin regresión)
 
 ---
 
-## FASE 5 · Módulo 3 · sesiones 8-11 ⬜
+## FASE 5 · Módulo 3 · sesiones 8-11 ✅
 
 ### Sesión 8 — Despliegue en HF Spaces ✅
 - [x] **5.1** `README.md` — 12-Factor, contenedores, protocolo de despliegue, diagrama de qué

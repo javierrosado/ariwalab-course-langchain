@@ -17,6 +17,11 @@ mismo golden set el que mide el L2 (`medir_clasificador.py`) y el L4
 en la taxonomía, son el mismo problema medido en dos profundidades distintas.
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
+
+Regla A3: `create_complaint_ticket` normaliza su `tipo` con `extraer()` de
+`comun/structured.py` antes de pedir confirmación — el mismo módulo del L2, aplicado
+aquí por primera vez fuera del clasificador (hallazgo H7 de
+`docente/esqueletos/VALIDACION-INTEGRAL.md`).
 """
 
 from __future__ import annotations
@@ -30,11 +35,15 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "modulo-1-fundamentos" / "sesion-03-tools-api-externa"
                        / "solucion" / "telecomunicaciones"))
 
+from enum import Enum  # noqa: E402
+
 from langchain_core.tools import tool  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
 
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
+from comun.provider import get_chat_model  # noqa: E402
+from comun.structured import ExtraccionFallida, extraer  # noqa: E402
 
 from external_api import LineaInput, get_customer_plan  # noqa: E402  (del L3, sin reescribir)
 
@@ -57,6 +66,23 @@ class ReclamoInput(BaseModel):
         default=False,
         description="True solo si el cliente confirmó explícitamente que quiere registrar el reclamo en este turno",
     )
+
+
+class TipoReclamo(str, Enum):
+    FACTURACION = "FACTURACION"
+    CALIDAD_SERVICIO = "CALIDAD_SERVICIO"
+    AVERIA = "AVERIA"
+    PORTABILIDAD = "PORTABILIDAD"
+    CONTRATACION = "CONTRATACION"
+    SUSPENSION = "SUSPENSION"
+
+
+class ClasificacionReclamo(BaseModel):
+    """Normaliza el tipo de reclamo contra las 6 categorías válidas, a partir del tipo
+    que declaró el agente y de la descripción real del cliente — la descripción manda
+    si ambas no coinciden."""
+
+    tipo: TipoReclamo = Field(description="La categoría que mejor corresponde al reclamo")
 
 
 # get_customer_plan del L3 se usa tal cual (import de arriba). Su docstring sigue
@@ -131,20 +157,31 @@ def create_complaint_ticket(numero_linea: str, tipo: str, descripcion: str,
     NO la uses para consultas ni para pedidos de información: eso no es un reclamo.
     NO la uses más de una vez por conversación para el mismo motivo.
     """
-    tipos = {"FACTURACION", "CALIDAD_SERVICIO", "AVERIA", "PORTABILIDAD", "CONTRATACION", "SUSPENSION"}
-    tipo = tipo.strip().upper()
-    if tipo not in tipos:
-        return f"Tipo de reclamo inválido: '{tipo}'. Debe ser uno de: {', '.join(sorted(tipos))}."
+    # Regla A3: el tipo que declaró el agente no se acepta tal cual — se normaliza
+    # contra las 6 categorías válidas con extraer() (comun/structured.py), que valida,
+    # reintenta una vez con el error concreto, y falla con claridad si ninguna sirve.
+    # Es deliberado que esto ocurra ANTES de pedir confirmación: no tiene sentido
+    # confirmarle al cliente un reclamo cuyo tipo todavía no se sabe si es válido.
+    try:
+        clasificacion = extraer(
+            get_chat_model(), ClasificacionReclamo,
+            f"Tipo declarado: {tipo}\nDescripción del cliente: {descripcion}",
+        )
+    except ExtraccionFallida:
+        return (f"Tipo de reclamo inválido: '{tipo}'. Debe ser uno de: "
+                f"{', '.join(t.value for t in TipoReclamo)}.")
+    tipo_validado = clasificacion.tipo.value
+
     try:
         datos.buscar_uno("clientes.csv", "numero_linea", numero_linea, TRACK)
     except DatoNoEncontrado:
         return f"No existe la línea {numero_linea}. No se puede registrar el reclamo."
     if not confirmado_por_cliente:
-        return (f"CONFIRMACIÓN REQUERIDA. Vas a registrar un reclamo de tipo {tipo} para la línea "
-                f"{numero_linea}: \"{descripcion}\". Pregunta al cliente si confirma y solo entonces "
-                f"vuelve a llamar esta tool con confirmado_por_cliente=True.")
+        return (f"CONFIRMACIÓN REQUERIDA. Vas a registrar un reclamo de tipo {tipo_validado} para "
+                f"la línea {numero_linea}: \"{descripcion}\". Pregunta al cliente si confirma y "
+                f"solo entonces vuelve a llamar esta tool con confirmado_por_cliente=True.")
     ticket = datos.siguiente_id("tickets_reclamos.csv", "ticket_id", "REC-2026-", TRACK)
-    return (f"Reclamo registrado. Código: {ticket} · Tipo: {tipo} · Línea: {numero_linea} · "
+    return (f"Reclamo registrado. Código: {ticket} · Tipo: {tipo_validado} · Línea: {numero_linea} · "
             f"Estado: ABIERTO · Plazo máximo de respuesta: 30 días hábiles. "
             f"Entrega este código al cliente: es su constancia del reclamo.")
 

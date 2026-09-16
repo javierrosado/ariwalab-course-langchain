@@ -12,6 +12,14 @@ con estas 4 tools (campo `tool_esperada`): es el mismo golden set el que mide el
 (`medir_clasificador.py`) y el L4 (`docente/matriz_seleccion.py`).
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
+
+Nota sobre la regla A3 (hallazgo H7 de `docente/esqueletos/VALIDACION-INTEGRAL.md`): en
+telecomunicaciones, retail y seguros, la tool de escritura del núcleo normaliza su
+campo de enum con `extraer()` de `comun/structured.py` antes de pedir confirmación.
+Banca no lo replica aquí porque, por diseño (ver arriba), **no tiene ninguna tool de
+escritura en su núcleo** — la única candidata, `request_card_block`, es opcional y
+queda fuera de `TOOLS_NUCLEO`. No hay ningún enum de escritura que validar en este
+archivo.
 """
 
 from __future__ import annotations

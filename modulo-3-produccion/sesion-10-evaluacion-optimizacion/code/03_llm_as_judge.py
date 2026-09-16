@@ -7,18 +7,42 @@ Requiere HF_TOKEN. Toma 10 pares (consulta, respuesta) YA puntuados por
 `evaluar_exactitud()` (el evaluator determinístico) y le pide al mismo modelo del
 curso (Qwen3-32B) que juzgue si la respuesta es correcta. El contenido de la demo son
 los DESACUERDOS entre columnas, no el veredicto final — es donde aparece el sesgo.
+
+**El juez responde con `Veredicto`, extraído con `comun.structured.extraer()` (regla
+A3) — no con texto libre parseado a mano.** Un juez que se usa para enseñar por qué
+`assert respuesta == "esperado"` no sirve, y que él mismo devuelve un "SI"/"NO" sin
+validar, contradice lo que la propia sesión enseña (hallazgo H7 de
+`docente/esqueletos/VALIDACION-INTEGRAL.md`).
 """
 
 from __future__ import annotations
 
 import sys
+from enum import Enum
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 
+from pydantic import BaseModel, Field  # noqa: E402
+
 from comun.evaluadores import evaluar_exactitud  # noqa: E402
 from comun.provider import describe_provider, get_chat_model  # noqa: E402
+from comun.structured import ExtraccionFallida, extraer  # noqa: E402
+
+
+class Confianza(str, Enum):
+    ALTA = "ALTA"
+    MEDIA = "MEDIA"
+    BAJA = "BAJA"
+
+
+class Veredicto(BaseModel):
+    """Veredicto del juez sobre si una respuesta de atención al cliente es correcta."""
+
+    aprueba: bool = Field(description="True si la respuesta contiene el dato correcto")
+    motivo: str = Field(description="Justificación en una frase, citando el dato comparado")
+    confianza: Confianza = Field(description="Qué tan seguro está el juez de su propio veredicto")
 
 # 10 pares (consulta, respuesta_del_agente, respuesta_esperada) — construidos para que
 # aparezcan los 4 sesgos del bloque 3 del README: verbosidad (caso 3), autocomplacencia
@@ -48,8 +72,7 @@ Pregunta: {pregunta}
 Respuesta del agente: {respuesta}
 Dato que debería aparecer: {esperado}
 
-Responde SOLO con "SI" si la respuesta contiene ese dato correctamente, o "NO" si no lo
-contiene o lo contradice. No expliques, no repitas la pregunta."""
+Decide si la respuesta contiene ese dato correctamente, con qué confianza, y por qué."""
 
 
 def main() -> None:
@@ -61,19 +84,25 @@ def main() -> None:
     model = get_chat_model()
     desacuerdos = 0
 
-    print(f"\n  {'#'.ljust(3)}{'Determinístico'.ljust(16)}{'Juez'.ljust(8)}{'¿Coinciden?'}")
-    print("  " + "-" * 50)
+    print(f"\n  {'#'.ljust(3)}{'Determinístico'.ljust(16)}{'Juez'.ljust(8)}"
+          f"{'Confianza'.ljust(11)}{'¿Coinciden?'}")
+    print("  " + "-" * 62)
 
     for i, (pregunta, respuesta, esperado) in enumerate(CASOS, 1):
         det = evaluar_exactitud(respuesta, esperado)
-        veredicto_juez = model.invoke([
-            ("human", PROMPT_JUEZ.format(pregunta=pregunta, respuesta=respuesta, esperado=esperado))
-        ]).content.strip().upper()
-        juez = veredicto_juez.startswith("SI")
-        coincide = det == juez
+        entrada = PROMPT_JUEZ.format(pregunta=pregunta, respuesta=respuesta, esperado=esperado)
+        try:
+            veredicto = extraer(model, Veredicto, entrada)
+        except ExtraccionFallida as e:
+            print(f"  {str(i).ljust(3)}{'—'.ljust(16)}{'—'.ljust(8)}{'—'.ljust(11)}"
+                  f"✘ el juez no produjo un veredicto válido: {e}")
+            continue
+        coincide = det == veredicto.aprueba
         desacuerdos += not coincide
-        print(f"  {str(i).ljust(3)}{str(det).ljust(16)}{str(juez).ljust(8)}"
-              f"{'✔' if coincide else '✘ DESACUERDO'}")
+        print(f"  {str(i).ljust(3)}{str(det).ljust(16)}{str(veredicto.aprueba).ljust(8)}"
+              f"{veredicto.confianza.value.ljust(11)}{'✔' if coincide else '✘ DESACUERDO'}")
+        if not coincide:
+            print(f"      motivo del juez: {veredicto.motivo}")
 
     print(f"\n  {desacuerdos}/10 desacuerdos entre el evaluator determinístico y el juez.")
     print("""
