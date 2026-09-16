@@ -90,7 +90,7 @@ además el Space falla, ahí sí hay penalización.
 | 3 · Decisiones | 5 decisiones con su alternativa descartada y el criterio |
 | 4 · Evidencia | Métricas del L10, cuellos del L9, y qué se haría con una semana más |
 
-Plantilla: [`lab/plantilla-documento-diseno.md`](lab/plantilla-documento-diseno.md).
+Plantilla: [`plantilla-documento-diseno.md`](../../recursos/plantillas/plantilla-documento-diseno.md).
 
 ---
 
