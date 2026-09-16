@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+#
+# Bonus · Foundry — azure.yaml (checkpoint de referencia)
+#
+# Adaptado del ejemplo oficial de langchain-azure para hosted agents
+# (samples/hosting/langgraph-hosted-agents/responses/10_resilient/azure.yaml). Simplificado
+# a UN solo servicio (el agente del track del curso), en vez del ejemplo con 2 variantes.
+#
+# Re-verifícalo contra tu propio proyecto de Foundry antes de desplegar (riesgo R8 de
+# sesion-08.md — hosting es preview): los nombres de campos de un paquete en preview pueden
+# cambiar entre versiones de `langchain-azure-ai[hosting]` y de la extensión `azure.ai.agents`.
+
+requiredVersions:
+    extensions:
+        azure.ai.agents: '>=1.0.0-beta.4'
+
+name: curso-langchain-agente-foundry
+
+services:
+    ai-project:
+        host: azure.ai.project
+        deployments:
+            - model:
+                format: OpenAI
+                name: gpt-4.1-mini
+                version: "2025-04-14"
+              name: gpt-4.1-mini
+              sku:
+                capacity: 10
+                name: GlobalStandard
+
+    agente-curso:
+        project: .
+        host: azure.ai.agent
+        language: python
+        uses:
+            - ai-project
+        codeConfiguration:
+            entryPoint: host/main.py
+            runtime: python_3_13
+        container:
+            resources:
+                cpu: "0.5"
+                memory: 1Gi
+        description: Agente del curso (4 tools + RAG) servido como Foundry Hosted agent.
+        environmentVariables:
+            # El agente lee AI_PROVIDER=foundry desde comun/settings.py — la plataforma
+            # inyecta FOUNDRY_PROJECT_ENDPOINT y FOUNDRY_MODEL_NAME al desplegar (ver
+            # host/main.py y acceso-azure.md). COURSE_TRACK decide qué catálogo de tools
+            # y qué colección de Qdrant usa este despliegue.
+            - name: AI_PROVIDER
+              value: "foundry"
+            - name: COURSE_TRACK
+              value: "${COURSE_TRACK}"
+            - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+              value: "${AZURE_AI_MODEL_DEPLOYMENT_NAME}"
+        kind: hosted
+        name: agente-curso
+        protocols:
+            - protocol: responses
+              version: 2.0.0
+
+infra:
+    provider: microsoft.foundry

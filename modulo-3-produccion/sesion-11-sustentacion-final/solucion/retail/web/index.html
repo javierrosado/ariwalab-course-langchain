@@ -1,0 +1,100 @@
+<!doctype html>
+<!--
+  L11 · Cliente HTML de referencia con streaming (checkpoint de referencia)
+
+  Consume /chat/stream con fetch() + ReadableStream (no EventSource: EventSource solo
+  soporta GET y no permite mandar la cabecera X-API-Key, y poner la key en la URL como
+  query param la dejaría en logs y en el historial del navegador). El servidor responde
+  Server-Sent Events (líneas "data: {...}\n\n"); este cliente las decodifica a mano.
+
+  Abre este archivo directamente en el navegador (no necesita servidor propio) y
+  completa la URL de tu Space y tu API key en los campos de arriba.
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>L11 · Cliente con streaming</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+  input, textarea, button { font-size: 1rem; padding: 8px; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
+  #respuesta { white-space: pre-wrap; border: 1px solid #ccc; border-radius: 6px; padding: 12px; min-height: 80px; }
+  #estado { color: #666; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+  <h1>Cliente de referencia — /chat/stream</h1>
+
+  <label>URL base del Space (sin barra final)</label>
+  <input id="url" placeholder="https://tu-usuario-tu-space.hf.space">
+
+  <label>X-API-Key</label>
+  <input id="key" type="password" placeholder="tu AGENT_API_KEY">
+
+  <label>Mensaje</label>
+  <textarea id="mensaje" rows="3">¿En qué estado está el pedido MS-2026-00001?</textarea>
+
+  <button id="enviar">Enviar</button>
+  <p id="estado"></p>
+  <div id="respuesta"></div>
+
+<script>
+document.getElementById("enviar").addEventListener("click", async () => {
+  const base = document.getElementById("url").value.replace(/\/$/, "");
+  const key = document.getElementById("key").value;
+  const mensaje = document.getElementById("mensaje").value;
+  const salida = document.getElementById("respuesta");
+  const estado = document.getElementById("estado");
+
+  salida.textContent = "";
+  estado.textContent = "conectando...";
+
+  let resp;
+  try {
+    resp = await fetch(base + "/chat/stream", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-API-Key": key },
+      body: JSON.stringify({ mensaje }),
+    });
+  } catch (e) {
+    estado.textContent = "error de red: " + e;
+    return;
+  }
+
+  if (!resp.ok) {
+    estado.textContent = "error " + resp.status + ": revisa la URL y la API key";
+    return;
+  }
+
+  estado.textContent = "recibiendo...";
+  const lector = resp.body.getReader();
+  const decodificador = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { value, done } = await lector.read();
+    if (done) break;
+    buffer += decodificador.decode(value, { stream: true });
+
+    // Server-Sent Events: eventos separados por doble salto de línea, cada uno
+    // "data: <json>". Se procesan solo los eventos completos que ya llegaron.
+    const eventos = buffer.split("\n\n");
+    buffer = eventos.pop(); // el último puede estar incompleto: se guarda para el próximo chunk
+
+    for (const evento of eventos) {
+      const linea = evento.trim();
+      if (!linea.startsWith("data:")) continue;
+      const contenido = linea.slice(5).trim();
+      if (contenido === "[DONE]") { estado.textContent = "listo"; continue; }
+      try {
+        const { delta } = JSON.parse(contenido);
+        salida.textContent += delta;
+      } catch (e) {
+        console.warn("evento SSE no parseable:", contenido);
+      }
+    }
+  }
+  if (estado.textContent === "recibiendo...") estado.textContent = "listo";
+});
+</script>
+</body>
+</html>

@@ -118,6 +118,21 @@ el alumno ya lo entendió como arquitectura, ahora lo entiende como defensa.
 
 Los tres son código, ninguno es prompt. El prompt ayuda; el código decide.
 
+> **Corrección VALIDACION-INTEGRAL H1 (2026-09-16).** El bloque 4 debe cerrar mencionando que
+> el **few-shot (A5)** es la primera capa de defensa, antes del código: un par de ejemplos de
+> ataques ya bloqueados en el system prompt entrena al modelo para reconocer el patrón — pero
+> sin reemplazar los 3 guardrails de código, igual que en el bloque 2 de la S4 (A5 aplicado a
+> selección de tools, no a seguridad). Sin negociar minutos: es una idea que cierra el bloque 4
+> ya existente, no un bloque nuevo.
+>
+> **Corrección VALIDACION-INTEGRAL H4 (2026-09-16).** El bloque 4 cierra con una mención de 2-3
+> minutos, dentro de sus 20 min ya asignados (sin abrir un bloque nuevo ni recortar otro): *"Lo
+> que viste hoy — enganchar guardrails antes/después del modelo — deja de alcanzar cuando el
+> agente necesita ramificarse en pasos condicionales explícitos y persistentes (por ejemplo,
+> 'si hay lesionados, el flujo entero cambia, no solo la respuesta'). Ahí es donde entra
+> LangGraph, que este curso no cubre: es contenido del Curso 2."* Es la respuesta a la pregunta
+> que alguien del aula va a hacer de todas formas — tenerla lista es mejor que improvisarla.
+
 ---
 
 ## 5. Las demos · `code/`

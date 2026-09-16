@@ -1,8 +1,14 @@
 """L4 · Retail — MercaSur · domain_tools.py (checkpoint de referencia)
 
-Las 4 tools núcleo del track. La primera (`track_order`) es la del L3; las otras
-tres son el incremento del L4. `start_return_request` exige confirmación explícita
-antes de registrar la solicitud (regla del bloque 4 de README.md).
+Las 4 tools núcleo del track. La primera (`track_order`) NO se reescribe: se importa
+tal cual del L3 (Sesión 3) — el mismo patrón con el que la Sesión 5 importa este
+archivo y la Sesión 6 importa el de la Sesión 5. La cadena L2 → L3 → L4 → L5 → L6 se
+apoya en código real. La categoría del L2 (`recursos/golden/consultas-retail.json`,
+campo `intencion`) es 1:1 con estas 4 tools (campo `tool_esperada`): es el mismo
+golden set el que mide el L2 (`medir_clasificador.py`) y el L4
+(`docente/matriz_seleccion.py`). Las otras tres tools son el incremento del L4.
+`start_return_request` exige confirmación explícita antes de registrar la solicitud
+(regla del bloque 4 de README.md).
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
 """
@@ -12,7 +18,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
+# La tool del L3 no se reescribe: se importa de su checkpoint de referencia.
+sys.path.insert(0, str(ROOT / "modulo-1-fundamentos" / "sesion-03-tools-api-externa"
+                       / "solucion" / "retail"))
 
 from langchain_core.tools import tool  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
@@ -20,14 +30,12 @@ from pydantic import BaseModel, Field  # noqa: E402
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
 
+from external_api import PedidoInput, track_order  # noqa: E402  (del L3, sin reescribir)
+
 TRACK = "retail"
 
 
-# ───────────────────────────── esquemas ─────────────────────────────
-class PedidoInput(BaseModel):
-    pedido_id: str = Field(description="Número de pedido en formato MS-2026-NNNNN")
-
-
+# ───────────────────── esquemas nuevos del L4 ─────────────────────
 class SkuInput(BaseModel):
     sku: str = Field(description="Código de producto en formato MS-NNNN")
 
@@ -42,36 +50,7 @@ class DevolucionInput(BaseModel):
     )
 
 
-# ─────────────────────────── tool del L3 (ya la tenías) ───────────────────────────
-@tool(args_schema=PedidoInput)
-def track_order(pedido_id: str) -> str:
-    """Devuelve el estado, el courier y el código de rastreo de un pedido.
-
-    Úsala cuando el cliente pregunte dónde está su pedido, cuándo llega,
-    o por qué no lo ha recibido.
-    NO la uses para iniciar una devolución: para eso usa start_return_request.
-    """
-    try:
-        p = datos.buscar_uno("pedidos.csv", "pedido_id", pedido_id, TRACK)
-    except DatoNoEncontrado:
-        return (f"No existe el pedido {pedido_id}. Verifica el número con el cliente: "
-                f"el formato es MS-2026-NNNNN y aparece en el correo de confirmación.")
-    significado = {
-        "EN_PREPARACION": "El pedido está siendo alistado en el almacén",
-        "EN_RUTA": "El pedido fue entregado al courier y está en camino",
-        "ENTREGADO": "El pedido fue recibido y firmado",
-        "LISTO_PARA_RECOJO": "El pedido está disponible para recojo",
-        "DEVUELTO": "El pedido regresó al almacén tras intentos fallidos de entrega",
-        "CANCELADO": "El pedido fue anulado antes del despacho",
-    }
-    aviso = ""
-    if p["estado"] == "DEVUELTO":
-        aviso = (" IMPORTANTE: el pedido permanece 15 días calendario a disposición del cliente; "
-                 "pasado ese plazo se procesa el reembolso automático.")
-    return (f"Pedido {p['pedido_id']} · Cliente: {p['cliente']} · Comprado el {p['fecha_compra']} · "
-            f"Estado: {p['estado']} ({significado.get(p['estado'], 'estado desconocido')}) · "
-            f"Courier: {p['courier']} · Rastreo: {p['codigo_tracking']} · "
-            f"Despacho desde {p['tienda_despacho']} hacia {p['distrito_entrega']}.{aviso}")
+# track_order del L3 se usa tal cual (import de arriba).
 
 
 # ─────────────────────────── tools nuevas del L4 ───────────────────────────

@@ -1,6 +1,6 @@
 """L2 · Retail — MercaSur · medir_clasificador.py (checkpoint de referencia)
 
-Corre las 26 consultas de recursos/golden/consultas-retail.json contra
+Corre las 30 consultas de recursos/golden/consultas-retail.json contra
 clasificar_con_detalle(), e imprime acierto, matriz de confusión y reintentos.
 
 Ejecutar desde la raíz del curso:

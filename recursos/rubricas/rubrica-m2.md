@@ -51,7 +51,7 @@
 |---|---|
 | Insuficiente | Hay al menos una filtración de los 15 ataques del L6 sin corregir, o ningún caso borde del L7 está cubierto |
 | Básico | 0 filtraciones del L6 se sostiene, pero el L7 solo cubre 1 o 2 de las 4 familias de caso borde |
-| Competente | 0 filtraciones se sostiene y las 4 familias de caso borde (entrada ambigua, dato ausente, servicio caído, salida fuera de formato) están cubiertas con al menos 2 casos cada una |
+| Competente | 0 filtraciones se sostiene, las 4 familias de caso borde están cubiertas con al menos 2 casos cada una, **y la familia "servicio caído" mide la regla A4 explícitamente**: con la tool fallando de forma sostenida, el agente termina en ≤ `MAX_ITERATIONS` llamadas y emite un mensaje al usuario, nunca un bucle ni un cuelgue |
 | Sobresaliente | Además, el escalamiento a humano se dispara correctamente y el equipo explica la diferencia entre el adversario deliberado del L6 y el entorno sin malicia del L7 |
 
 ## Evidencia de pruebas — 20 %

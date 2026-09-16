@@ -4,8 +4,8 @@
 Ejecutar desde la raíz del curso:
 
     python docente/matriz_seleccion.py --simular            # sin credenciales, gratis
-    python docente/matriz_seleccion.py --track banca        # un track, 26 llamadas
-    python docente/matriz_seleccion.py                      # los 4 tracks, 104 llamadas
+    python docente/matriz_seleccion.py --track banca        # un track, 30 llamadas
+    python docente/matriz_seleccion.py                      # los 4 tracks, 120 llamadas
 
     # Laboratorio 4: medir el catálogo del ALUMNO, no la referencia del docente
     python docente/matriz_seleccion.py --track banca --tools lab/banca/domain_tools.py
@@ -32,7 +32,7 @@ una cuándo NO usarla. La matriz de confusión es la salida útil de este script
 
 CUOTA
 -----
-Cada track cuesta 26 llamadas al modelo (ver recursos/golden/consultas-<track>.json). Usa
+Cada track cuesta 30 llamadas al modelo (ver recursos/golden/consultas-<track>.json). Usa
 `--muestra 6` para una prueba barata y `--simular` para probar el arnés sin gastar nada.
 """
 from __future__ import annotations

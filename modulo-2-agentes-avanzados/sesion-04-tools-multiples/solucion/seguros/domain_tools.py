@@ -1,8 +1,14 @@
 """L4 · Seguros — Andina Seguros · domain_tools.py (checkpoint de referencia)
 
-Las 4 tools núcleo del track. La primera (`get_policy_by_plate`) es la del L3; las
-otras tres son el incremento del L4. `open_claim` exige confirmación explícita antes
-de abrir el expediente (regla del bloque 4 de README.md).
+Las 4 tools núcleo del track. La primera (`get_policy_by_plate`) NO se reescribe: se
+importa tal cual del L3 (Sesión 3) — el mismo patrón con el que la Sesión 5 importa
+este archivo y la Sesión 6 importa el de la Sesión 5. La cadena L2 → L3 → L4 → L5 →
+L6 se apoya en código real. La categoría del L2 (`recursos/golden/consultas-seguros.json`,
+campo `intencion`) es 1:1 con estas 4 tools (campo `tool_esperada`): es el mismo
+golden set el que mide el L2 (`medir_clasificador.py`) y el L4
+(`docente/matriz_seleccion.py`). Las otras tres tools son el incremento del L4.
+`open_claim` exige confirmación explícita antes de abrir el expediente (regla del
+bloque 4 de README.md).
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
 """
@@ -13,7 +19,11 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT))
+# La tool del L3 no se reescribe: se importa de su checkpoint de referencia.
+sys.path.insert(0, str(ROOT / "modulo-1-fundamentos" / "sesion-03-tools-api-externa"
+                       / "solucion" / "seguros"))
 
 from langchain_core.tools import tool  # noqa: E402
 from pydantic import BaseModel, Field  # noqa: E402
@@ -21,15 +31,15 @@ from pydantic import BaseModel, Field  # noqa: E402
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
 
+from external_api import PlacaInput, get_policy_by_plate  # noqa: E402  (del L3, sin reescribir)
+
 TRACK = "seguros"
 HOY = date(2026, 9, 5)  # fecha de referencia del curso
 
 
-# ───────────────────────────── esquemas ─────────────────────────────
-class PlacaInput(BaseModel):
-    placa: str = Field(description="Placa del vehículo en formato ABC-123")
-
-
+# ───────────────────── esquemas nuevos del L4 ─────────────────────
+# PlacaInput se reutiliza del L3 (import de arriba): quote_soat la necesita con el
+# mismo esquema, no con una copia.
 class SiniestroInput(BaseModel):
     siniestro_id: str = Field(description="Código de expediente en formato SIN-2026-NNNNN")
 
@@ -45,31 +55,7 @@ class AperturaInput(BaseModel):
     )
 
 
-# ─────────────────────────── tool del L3 (ya la tenías) ───────────────────────────
-@tool(args_schema=PlacaInput)
-def get_policy_by_plate(placa: str) -> str:
-    """Devuelve la póliza SOAT asociada a una placa, con su vigencia y estado.
-
-    Úsala cuando el cliente pregunte si su SOAT está vigente, hasta cuándo,
-    o quiera los datos de su póliza.
-    NO la uses para cotizar una póliza nueva: para eso usa quote_soat.
-    """
-    try:
-        p = datos.buscar_uno("polizas.csv", "placa", placa, TRACK)
-    except DatoNoEncontrado:
-        return (f"No hay ninguna póliza de Andina Seguros para la placa {placa}. "
-                f"Verifica la placa con el cliente: el formato es ABC-123.")
-    fin = datetime.strptime(p["fin_vigencia"], "%Y-%m-%d").date()
-    dias = (fin - HOY).days
-    if dias < 0:
-        estado = f"VENCIDA hace {abs(dias)} días. El vehículo circula en infracción."
-    elif dias <= 30:
-        estado = f"VIGENTE, pero vence en {dias} días. Conviene renovar."
-    else:
-        estado = f"VIGENTE, vence en {dias} días."
-    return (f"Póliza {p['poliza_id']} · Placa {p['placa']} · Titular: {p['titular']} · "
-            f"Vigencia: {p['inicio_vigencia']} al {p['fin_vigencia']} · Prima: S/ {p['prima_soles']} · "
-            f"Modalidad: {p['modalidad']} · {estado}")
+# get_policy_by_plate del L3 se usa tal cual (import de arriba).
 
 
 # ─────────────────────────── tools nuevas del L4 ───────────────────────────

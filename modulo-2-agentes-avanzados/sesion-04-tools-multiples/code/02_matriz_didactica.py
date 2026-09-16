@@ -24,7 +24,7 @@ from comun.provider import describe_provider, get_chat_model  # noqa: E402
 
 NINGUNA = "(ninguna)"
 
-# 5 de las 26 consultas de recursos/golden/consultas-telecomunicaciones.json, elegidas para
+# 5 de las 30 consultas de recursos/golden/consultas-telecomunicaciones.json, elegidas para
 # mostrar un caso de cada tipo: 2 directas, 1 confusable, 2 "otro" (sin tool).
 INDICES_DEMO = [0, 3, 12, 16, 20]
 
@@ -76,7 +76,7 @@ def main() -> None:
     print(f"\n  Acierto: {aciertos}/{len(consultas)}")
     print("""
   Esto es una muestra de 5, no un veredicto: con tan pocas consultas, un solo fallo cambia
-  el porcentaje 20 puntos. Para medir de verdad tu catálogo (con las 26 consultas del
+  el porcentaje 20 puntos. Para medir de verdad tu catálogo (con las 30 consultas del
   archivo golden y una matriz de confusión completa), corre en el laboratorio:
 
       python docente/matriz_seleccion.py --track telecomunicaciones \\

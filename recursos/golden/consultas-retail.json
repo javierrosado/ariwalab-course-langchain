@@ -1,162 +1,216 @@
 {
-  "_comentario": "Fuente única de consultas del track retail (MercaSur). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['retail'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/retail/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5).",
+  "_comentario": "Fuente única de consultas del track retail (MercaSur). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['retail'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/retail/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5). Ampliado a 30 casos (2026-09-16, Sesion 10): 20 'con tool' (antes 16) + 10 'OTRO', con el campo 'respuesta_esperada' para el evaluator de exactitud. Las 20 'con tool' usan identificadores ilustrativos (no existen en el dataset real): su 'respuesta_esperada' es la frase de 'no existe' propia de cada tool -- el evaluator aqui comprueba que el agente NO invente un dato, no que cite uno real. La exactitud de contenido real se mide en las 10 'OTRO', con hechos verificables del corpus.",
   "track": "retail",
   "consultas": [
     {
       "consulta": "¿Dónde está mi pedido PED-2026-00123?",
       "intencion": "SEGUIMIENTO_PEDIDO",
       "categoria": "directa",
-      "tool_esperada": "track_order"
+      "tool_esperada": "track_order",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "Quiero rastrear el pedido PED-2026-00456",
       "intencion": "SEGUIMIENTO_PEDIDO",
       "categoria": "directa",
-      "tool_esperada": "track_order"
+      "tool_esperada": "track_order",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "¿Qué courier tiene mi pedido PED-2026-00789 y cuál es el código de rastreo?",
       "intencion": "SEGUIMIENTO_PEDIDO",
       "categoria": "directa",
-      "tool_esperada": "track_order"
+      "tool_esperada": "track_order",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "¿Cuánto cuesta el producto con SKU MS-ELE-0042?",
       "intencion": "CONSULTA_PRODUCTO",
       "categoria": "directa",
-      "tool_esperada": "get_product_details"
+      "tool_esperada": "get_product_details",
+      "respuesta_esperada": "No existe el producto"
     },
     {
       "consulta": "¿El SKU MS-HOG-0177 tiene garantía?",
       "intencion": "CONSULTA_PRODUCTO",
       "categoria": "directa",
-      "tool_esperada": "get_product_details"
+      "tool_esperada": "get_product_details",
+      "respuesta_esperada": "No existe el producto"
     },
     {
       "consulta": "Dame la ficha completa del producto MS-ELE-0042",
       "intencion": "CONSULTA_PRODUCTO",
       "categoria": "directa",
-      "tool_esperada": "get_product_details"
+      "tool_esperada": "get_product_details",
+      "respuesta_esperada": "No existe el producto"
     },
     {
       "consulta": "¿Hay stock del SKU MS-ELE-0042 en alguna tienda?",
       "intencion": "CONSULTA_STOCK",
       "categoria": "directa",
-      "tool_esperada": "check_stock_by_store"
+      "tool_esperada": "check_stock_by_store",
+      "respuesta_esperada": "No hay información de stock"
     },
     {
       "consulta": "¿En qué tienda puedo recoger hoy el MS-HOG-0177?",
       "intencion": "CONSULTA_STOCK",
       "categoria": "directa",
-      "tool_esperada": "check_stock_by_store"
+      "tool_esperada": "check_stock_by_store",
+      "respuesta_esperada": "No hay información de stock"
     },
     {
       "consulta": "Quiero saber la disponibilidad por local del SKU MS-DEP-0055",
       "intencion": "CONSULTA_STOCK",
       "categoria": "directa",
-      "tool_esperada": "check_stock_by_store"
+      "tool_esperada": "check_stock_by_store",
+      "respuesta_esperada": "No hay información de stock"
     },
     {
       "consulta": "Quiero devolver el pedido PED-2026-00123, llegó dañado",
       "intencion": "DEVOLUCION",
       "categoria": "directa",
-      "tool_esperada": "start_return_request"
+      "tool_esperada": "start_return_request",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "Necesito cambiar el producto del pedido PED-2026-00456 por otra talla",
       "intencion": "DEVOLUCION",
       "categoria": "directa",
-      "tool_esperada": "start_return_request"
+      "tool_esperada": "start_return_request",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "Inicien una devolución del PED-2026-00789, no era lo que pedí",
       "intencion": "DEVOLUCION",
       "categoria": "directa",
-      "tool_esperada": "start_return_request"
+      "tool_esperada": "start_return_request",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "Mi pedido PED-2026-00123 dice entregado pero no lo he recibido",
       "intencion": "SEGUIMIENTO_PEDIDO",
       "categoria": "confusable",
-      "tool_esperada": "track_order"
+      "tool_esperada": "track_order",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "¿El MS-ELE-0042 admite cambio si no me gusta?",
       "intencion": "CONSULTA_PRODUCTO",
       "categoria": "confusable",
-      "tool_esperada": "get_product_details"
+      "tool_esperada": "get_product_details",
+      "respuesta_esperada": "No existe el producto"
     },
     {
       "consulta": "Compré el MS-HOG-0177 y vino fallado, es el pedido PED-2026-00456",
       "intencion": "DEVOLUCION",
       "categoria": "confusable",
-      "tool_esperada": "start_return_request"
+      "tool_esperada": "start_return_request",
+      "respuesta_esperada": "No existe el pedido"
     },
     {
       "consulta": "¿Lo tienen en la tienda de San Isidro? SKU MS-DEP-0055",
       "intencion": "CONSULTA_STOCK",
       "categoria": "confusable",
-      "tool_esperada": "check_stock_by_store"
+      "tool_esperada": "check_stock_by_store",
+      "respuesta_esperada": "No hay información de stock"
     },
     {
       "consulta": "¿Cuántos días tengo para devolver un producto?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "30 días"
     },
     {
       "consulta": "¿Qué métodos de pago aceptan?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "Hola, buenas",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "¿Hacen envíos a provincia?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": null
     },
     {
       "consulta": "¿Puedo devolver una ropa interior que no me quedó bien?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "venta final"
     },
     {
       "consulta": "¿En cuánto tiempo me devuelven el dinero si hago una devolución?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "7 a 15 días"
     },
     {
       "consulta": "¿Cuánto tiempo de garantía tiene una licuadora?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "12 meses"
     },
     {
       "consulta": "¿Desde qué monto de compra el envío es gratis en Lima?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "S/149"
     },
     {
       "consulta": "¿Cuánto cuesta el despacho express y hasta qué hora puedo pedirlo?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "S/19.90"
     },
     {
       "consulta": "Ya van dos intentos fallidos de entrega de mi pedido, ¿qué pasa ahora?",
       "intencion": "OTRO",
       "categoria": "otro",
-      "tool_esperada": null
+      "tool_esperada": null,
+      "respuesta_esperada": "15 días"
+    },
+    {
+      "consulta": "¿Podrían confirmarme el estado del pedido MS-2026-01111?",
+      "intencion": "SEGUIMIENTO_PEDIDO",
+      "categoria": "directa",
+      "tool_esperada": "track_order",
+      "respuesta_esperada": "No existe el pedido"
+    },
+    {
+      "consulta": "¿Cuáles son las características del producto MS-ELE-0099?",
+      "intencion": "CONSULTA_PRODUCTO",
+      "categoria": "directa",
+      "tool_esperada": "get_product_details",
+      "respuesta_esperada": "No existe el producto"
+    },
+    {
+      "consulta": "¿Hay stock del SKU MS-DEP-0088 en alguna tienda?",
+      "intencion": "CONSULTA_STOCK",
+      "categoria": "directa",
+      "tool_esperada": "check_stock_by_store",
+      "respuesta_esperada": "No hay información de stock"
+    },
+    {
+      "consulta": "Quiero devolver el pedido MS-2026-02222, no era la talla correcta",
+      "intencion": "DEVOLUCION",
+      "categoria": "directa",
+      "tool_esperada": "start_return_request",
+      "respuesta_esperada": "No existe el pedido"
     }
   ]
 }

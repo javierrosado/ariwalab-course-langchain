@@ -1,6 +1,6 @@
 """L2 · Telecomunicaciones — AndesMóvil · medir_clasificador.py (checkpoint de referencia)
 
-Corre las 26 consultas de recursos/golden/consultas-telecomunicaciones.json contra
+Corre las 30 consultas de recursos/golden/consultas-telecomunicaciones.json contra
 clasificar_con_detalle(), e imprime acierto, matriz de confusión y cuántas
 extracciones necesitaron reintento.
 

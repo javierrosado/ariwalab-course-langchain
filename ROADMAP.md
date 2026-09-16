@@ -19,23 +19,31 @@
 | 2B | **Simulador de industria** | ✅ **100 %** | 20 archivos |
 | 2C | **Mitigación de riesgos técnicos** | ✅ **100 %** | 4 archivos |
 | 3 | Módulo 1 · sesiones 1-3 | ✅ **100 %** | 27+ archivos (incluye `recursos/rubricas/rubrica-a1.md` y `docente/verificar_ejercicio_pydantic.py`) |
-| 4 | Módulo 2 · sesiones 4-7 | ✅ **100 %** | 119 archivos en `modulo-2-agentes-avanzados/` + `recursos/golden/` (4) + `recursos/ataques/` (4) + `recursos/rubricas/rubrica-m2.md` + `docente/verificar_guardrails.py` (tareas previas i-s incluidas) |
-| 5 | Módulo 3 · sesiones 8-11 | ⬜ 0 % | 36 archivos |
-| 6 | Bonus Foundry | ⬜ 0 % | 6 archivos |
-| 7 | Materiales del docente | ⬜ 0 % | 9 archivos |
+| 4 | Módulo 2 · sesiones 4-7 | ✅ **100 %** (S7 ampliada 2026-09-16 con `code/`+`solucion/`) | 129 archivos en `modulo-2-agentes-avanzados/` + `recursos/golden/` (4) + `recursos/ataques/` (4) + `recursos/rubricas/rubrica-m2.md` + `docente/verificar_guardrails.py` |
+| 5 | Módulo 3 · sesiones 8-11 | ✅ **100 %** | 66 archivos en `modulo-3-produccion/` + `recursos/rubricas/rubrica-final.md` + `comun/evaluadores.py` + `docente/verificar_despliegue.py` + `docente/generar_trafico.py` |
+| 6 | Seminario Internacional | ✅ **100 %** | 5 archivos en `modulo-3-produccion/seminario-internacional/` |
+| 7 | Bonus Foundry | ✅ **100 %** | 6 archivos en `modulo-4-plus-foundry/` |
+| 8 | Materiales del docente | ⬜ 11 % (2/9: `rubrica-a1.md`, `rubrica-m2.md` ya existían) | 9 archivos |
 | — | Verificación del stack | ✅ | `Qwen3-32B` verificado 2026-09-10 |
 
+> **Corrección de numeración (2026-09-16).** Esta tabla decía "Fase 6 · Bonus Foundry" y
+> "Fase 7 · Materiales del docente", pero `docente/esqueletos/README.md` (el índice pactado)
+> siempre mapeó `seminario.md` → Fase 6 y `bonus-foundry.md` → Fase 7. Contradicción entre este
+> archivo y el esqueleto: **gana el esqueleto** (regla explícita del propio índice). Se corrige
+> aquí insertando el Seminario como Fase 6 y recorriendo Bonus Foundry → 7 y Materiales del
+> docente → 8.
+
 ```
-    FASE 0 ✅          FASE 1 ✅          FASE 2 ✅   FASE 3 ✅   FASE 4 ✅   FASE 5 ⬜   FASE 6 ⬜
-    ─────────────────  ─────────────────  ─────────  ─────────  ─────────  ─────────  ─────────
-    diseño             cimientos          Sesión 0   Mód. 1     Mód. 2     Mód. 3     Foundry
-    plan · ADR ·       comun/ ·           glosario   S1-S3      S4-S7      S8-S11     bonus
-    mapeo · specs      datasets · tools   nivelación L1-L3      L4-L7      L8-L11     L12
-                                              │          │          │          │          │
-                                              └──────────┴────┬─────┴──────────┴──────────┘
-                                                              │
-                                              FASE 7 ⬜ materiales del docente
-                                              rúbricas · guía · presentaciones
+    FASE 0 ✅   FASE 1 ✅   FASE 2 ✅   FASE 3 ✅   FASE 4 ✅   FASE 5 ✅   FASE 6 ✅    FASE 7 ✅
+    ─────────  ─────────  ─────────  ─────────  ─────────  ─────────  ──────────  ─────────
+    diseño     cimientos  Sesión 0   Mód. 1     Mód. 2     Mód. 3     Seminario   Foundry
+    plan·ADR   comun/ ·   glosario   S1-S3      S4-S7      S8-S11     Internac.   bonus
+    mapeo      datos/tools nivelac.  L1-L3      L4-L7      L8-L11                L12
+                                        │          │          │          │          │
+                                        └──────────┴────┬─────┴──────────┴──────────┘
+                                                        │
+                                        FASE 8 ⬜ materiales del docente     ◄── SIGUIENTE
+                                        rúbricas · guía · presentaciones
 ```
 
 ---
@@ -243,63 +251,160 @@ como continuación literal de `external_api.py` de esta sesión, no un archivo n
       documento de diseño
 - [x] **4.19** `proyecto-m2.md` — enunciado, entregables, rúbrica 4×5 (`recursos/rubricas/rubrica-m2.md`),
       regla del piso y calendario
+- [x] **4.20** `code/` — 3 demos añadidas el 2026-09-16 (no estaban en `sesion-07.md` original,
+      se completó la sesión a pedido): por qué falla `assert ==`, invariantes en aislamiento,
+      repetir y medir + `README.md`
+- [x] **4.21** `solucion/` — añadido el 2026-09-16: `tests/invariantes.py` +
+      `tests/test_casos_borde.py` en los 4 tracks, con las 4 familias del bloque 0 medidas por
+      repetición e invariantes (no `assert ==`). Verificado por import y por lógica aislada
+      (parcheo de `comun.datos.buscar_uno`); la corrida en vivo de punta a punta quedó bloqueada
+      por un incidente del proveedor de HF (ver nota más abajo)
+- [x] **4.22** Hallazgos H1-H5 de `docente/esqueletos/VALIDACION-INTEGRAL.md`, corregidos el
+      2026-09-16 sin reabrir el guion de 180 min (verificado con `validar_coherencia.py`):
+      - **H1** (few-shot de A5 sin aplicar) — añadida la sección 2.1 al `README.md` de S4 y un
+        párrafo al bloque 1 del `README.md` de S6
+      - **H2** (A4 sin medir) — nota de corrección en `sesion-07.md` + docstrings de
+        `tests/test_casos_borde.py` explicando cómo esos tests miden el tope de iteraciones
+      - **H3** (streaming prometido, nunca enseñado) — se resuelve en la S11 con
+        `code/web/index.html` (streaming real), no antes
+      - **H4** (LangGraph desaparece) — añadido el párrafo "¿Y LangGraph?" al bloque 4 del
+        `README.md` de S6
+      - **H5** (S4 no nombra el archivo golden) — añadido el párrafo "de dónde salen las 30
+        consultas" a la sección 2 del `README.md` de S4
+      - **H6** (descuadre de 20 min en S4) queda **fuera de esta lista a propósito**: es
+        DECISION-PENDIENTE de Javier, no un hallazgo para que Code corrija solo
+- [x] **4.23** `recursos/golden/consultas-<track>.json` ampliado de 26 a **30 consultas/track**
+      (20 con tool + 10 otro, según exige `sesion-10.md`) y con el campo `respuesta_esperada`
+      añadido a las 30 filas de los 4 tracks. Referencias cruzadas a "26"/"104" corregidas en
+      10 archivos. Verificado: `matriz_seleccion.py --simular` → 100 % global
 
 ---
 
 ## FASE 5 · Módulo 3 · sesiones 8-11 ⬜
 
-### Sesión 8 — Despliegue en HF Spaces
-- [ ] **5.1** `README.md` — 12-Factor, contenedores, protocolo de despliegue
-- [ ] **5.2** `conceptos-previos.md` — Dockerfile, FastAPI, secretos en la nube
-- [ ] **5.3** `code/` — `Dockerfile`, `app/api.py` con `/chat` y `/health`
-- [ ] **5.4** `guia-hf-spaces.md` — despliegue paso a paso con capturas
-- [ ] **5.5** `lab/` + `solucion/` — L8 en los 4 tracks
+### Sesión 8 — Despliegue en HF Spaces ✅
+- [x] **5.1** `README.md` — 12-Factor, contenedores, protocolo de despliegue, diagrama de qué
+      va autenticado
+- [x] **5.2** `conceptos-previos.md` — Dockerfile, FastAPI, secretos en la nube
+- [x] **5.3** `code/` — 4 demos (api local, Dockerfile comentado, secretos, llamar desde
+      fuera) + `README.md`. `docente/verificar_despliegue.py` y `docente/generar_trafico.py`
+      añadidos como infraestructura compartida (tareas v/y de `sesion-08.md`/`sesion-09.md`)
+- [x] **5.4** `lab/` + `solucion/` — L8 en los 4 tracks (`api.py`, `Dockerfile`,
+      `DESPLIEGUE.md` y `avance-1-m3.md` como plantillas — sin datos reales porque no hay un
+      Space desplegado desde esta sesión de Code; ver bloqueador abajo)
+- [ ] **5.5** ⏸️ Despliegue real del Space de referencia del docente (tarea u de
+      `sesion-08.md`) y verificación de los límites del free tier de HF Spaces (tarea t,
+      riesgo R5) — **son tareas de Javier**, no de Code (P2: nada corre ni se despliega
+      desde aquí sin credenciales de infraestructura que Code no tiene)
 
-### Sesión 9 — Observabilidad con Langfuse
-- [ ] **5.6** `README.md` — logs vs métricas vs trazas, span, latencia p50/p95, costo
-- [ ] **5.7** `conceptos-previos.md` — traza distribuida, OpenTelemetry, PII en trazas
-- [ ] **5.8** `code/` — instrumentación con callback, lectura de trazas
-- [ ] **5.9** `lab/` + `solucion/` — L9 (2 cuellos de botella reales) en los 4 tracks
+> **Nota de numeración:** este bloque ya no tiene una entrega `guia-hf-spaces.md` separada
+> —el paso a paso de despliegue quedó integrado en `lab/README.md` parte 3, siguiendo el
+> guion de `sesion-08.md` §8, que no pide un archivo aparte.
 
-### Sesión 10 — Evaluación y optimización
-- [ ] **5.10** `README.md` — golden dataset, evaluators, groundedness, LLM-as-judge
-- [ ] **5.11** `conceptos-previos.md` — precisión/recall, prueba A/B, regresión
-- [ ] **5.12** `evals/golden-dataset-<track>.jsonl` — 30 casos por track
-- [ ] **5.13** `code/` — evaluators y comparación v1 vs v2
-- [ ] **5.14** `lab/` + `solucion/` — L10 en los 4 tracks
+### Sesión 9 — Observabilidad con Langfuse ✅
+- [x] **5.6** `README.md` — logs vs métricas vs trazas, span, latencia p50/p95, costo,
+      decisión de enmascarar PII antes de exportar
+- [x] **5.7** `conceptos-previos.md` — traza distribuida, OpenTelemetry, PII en trazas
+- [x] **5.8** `code/` — 3 demos (traza mínima, anatomía de spans, PII con y sin
+      enmascarar) + `README.md`
+- [x] **5.9** `lab/` + `solucion/` — L9 en los 4 tracks (`observability.py`, `agent.py` v5
+      con `config={"callbacks": ...}` en cada invoke, `INFORME-L9.md` como plantilla).
+      La corrida en vivo contra un Space real y la lectura del dashboard de Langfuse quedan
+      pendientes de infraestructura desplegada (depende de la S8, ⏸️ arriba)
 
-### Sesión 11 — Aplicación final y sustentación
-- [ ] **5.15** `README.md` — cierre e integración
-- [ ] **5.16** `code/web/index.html` — cliente HTML con streaming
-- [ ] **5.17** `plantilla-documento-diseno.md` — estructura del entregable final
-- [ ] **5.18** `proyecto-final.md` — enunciado y rúbrica del **Proyecto Integrador (100 % del Módulo 3)**
+### Sesión 10 — Evaluación y optimización ✅
+- [x] **5.10** `README.md` — golden dataset (espina dorsal del curso), evaluators,
+      groundedness, LLM-as-judge y sus 4 sesgos
+- [x] **5.11** `conceptos-previos.md` — precisión/recall, prueba A/B, regresión
+- [x] **5.12** El golden dataset **ya vive** en `recursos/golden/consultas-<track>.json`
+      (30 casos/track, ampliado en la tarea 4.23) — no se duplica en un `.jsonl` aparte,
+      siguiendo la decisión explícita de `sesion-10.md` §2 ("no se construye nada nuevo")
+- [x] **5.13** `code/` — 4 demos (dataset en Langfuse, evaluators, LLM-as-judge, A/B de
+      prompts) + `README.md`. `comun/evaluadores.py` añadido como infraestructura
+      compartida (tarea ab)
+- [x] **5.14** `lab/` + `solucion/` — L10 en los 4 tracks (`evals/dataset.py`,
+      `evals/evaluadores.py`, `INFORME-L10.md` y `avance-3-m3.md` como plantillas)
+
+### Sesión 11 — Aplicación final y sustentación ✅
+- [x] **5.15** `README.md` — cierre e integración, cómo se argumenta ante un panel, regla de
+      contingencia si el Space cae
+- [x] **5.16** `code/index.html` — cliente HTML de referencia con streaming (SSE vía `fetch()` +
+      `ReadableStream`, no `EventSource`) + `code/README.md`
+- [x] **5.17** `lab/plantilla-documento-diseno.md` — las 4 secciones (caso de uso, arquitectura,
+      decisiones, evidencia)
+- [x] **5.18** `proyecto-integrador.md` — enunciado, entregables, calendario, y
+      `recursos/rubricas/rubrica-final.md` (tarea ad) con los 5 criterios institucionales
+      completos. `checklist-panel.md` (tarea af) añadido para uso del panel el día de la demo.
+      `lab/` + `solucion/` — L11 en los 4 tracks (`agent.py` v6 con `responder_streaming()`,
+      `api.py` con `/chat/stream`, `web/index.html`)
+
+> **Nota de diseño (streaming vs. guardrails):** `responder_streaming()` no transmite tokens en
+> vivo del modelo — resuelve el bucle completo, corre `guardrails.check_output()` sobre el texto
+> íntegro, y solo transmite el resultado ya validado, palabra por palabra. Se documenta como
+> decisión deliberada en el docstring de `agent.py` de cada track: un guardrail de salida que
+> evalúa texto completo y un streaming de tokens en vivo no son compatibles sin un rediseño más
+> profundo (guardrails incrementales por fragmento), fuera de alcance de este curso.
 
 ---
 
-## FASE 6 · Bonus Foundry ⬜
+## FASE 6 · Seminario Internacional ✅
 
-> Asíncrono, opcional, no ponderado. Se libera al cerrar la S11.
+> Panel de casos reales, formativo, no ponderado. `docente/esqueletos/seminario.md`. Carpeta:
+> `modulo-3-produccion/seminario-internacional/`. Las tareas de convocatoria, brief a
+> panelistas, confirmación de asistencia y curaduría de preguntas (**ai-aj-ak-al**) son de
+> Javier, con fecha — ver `guion-docente.md`; aquí solo van los documentos que Code produce.
 
-- [ ] **6.1** `README.md` — hosted agent, protocolo Responses, modelo de recursos de Azure
-- [ ] **6.2** `conceptos-previos.md` — suscripción, grupo de recursos, `azd`, rol Project Manager
-- [ ] **6.3** `code/main.py` — wrapper `ResponsesHostServer`
-- [ ] **6.4** `code/azure.yaml` — configuración de despliegue
-- [ ] **6.5** `guia-despliegue-azd.md` — paso a paso con capturas
-- [ ] **6.6** `cuadro-comparativo.md` — plantilla del entregable: open source vs Foundry
+- [x] **6.1** `README.md` — formato del panel, objetivos, cuadro "anotar vs. ignorar", los 3
+      mecanismos contra el silencio y el discurso comercial
+- [x] **6.2** `preparacion.md` — la plantilla de pregunta + un ejemplo real por track
+- [x] **6.3** `plantilla-contraste.md` — las 4 secciones del documento de contraste
+- [x] **6.4** `brief-panelistas.md` — el brief de 1 página que Javier envía a los panelistas
+- [x] **6.5** `guion-docente.md` — guion del moderador, tiempos, curaduría de preguntas, riesgos
+      y el Plan B si solo llega 1 panelista
 
 ---
 
-## FASE 7 · Materiales del docente ⬜
+## FASE 7 · Bonus Foundry ✅
 
-- [ ] **7.1** `recursos/rubricas/rubrica-a1.md` — 5 criterios × 4 niveles
-- [ ] **7.2** `recursos/rubricas/rubrica-m2.md`
-- [ ] **7.3** `recursos/rubricas/rubrica-m3.md`
-- [ ] **7.4** `recursos/rubricas/rubrica-demo.md` — sustentación ante panel
-- [ ] **7.5** `docente/guia-docente.md` — cómo dictar cada sesión, tiempos, errores frecuentes
-- [ ] **7.6** `docente/banco-preguntas.md` — Test 1, Test 2 y autoevaluaciones
-- [ ] **7.7** `docente/checklist-pre-sesion.md` — los 4 servicios SaaS verificados 24 h antes
-- [ ] **7.8** `recursos/plantillas/` — plantilla de proyecto y de documento de diseño
-- [ ] **7.9** Presentaciones de aula (formato por definir)
+> Asíncrono, opcional, no ponderado. Se libera al cerrar la S11. Carpeta:
+> `modulo-4-plus-foundry/`. Las tareas am/an/ao/ap (re-verificar `langchain-azure-ai[hosting]`
+> contra un proyecto real, desplegar el proyecto compartido de la vía B, capturas del portal,
+> fecha de cierre del bonus) son de Javier — ver la nota ⏸️ en `acceso-azure.md`.
+
+- [x] **7.1** `README.md` — hosted agent, protocolo Responses, modelo de recursos de Azure, los
+      8 pasos, advertencia de la tarjeta en la primera línea
+- [x] **7.2** `acceso-azure.md` — las dos vías (A: suscripción propia, B: proyecto del docente),
+      paso a paso. ⏸️ Capturas del portal pendientes (tarea ao, Javier)
+- [x] **7.3** `host/main.py` — wrapper `ResponsesHostServer` sobre `comun.provider.get_chat_model()`
+      + las tools del L4/L5, con nota explícita de qué NO porta sin cambios (guardrails del L6).
+      Verificado por import y compilación; **no verificado en vivo contra un proyecto Foundry
+      real** — `langchain-azure-ai[hosting]` está en preview (riesgo R8) y esa verificación es
+      la tarea am, de Javier
+- [x] **7.4** `host/azure.yaml` — configuración de despliegue, adaptada del ejemplo oficial de
+      `langchain-azure` (`samples/hosting/langgraph-hosted-agents/responses/10_resilient`)
+- [x] **7.5** `puente-curso-2.md` — qué mueve este bonus vs. qué mueve el Curso 2, y por qué
+- [x] **7.6** `plantilla-comparativa.md` — las 7 dimensiones, con cómo medir cada una (sin
+      cifras de precio fijas, que caducan)
+
+> **Nota de numeración:** el `ROADMAP.md` original preveía `code/main.py`/`code/azure.yaml` y
+> una `guia-despliegue-azd.md` separada; el esqueleto pactado (`bonus-foundry.md` §10) los
+> agrupa como `host/main.py` + `host/azure.yaml`, con la guía de despliegue integrada en el
+> `README.md` §"Pasos 5-7" en vez de un archivo aparte — se siguió el esqueleto por ser la
+> fuente pactada más reciente.
+
+---
+
+## FASE 8 · Materiales del docente ⬜
+
+- [x] **8.1** `recursos/rubricas/rubrica-a1.md` — 5 criterios × 4 niveles (construida en Fase 3, S3)
+- [x] **8.2** `recursos/rubricas/rubrica-m2.md` (construida en Fase 4, S7)
+- [ ] **8.3** `recursos/rubricas/rubrica-m3.md`
+- [ ] **8.4** `recursos/rubricas/rubrica-demo.md` — sustentación ante panel
+- [ ] **8.5** `docente/guia-docente.md` — cómo dictar cada sesión, tiempos, errores frecuentes
+- [ ] **8.6** `docente/banco-preguntas.md` — Test 1, Test 2 y autoevaluaciones
+- [ ] **8.7** `docente/checklist-pre-sesion.md` — los 4 servicios SaaS verificados 24 h antes
+- [ ] **8.8** `recursos/plantillas/` — plantilla de proyecto y de documento de diseño
+- [ ] **8.9** Presentaciones de aula (formato por definir)
 
 ---
 
@@ -346,9 +451,10 @@ del agente no conoce a su proveedor, así que el material se escribe sin depende
         └──► PUNTO DE REVISIÓN: Javier valida tono, profundidad y formato    ⬜ PENDIENTE
                     │
   3. FASE 4  ──►  Módulo 2                       ✅ COMPLETADA (Sesiones 4-7)
-  4. FASE 5  ──►  Módulo 3                       ◄── SIGUIENTE
-  5. FASE 6  ──►  Bonus Foundry
-  6. FASE 7  ──►  Materiales del docente         (se nutre de todo lo anterior)
+  4. FASE 5  ──►  Módulo 3                       ✅ COMPLETADA (Sesiones 8-11)
+  5. FASE 6  ──►  Seminario Internacional        ✅ COMPLETADA
+  6. FASE 7  ──►  Bonus Foundry                  ✅ COMPLETADA
+  7. FASE 8  ──►  Materiales del docente         (se nutre de todo lo anterior)  ◄── SIGUIENTE
 ```
 
 > **Nota de secuencia (2026-09-16):** la Fase 4 se construyó antes de que la Fase 3 estuviera

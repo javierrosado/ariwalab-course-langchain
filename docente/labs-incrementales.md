@@ -91,9 +91,9 @@ proyecto-final/<track>/
   - **banca:** `CONSULTA_SALDO` · `CONSULTA_MOVIMIENTOS` · `CONSULTA_TARJETA` · `SOSPECHA_FRAUDE` · `OTRO`
   - **retail:** `SEGUIMIENTO_PEDIDO` · `CONSULTA_PRODUCTO` · `CONSULTA_STOCK` · `DEVOLUCION` · `OTRO`
   - **seguros:** `CONSULTA_POLIZA` · `COTIZACION` · `ESTADO_SINIESTRO` · `REPORTE_SINIESTRO` · `OTRO`
-- **Criterio:** ≥ 90 % de acierto sobre las 26 consultas del golden set
+- **Criterio:** ≥ 90 % de acierto sobre las 30 consultas del golden set
   (`recursos/golden/consultas-<track>.json`, campo `intencion` — incluye la categoría `OTRO`)
-  + 5 consultas propias del equipo, reportadas aparte sobre las 31.
+  + 5 consultas propias del equipo, reportadas aparte sobre las 35.
 
 ### L3 · Primera tool + API externa
 - **Objetivo:** el modelo deja de "saber" y empieza a "consultar".
@@ -130,7 +130,7 @@ proyecto-final/<track>/
 ### L8 · Contenedor y despliegue en HF Spaces
 - **Objetivo:** sacar el agente del entorno de desarrollo y darle una URL pública.
 - **Incremento:** `Dockerfile`, API **FastAPI** con `/chat` y `/health`, Space creado, secretos cargados como *Space secrets* (nunca en el repo), despliegue por `git push`.
-- **Criterio:** cualquiera puede invocar el agente por HTTP desde fuera, sin credenciales del alumno en el código.
+- **Criterio:** cualquiera puede invocar el agente por HTTP desde fuera, sin credenciales del alumno en el código, y `/chat` exige una cabecera `X-API-Key` propia del equipo (`/health` queda sin autenticar, porque la plataforma lo llama para saber si el Space vive). Verificado con `docente/verificar_despliegue.py`.
 
 ### L9 · Trazabilidad con Langfuse
 - **Objetivo:** ver por dentro qué hizo el agente en cada ejecución **ya desplegado**.

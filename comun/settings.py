@@ -79,6 +79,11 @@ LANGFUSE_HOST: str = os.getenv("LANGFUSE_HOST", "https://cloud.langfuse.com")
 # ---------- Track de industria ----------
 COURSE_TRACK: str = os.getenv("COURSE_TRACK", "telecomunicaciones").strip().lower()
 
+# ---------- API del agente desplegado (sesión 8) ----------
+# Vive como Space secret en producción, nunca en el repo. La protege porque
+# gasta cuota de HF Inference del equipo, no porque los datos sean confidenciales.
+AGENT_API_KEY: str = os.getenv("AGENT_API_KEY", "")
+
 VALID_TRACKS = ("telecomunicaciones", "banca", "retail", "seguros")
 VALID_PROVIDERS = ("huggingface", "foundry")
 VALID_DATA_SOURCES = ("csv", "api")
