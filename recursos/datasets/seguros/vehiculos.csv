@@ -1,0 +1,46 @@
+placa,marca,modelo,anio,categoria,descripcion_categoria,asientos,uso
+VEX-958,Toyota,Corolla,2022,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+WHX-622,Kia,Sportage,2012,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+CHD-242,Toyota,RAV4,2026,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+VPZ-907,Nissan,Frontier,2013,M2,Transporte público hasta 16 asientos,16,PARTICULAR
+RER-665,Kia,Rio,2012,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+MXK-889,Toyota,Corolla,2015,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+PJG-885,Toyota,Yaris,2022,M1,Automóvil particular hasta 9 asientos,5,COMERCIAL
+FGC-383,Kia,Rio,2016,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+WRQ-768,Hyundai,Elantra,2018,M2,Transporte público hasta 16 asientos,16,PARTICULAR
+KAD-477,Suzuki,Swift,2011,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+PNT-713,Toyota,RAV4,2025,M2,Transporte público hasta 16 asientos,16,PARTICULAR
+ZJV-994,Toyota,RAV4,2021,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+GEZ-396,Toyota,Hilux,2023,M2,Transporte público hasta 16 asientos,16,COMERCIAL
+CGQ-185,Kia,Sportage,2012,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+RAR-712,Hyundai,Elantra,2015,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+NGA-362,Chevrolet,Sail,2020,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+XAK-983,Toyota,Hilux,2022,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+FHN-952,Kia,Picanto,2019,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+AZN-739,Nissan,Sentra,2017,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+WMY-509,Nissan,Sentra,2021,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+SGQ-171,Toyota,Yaris,2023,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+PZD-877,Hyundai,Tucson,2024,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+VBT-201,Chevrolet,Onix,2019,M1,Automóvil particular hasta 9 asientos,5,TAXI
+HEX-874,Suzuki,Vitara,2015,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+TVE-724,Kia,Sportage,2011,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+KLJ-264,Kia,Rio,2026,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+ADB-507,Hyundai,Tucson,2019,M2,Transporte público hasta 16 asientos,16,PARTICULAR
+VWQ-331,Toyota,Corolla,2019,N1,Carga hasta 3.5 toneladas,3,PARTICULAR
+TKL-554,Nissan,Versa,2024,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+VCC-466,Kia,Picanto,2014,M2,Transporte público hasta 16 asientos,16,PARTICULAR
+AMM-180,Hyundai,Elantra,2018,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+KRM-740,Nissan,Sentra,2025,M1,Automóvil particular hasta 9 asientos,5,COMERCIAL
+LLZ-673,Kia,Picanto,2020,M1,Automóvil particular hasta 9 asientos,5,COMERCIAL
+VSY-384,Hyundai,Accent,2022,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+XVY-829,Kia,Picanto,2020,M1,Automóvil particular hasta 9 asientos,5,COMERCIAL
+BDX-168,Hyundai,Elantra,2020,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+KSY-812,Hyundai,Tucson,2021,L5,Mototaxi,4,PARTICULAR
+GHB-795,Hyundai,Elantra,2015,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+YHC-436,Hyundai,Elantra,2016,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+ELX-433,Hyundai,Accent,2015,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+MXE-326,Suzuki,Vitara,2014,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+UEJ-230,Toyota,Yaris,2026,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+VWV-718,Nissan,Versa,2011,M2,Transporte público hasta 16 asientos,16,TAXI
+PNY-103,Suzuki,Vitara,2020,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR
+FZA-969,Hyundai,Accent,2016,M1,Automóvil particular hasta 9 asientos,5,PARTICULAR

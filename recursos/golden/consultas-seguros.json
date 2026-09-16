@@ -1,0 +1,162 @@
+{
+  "_comentario": "Fuente única de consultas del track seguros (Andina Seguros). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['seguros'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/seguros/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5).",
+  "track": "seguros",
+  "consultas": [
+    {
+      "consulta": "¿Mi SOAT está vigente? La placa es ABC-123",
+      "intencion": "CONSULTA_POLIZA",
+      "categoria": "directa",
+      "tool_esperada": "get_policy_by_plate"
+    },
+    {
+      "consulta": "¿Hasta cuándo me cubre la póliza de la placa XYZ-789?",
+      "intencion": "CONSULTA_POLIZA",
+      "categoria": "directa",
+      "tool_esperada": "get_policy_by_plate"
+    },
+    {
+      "consulta": "Necesito saber si la placa D2P-450 tiene SOAT con ustedes",
+      "intencion": "CONSULTA_POLIZA",
+      "categoria": "directa",
+      "tool_esperada": "get_policy_by_plate"
+    },
+    {
+      "consulta": "¿Cuánto me costaría el SOAT de la placa ABC-123?",
+      "intencion": "COTIZACION",
+      "categoria": "directa",
+      "tool_esperada": "quote_soat"
+    },
+    {
+      "consulta": "Quiero cotizar el SOAT para mi auto, placa XYZ-789",
+      "intencion": "COTIZACION",
+      "categoria": "directa",
+      "tool_esperada": "quote_soat"
+    },
+    {
+      "consulta": "Dame el precio de renovación del SOAT de la D2P-450",
+      "intencion": "COTIZACION",
+      "categoria": "directa",
+      "tool_esperada": "quote_soat"
+    },
+    {
+      "consulta": "¿En qué va mi siniestro SIN-2026-0021?",
+      "intencion": "ESTADO_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "get_claim_status"
+    },
+    {
+      "consulta": "Consulten el expediente SIN-2026-0044, por favor",
+      "intencion": "ESTADO_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "get_claim_status"
+    },
+    {
+      "consulta": "¿Ya aprobaron mi caso SIN-2026-0098?",
+      "intencion": "ESTADO_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "get_claim_status"
+    },
+    {
+      "consulta": "Acabo de chocar en Ate, placa ABC-123, hay un lesionado",
+      "intencion": "REPORTE_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "open_claim"
+    },
+    {
+      "consulta": "Quiero reportar un choque simple en Surco con la placa XYZ-789",
+      "intencion": "REPORTE_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "open_claim"
+    },
+    {
+      "consulta": "Necesito abrir un siniestro, me chocaron en San Miguel, placa D2P-450, sin heridos",
+      "intencion": "REPORTE_SINIESTRO",
+      "categoria": "directa",
+      "tool_esperada": "open_claim"
+    },
+    {
+      "consulta": "Mi SOAT venció, ¿cuánto pagaría por renovarlo? Placa ABC-123",
+      "intencion": "COTIZACION",
+      "categoria": "confusable",
+      "tool_esperada": "quote_soat"
+    },
+    {
+      "consulta": "Reporté un choque la semana pasada, ¿en qué estado está el expediente SIN-2026-0021?",
+      "intencion": "ESTADO_SINIESTRO",
+      "categoria": "confusable",
+      "tool_esperada": "get_claim_status"
+    },
+    {
+      "consulta": "Me chocaron hace una hora en Ate, placa D2P-450, dos personas heridas",
+      "intencion": "REPORTE_SINIESTRO",
+      "categoria": "confusable",
+      "tool_esperada": "open_claim"
+    },
+    {
+      "consulta": "Antes de reportar el choque quiero confirmar que mi póliza está vigente, placa ABC-123",
+      "intencion": "CONSULTA_POLIZA",
+      "categoria": "confusable",
+      "tool_esperada": "get_policy_by_plate"
+    },
+    {
+      "consulta": "¿Cuánto cubre el SOAT por gastos de sepelio?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Qué documentos debo llevar a la clínica después de un accidente?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Buenos días",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿El SOAT cubre a los peatones?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuánto tiempo tengo de plazo para reportar un accidente después de que pasó?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿El SOAT me cubre si el conductor había tomado alcohol?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuánto cubre el SOAT por muerte de un ocupante del vehículo?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿En cuánto tiempo me pagan si aprueban mi siniestro?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuánto cuesta el SOAT de un auto particular al año?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Hasta cuántos años tengo de plazo para reclamar por un accidente antiguo?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    }
+  ]
+}

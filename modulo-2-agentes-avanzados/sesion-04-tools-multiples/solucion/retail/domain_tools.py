@@ -1,0 +1,152 @@
+"""L4 · Retail — MercaSur · domain_tools.py (checkpoint de referencia)
+
+Las 4 tools núcleo del track. La primera (`track_order`) es la del L3; las otras
+tres son el incremento del L4. `start_return_request` exige confirmación explícita
+antes de registrar la solicitud (regla del bloque 4 de README.md).
+
+Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
+"""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+
+from langchain_core.tools import tool  # noqa: E402
+from pydantic import BaseModel, Field  # noqa: E402
+
+from comun import datos  # noqa: E402
+from comun.datos import DatoNoEncontrado  # noqa: E402
+
+TRACK = "retail"
+
+
+# ───────────────────────────── esquemas ─────────────────────────────
+class PedidoInput(BaseModel):
+    pedido_id: str = Field(description="Número de pedido en formato MS-2026-NNNNN")
+
+
+class SkuInput(BaseModel):
+    sku: str = Field(description="Código de producto en formato MS-NNNN")
+
+
+class DevolucionInput(BaseModel):
+    pedido_id: str = Field(description="Número de pedido en formato MS-2026-NNNNN")
+    motivo: str = Field(description="Motivo del cliente, por ejemplo 'Producto con falla' o 'Talla incorrecta'")
+    tipo_solucion: str = Field(default="CAMBIO", description="CAMBIO, REEMBOLSO o NOTA_CREDITO")
+    confirmado_por_cliente: bool = Field(
+        default=False,
+        description="True solo si el cliente confirmó explícitamente que quiere registrar la solicitud",
+    )
+
+
+# ─────────────────────────── tool del L3 (ya la tenías) ───────────────────────────
+@tool(args_schema=PedidoInput)
+def track_order(pedido_id: str) -> str:
+    """Devuelve el estado, el courier y el código de rastreo de un pedido.
+
+    Úsala cuando el cliente pregunte dónde está su pedido, cuándo llega,
+    o por qué no lo ha recibido.
+    NO la uses para iniciar una devolución: para eso usa start_return_request.
+    """
+    try:
+        p = datos.buscar_uno("pedidos.csv", "pedido_id", pedido_id, TRACK)
+    except DatoNoEncontrado:
+        return (f"No existe el pedido {pedido_id}. Verifica el número con el cliente: "
+                f"el formato es MS-2026-NNNNN y aparece en el correo de confirmación.")
+    significado = {
+        "EN_PREPARACION": "El pedido está siendo alistado en el almacén",
+        "EN_RUTA": "El pedido fue entregado al courier y está en camino",
+        "ENTREGADO": "El pedido fue recibido y firmado",
+        "LISTO_PARA_RECOJO": "El pedido está disponible para recojo",
+        "DEVUELTO": "El pedido regresó al almacén tras intentos fallidos de entrega",
+        "CANCELADO": "El pedido fue anulado antes del despacho",
+    }
+    aviso = ""
+    if p["estado"] == "DEVUELTO":
+        aviso = (" IMPORTANTE: el pedido permanece 15 días calendario a disposición del cliente; "
+                 "pasado ese plazo se procesa el reembolso automático.")
+    return (f"Pedido {p['pedido_id']} · Cliente: {p['cliente']} · Comprado el {p['fecha_compra']} · "
+            f"Estado: {p['estado']} ({significado.get(p['estado'], 'estado desconocido')}) · "
+            f"Courier: {p['courier']} · Rastreo: {p['codigo_tracking']} · "
+            f"Despacho desde {p['tienda_despacho']} hacia {p['distrito_entrega']}.{aviso}")
+
+
+# ─────────────────────────── tools nuevas del L4 ───────────────────────────
+@tool(args_schema=SkuInput)
+def get_product_details(sku: str) -> str:
+    """Devuelve el nombre, la categoría, el precio, la garantía y si un producto admite cambio.
+
+    Úsala cuando el cliente pregunte por las características, el precio o la garantía
+    de un producto concreto.
+    NO la uses para saber si hay stock: para eso usa check_stock_by_store.
+    """
+    try:
+        p = datos.buscar_uno("catalogo_productos.csv", "sku", sku, TRACK)
+    except DatoNoEncontrado:
+        return f"No existe el producto {sku} en el catálogo de MercaSur."
+    cambio = ("admite cambio por libre voluntad dentro de 30 días"
+              if p["permite_cambio"] == "SI"
+              else "NO admite cambio por libre voluntad, pero sí conserva la garantía por defecto de fábrica")
+    return (f"{p['sku']} · {p['nombre']} · Categoría: {p['categoria']} · Marca: {p['marca']} · "
+            f"Precio: S/ {p['precio_soles']} · Garantía: {p['garantia_meses']} meses · {cambio}.")
+
+
+@tool(args_schema=SkuInput)
+def check_stock_by_store(sku: str) -> str:
+    """Devuelve el stock disponible de un producto en cada tienda MercaSur.
+
+    Úsala cuando el cliente pregunte si hay disponibilidad, en qué tienda puede
+    recogerlo, o si puede cambiar su producto por otro igual.
+    NO la uses para consultar el precio o la garantía: para eso usa get_product_details.
+    """
+    filas = datos.buscar_todos("stock_tiendas.csv", "sku", sku, TRACK)
+    if not filas:
+        return f"No hay información de stock para el producto {sku}."
+    con_stock = [f for f in filas if int(f["stock_disponible"]) > 0]
+    if not con_stock:
+        return f"El producto {sku} está SIN STOCK en todas las tiendas MercaSur."
+    detalle = " · ".join(f"{f['tienda']}: {f['stock_disponible']} unidades" for f in con_stock)
+    total = sum(int(f["stock_disponible"]) for f in con_stock)
+    return f"Stock de {sku}: {total} unidades en {len(con_stock)} tiendas. {detalle}"
+
+
+@tool(args_schema=DevolucionInput)
+def start_return_request(pedido_id: str, motivo: str, tipo_solucion: str = "CAMBIO",
+                         confirmado_por_cliente: bool = False) -> str:
+    """Inicia una solicitud de cambio o devolución y devuelve su código. Requiere confirmación.
+
+    Úsala cuando el cliente pida devolver, cambiar o reembolsar un producto ya recibido.
+    Llámala primero con confirmado_por_cliente=False para obtener el mensaje de
+    confirmación, y solo vuelve a llamarla con True si el cliente confirma explícitamente.
+    NO la uses si el pedido aún no fue entregado: en ese caso corresponde una anulación,
+    no una devolución.
+    NO apruebes la devolución: esta tool solo registra la solicitud; la autorización
+    corresponde al área de post-venta.
+    """
+    try:
+        p = datos.buscar_uno("pedidos.csv", "pedido_id", pedido_id, TRACK)
+    except DatoNoEncontrado:
+        return f"No existe el pedido {pedido_id}."
+    if p["estado"] != "ENTREGADO":
+        return (f"El pedido {pedido_id} está en estado {p['estado']}, no ENTREGADO. "
+                f"No corresponde una devolución: consulta con el cliente si desea anular el pedido.")
+    tipos = {"CAMBIO", "REEMBOLSO", "NOTA_CREDITO"}
+    tipo_solucion = tipo_solucion.strip().upper()
+    if tipo_solucion not in tipos:
+        return f"Tipo de solución inválido: '{tipo_solucion}'. Debe ser uno de: {', '.join(sorted(tipos))}."
+    if not confirmado_por_cliente:
+        return (f"CONFIRMACIÓN REQUERIDA. Vas a registrar una solicitud de {tipo_solucion} para el "
+                f"pedido {pedido_id} por el motivo: \"{motivo}\". Pregunta al cliente si confirma y "
+                f"solo entonces vuelve a llamar esta tool con confirmado_por_cliente=True.")
+    dev_id = datos.siguiente_id("devoluciones.csv", "devolucion_id", "DEV-", TRACK)
+    plazos = {"CAMBIO": "3 a 5 días hábiles", "REEMBOLSO": "7 a 15 días hábiles",
+              "NOTA_CREDITO": "inmediata, válida 12 meses"}
+    return (f"Solicitud registrada. Código: {dev_id} · Pedido: {pedido_id} · Producto: {p['sku']} · "
+            f"Motivo: {motivo} · Solución solicitada: {tipo_solucion} ({plazos[tipo_solucion]}) · "
+            f"Estado: SOLICITADA. Entrega este código al cliente para su seguimiento.")
+
+
+TOOLS_NUCLEO = [track_order, get_product_details, check_stock_by_store, start_return_request]

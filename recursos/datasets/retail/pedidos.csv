@@ -1,0 +1,51 @@
+pedido_id,cliente,fecha_compra,estado,sku,cantidad,total_soles,courier,codigo_tracking,tienda_despacho,distrito_entrega
+MS-2026-00001,José Paredes Vargas,2026-07-26,ENTREGADO,MS-1040,1,1028.05,Andes Courier,TRK96336983,MercaSur Norte,San Isidro
+MS-2026-00002,Milagros Chávez Huamán,2026-08-14,EN_RUTA,MS-1003,3,7995.06,Andes Courier,TRK64829438,Almacén Central MercaSur,Pueblo Libre
+MS-2026-00003,Sofía Delgado Castillo,2026-08-27,EN_PREPARACION,MS-1025,3,2017.05,Volare Logística,TRK72803890,MercaSur Surco,Independencia
+MS-2026-00004,Claudia Alarcón Vargas,2026-08-11,LISTO_PARA_RECOJO,MS-1007,1,1458.94,Andes Courier,TRK83604872,Almacén Central MercaSur,Callao
+MS-2026-00005,Patricia Chávez Salazar,2026-09-01,ENTREGADO,MS-1016,2,1895.22,Andes Courier,TRK90877037,MercaSur Salaverry,Magdalena del Mar
+MS-2026-00006,Álvaro Paredes Rojas,2026-08-29,ENTREGADO,MS-1017,1,4086.17,Andes Courier,TRK76485960,MercaSur Sur,Comas
+MS-2026-00007,Silvia Loayza Castillo,2026-07-31,EN_PREPARACION,MS-1020,1,3011.95,Despacho propio MercaSur,TRK69481658,MercaSur Salaverry,San Juan de Lurigancho
+MS-2026-00008,Sofía Huamán Ccahuana,2026-07-29,LISTO_PARA_RECOJO,MS-1042,3,10655.61,Rapidex,TRK86350933,MercaSur San Miguel,San Borja
+MS-2026-00009,Carmen Quispe Salazar,2026-07-30,ENTREGADO,MS-1009,2,657.14,Volare Logística,TRK80615477,MercaSur Sur,Comas
+MS-2026-00010,Silvia Alarcón Ampuero,2026-07-19,ENTREGADO,MS-1010,2,5474.52,Volare Logística,TRK57799574,MercaSur Sur,Pueblo Libre
+MS-2026-00011,Milagros Chávez Vargas,2026-08-26,EN_RUTA,MS-1020,1,3011.95,Volare Logística,TRK28403901,MercaSur Norte,Callao
+MS-2026-00012,José Bustamante Vargas,2026-07-15,LISTO_PARA_RECOJO,MS-1025,2,1344.7,Andes Courier,TRK40619804,MercaSur Norte,Villa El Salvador
+MS-2026-00013,Rosa Torres Ampuero,2026-07-31,ENTREGADO,MS-1038,3,3927.15,Andes Courier,TRK19245689,MercaSur Salaverry,Comas
+MS-2026-00014,Patricia Villanueva Alarcón,2026-07-27,ENTREGADO,MS-1016,1,947.61,Andes Courier,TRK17114135,MercaSur Salaverry,Miraflores
+MS-2026-00015,Claudia Quispe Huamán,2026-09-03,EN_PREPARACION,MS-1018,1,3910.6,Rapidex,TRK75390949,Almacén Central MercaSur,Miraflores
+MS-2026-00016,Diego Villanueva Ramírez,2026-08-05,EN_RUTA,MS-1003,3,7995.06,Andes Courier,TRK36098007,MercaSur San Miguel,San Isidro
+MS-2026-00017,Sofía Castillo Delgado,2026-08-23,ENTREGADO,MS-1025,2,1344.7,Despacho propio MercaSur,TRK69035116,Almacén Central MercaSur,Independencia
+MS-2026-00018,Carmen Alarcón Castillo,2026-07-08,EN_RUTA,MS-1018,2,7821.2,Despacho propio MercaSur,TRK54941505,MercaSur San Miguel,Lince
+MS-2026-00019,Rosa Torres Cárdenas,2026-07-31,ENTREGADO,MS-1014,2,802.72,Despacho propio MercaSur,TRK57813426,MercaSur Sur,Comas
+MS-2026-00020,Miguel Villanueva Ríos,2026-08-20,LISTO_PARA_RECOJO,MS-1010,1,2737.26,Rapidex,TRK52062439,MercaSur Norte,Magdalena del Mar
+MS-2026-00021,Diego Bustamante Ampuero,2026-07-07,EN_RUTA,MS-1018,2,7821.2,Andes Courier,TRK47771251,MercaSur Salaverry,San Isidro
+MS-2026-00022,Milagros Vargas Cárdenas,2026-08-08,ENTREGADO,MS-1008,3,1883.97,Despacho propio MercaSur,TRK19751708,MercaSur Salaverry,San Borja
+MS-2026-00023,Rosa Zegarra Vargas,2026-09-03,EN_RUTA,MS-1036,1,1975.78,Volare Logística,TRK29483519,MercaSur San Miguel,Los Olivos
+MS-2026-00024,Gabriela Quispe Villanueva,2026-07-19,ENTREGADO,MS-1025,1,672.35,Rapidex,TRK17742777,Almacén Central MercaSur,Callao
+MS-2026-00025,Fernando Ampuero Villanueva,2026-07-23,EN_RUTA,MS-1033,3,11556.6,Rapidex,TRK32536119,Almacén Central MercaSur,Comas
+MS-2026-00026,Luis Ccahuana Ninahuanca,2026-08-10,ENTREGADO,MS-1017,2,8172.34,Volare Logística,TRK73745145,MercaSur San Miguel,Comas
+MS-2026-00027,Pilar Loayza Ccahuana,2026-08-19,EN_RUTA,MS-1004,2,8240.82,Rapidex,TRK13950804,MercaSur Sur,Magdalena del Mar
+MS-2026-00028,Gabriela Quispe Ríos,2026-08-26,EN_RUTA,MS-1008,1,627.99,Volare Logística,TRK27011155,Almacén Central MercaSur,Comas
+MS-2026-00029,Mauricio Yupanqui Yupanqui,2026-08-13,EN_PREPARACION,MS-1031,1,897.47,Rapidex,TRK67363727,MercaSur Surco,Ate
+MS-2026-00030,Rosa Castillo Ampuero,2026-07-28,ENTREGADO,MS-1042,2,7103.74,Volare Logística,TRK47510011,MercaSur San Miguel,Los Olivos
+MS-2026-00031,Raúl Castillo Torres,2026-09-01,ENTREGADO,MS-1041,2,1266.96,Despacho propio MercaSur,TRK85237344,MercaSur Sur,San Isidro
+MS-2026-00032,Renzo Delgado Yupanqui,2026-07-17,ENTREGADO,MS-1002,3,5863.68,Despacho propio MercaSur,TRK89874867,MercaSur San Miguel,San Isidro
+MS-2026-00033,Carlos Paredes Yupanqui,2026-07-10,EN_RUTA,MS-1033,1,3852.2,Rapidex,TRK69899930,MercaSur Surco,Ate
+MS-2026-00034,Patricia Delgado Alarcón,2026-08-14,ENTREGADO,MS-1008,1,627.99,Volare Logística,TRK68326058,MercaSur Sur,Chorrillos
+MS-2026-00035,Andrés Ampuero Chávez,2026-08-29,LISTO_PARA_RECOJO,MS-1006,1,1703.99,Rapidex,TRK31736196,MercaSur Salaverry,Magdalena del Mar
+MS-2026-00036,Lucía Rojas Torres,2026-07-10,EN_RUTA,MS-1027,3,11129.46,Rapidex,TRK37225143,MercaSur San Miguel,Comas
+MS-2026-00037,Lucía Bustamante Quispe,2026-08-13,EN_PREPARACION,MS-1024,1,1731.85,Andes Courier,TRK84717294,MercaSur Norte,Callao
+MS-2026-00038,Elena Ninahuanca Yupanqui,2026-08-14,ENTREGADO,MS-1003,3,7995.06,Despacho propio MercaSur,TRK65766033,MercaSur Norte,Pueblo Libre
+MS-2026-00039,Pilar Zegarra Huamán,2026-08-20,EN_PREPARACION,MS-1018,2,7821.2,Rapidex,TRK91548907,Almacén Central MercaSur,Villa El Salvador
+MS-2026-00040,Raúl Ampuero Ampuero,2026-09-04,DEVUELTO,MS-1033,1,3852.2,Andes Courier,TRK15424806,Almacén Central MercaSur,San Isidro
+MS-2026-00041,Rosa Salazar Rojas,2026-08-31,ENTREGADO,MS-1021,2,3493.6,Despacho propio MercaSur,TRK57223335,MercaSur Norte,Villa El Salvador
+MS-2026-00042,Fernando Loayza Flores,2026-09-01,LISTO_PARA_RECOJO,MS-1015,1,3117.23,Volare Logística,TRK82976285,Almacén Central MercaSur,San Juan de Lurigancho
+MS-2026-00043,Patricia Paredes Paredes,2026-07-23,EN_PREPARACION,MS-1002,3,5863.68,Andes Courier,TRK41827235,Almacén Central MercaSur,Pueblo Libre
+MS-2026-00044,Valeria Mendoza Castillo,2026-07-22,ENTREGADO,MS-1031,2,1794.94,Volare Logística,TRK22135063,MercaSur Salaverry,Jesús María
+MS-2026-00045,Silvia Zegarra Villanueva,2026-07-09,ENTREGADO,MS-1005,1,1636.61,Despacho propio MercaSur,TRK89712982,MercaSur Salaverry,Pueblo Libre
+MS-2026-00046,Pilar Ríos Delgado,2026-09-02,ENTREGADO,MS-1016,1,947.61,Rapidex,TRK83974938,MercaSur Sur,San Juan de Lurigancho
+MS-2026-00047,Milagros Loayza Mendoza,2026-08-17,ENTREGADO,MS-1001,3,4551.15,Volare Logística,TRK78393062,MercaSur Surco,Santiago de Surco
+MS-2026-00048,Patricia Ccahuana Rojas,2026-08-01,ENTREGADO,MS-1004,3,12361.23,Andes Courier,TRK97071491,MercaSur Salaverry,Miraflores
+MS-2026-00049,Fernando Espinoza Ninahuanca,2026-07-26,LISTO_PARA_RECOJO,MS-1012,2,1649.12,Andes Courier,TRK19328366,MercaSur Sur,San Borja
+MS-2026-00050,Patricia Zegarra Villanueva,2026-08-24,ENTREGADO,MS-1023,3,848.16,Volare Logística,TRK39213453,MercaSur Surco,Los Olivos

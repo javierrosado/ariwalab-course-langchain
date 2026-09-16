@@ -1,0 +1,43 @@
+sku,nombre,categoria,marca,precio_soles,garantia_meses,permite_cambio
+MS-1001,Laptop Pacha Basic,Tecnología,Wayra,1517.05,12,SI
+MS-1002,Laptop Aurora Plus,Tecnología,Tumi,1954.56,36,SI
+MS-1003,Smartphone Tumi Pro,Tecnología,Aurora,2665.02,36,SI
+MS-1004,Smartphone Tumi Basic,Tecnología,Inti,4120.41,36,SI
+MS-1005,Audífonos Nexo Pro,Tecnología,Nexo,1636.61,6,SI
+MS-1006,Audífonos Tumi Pro,Tecnología,Nexo,1703.99,12,SI
+MS-1007,Tablet Tumi Plus,Tecnología,Inti,1458.94,6,SI
+MS-1008,Tablet Pacha Plus,Tecnología,Inti,627.99,24,SI
+MS-1009,Monitor Inti Plus,Tecnología,Tumi,328.57,36,SI
+MS-1010,Monitor Kori Lite,Tecnología,Tumi,2737.26,6,SI
+MS-1011,Teclado Nexo Plus,Tecnología,Wayra,2858.52,24,SI
+MS-1012,Teclado Aurora Lite,Tecnología,Tumi,824.56,24,SI
+MS-1013,Licuadora Wayra Plus,Hogar,Aurora,1581.5,6,SI
+MS-1014,Licuadora Aurora Max,Hogar,Tumi,401.36,36,SI
+MS-1015,Aspiradora Inti Pro,Hogar,Nexo,3117.23,24,SI
+MS-1016,Aspiradora Nexo Max,Hogar,Inti,947.61,12,SI
+MS-1017,Juego de sábanas Kori Max,Hogar,Inti,4086.17,36,SI
+MS-1018,Juego de sábanas Aurora Max,Hogar,Aurora,3910.6,12,SI
+MS-1019,Olla arrocera Pacha Max,Hogar,Pacha,923.43,12,SI
+MS-1020,Olla arrocera Pacha Lite,Hogar,Tumi,3011.95,24,SI
+MS-1021,Ventilador Tumi Lite,Hogar,Aurora,1746.8,36,SI
+MS-1022,Ventilador Kori Max,Hogar,Tumi,1907.92,6,SI
+MS-1023,Zapatillas Aurora Lite,Moda,Inti,282.72,12,SI
+MS-1024,Zapatillas Inti Lite,Moda,Tumi,1731.85,36,NO
+MS-1025,Casaca Pacha Plus,Moda,Pacha,672.35,6,SI
+MS-1026,Casaca Nexo Lite,Moda,Wayra,3380.7,36,SI
+MS-1027,Polo Inti Pro,Moda,Kori,3709.82,24,SI
+MS-1028,Polo Aurora Plus,Moda,Aurora,2227.74,6,SI
+MS-1029,Jeans Nexo Lite,Moda,Pacha,609.2,6,SI
+MS-1030,Jeans Pacha Plus,Moda,Pacha,3158.23,24,SI
+MS-1031,Mochila Pacha Lite,Moda,Nexo,897.47,24,SI
+MS-1032,Mochila Aurora Lite,Moda,Nexo,1469.02,36,SI
+MS-1033,Refrigeradora Wayra Basic,Electrohogar,Tumi,3852.2,6,SI
+MS-1034,Refrigeradora Inti Basic,Electrohogar,Wayra,624.26,6,SI
+MS-1035,Lavadora Kori Lite,Electrohogar,Pacha,3162.83,24,SI
+MS-1036,Lavadora Kori Basic,Electrohogar,Aurora,1975.78,36,SI
+MS-1037,Microondas Nexo Pro,Electrohogar,Pacha,2261.93,6,SI
+MS-1038,Microondas Tumi Plus,Electrohogar,Kori,1309.05,6,SI
+MS-1039,Televisor Inti Plus,Electrohogar,Inti,1556.38,36,SI
+MS-1040,Televisor Aurora Max,Electrohogar,Aurora,1028.05,6,SI
+MS-1041,Horno Kori Basic,Electrohogar,Inti,633.48,12,SI
+MS-1042,Horno Pacha Max,Electrohogar,Wayra,3551.87,24,SI

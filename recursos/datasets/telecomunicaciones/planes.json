@@ -1,0 +1,75 @@
+[
+  {
+    "plan_id": "AM-CTRL-39",
+    "nombre": "Control 39",
+    "precio_soles": 39.0,
+    "gb_datos": 8,
+    "minutos": "Ilimitados",
+    "sms": 100,
+    "roaming_latam": false,
+    "permanencia_meses": 12,
+    "redes_sociales_libres": [
+      "WhatsApp"
+    ]
+  },
+  {
+    "plan_id": "AM-MAX-59",
+    "nombre": "Max 59",
+    "precio_soles": 59.0,
+    "gb_datos": 18,
+    "minutos": "Ilimitados",
+    "sms": "Ilimitados",
+    "roaming_latam": false,
+    "permanencia_meses": 12,
+    "redes_sociales_libres": [
+      "WhatsApp",
+      "Facebook"
+    ]
+  },
+  {
+    "plan_id": "AM-MAX-89",
+    "nombre": "Max 89",
+    "precio_soles": 89.0,
+    "gb_datos": 30,
+    "minutos": "Ilimitados",
+    "sms": "Ilimitados",
+    "roaming_latam": true,
+    "permanencia_meses": 18,
+    "redes_sociales_libres": [
+      "WhatsApp",
+      "Facebook",
+      "Instagram",
+      "TikTok"
+    ]
+  },
+  {
+    "plan_id": "AM-PRO-129",
+    "nombre": "Pro 129",
+    "precio_soles": 129.0,
+    "gb_datos": 60,
+    "minutos": "Ilimitados",
+    "sms": "Ilimitados",
+    "roaming_latam": true,
+    "permanencia_meses": 18,
+    "redes_sociales_libres": [
+      "WhatsApp",
+      "Facebook",
+      "Instagram",
+      "TikTok",
+      "YouTube"
+    ]
+  },
+  {
+    "plan_id": "AM-ILIM-179",
+    "nombre": "Ilimitado 179",
+    "precio_soles": 179.0,
+    "gb_datos": "Ilimitado",
+    "minutos": "Ilimitados",
+    "sms": "Ilimitados",
+    "roaming_latam": true,
+    "permanencia_meses": 24,
+    "redes_sociales_libres": [
+      "Todas"
+    ]
+  }
+]

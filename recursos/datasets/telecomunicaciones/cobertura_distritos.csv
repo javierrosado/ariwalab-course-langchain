@@ -1,0 +1,21 @@
+distrito,tecnologia,calidad_senal,incidencia_activa,detalle_incidencia
+Miraflores,4G/5G,EXCELENTE,NO,Saturación en hora punta
+San Isidro,5G,EXCELENTE,NO,Mantenimiento programado
+Santiago de Surco,4G,BUENA,NO,-
+La Molina,5G,BUENA,NO,Saturación en hora punta
+San Borja,5G,REGULAR,NO,Mantenimiento programado
+Jesús María,4G/5G,EXCELENTE,NO,Mantenimiento programado
+Lince,4G,EXCELENTE,NO,-
+Magdalena del Mar,4G/5G,EXCELENTE,NO,Mantenimiento programado
+Pueblo Libre,4G,EXCELENTE,NO,-
+San Miguel,4G/5G,BUENA,NO,Avería en nodo
+Comas,5G,BUENA,NO,-
+San Juan de Lurigancho,5G,EXCELENTE,SI,Mantenimiento programado
+Villa El Salvador,5G,REGULAR,NO,Mantenimiento programado
+Ate,5G,BUENA,NO,-
+Callao,4G,EXCELENTE,SI,-
+Chorrillos,5G,BUENA,NO,Mantenimiento programado
+Barranco,5G,EXCELENTE,NO,Saturación en hora punta
+Surquillo,4G,EXCELENTE,NO,Avería en nodo
+Los Olivos,4G/5G,EXCELENTE,NO,-
+Independencia,4G,EXCELENTE,NO,Mantenimiento programado

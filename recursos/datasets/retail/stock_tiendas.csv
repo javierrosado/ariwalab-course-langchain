@@ -1,0 +1,253 @@
+sku,tienda,stock_disponible
+MS-1001,MercaSur Surco,33
+MS-1001,MercaSur Norte,34
+MS-1001,MercaSur San Miguel,16
+MS-1001,MercaSur Salaverry,9
+MS-1001,MercaSur Sur,8
+MS-1001,Almacén Central MercaSur,4
+MS-1002,MercaSur Surco,31
+MS-1002,MercaSur Norte,40
+MS-1002,MercaSur San Miguel,25
+MS-1002,MercaSur Salaverry,7
+MS-1002,MercaSur Sur,45
+MS-1002,Almacén Central MercaSur,18
+MS-1003,MercaSur Surco,37
+MS-1003,MercaSur Norte,10
+MS-1003,MercaSur San Miguel,25
+MS-1003,MercaSur Salaverry,11
+MS-1003,MercaSur Sur,29
+MS-1003,Almacén Central MercaSur,27
+MS-1004,MercaSur Surco,41
+MS-1004,MercaSur Norte,3
+MS-1004,MercaSur San Miguel,0
+MS-1004,MercaSur Salaverry,17
+MS-1004,MercaSur Sur,16
+MS-1004,Almacén Central MercaSur,23
+MS-1005,MercaSur Surco,10
+MS-1005,MercaSur Norte,17
+MS-1005,MercaSur San Miguel,20
+MS-1005,MercaSur Salaverry,32
+MS-1005,MercaSur Sur,32
+MS-1005,Almacén Central MercaSur,18
+MS-1006,MercaSur Surco,28
+MS-1006,MercaSur Norte,35
+MS-1006,MercaSur San Miguel,32
+MS-1006,MercaSur Salaverry,30
+MS-1006,MercaSur Sur,13
+MS-1006,Almacén Central MercaSur,35
+MS-1007,MercaSur Surco,8
+MS-1007,MercaSur Norte,38
+MS-1007,MercaSur San Miguel,8
+MS-1007,MercaSur Salaverry,35
+MS-1007,MercaSur Sur,25
+MS-1007,Almacén Central MercaSur,37
+MS-1008,MercaSur Surco,4
+MS-1008,MercaSur Norte,20
+MS-1008,MercaSur San Miguel,21
+MS-1008,MercaSur Salaverry,9
+MS-1008,MercaSur Sur,21
+MS-1008,Almacén Central MercaSur,7
+MS-1009,MercaSur Surco,42
+MS-1009,MercaSur Norte,34
+MS-1009,MercaSur San Miguel,43
+MS-1009,MercaSur Salaverry,27
+MS-1009,MercaSur Sur,35
+MS-1009,Almacén Central MercaSur,12
+MS-1010,MercaSur Surco,36
+MS-1010,MercaSur Norte,12
+MS-1010,MercaSur San Miguel,3
+MS-1010,MercaSur Salaverry,21
+MS-1010,MercaSur Sur,31
+MS-1010,Almacén Central MercaSur,6
+MS-1011,MercaSur Surco,29
+MS-1011,MercaSur Norte,34
+MS-1011,MercaSur San Miguel,17
+MS-1011,MercaSur Salaverry,29
+MS-1011,MercaSur Sur,5
+MS-1011,Almacén Central MercaSur,41
+MS-1012,MercaSur Surco,29
+MS-1012,MercaSur Norte,12
+MS-1012,MercaSur San Miguel,1
+MS-1012,MercaSur Salaverry,5
+MS-1012,MercaSur Sur,7
+MS-1012,Almacén Central MercaSur,21
+MS-1013,MercaSur Surco,26
+MS-1013,MercaSur Norte,27
+MS-1013,MercaSur San Miguel,30
+MS-1013,MercaSur Salaverry,7
+MS-1013,MercaSur Sur,5
+MS-1013,Almacén Central MercaSur,2
+MS-1014,MercaSur Surco,6
+MS-1014,MercaSur Norte,28
+MS-1014,MercaSur San Miguel,11
+MS-1014,MercaSur Salaverry,6
+MS-1014,MercaSur Sur,9
+MS-1014,Almacén Central MercaSur,22
+MS-1015,MercaSur Surco,28
+MS-1015,MercaSur Norte,45
+MS-1015,MercaSur San Miguel,13
+MS-1015,MercaSur Salaverry,26
+MS-1015,MercaSur Sur,7
+MS-1015,Almacén Central MercaSur,40
+MS-1016,MercaSur Surco,23
+MS-1016,MercaSur Norte,6
+MS-1016,MercaSur San Miguel,15
+MS-1016,MercaSur Salaverry,12
+MS-1016,MercaSur Sur,21
+MS-1016,Almacén Central MercaSur,38
+MS-1017,MercaSur Surco,35
+MS-1017,MercaSur Norte,21
+MS-1017,MercaSur San Miguel,31
+MS-1017,MercaSur Salaverry,19
+MS-1017,MercaSur Sur,41
+MS-1017,Almacén Central MercaSur,4
+MS-1018,MercaSur Surco,1
+MS-1018,MercaSur Norte,7
+MS-1018,MercaSur San Miguel,2
+MS-1018,MercaSur Salaverry,25
+MS-1018,MercaSur Sur,9
+MS-1018,Almacén Central MercaSur,9
+MS-1019,MercaSur Surco,28
+MS-1019,MercaSur Norte,10
+MS-1019,MercaSur San Miguel,12
+MS-1019,MercaSur Salaverry,8
+MS-1019,MercaSur Sur,7
+MS-1019,Almacén Central MercaSur,43
+MS-1020,MercaSur Surco,41
+MS-1020,MercaSur Norte,25
+MS-1020,MercaSur San Miguel,0
+MS-1020,MercaSur Salaverry,17
+MS-1020,MercaSur Sur,19
+MS-1020,Almacén Central MercaSur,34
+MS-1021,MercaSur Surco,41
+MS-1021,MercaSur Norte,16
+MS-1021,MercaSur San Miguel,20
+MS-1021,MercaSur Salaverry,38
+MS-1021,MercaSur Sur,18
+MS-1021,Almacén Central MercaSur,19
+MS-1022,MercaSur Surco,37
+MS-1022,MercaSur Norte,3
+MS-1022,MercaSur San Miguel,16
+MS-1022,MercaSur Salaverry,3
+MS-1022,MercaSur Sur,22
+MS-1022,Almacén Central MercaSur,43
+MS-1023,MercaSur Surco,16
+MS-1023,MercaSur Norte,9
+MS-1023,MercaSur San Miguel,12
+MS-1023,MercaSur Salaverry,2
+MS-1023,MercaSur Sur,42
+MS-1023,Almacén Central MercaSur,9
+MS-1024,MercaSur Surco,14
+MS-1024,MercaSur Norte,38
+MS-1024,MercaSur San Miguel,21
+MS-1024,MercaSur Salaverry,11
+MS-1024,MercaSur Sur,33
+MS-1024,Almacén Central MercaSur,30
+MS-1025,MercaSur Surco,36
+MS-1025,MercaSur Norte,2
+MS-1025,MercaSur San Miguel,35
+MS-1025,MercaSur Salaverry,14
+MS-1025,MercaSur Sur,44
+MS-1025,Almacén Central MercaSur,37
+MS-1026,MercaSur Surco,7
+MS-1026,MercaSur Norte,9
+MS-1026,MercaSur San Miguel,22
+MS-1026,MercaSur Salaverry,39
+MS-1026,MercaSur Sur,1
+MS-1026,Almacén Central MercaSur,40
+MS-1027,MercaSur Surco,28
+MS-1027,MercaSur Norte,20
+MS-1027,MercaSur San Miguel,24
+MS-1027,MercaSur Salaverry,3
+MS-1027,MercaSur Sur,26
+MS-1027,Almacén Central MercaSur,36
+MS-1028,MercaSur Surco,0
+MS-1028,MercaSur Norte,20
+MS-1028,MercaSur San Miguel,13
+MS-1028,MercaSur Salaverry,44
+MS-1028,MercaSur Sur,17
+MS-1028,Almacén Central MercaSur,25
+MS-1029,MercaSur Surco,13
+MS-1029,MercaSur Norte,29
+MS-1029,MercaSur San Miguel,22
+MS-1029,MercaSur Salaverry,20
+MS-1029,MercaSur Sur,22
+MS-1029,Almacén Central MercaSur,36
+MS-1030,MercaSur Surco,16
+MS-1030,MercaSur Norte,20
+MS-1030,MercaSur San Miguel,36
+MS-1030,MercaSur Salaverry,14
+MS-1030,MercaSur Sur,41
+MS-1030,Almacén Central MercaSur,42
+MS-1031,MercaSur Surco,33
+MS-1031,MercaSur Norte,43
+MS-1031,MercaSur San Miguel,20
+MS-1031,MercaSur Salaverry,18
+MS-1031,MercaSur Sur,2
+MS-1031,Almacén Central MercaSur,3
+MS-1032,MercaSur Surco,44
+MS-1032,MercaSur Norte,12
+MS-1032,MercaSur San Miguel,19
+MS-1032,MercaSur Salaverry,34
+MS-1032,MercaSur Sur,31
+MS-1032,Almacén Central MercaSur,27
+MS-1033,MercaSur Surco,7
+MS-1033,MercaSur Norte,33
+MS-1033,MercaSur San Miguel,14
+MS-1033,MercaSur Salaverry,7
+MS-1033,MercaSur Sur,5
+MS-1033,Almacén Central MercaSur,20
+MS-1034,MercaSur Surco,17
+MS-1034,MercaSur Norte,12
+MS-1034,MercaSur San Miguel,27
+MS-1034,MercaSur Salaverry,31
+MS-1034,MercaSur Sur,20
+MS-1034,Almacén Central MercaSur,13
+MS-1035,MercaSur Surco,37
+MS-1035,MercaSur Norte,11
+MS-1035,MercaSur San Miguel,2
+MS-1035,MercaSur Salaverry,30
+MS-1035,MercaSur Sur,5
+MS-1035,Almacén Central MercaSur,23
+MS-1036,MercaSur Surco,35
+MS-1036,MercaSur Norte,13
+MS-1036,MercaSur San Miguel,13
+MS-1036,MercaSur Salaverry,17
+MS-1036,MercaSur Sur,36
+MS-1036,Almacén Central MercaSur,25
+MS-1037,MercaSur Surco,34
+MS-1037,MercaSur Norte,12
+MS-1037,MercaSur San Miguel,16
+MS-1037,MercaSur Salaverry,9
+MS-1037,MercaSur Sur,20
+MS-1037,Almacén Central MercaSur,44
+MS-1038,MercaSur Surco,4
+MS-1038,MercaSur Norte,34
+MS-1038,MercaSur San Miguel,1
+MS-1038,MercaSur Salaverry,15
+MS-1038,MercaSur Sur,17
+MS-1038,Almacén Central MercaSur,17
+MS-1039,MercaSur Surco,27
+MS-1039,MercaSur Norte,8
+MS-1039,MercaSur San Miguel,19
+MS-1039,MercaSur Salaverry,27
+MS-1039,MercaSur Sur,30
+MS-1039,Almacén Central MercaSur,10
+MS-1040,MercaSur Surco,33
+MS-1040,MercaSur Norte,20
+MS-1040,MercaSur San Miguel,3
+MS-1040,MercaSur Salaverry,43
+MS-1040,MercaSur Sur,15
+MS-1040,Almacén Central MercaSur,7
+MS-1041,MercaSur Surco,17
+MS-1041,MercaSur Norte,11
+MS-1041,MercaSur San Miguel,23
+MS-1041,MercaSur Salaverry,3
+MS-1041,MercaSur Sur,32
+MS-1041,Almacén Central MercaSur,22
+MS-1042,MercaSur Surco,4
+MS-1042,MercaSur Norte,15
+MS-1042,MercaSur San Miguel,4
+MS-1042,MercaSur Salaverry,33
+MS-1042,MercaSur Sur,38
+MS-1042,Almacén Central MercaSur,6

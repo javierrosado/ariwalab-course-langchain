@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.qdrant_local/
+.pytest_cache/
+.DS_Store

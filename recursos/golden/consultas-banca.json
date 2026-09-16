@@ -1,0 +1,162 @@
+{
+  "_comentario": "Fuente única de consultas del track banca (Banco Inti). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['banca'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/banca/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5).",
+  "track": "banca",
+  "consultas": [
+    {
+      "consulta": "¿Cuánto tengo en mi cuenta 00112233445566?",
+      "intencion": "CONSULTA_SALDO",
+      "categoria": "directa",
+      "tool_esperada": "get_account_balance"
+    },
+    {
+      "consulta": "Necesito el saldo disponible de la cuenta 00998877665544",
+      "intencion": "CONSULTA_SALDO",
+      "categoria": "directa",
+      "tool_esperada": "get_account_balance"
+    },
+    {
+      "consulta": "¿Mi cuenta 00112233445566 está activa y en qué moneda?",
+      "intencion": "CONSULTA_SALDO",
+      "categoria": "directa",
+      "tool_esperada": "get_account_balance"
+    },
+    {
+      "consulta": "Muéstrame los movimientos de los últimos 30 días de la 00112233445566",
+      "intencion": "CONSULTA_MOVIMIENTOS",
+      "categoria": "directa",
+      "tool_esperada": "list_transactions"
+    },
+    {
+      "consulta": "¿Qué consumos he hecho en los últimos 7 días en la cuenta 00998877665544?",
+      "intencion": "CONSULTA_MOVIMIENTOS",
+      "categoria": "directa",
+      "tool_esperada": "list_transactions"
+    },
+    {
+      "consulta": "Quiero ver mis últimas operaciones de la cuenta 00112233445566, de los últimos 15 días",
+      "intencion": "CONSULTA_MOVIMIENTOS",
+      "categoria": "directa",
+      "tool_esperada": "list_transactions"
+    },
+    {
+      "consulta": "¿Qué tarjeta tengo asociada a la cuenta 00112233445566?",
+      "intencion": "CONSULTA_TARJETA",
+      "categoria": "directa",
+      "tool_esperada": "get_card_info"
+    },
+    {
+      "consulta": "Dame los datos de mi tarjeta de la cuenta 00998877665544",
+      "intencion": "CONSULTA_TARJETA",
+      "categoria": "directa",
+      "tool_esperada": "get_card_info"
+    },
+    {
+      "consulta": "¿Cuál es la fecha de vencimiento de mi tarjeta? Cuenta 00112233445566",
+      "intencion": "CONSULTA_TARJETA",
+      "categoria": "directa",
+      "tool_esperada": "get_card_info"
+    },
+    {
+      "consulta": "¿Es sospechoso el movimiento MOV-2026-0042?",
+      "intencion": "SOSPECHA_FRAUDE",
+      "categoria": "directa",
+      "tool_esperada": "score_transaction_risk"
+    },
+    {
+      "consulta": "Analicen el riesgo de fraude de la operación MOV-2026-0187",
+      "intencion": "SOSPECHA_FRAUDE",
+      "categoria": "directa",
+      "tool_esperada": "score_transaction_risk"
+    },
+    {
+      "consulta": "¿Por qué se alertó el movimiento MOV-2026-0301?",
+      "intencion": "SOSPECHA_FRAUDE",
+      "categoria": "directa",
+      "tool_esperada": "score_transaction_risk"
+    },
+    {
+      "consulta": "Veo un cargo que no reconozco, ¿me listan lo del último mes de la 00112233445566?",
+      "intencion": "CONSULTA_MOVIMIENTOS",
+      "categoria": "confusable",
+      "tool_esperada": "list_transactions"
+    },
+    {
+      "consulta": "El movimiento MOV-2026-0042 no lo hice yo, ¿qué tan riesgoso lo consideran?",
+      "intencion": "SOSPECHA_FRAUDE",
+      "categoria": "confusable",
+      "tool_esperada": "score_transaction_risk"
+    },
+    {
+      "consulta": "¿Me alcanza el saldo para pagar 3500 soles? Cuenta 00998877665544",
+      "intencion": "CONSULTA_SALDO",
+      "categoria": "confusable",
+      "tool_esperada": "get_account_balance"
+    },
+    {
+      "consulta": "Mi tarjeta está por vencer, ¿me confirman los últimos dígitos y la fecha? Cuenta 00998877665544",
+      "intencion": "CONSULTA_TARJETA",
+      "categoria": "confusable",
+      "tool_esperada": "get_card_info"
+    },
+    {
+      "consulta": "¿Cuál es la comisión por mantenimiento de cuenta?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Qué hago si pierdo mi tarjeta estando en el extranjero?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Buenas tardes, ¿me pueden ayudar?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuál es el horario de atención de las agencias?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cómo hago para que no me cobren el mantenimiento de mi cuenta de ahorros?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuánto me cobran por sacar dinero en un cajero de otro banco?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Hasta cuántos días tengo para desconocer un movimiento que no reconozco?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuál es el pago mínimo de mi tarjeta este mes?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Me cobran algo extra si uso mi tarjeta en el extranjero?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Quiero cerrar mi tarjeta de crédito, ¿tiene alguna penalidad?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    }
+  ]
+}

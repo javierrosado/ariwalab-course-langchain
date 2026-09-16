@@ -1,0 +1,36 @@
+# ============================================================================
+# Curso IA Agent Building — stack 100 % open source, 100 % en línea
+# ============================================================================
+
+# --- Núcleo LangChain ---
+langchain>=1.1.0
+langchain-core>=1.1.0
+langchain-openai>=1.1.0          # cliente compatible con OpenAI: HF router y Foundry
+
+# --- Hugging Face (modelo y embeddings, en línea) ---
+langchain-huggingface>=0.3.0
+huggingface-hub>=0.30.0
+
+# --- Vector store: Qdrant Cloud ---
+langchain-qdrant>=0.2.0
+qdrant-client>=1.12.0
+
+# --- Observabilidad y evaluación: Langfuse Cloud ---
+langfuse>=3.0.0
+
+# --- Tools externas vía MCP (sesión 4) ---
+langchain-mcp-adapters>=0.1.14
+
+# --- Aplicación final (sesiones 8 y 11) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# --- Utilidades ---
+python-dotenv>=1.2.1
+pydantic>=2.9.0
+
+# ============================================================================
+# SOLO para el bonus de Foundry — instalar aparte, no se usa en las sesiones 1-11
+# ============================================================================
+# langchain-azure-ai[hosting]>=1.2.8
+# azure-ai-projects>=2.2.0

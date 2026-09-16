@@ -1,0 +1,162 @@
+{
+  "_comentario": "Fuente única de consultas del track telecomunicaciones (AndesMóvil). Las 12 directas y las 4 confusables vienen de docente/matriz_seleccion.py:CONSULTAS['telecomunicaciones'] (no duplicar: si cambian ahí, cambian aquí). La categoría 'otro' tiene 10 preguntas verificables contra recursos/datasets/telecomunicaciones/*.md — son las que en el L5 debe responder el RAG citando la fuente, nunca una tool. Esquema (2026-09-16, Sesión 2): 'intencion' es la categoría de la taxonomía del L2 (alineada 1:1 con las tools del L4); 'tool_esperada' es el nombre de la tool que resuelve esa categoría (None para OTRO, que va a RAG en la S5).",
+  "track": "telecomunicaciones",
+  "consultas": [
+    {
+      "consulta": "¿Qué plan tengo contratado en la línea 987654321?",
+      "intencion": "CONSULTA_PLAN",
+      "categoria": "directa",
+      "tool_esperada": "get_customer_plan"
+    },
+    {
+      "consulta": "Quiero saber cuál es mi plan actual, mi número es 912345678",
+      "intencion": "CONSULTA_PLAN",
+      "categoria": "directa",
+      "tool_esperada": "get_customer_plan"
+    },
+    {
+      "consulta": "¿En qué distrito está registrada la línea 998877665 y qué plan tiene?",
+      "intencion": "CONSULTA_PLAN",
+      "categoria": "directa",
+      "tool_esperada": "get_customer_plan"
+    },
+    {
+      "consulta": "¿Cuántos gigas he consumido en agosto? Mi línea es 987654321",
+      "intencion": "CONSULTA_CONSUMO",
+      "categoria": "directa",
+      "tool_esperada": "get_data_usage"
+    },
+    {
+      "consulta": "Necesito el detalle de minutos y SMS del periodo 2026-07 de la 912345678",
+      "intencion": "CONSULTA_CONSUMO",
+      "categoria": "directa",
+      "tool_esperada": "get_data_usage"
+    },
+    {
+      "consulta": "¿Ya se me acabaron los datos del mes? Línea 998877665",
+      "intencion": "CONSULTA_CONSUMO",
+      "categoria": "directa",
+      "tool_esperada": "get_data_usage"
+    },
+    {
+      "consulta": "Mi internet está lentísimo en la línea 987654321, ¿pueden revisar?",
+      "intencion": "AVERIA",
+      "categoria": "directa",
+      "tool_esperada": "run_line_diagnostics"
+    },
+    {
+      "consulta": "No tengo señal desde ayer, la línea es 912345678",
+      "intencion": "AVERIA",
+      "categoria": "directa",
+      "tool_esperada": "run_line_diagnostics"
+    },
+    {
+      "consulta": "Revisen técnicamente la 998877665, las llamadas se cortan",
+      "intencion": "AVERIA",
+      "categoria": "directa",
+      "tool_esperada": "run_line_diagnostics"
+    },
+    {
+      "consulta": "Quiero dejar un reclamo formal por la avería de mi línea 987654321, llevo tres días sin servicio",
+      "intencion": "RECLAMO",
+      "categoria": "directa",
+      "tool_esperada": "create_complaint_ticket"
+    },
+    {
+      "consulta": "Registren mi queja: me cobraron dos veces el plan. Línea 912345678",
+      "intencion": "RECLAMO",
+      "categoria": "directa",
+      "tool_esperada": "create_complaint_ticket"
+    },
+    {
+      "consulta": "Necesito un código de seguimiento para mi reclamo por portabilidad, línea 998877665",
+      "intencion": "RECLAMO",
+      "categoria": "directa",
+      "tool_esperada": "create_complaint_ticket"
+    },
+    {
+      "consulta": "Mi internet no funciona y quiero que quede constancia por escrito. Línea 987654321",
+      "intencion": "RECLAMO",
+      "categoria": "confusable",
+      "tool_esperada": "create_complaint_ticket"
+    },
+    {
+      "consulta": "¿Por qué me quedé sin datos si tengo plan ilimitado? Línea 912345678",
+      "intencion": "CONSULTA_CONSUMO",
+      "categoria": "confusable",
+      "tool_esperada": "get_data_usage"
+    },
+    {
+      "consulta": "Se me cayó el internet, ¿es problema mío o de la antena? Línea 998877665",
+      "intencion": "AVERIA",
+      "categoria": "confusable",
+      "tool_esperada": "run_line_diagnostics"
+    },
+    {
+      "consulta": "Contraté el Max 89 hace poco, ¿me confirman si ya está activo? Línea 987654321",
+      "intencion": "CONSULTA_PLAN",
+      "categoria": "confusable",
+      "tool_esperada": "get_customer_plan"
+    },
+    {
+      "consulta": "¿Cuánto cuesta el plan Max 89 al mes?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuál es el plazo legal para una portabilidad en Perú?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Hola, buenos días",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Qué documentos necesito para cambiar de titular?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Cuánto cuesta el Plan Control 39 y cuántos gigas incluye?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Es verdad que si debo una factura ya no puedo portarme a otro operador?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿En qué horario se ejecuta la portabilidad y cuánto demora?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "¿Hasta cuándo tengo plazo para reclamar un cobro que no reconozco en mi recibo?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Si mi reclamo no lo responden, ¿puedo apelar? ¿En cuánto tiempo?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    },
+    {
+      "consulta": "Se me cortó el servicio 8 horas seguidas, ¿me compensan automáticamente?",
+      "intencion": "OTRO",
+      "categoria": "otro",
+      "tool_esperada": null
+    }
+  ]
+}

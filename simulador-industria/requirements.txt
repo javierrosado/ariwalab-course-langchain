@@ -1,0 +1,9 @@
+# Simulador de industria — dependencias
+# Deliberadamente mínimas: el simulador no necesita LangChain ni ningún modelo.
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.9.0
+
+# Servidor MCP (transportes stdio y HTTP)
+mcp>=1.9.0

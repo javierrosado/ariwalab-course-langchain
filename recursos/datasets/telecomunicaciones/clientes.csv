@@ -1,0 +1,51 @@
+numero_linea,nombre_titular,dni,plan_id,plan_nombre,estado,fecha_alta,distrito
+988837195,Iván Ramírez Rojas,22707453,AM-PRO-129,Pro 129,ACTIVO,2025-10-07,Lince
+946265482,Claudia Alarcón Torres,76631941,AM-ILIM-179,Ilimitado 179,ACTIVO,2025-04-19,Independencia
+921230295,Claudia Cárdenas Cárdenas,13640536,AM-PRO-129,Pro 129,ACTIVO,2022-12-17,Surquillo
+987807296,Sofía Cárdenas Yupanqui,22288216,AM-ILIM-179,Ilimitado 179,ACTIVO,2025-01-25,Callao
+978876350,Milagros Chávez Zegarra,64536122,AM-ILIM-179,Ilimitado 179,SUSPENDIDO,2023-11-26,San Miguel
+952222571,Carlos Bustamante Vargas,40715245,AM-PRO-129,Pro 129,ACTIVO,2023-06-20,San Isidro
+973881882,María Quispe Chávez,26406803,AM-CTRL-39,Control 39,ACTIVO,2025-11-26,San Miguel
+924132781,Gabriela Huamán Torres,22329725,AM-MAX-89,Max 89,ACTIVO,2026-05-07,Surquillo
+940610352,Fernando Vargas Zegarra,78279287,AM-ILIM-179,Ilimitado 179,ACTIVO,2024-06-10,Comas
+915507872,José Castillo Rojas,13312217,AM-MAX-59,Max 59,ACTIVO,2023-05-20,San Isidro
+950011472,Ricardo Ampuero Flores,27612508,AM-MAX-59,Max 59,ACTIVO,2026-04-18,Villa El Salvador
+937787771,César Mendoza Quispe,24755545,AM-PRO-129,Pro 129,ACTIVO,2023-01-05,Independencia
+927044321,César Zegarra Loayza,68006294,AM-MAX-59,Max 59,ACTIVO,2023-05-29,San Juan de Lurigancho
+917651234,Valeria Zegarra Ccahuana,46879218,AM-MAX-89,Max 89,SUSPENDIDO,2023-07-12,Magdalena del Mar
+985685244,Rosa Ccahuana Torres,29599579,AM-PRO-129,Pro 129,ACTIVO,2026-04-27,Ate
+940136289,Ana Alarcón Cárdenas,79104687,AM-PRO-129,Pro 129,ACTIVO,2023-01-04,San Borja
+915210990,Sofía Rojas Yupanqui,77271509,AM-MAX-59,Max 59,ACTIVO,2026-01-18,Independencia
+910789277,Andrés Yupanqui Flores,62550055,AM-ILIM-179,Ilimitado 179,ACTIVO,2026-06-25,Comas
+939262906,Pilar Villanueva Ríos,71422953,AM-ILIM-179,Ilimitado 179,ACTIVO,2023-05-08,La Molina
+989255363,Ana Alarcón Yupanqui,15822067,AM-MAX-89,Max 89,ACTIVO,2025-11-04,Jesús María
+988055365,Diego Vargas Loayza,48190240,AM-MAX-89,Max 89,ACTIVO,2026-04-05,Miraflores
+932105368,Elena Villanueva Alarcón,61733347,AM-CTRL-39,Control 39,ACTIVO,2024-11-06,San Isidro
+938413740,Lucía Ninahuanca Ccahuana,27095900,AM-CTRL-39,Control 39,ACTIVO,2023-07-20,San Isidro
+954460932,Raúl Flores Cárdenas,56849702,AM-MAX-89,Max 89,ACTIVO,2025-01-15,La Molina
+987664190,Luis Paredes Espinoza,26697554,AM-ILIM-179,Ilimitado 179,ACTIVO,2024-08-05,San Isidro
+915726991,Valeria Villanueva Delgado,45650713,AM-MAX-89,Max 89,ACTIVO,2026-05-15,Villa El Salvador
+923074080,Fernando Vargas Loayza,38313402,AM-PRO-129,Pro 129,ACTIVO,2025-04-19,Lince
+963129379,Silvia Castillo Cárdenas,67085208,AM-PRO-129,Pro 129,ACTIVO,2024-03-09,Miraflores
+916521303,Renzo Flores Paredes,32797108,AM-MAX-89,Max 89,ACTIVO,2023-11-23,Ate
+949195336,Carmen Rojas Yupanqui,41942617,AM-CTRL-39,Control 39,ACTIVO,2023-04-11,La Molina
+926576405,Raúl Paredes Zegarra,31546826,AM-ILIM-179,Ilimitado 179,ACTIVO,2025-01-31,Callao
+966663911,Silvia Rojas Zegarra,43249878,AM-MAX-59,Max 59,ACTIVO,2024-08-09,Barranco
+988942006,Álvaro Villanueva Zegarra,51078648,AM-MAX-89,Max 89,ACTIVO,2025-04-19,Independencia
+914141457,Álvaro Bustamante Alarcón,12523507,AM-ILIM-179,Ilimitado 179,ACTIVO,2024-08-13,San Miguel
+985913369,José Villanueva Mendoza,10324622,AM-PRO-129,Pro 129,ACTIVO,2023-05-16,San Borja
+915060593,Fernando Zegarra Castillo,26121656,AM-ILIM-179,Ilimitado 179,SUSPENDIDO,2025-10-09,Surquillo
+916462928,Pilar Flores Huamán,52279590,AM-PRO-129,Pro 129,ACTIVO,2023-03-19,Miraflores
+981109030,Jorge Salazar Quispe,71085136,AM-MAX-59,Max 59,ACTIVO,2023-07-23,Chorrillos
+962204064,César Villanueva Rojas,31020142,AM-ILIM-179,Ilimitado 179,ACTIVO,2023-09-15,San Borja
+924056271,Claudia Rojas Paredes,27562728,AM-CTRL-39,Control 39,ACTIVO,2024-04-26,Pueblo Libre
+917168649,Karina Paredes Zegarra,19000470,AM-MAX-59,Max 59,SUSPENDIDO,2025-08-10,San Juan de Lurigancho
+934372665,Carlos Loayza Paredes,66203967,AM-ILIM-179,Ilimitado 179,ACTIVO,2025-12-04,Chorrillos
+978827788,César Quispe Salazar,51214717,AM-PRO-129,Pro 129,BAJA,2026-03-09,Lince
+937107861,Gabriela Rojas Huamán,17649407,AM-ILIM-179,Ilimitado 179,SUSPENDIDO,2026-02-02,Barranco
+989222432,Fernando Delgado Villanueva,79213973,AM-ILIM-179,Ilimitado 179,ACTIVO,2026-02-12,Los Olivos
+984534761,Fernando Cárdenas Ramírez,17206909,AM-MAX-89,Max 89,ACTIVO,2023-07-07,Villa El Salvador
+922557948,César Torres Mendoza,24291640,AM-ILIM-179,Ilimitado 179,SUSPENDIDO,2025-06-16,San Isidro
+946318301,Iván Loayza Yupanqui,35135450,AM-CTRL-39,Control 39,ACTIVO,2023-07-09,Jesús María
+967123284,Lucía Torres Zegarra,70033436,AM-ILIM-179,Ilimitado 179,ACTIVO,2026-05-30,San Juan de Lurigancho
+984274249,Karina Rojas Delgado,17549855,AM-ILIM-179,Ilimitado 179,ACTIVO,2023-03-01,Callao
