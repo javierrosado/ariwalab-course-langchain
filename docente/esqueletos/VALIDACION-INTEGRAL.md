@@ -71,12 +71,13 @@ El hilo más fuerte del curso, y el que más tarde se revela:
 |---|---|---|---|
 | A1 · máximo 4 tools | S1 | S4 | `matriz_seleccion.py` (S4, S10) |
 | A2 · docstring con "cuándo NO" | S1 | S3 | `matriz_seleccion.py` |
-| A3 · structured output validado | S1 | S2 | `verificar_structured.py` |
+| A3 · structured output validado | S1 | S2, **S4, S10** | `verificar_structured.py` |
 | A4 · tope de iteraciones y errores legibles | S1 | S3, S4 | — |
 | A5 · few-shot | S1 | S2 | — |
 | A6 · recuperación obligatoria | S1 | S5 | groundedness (S10) |
 
-⚠️ **Dos reglas se enuncian y luego desaparecen** (ver §3, hallazgos H1 y H2).
+⚠️ **Dos reglas se enuncian y luego desaparecen** (ver §3, hallazgos H1 y H2). **Una tercera se
+enuncia y se queda en un solo uso** (ver §3, hallazgo H7 — ya corregido).
 
 ### 2.4 · El simulador de industria
 
@@ -184,6 +185,30 @@ que la S4 lo nombre para que la cadena sea visible también ahí.
 La sustentación del A1 ocupa 20 min y el guion de la S4 ya suma 180. Están las tres salidas en
 `sesion-04.md` §5, marcadas con `DECISION-PENDIENTE`. **Lo decide Javier.**
 
+### H7 · `comun/structured.py` (regla A3) se usa solo en el L2 — **medio · corregido 2026-09-17**
+
+La regla A3 se enuncia en la S1, se aplica en la S2 (`extraer()` para clasificar intención) y no
+vuelve a aparecer en ningún otro laboratorio ni demo — ni siquiera en el L10, cuya sesión entera
+trata sobre por qué `assert respuesta == "esperado"` no sirve y cómo medir con criterio, lo que
+la hace el lugar más contradictorio posible para saltarse la validación estructurada. El L4
+tampoco la usa: sus 3 tools de escritura (`create_complaint_ticket`, `start_return_request`,
+`open_claim`) validaban su campo de enum con un `if valor not in {...}` escrito a mano, en vez de
+con el módulo que el curso ya enseña para exactamente ese problema.
+
+**Corrección aplicada:**
+
+| Dónde | Qué cambió |
+|---|---|
+| `modulo-3-produccion/sesion-10-evaluacion-optimizacion/code/03_llm_as_judge.py` | El juez ya no devuelve `"SI"`/`"NO"` en texto libre parseado a mano: responde con un esquema `Veredicto` (`aprueba: bool`, `motivo: str`, `confianza: Enum`) extraído con `extraer()`. Un juez sin validar habría contradicho la lección de la propia sesión |
+| `domain_tools.py` de telecomunicaciones, retail y seguros (L4) | La tool de escritura de cada track normaliza su enum (`tipo`, `tipo_solucion`) con `extraer()` **antes** de pedir confirmación — no tiene sentido confirmarle al cliente una acción cuyo tipo todavía no se sabe si es válido |
+| `domain_tools.py` de banca (L4) | Nota explícita: no aplica, porque el track no tiene ninguna tool de escritura en su núcleo (decisión ya documentada en el `README.md` de la S4) |
+
+**Por qué no se corrigió también añadiendo A3 a más lugares.** El objetivo no es maximizar cuántas
+veces aparece `extraer()`, es cerrar los dos huecos que contradicen contenido que el curso mismo
+enseña: un juez de la S10 sin validar, y una tool de escritura del L4 que ya tenía el problema
+exacto que `comun/structured.py` resuelve (un enum que el modelo puede inventar) sin usar la
+solución que el curso ya construyó para eso.
+
 ---
 
 ## 4. El calendario de bloqueantes
@@ -229,14 +254,19 @@ No es un hueco si está decidido. Se lista para que nadie lo "arregle" por error
 | Horas, balance y malla | ✅ 72 h · 40.3 / 59.7 · sin cambios académicos |
 | Cadena de laboratorios | ✅ Incremental de L1 a L12 |
 | Hilos transversales | ✅ Golden set, simulador y verificadores atraviesan el curso |
-| Reglas de diseño A1–A6 | ⚠️ **H1 y H2**: A5 sin aplicar, A4 sin medir |
-| Contenido prometido | ⚠️ **H3 y H4**: streaming y LangGraph |
+| Reglas de diseño A1–A6 | ✅ **H1, H2 y H7 corregidos** — A5 aplicado en S4/S6, A4 medido en el L7, A3 usado más allá del L2 |
+| Contenido prometido | ✅ **H3 y H4 corregidos** — streaming en la S11, mención de LangGraph en la S6 |
 | Referencias entre sesiones | ✅ Ninguna apunta hacia atrás |
 | Evaluación | ✅ Cubierta, con la observabilidad acotada a partir de la S9 |
 | Bloqueantes | ⚠️ Siete, todos de Javier, tres sin plan B |
 
-**El curso es coherente.** Los seis hallazgos son de contenido, no de arquitectura: ninguno obliga
-a rediseñar una sesión, y los cuatro corregibles (H1 a H4) son párrafos, no capítulos.
+**El curso es coherente.** Los siete hallazgos son de contenido, no de arquitectura: ninguno
+obligó a rediseñar una sesión. De los siete, seis (H1 a H5 y H7) ya están corregidos; **H6 sigue
+pendiente de decisión de Javier**, como corresponde a un `DECISION-PENDIENTE` que no le toca
+resolver a quien escribe el contenido.
 
-**Orden recomendado:** corregir H1 y H2 antes de construir el Módulo 2 —porque afectan a los
-enunciados de los laboratorios L4 y L6—, y H3 y H4 antes del Módulo 3.
+**Orden recomendado (histórico):** corregir H1 y H2 antes de construir el Módulo 2 —porque
+afectan a los enunciados de los laboratorios L4 y L6—, y H3 y H4 antes del Módulo 3. **Cumplido**:
+H1-H4 se corrigieron durante la construcción del Módulo 2 y el Módulo 3; H5 durante el cierre del
+hueco de la S2-S3; H7 se detectó y corrigió después, con el curso ya completo. Solo H6 permanece
+abierto, sin afectar la construcción de ninguna sesión.

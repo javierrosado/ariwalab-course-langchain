@@ -11,11 +11,17 @@ golden set el que mide el L2 (`medir_clasificador.py`) y el L4
 (regla del bloque 4 de README.md).
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
+
+Regla A3: `start_return_request` normaliza su `tipo_solucion` con `extraer()` de
+`comun/structured.py` antes de pedir confirmación — el mismo módulo del L2, aplicado
+aquí por primera vez fuera del clasificador (hallazgo H7 de
+`docente/esqueletos/VALIDACION-INTEGRAL.md`).
 """
 
 from __future__ import annotations
 
 import sys
+from enum import Enum
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -29,6 +35,8 @@ from pydantic import BaseModel, Field  # noqa: E402
 
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
+from comun.provider import get_chat_model  # noqa: E402
+from comun.structured import ExtraccionFallida, extraer  # noqa: E402
 
 from external_api import PedidoInput, track_order  # noqa: E402  (del L3, sin reescribir)
 
@@ -48,6 +56,19 @@ class DevolucionInput(BaseModel):
         default=False,
         description="True solo si el cliente confirmó explícitamente que quiere registrar la solicitud",
     )
+
+
+class TipoSolucion(str, Enum):
+    CAMBIO = "CAMBIO"
+    REEMBOLSO = "REEMBOLSO"
+    NOTA_CREDITO = "NOTA_CREDITO"
+
+
+class ClasificacionSolucion(BaseModel):
+    """Normaliza el tipo de solución contra las 3 categorías válidas, a partir de lo
+    que declaró el agente y del motivo real que dio el cliente."""
+
+    tipo_solucion: TipoSolucion = Field(description="La solución que mejor corresponde al motivo")
 
 
 # track_order del L3 se usa tal cual (import de arriba).
@@ -112,19 +133,29 @@ def start_return_request(pedido_id: str, motivo: str, tipo_solucion: str = "CAMB
     if p["estado"] != "ENTREGADO":
         return (f"El pedido {pedido_id} está en estado {p['estado']}, no ENTREGADO. "
                 f"No corresponde una devolución: consulta con el cliente si desea anular el pedido.")
-    tipos = {"CAMBIO", "REEMBOLSO", "NOTA_CREDITO"}
-    tipo_solucion = tipo_solucion.strip().upper()
-    if tipo_solucion not in tipos:
-        return f"Tipo de solución inválido: '{tipo_solucion}'. Debe ser uno de: {', '.join(sorted(tipos))}."
+
+    # Regla A3: el tipo de solución no se acepta tal cual — se normaliza contra las 3
+    # categorías válidas con extraer() (comun/structured.py), ANTES de pedir
+    # confirmación: no tiene sentido confirmarle al cliente una solución inválida.
+    try:
+        clasificacion = extraer(
+            get_chat_model(), ClasificacionSolucion,
+            f"Solución declarada: {tipo_solucion}\nMotivo del cliente: {motivo}",
+        )
+    except ExtraccionFallida:
+        return (f"Tipo de solución inválido: '{tipo_solucion}'. Debe ser uno de: "
+                f"{', '.join(t.value for t in TipoSolucion)}.")
+    tipo_validado = clasificacion.tipo_solucion.value
+
     if not confirmado_por_cliente:
-        return (f"CONFIRMACIÓN REQUERIDA. Vas a registrar una solicitud de {tipo_solucion} para el "
+        return (f"CONFIRMACIÓN REQUERIDA. Vas a registrar una solicitud de {tipo_validado} para el "
                 f"pedido {pedido_id} por el motivo: \"{motivo}\". Pregunta al cliente si confirma y "
                 f"solo entonces vuelve a llamar esta tool con confirmado_por_cliente=True.")
     dev_id = datos.siguiente_id("devoluciones.csv", "devolucion_id", "DEV-", TRACK)
     plazos = {"CAMBIO": "3 a 5 días hábiles", "REEMBOLSO": "7 a 15 días hábiles",
               "NOTA_CREDITO": "inmediata, válida 12 meses"}
     return (f"Solicitud registrada. Código: {dev_id} · Pedido: {pedido_id} · Producto: {p['sku']} · "
-            f"Motivo: {motivo} · Solución solicitada: {tipo_solucion} ({plazos[tipo_solucion]}) · "
+            f"Motivo: {motivo} · Solución solicitada: {tipo_validado} ({plazos[tipo_validado]}) · "
             f"Estado: SOLICITADA. Entrega este código al cliente para su seguimiento.")
 
 

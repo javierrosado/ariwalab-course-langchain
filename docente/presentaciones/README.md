@@ -1,0 +1,38 @@
+# Presentaciones de aula
+
+> Cierra el punto 8.9 del `ROADMAP.md`. Formato decidido con Javier: **esqueleto en Markdown**,
+> uno por sesión — sin herramienta de diapositivas específica. Cada archivo es una diapositiva
+> por bloque del guion (separadas por `---`), con título y 2-4 bullets resumidos del contenido
+> pactado en `docente/esqueletos/`. Cero dependencias nuevas: se pega tal cual en Google Slides,
+> PowerPoint, Marp o reveal.js — los tres primeros aceptan Markdown de importación directa o
+> casi directa, y Marp/reveal.js lo consumen nativo.
+
+## Cómo se usan
+
+- **No son la clase.** Son el esqueleto visual: el docente habla, la diapositiva ancla. El
+  contenido completo (diagramas ASCII, tablas, ejemplos) vive en el `README.md` de cada sesión y
+  en `docente/guia-docente.md` — cópialo a mano a la diapositiva si hace falta más detalle
+  visual del que da un bullet.
+- **Se derivan del guion, no lo reemplazan.** Si el guion de una sesión cambia en su esqueleto,
+  estas diapositivas quedan desactualizadas hasta que alguien las revise — mismo riesgo y misma
+  gestión que `docente/guia-docente.md`.
+- Los bloques de "Pausa" no llevan diapositiva propia — se marcan como nota dentro de la
+  diapositiva anterior.
+
+## Índice
+
+| Sesión | Archivo |
+|---|---|
+| S1 · Fundamentos de los agentes | [`sesion-01.md`](sesion-01.md) |
+| S2 · Ecosistema LangChain | [`sesion-02.md`](sesion-02.md) |
+| S3 · Tools y API externa (A1) | [`sesion-03.md`](sesion-03.md) |
+| S4 · Catálogo de 4 tools | [`sesion-04.md`](sesion-04.md) |
+| S5 · Memoria + RAG | [`sesion-05.md`](sesion-05.md) |
+| S6 · Guardrails | [`sesion-06.md`](sesion-06.md) |
+| S7 · Hackathon M2 | [`sesion-07.md`](sesion-07.md) |
+| S8 · Despliegue HF Spaces | [`sesion-08.md`](sesion-08.md) |
+| S9 · Observabilidad Langfuse | [`sesion-09.md`](sesion-09.md) |
+| S10 · Evaluación y optimización | [`sesion-10.md`](sesion-10.md) |
+| S11 · Sustentación final | [`sesion-11.md`](sesion-11.md) |
+| Seminario Internacional | [`seminario.md`](seminario.md) |
+| Bonus Foundry | [`bonus-foundry.md`](bonus-foundry.md) |

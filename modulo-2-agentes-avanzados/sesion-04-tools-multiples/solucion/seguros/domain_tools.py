@@ -11,12 +11,17 @@ golden set el que mide el L2 (`medir_clasificador.py`) y el L4
 bloque 4 de README.md).
 
 Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
+
+Regla A3: `open_claim` normaliza su `tipo` con `extraer()` de `comun/structured.py`
+antes de pedir confirmación — el mismo módulo del L2, aplicado aquí por primera vez
+fuera del clasificador (hallazgo H7 de `docente/esqueletos/VALIDACION-INTEGRAL.md`).
 """
 
 from __future__ import annotations
 
 import sys
 from datetime import date, datetime
+from enum import Enum
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -30,6 +35,8 @@ from pydantic import BaseModel, Field  # noqa: E402
 
 from comun import datos  # noqa: E402
 from comun.datos import DatoNoEncontrado  # noqa: E402
+from comun.provider import get_chat_model  # noqa: E402
+from comun.structured import ExtraccionFallida, extraer  # noqa: E402
 
 from external_api import PlacaInput, get_policy_by_plate  # noqa: E402  (del L3, sin reescribir)
 
@@ -53,6 +60,21 @@ class AperturaInput(BaseModel):
         default=False,
         description="True solo si el cliente confirmó explícitamente que quiere abrir el expediente",
     )
+
+
+class TipoSiniestro(str, Enum):
+    CHOQUE_SIMPLE = "CHOQUE_SIMPLE"
+    ATROPELLO = "ATROPELLO"
+    VOLCADURA = "VOLCADURA"
+    COLISION_MULTIPLE = "COLISION_MULTIPLE"
+    DESPISTE = "DESPISTE"
+
+
+class ClasificacionSiniestro(BaseModel):
+    """Normaliza el tipo de siniestro contra las 5 categorías válidas, a partir de lo
+    que declaró el agente — el relato del accidente manda si no coinciden."""
+
+    tipo: TipoSiniestro = Field(description="La categoría que mejor corresponde al accidente")
 
 
 # get_policy_by_plate del L3 se usa tal cual (import de arriba).
@@ -129,10 +151,19 @@ def open_claim(placa: str, tipo: str, distrito: str, cantidad_lesionados: int,
     NO la uses para consultar un siniestro existente: para eso usa get_claim_status.
     Esta tool SOLO registra el reporte: no aprueba, no liquida y no estima indemnizaciones.
     """
-    tipos = {"CHOQUE_SIMPLE", "ATROPELLO", "VOLCADURA", "COLISION_MULTIPLE", "DESPISTE"}
-    tipo = tipo.strip().upper()
-    if tipo not in tipos:
-        return f"Tipo de siniestro inválido: '{tipo}'. Debe ser uno de: {', '.join(sorted(tipos))}."
+    # Regla A3: el tipo de siniestro no se acepta tal cual — se normaliza contra las 5
+    # categorías válidas con extraer() (comun/structured.py), ANTES de la confirmación
+    # (o de la derivación por lesionados): un expediente no se abre con un tipo dudoso.
+    try:
+        clasificacion = extraer(
+            get_chat_model(), ClasificacionSiniestro,
+            f"Tipo declarado: {tipo}\nDistrito: {distrito}\nLesionados: {cantidad_lesionados}",
+        )
+    except ExtraccionFallida:
+        return (f"Tipo de siniestro inválido: '{tipo}'. Debe ser uno de: "
+                f"{', '.join(t.value for t in TipoSiniestro)}.")
+    tipo_validado = clasificacion.tipo.value
+
     try:
         p = datos.buscar_uno("polizas.csv", "placa", placa, TRACK)
     except DatoNoEncontrado:
@@ -143,9 +174,9 @@ def open_claim(placa: str, tipo: str, distrito: str, cantidad_lesionados: int,
                 f"Un siniestro fuera de vigencia no tiene cobertura del SOAT. "
                 f"DERIVA al canal humano para orientar al cliente.")
     if not confirmado_por_cliente and cantidad_lesionados == 0:
-        return (f"CONFIRMACIÓN REQUERIDA. Vas a abrir un expediente de {tipo} para la placa {placa} "
-                f"en {distrito}. Pregunta al cliente si confirma y solo entonces vuelve a llamar "
-                f"esta tool con confirmado_por_cliente=True.")
+        return (f"CONFIRMACIÓN REQUERIDA. Vas a abrir un expediente de {tipo_validado} para la placa "
+                f"{placa} en {distrito}. Pregunta al cliente si confirma y solo entonces vuelve a "
+                f"llamar esta tool con confirmado_por_cliente=True.")
     exp = datos.siguiente_id("siniestros.csv", "siniestro_id", "SIN-2026-", TRACK)
     urgencia = ""
     if cantidad_lesionados > 0:
@@ -153,7 +184,7 @@ def open_claim(placa: str, tipo: str, distrito: str, cantidad_lesionados: int,
                     f"establecimientos de salud DEBEN atender sin exigir pago previo. "
                     f"DERIVA DE INMEDIATO al canal humano de siniestros.")
     return (f"Expediente abierto. Código: {exp} · Póliza: {p['poliza_id']} · Placa: {placa} · "
-            f"Tipo: {tipo} · Distrito: {distrito} · Estado: REPORTADO. "
+            f"Tipo: {tipo_validado} · Distrito: {distrito} · Estado: REPORTADO. "
             f"Documentación requerida: documento de identidad de las víctimas, parte policial y "
             f"certificado médico de atención. Plazo de pronunciamiento: 30 días calendario desde "
             f"la presentación completa.{urgencia}")

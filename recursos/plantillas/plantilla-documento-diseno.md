@@ -1,6 +1,10 @@
 # Documento de diseño — [equipo] · [track]
 
-> Plantilla (tarea ae de `sesion-11.md`). 4 páginas, no más. Completa cada sección con
+> Plantilla del entregable de la Sesión 11 (tarea ae de
+> `docente/esqueletos/sesion-11.md`), citada desde
+> `modulo-3-produccion/sesion-11-sustentacion-final/README.md` y su `lab/README.md`. Vive en
+> `recursos/plantillas/` porque es un archivo compartido, igual que las rúbricas y el golden
+> set — no un archivo propio de esa sesión. 4 páginas, no más. Completa cada sección con
 > información real de tu proyecto — borra las instrucciones entre `< >`.
 
 ---
@@ -47,7 +51,8 @@ debajo) dónde vive la observabilidad (L9) y dónde se aplican los guardrails (L
 | 5 | | | |
 
 Una decisión útil nombra una alternativa real que consideraron. "Usamos X" no es una decisión;
-"usamos X y no Y porque Z" sí lo es (ver README.md §0).
+"usamos X y no Y porque Z" sí lo es (ver el `README.md` de la Sesión 11, §0 — "Cómo se
+argumenta ante un panel").
 
 ---
 

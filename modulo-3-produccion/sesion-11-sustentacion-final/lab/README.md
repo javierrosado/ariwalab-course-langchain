@@ -17,7 +17,8 @@ no hay más tool calls— y transmite cada fragmento como un evento Server-Sent 
 
 ## Parte 2 · Documento de diseño (40 min)
 
-Completa [`plantilla-documento-diseno.md`](plantilla-documento-diseno.md), 4 páginas, no más.
+Completa [`plantilla-documento-diseno.md`](../../../recursos/plantillas/plantilla-documento-diseno.md),
+4 páginas, no más.
 La sección 4 (Evidencia) importa más de lo que parece: decir qué falta es señal de que
 entendiste el sistema.
 

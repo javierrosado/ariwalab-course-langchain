@@ -23,7 +23,7 @@
 | 5 | Módulo 3 · sesiones 8-11 | ✅ **100 %** | 66 archivos en `modulo-3-produccion/` + `recursos/rubricas/rubrica-final.md` + `comun/evaluadores.py` + `docente/verificar_despliegue.py` + `docente/generar_trafico.py` |
 | 6 | Seminario Internacional | ✅ **100 %** | 5 archivos en `modulo-3-produccion/seminario-internacional/` |
 | 7 | Bonus Foundry | ✅ **100 %** | 6 archivos en `modulo-4-plus-foundry/` |
-| 8 | Materiales del docente | ⬜ 11 % (2/9: `rubrica-a1.md`, `rubrica-m2.md` ya existían) | 9 archivos |
+| 8 | Materiales del docente | ✅ **100 %** (7/9 archivos; 2 se consolidaron en `rubrica-final.md`, ver D29) | `guia-docente.md` + `banco-preguntas.md` + `checklist-pre-sesion.md` + `recursos/plantillas/` (2) + `docente/presentaciones/` (14) |
 | — | Verificación del stack | ✅ | `Qwen3-32B` verificado 2026-09-10 |
 
 > **Corrección de numeración (2026-09-16).** Esta tabla decía "Fase 6 · Bonus Foundry" y
@@ -42,9 +42,13 @@
                                         │          │          │          │          │
                                         └──────────┴────┬─────┴──────────┴──────────┘
                                                         │
-                                        FASE 8 ⬜ materiales del docente     ◄── SIGUIENTE
+                                        FASE 8 ✅ materiales del docente
                                         rúbricas · guía · presentaciones
 ```
+
+**El curso completo (Fases 0-8) está construido.** Lo que queda pendiente son las tareas de
+Javier señaladas a lo largo de este archivo (infraestructura desplegada, cuotas verificadas,
+convocatorias) — no contenido por escribir.
 
 ---
 
@@ -277,10 +281,21 @@ como continuación literal de `external_api.py` de esta sesión, no un archivo n
       (20 con tool + 10 otro, según exige `sesion-10.md`) y con el campo `respuesta_esperada`
       añadido a las 30 filas de los 4 tracks. Referencias cruzadas a "26"/"104" corregidas en
       10 archivos. Verificado: `matriz_seleccion.py --simular` → 100 % global
+- [x] **4.24** Hallazgo H7 de `VALIDACION-INTEGRAL.md` (2026-09-17): `comun/structured.py`
+      (regla A3) se usaba solo en el L2. Cerrado:
+      - `sesion-10-evaluacion-optimizacion/code/03_llm_as_judge.py` — el juez ahora responde con
+        un esquema `Veredicto` (`aprueba: bool`, `motivo: str`, `confianza: Enum`) extraído con
+        `extraer()`, en vez de texto libre parseado a mano
+      - `domain_tools.py` de telecomunicaciones, retail y seguros (L4) — la tool de escritura de
+        cada track normaliza su enum con `extraer()` antes de pedir confirmación
+      - `domain_tools.py` de banca — nota explícita de por qué no aplica (el track no tiene tool
+        de escritura en su núcleo)
+      - Verificado con pruebas funcionales (modelo simulado) para los 3 tracks afectados y
+        `docente/matriz_seleccion.py --simular` (100 % global, sin regresión)
 
 ---
 
-## FASE 5 · Módulo 3 · sesiones 8-11 ⬜
+## FASE 5 · Módulo 3 · sesiones 8-11 ✅
 
 ### Sesión 8 — Despliegue en HF Spaces ✅
 - [x] **5.1** `README.md` — 12-Factor, contenedores, protocolo de despliegue, diagrama de qué
@@ -394,17 +409,33 @@ como continuación literal de `external_api.py` de esta sesión, no un archivo n
 
 ---
 
-## FASE 8 · Materiales del docente ⬜
+## FASE 8 · Materiales del docente ✅
 
 - [x] **8.1** `recursos/rubricas/rubrica-a1.md` — 5 criterios × 4 niveles (construida en Fase 3, S3)
 - [x] **8.2** `recursos/rubricas/rubrica-m2.md` (construida en Fase 4, S7)
-- [ ] **8.3** `recursos/rubricas/rubrica-m3.md`
-- [ ] **8.4** `recursos/rubricas/rubrica-demo.md` — sustentación ante panel
-- [ ] **8.5** `docente/guia-docente.md` — cómo dictar cada sesión, tiempos, errores frecuentes
-- [ ] **8.6** `docente/banco-preguntas.md` — Test 1, Test 2 y autoevaluaciones
-- [ ] **8.7** `docente/checklist-pre-sesion.md` — los 4 servicios SaaS verificados 24 h antes
-- [ ] **8.8** `recursos/plantillas/` — plantilla de proyecto y de documento de diseño
-- [ ] **8.9** Presentaciones de aula (formato por definir)
+- [x] **8.3** ~~`recursos/rubricas/rubrica-m3.md`~~ — **consolidada en `rubrica-final.md`**
+      (Fase 5, S11): el proyecto de cierre del M3 y la sustentación ante panel son el mismo
+      evento (S11 §2 y §8), así que no hay un "proyecto M3" que calificar aparte de la demo. Ver
+      decisión **D29** en `_memoria/DECISIONES.md`
+- [x] **8.4** ~~`recursos/rubricas/rubrica-demo.md`~~ — **consolidada en `rubrica-final.md`**,
+      cuyo criterio "Comunicación técnica" (15 %) ya cubre la sustentación ante panel. Misma
+      decisión D29
+- [x] **8.5** `docente/guia-docente.md` — resumen operativo de las 11 sesiones + seminario +
+      bonus (ficha, guion condensado, errores esperables), derivado de `docente/esqueletos/`
+      sin reinventar contenido; incluye las decisiones pendientes de Javier (descuadre de 20 min
+      de la S4, etc.)
+- [x] **8.6** `docente/banco-preguntas.md` — índice de los 3 instrumentos que ya existían
+      (autoevaluación de la S0, Test 1, Test 2), sin duplicar sus preguntas
+- [x] **8.7** `docente/checklist-pre-sesion.md` — deriva de `docente/cronograma.md` §"Puntos de
+      control" y de `comun/check_stack.py`; añade los bloqueantes con fecha por sesión y los
+      modos degradados por servicio
+- [x] **8.8** `recursos/plantillas/` — `plantilla-proyecto-final.md` (nueva: estructura y
+      `README.md` inicial para el repositorio de cada equipo) + `plantilla-documento-diseno.md`
+      (movida desde `modulo-3-produccion/sesion-11-.../lab/`, que la citaba como archivo propio
+      de esa sesión sin serlo — ahora vive junto a las demás plantillas compartidas)
+- [x] **8.9** `docente/presentaciones/` — esqueleto de diapositivas en Markdown, una por sesión
+      (13 archivos + índice), decidido con el usuario: sin herramienta específica, listo para
+      pegar en Google Slides, PowerPoint, Marp o reveal.js
 
 ---
 
@@ -454,7 +485,7 @@ del agente no conoce a su proveedor, así que el material se escribe sin depende
   4. FASE 5  ──►  Módulo 3                       ✅ COMPLETADA (Sesiones 8-11)
   5. FASE 6  ──►  Seminario Internacional        ✅ COMPLETADA
   6. FASE 7  ──►  Bonus Foundry                  ✅ COMPLETADA
-  7. FASE 8  ──►  Materiales del docente         (se nutre de todo lo anterior)  ◄── SIGUIENTE
+  7. FASE 8  ──►  Materiales del docente         ✅ COMPLETADA
 ```
 
 > **Nota de secuencia (2026-09-16):** la Fase 4 se construyó antes de que la Fase 3 estuviera
