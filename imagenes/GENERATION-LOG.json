@@ -1,0 +1,56 @@
+[
+  {
+    "id": "IMG-M01-S01-001",
+    "destination": "imagenes/modulo-1-fundamentos/sesion-01-fundamentos-agentes/01-agentic-loop.png",
+    "source": "exec-cfa7e708-5e23-46db-a2cd-8a54fb9ead42.png",
+    "editPrompt": "",
+    "width": 1672,
+    "height": 941,
+    "sha256": "06aa5e9a5cda1a2c27f0b1c42f255a748054ed55eb71818e9cf700a1295d0eb0"
+  },
+  {
+    "id": "IMG-M01-S02-001",
+    "destination": "imagenes/modulo-1-fundamentos/sesion-02-ecosistema-langchain/01-structured-output.png",
+    "source": "exec-41de75da-aa89-472a-9dce-380e8fe43d2b.png",
+    "editPrompt": "Make exactly ONE icon change: replace the brain icon representing the model/LLM with a simple orange MICROCHIP icon outlined in dark navy, matching the canonical course LLM symbol. Preserve every word, arrow, layout, color and card from the input. No other changes. Opaque background.",
+    "width": 1672,
+    "height": 941,
+    "sha256": "759ba9d53e6092a97fdc073b534b085d254eb1cd27a8d791b2fbd2e13218a69c"
+  },
+  {
+    "id": "IMG-M02-S05-001",
+    "destination": "imagenes/modulo-2-agentes-avanzados/sesion-05-memoria-rag/01-memoria-rag.png",
+    "source": "exec-1d2b6013-6f2c-481f-a5e0-986562485bd2.png",
+    "editPrompt": "Make exactly ONE icon change: replace the brain icon representing the model/LLM with a simple orange MICROCHIP icon outlined in dark navy, matching the canonical course LLM symbol. Preserve every word, arrow, layout, color and card from the input. No other changes. Opaque background.",
+    "width": 1672,
+    "height": 941,
+    "sha256": "e59da6f6002c1b268264832798d119a85a7cc673d5e69f8b5609467a6934d900"
+  },
+  {
+    "id": "IMG-M02-S06-001",
+    "destination": "imagenes/modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/01-controles.png",
+    "source": "exec-dadf0a80-e856-4665-95f4-382890b87f8e.png",
+    "editPrompt": "Keep this diagram's main orange execution flow exactly. REMOVE ALL dark dashed arrows and remove the two-item arrow legend at bottom left. This diagram has NO telemetry; do not add any telemetry. Replace the icon in Usuario with the outline of a PERSON (head and shoulders); keep label Usuario. Keep coverage-limited note. Solid opaque pale grey background. Only requested edits.",
+    "width": 1672,
+    "height": 941,
+    "sha256": "f4d6c08c8b2c600d78d92bdc109321aaf6e0f15331bef38a36793212c049a1ae"
+  },
+  {
+    "id": "IMG-M03-S08-001",
+    "destination": "imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/01-despliegue.png",
+    "source": "exec-08843bd0-366e-4743-8663-cc7886c1ba76.png",
+    "editPrompt": "Critical architecture correction: extend the rounded HF Spaces boundary so it contains FastAPI AND Agente AND Enmascarador. The three cards are all in the same Space process. Leave Cliente, Modelo remoto, Simulador API, Qdrant and Langfuse OUTSIDE that boundary. Keep existing arrows and labels. Replace Qdrant wrench icon with database cylinder containing vector dots. Replace Simulador API wrench icon with endpoint connection icon. Replace Langfuse gear icon with tree of spans. Add small Público label to GET /health. Keep POST /chat and X-API-Key. Keep diagram fully opaque 16:9, same colors and flat style. No extra components. Reduce title font if needed for margins.",
+    "width": 1672,
+    "height": 941,
+    "sha256": "281ceae8986d85d915567574493402c180db6c042cc805cd20dff5a8e12c9193"
+  },
+  {
+    "id": "IMG-M03-S10-001",
+    "destination": "imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/01-evaluacion.png",
+    "source": "exec-e0d959df-d784-4146-b4b9-89c24289e5e6.png",
+    "editPrompt": "Keep this Evaluation diagram and all labels/relationships exactly. Change ALL dashed arrows to solid arrows: they represent observed data, NOT telemetry. Remove the bottom-left legend entirely. Replace both small brain icons inside Agente v1 and Agente v2 with microchip icons matching the course LLM symbol. Keep all six outputs Respuesta, Tools, Contexto. Change bottom note to exactly: Proxy léxico: revisar fuente y afirmación. Change the X icon for Casos no aplicables to an em dash symbol so it is not confused with a failure. Keep fully opaque background and 16:9 composition. No other changes.",
+    "width": 1672,
+    "height": 941,
+    "sha256": "c54570497ff72e2a87301aff08c3fe176fcbb4c37535f65b4b8f58e56fd82927"
+  }
+]
