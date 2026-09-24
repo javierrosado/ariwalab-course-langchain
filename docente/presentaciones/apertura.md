@@ -15,13 +15,17 @@ El curso está dirigido a desarrolladores con conocimientos de Python, REST, Git
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Construcción de agentes de IA con LangChain”.
 Subtítulo: “Aprender a construir, controlar y evaluar”.
 En el centro, tres tarjetas conectadas de izquierda a derecha: “Consultar información”, con documentos y base de datos; “Usar herramientas”, con llave inglesa y función; “Responder con evidencia”, con conversación y referencia documental.
 Debajo, una franja con “Base requerida: Python · REST · Git” y “Sin experiencia previa con LLM”. El título domina la composición; las tres capacidades son el segundo foco. No representar al modelo como una persona ni sugerir autonomía ilimitada.
+Añadir una etiqueta visible, separada de los requisitos: “11 sesiones · 66 horas”.
 Pie discreto: “01 / 08”.
 ```
 
@@ -36,8 +40,11 @@ También podremos investigar qué herramientas se ejecutaron, cuánto tardaron l
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “El resultado final: un agente que puedes explicar y evaluar”.
 A la izquierda, una interfaz web con “¿Qué plan tengo y cuál es su tarifa?”. En el centro, un contenedor “Agente” con “Modelo” y “Ejecución de herramientas”. Debajo, fuera del contenedor, “Datos del cliente” y “Documentos del servicio”. Las conexiones a esos recursos parten de “Ejecución de herramientas”, nunca directamente del modelo; mostrar consultas y retornos.
@@ -56,12 +63,15 @@ La personalización se realizará mediante instrucciones, herramientas y documen
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “El alcance del curso”.
 Bajo el encabezado “Capacidades que implementarás”, una cuadrícula de dos filas y cuatro columnas: “Herramientas”, “Memoria”, “RAG”, “Guardrails”, “API”, “Interfaz web”, “Observabilidad” y “Evaluación”. Iconos respectivos: llave inglesa, mensajes apilados, documentos con lupa, escudo abierto con condición, conexión, navegador, árbol de trazas y tabla de casos. No unir las tarjetas con flechas: son capacidades, no una secuencia.
-En una franja separada: “Fuera del alcance práctico” y “Fine-tuning · Sistemas multiagente · Grafos avanzados”. Etiqueta independiente: “Foundry: bonus opcional”. No representar los guardrails como protección absoluta.
+En una franja separada: “Fuera del alcance práctico” y “Fine-tuning · Sistemas multiagente · Grafos avanzados”. Etiqueta independiente: “Foundry: bonus opcional, fuera de las 66 horas”. No representar los guardrails como protección absoluta.
 Pie discreto: “03 / 08”.
 ```
 
@@ -78,12 +88,15 @@ Son once sesiones de seis horas: 66 horas lectivas. El bonus de Foundry queda fu
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Un proyecto que crece durante el curso”.
-Mostrar tres tarjetas grandes conectadas: “M1 · Fundamentos”, “Sesiones 1–3”, “Mensajes, prompts y herramientas”, resultado “Primer agente”; “M2 · Agentes avanzados”, “Sesiones 4–7”, “Memoria, RAG y guardrails”, resultado “Agente ampliado”; “M3 · Despliegue y evaluación”, “Sesiones 8–11”, “API, trazas y medición”, resultado “Proyecto integrador”.
-Representar capacidades que se agregan al mismo prototipo. El recorrido principal termina en S11. Debajo, una tarjeta separada: “Bonus opcional · Microsoft Foundry”, con “Fuera de las 66 horas”. Franja de cierre: “11 sesiones × 6 horas = 66 horas”. No añadir ninguna sesión ni actividad intermedia adicional.
+Mostrar tres tarjetas grandes conectadas: “M1 · Fundamentos”, “Sesiones 1–3 · 18 horas”, “Mensajes, prompts y herramientas”, resultado “Primer agente”; “M2 · Agentes avanzados”, “Sesiones 4–7 · 24 horas”, “Memoria, RAG y guardrails”, resultado “Agente ampliado”; “M3 · Despliegue y evaluación”, “Sesiones 8–11 · 24 horas”, “API, trazas y medición”, resultado “Proyecto integrador”.
+Reservar el área principal para tres columnas del mismo ancho, con el resultado de cada módulo destacado en una banda inferior. Usar flechas sólidas de M1 a M2 y de M2 a M3. Representar capacidades que se agregan al mismo prototipo. El recorrido principal termina en S11 con la etiqueta “Sustentación final”. Debajo, una tarjeta separada: “Bonus opcional · Microsoft Foundry”, con “Fuera de las 66 horas”. Franja de cierre: “11 sesiones × 6 horas = 66 horas”. No añadir ninguna sesión ni actividad intermedia adicional.
 Pie discreto: “04 / 08”.
 ```
 
@@ -98,8 +111,11 @@ La base técnica es compartida. Cambian datos, herramientas, vocabulario y lími
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Cuatro industrias, una base técnica compartida”.
 Crear una cuadrícula 2 × 2 con igual jerarquía: “Telecomunicaciones”, “AndesMóvil”, “Planes · Consumo · Reclamos”, icono teléfono y antena; “Banca”, “Banco Inti”, “Cuentas · Operaciones sospechosas”, icono banco y lupa; “Retail”, “MercaSur”, “Pedidos · Productos · Devoluciones”, icono paquete y carrito; “Seguros”, “Andina Seguros”, “Pólizas · Reporte de siniestros”, icono vehículo y documento.
@@ -118,13 +134,16 @@ Cada sesión comprende una hora de preparación, tres horas en vivo con explicac
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Cómo organizaremos el aprendizaje”.
 Arriba, tres cifras: “6 semanas”, “11 sesiones” y “66 horas”.
 En el centro, tres bloques conectados: “Antes de clase”, “1 hora”, “Conceptos y preparación”, icono libro; “En clase”, “3 horas”, “Explicación, demos y práctica”, icono pantalla; “Después de clase”, “2 horas”, “Laboratorio incremental”, icono terminal.
-Debajo, dos franjas bien diferenciadas: “Semanas 1–5: 2 sesiones y 12 horas por semana” y “Semana 6: 1 sesión y 6 horas”. Cierre: “33 horas en vivo + 33 horas asíncronas”. Nota: “S0 y bonus: tiempo adicional”. No representar seis semanas idénticas ni indicar doce horas en la última semana. Las flechas expresan secuencia; los bloques no tienen que ocurrir el mismo día.
+Debajo, dos franjas bien diferenciadas; la última semana debe tener una sola marca de sesión, mientras cada una de las primeras cinco tiene dos: “Semanas 1–5: 2 sesiones y 12 horas por semana” y “Semana 6: 1 sesión y 6 horas”. Cierre: “33 horas en vivo + 33 horas asíncronas”. Nota: “S0 y bonus: tiempo adicional”. No representar seis semanas idénticas ni indicar doce horas en la última semana. Las flechas expresan secuencia; los bloques no tienen que ocurrir el mismo día.
 Pie discreto: “06 / 08”.
 ```
 
@@ -139,11 +158,14 @@ Cada hito representa el cien por ciento de la nota de su módulo; no son porcent
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Evaluaremos lo que construyes y cómo lo demuestras”.
-Mostrar tres columnas: “A1”, “Primer agente”, “API externa + tres escenarios”, “100 % del Módulo 1”; “Proyecto M2”, “Agente ampliado”, “Herramientas + memoria + RAG + controles”, “100 % del Módulo 2”; “Proyecto integrador”, “Aplicación desplegada”, “Trazas + evaluación + sustentación”, “100 % del Módulo 3”.
+Mostrar tres columnas: “A1”, “Primer agente”, “API externa + tres escenarios”, “100 % del Módulo 1”; “Proyecto M2”, “Agente ampliado”, “Herramientas + memoria + RAG + controles”, “100 % del Módulo 2”; “Proyecto integrador · S11”, “Aplicación desplegada”, “Trazas + evaluación + sustentación”, “100 % del Módulo 3”.
 Debajo: “Criterios según la rúbrica de cada etapa” y “Funcionamiento · Diseño · Controles · Evidencia · Comunicación”. Pie: “Autoevaluaciones: habilitantes” y “Bonus: no ponderado”. No usar gráfico circular ni sumar los porcentajes de módulos distintos. Representar evidencia con pruebas y documentos, no con trofeos ni resultados inventados.
 Pie discreto: “07 / 08”.
 ```
@@ -159,11 +181,14 @@ Ejecutarán cuatro demos sobre tokens, variación de respuestas, embeddings y co
 ### Prompt para la imagen
 
 ```text
+CONTEXTO PARA MANTENER LA COHERENCIA, NO IMPRIMIR ESTE PÁRRAFO:
+Curso de 11 sesiones lectivas y 66 horas: 33 en vivo y 33 asíncronas. Se distribuye en seis semanas: dos sesiones por semana durante las primeras cinco y una en la sexta. S0 y bonus Foundry son adicionales. El recorrido lectivo termina en la sustentación S11. Incluir únicamente las actividades y los textos visibles solicitados para esta diapositiva.
+
 Crea una diapositiva educativa completa en español, horizontal 16:9, resolución 1536 × 864 o equivalente, legible al proyectarse en un aula.
-Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados.
+Estilo técnico plano de aspecto vectorial. Fondo #F4F6F8, texto #1E293B, tarjetas blancas y acento #FF5733. Tipografía sans serif grande, iconos lineales consistentes, bordes redondeados, amplio espacio libre y márgenes seguros del 5 %. Sin fotografías, robots humanoides, 3D, sombras pesadas, logotipos comerciales ni métricas inventadas. No añadir textos distintos de los solicitados. Mantener legibilidad de proyección: reducir elementos decorativos antes que el tamaño de las letras. Respetar tildes, nombres y cifras; evitar texto cortado, superpuesto o repetido.
 
 Título exacto: “Tu siguiente paso: completar la preparación S0”. Subtítulo: “Antes de la primera sesión en vivo”.
 Diseñar una ruta numerada: “1 · Fundamentos de LLM”, icono libro; “2 · Python y entorno”, icono terminal; “3 · Cuentas y accesos”, texto “Hugging Face · Qdrant · Langfuse”, icono conexiones; “4 · Cuatro demos”, texto “Tokens · Temperatura · Embeddings · Costo”, icono ejecución; “5 · Autoevaluación”, icono checklist.
-Destacar “Reserva 4–5 horas” y “Mínimo 80 %”. Pie: “Preparación obligatoria y asíncrona” y “Fuera de las 66 horas lectivas”. Mostrar tareas por completar, sin marcas de aprobación ni resultados obtenidos. Mantener una ruta visual fácil de seguir, con una acción inmediata al terminar la bienvenida.
+Destacar “Reserva 4–5 horas adicionales” y “Mínimo 80 %”. Colocar el tiempo junto al conjunto de preparación y el porcentaje junto a la autoevaluación, para que no se confundan. Pie: “Preparación obligatoria y asíncrona” y “Fuera de las 66 horas lectivas”. Mostrar tareas por completar, sin marcas de aprobación ni resultados obtenidos. Mantener una ruta visual fácil de seguir, con una acción inmediata al terminar la bienvenida.
 Pie discreto: “08 / 08”.
 ```
