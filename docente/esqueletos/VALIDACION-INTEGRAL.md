@@ -14,7 +14,7 @@ La validación tiene dos mitades, y la división importa:
 
 | Mitad | Instrumento | Qué comprueba |
 |---|---|---|
-| **Mecánica** | `python docente/validar_coherencia.py` | Horas, guiones, referencias, laboratorios, tareas, herramientas, bloqueantes. 10 familias de comprobación, determinista, sin credenciales |
+| **Mecánica** | `python docente/validar_materiales.py` (validación actual de rutas/sintaxis; el script histórico `validar_coherencia.py` no está versionado y su verificación pedagógica no es reproducible aquí) | Horas, guiones, referencias, laboratorios, tareas, herramientas, bloqueantes. 10 familias de comprobación, determinista, sin credenciales |
 | **Pedagógica** | Este documento | Si un concepto se enseña antes de usarse, si la narrativa se sostiene, si hay huecos o duplicados. **No se puede automatizar: se revisa leyendo** |
 
 **Resultado de la mitad mecánica, hoy:**

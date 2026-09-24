@@ -66,7 +66,8 @@ conjunto de tokens que acumulan una probabilidad `p`. Se ajusta uno u otro, rara
 Propiedad de dar siempre la misma salida ante la misma entrada. Los LLM **no la garantizan**,
 ni siquiera con `temperature=0`, por detalles de hardware y paralelismo.
 
-> **Consecuencia práctica:** `assert respuesta == "esperado"` no sirve para probar un agente.
+> **Consecuencia práctica:** la igualdad de toda una respuesta libre suele ser frágil; sí
+> son útiles las aserciones exactas sobre contratos determinísticos.
 > Por eso el curso dedica la sesión 10 a evaluación con métricas y no con aserciones exactas.
 
 ### Alucinación
@@ -217,8 +218,8 @@ validar, cambiar de modelo, manejar errores.
 Restricción que impide que el agente haga algo indebido: validar la entrada, enmascarar datos
 personales, prohibir acciones, exigir confirmación, derivar a un humano.
 
-> Un guardrail escrito solo en el system prompt es una sugerencia. Un guardrail en código es
-> una garantía. El curso enseña a ponerlos en código.
+> Un guardrail escrito solo en el system prompt es una sugerencia. Un guardrail en código aplica
+> condiciones explícitas, cuya cobertura debe probarse; no garantiza defensa universal. El curso enseña a ponerlos en código.
 
 ### MCP (Model Context Protocol)
 Estándar abierto para que un agente se conecte a herramientas y fuentes de datos externas sin
@@ -246,6 +247,9 @@ Textos con significado parecido quedan cerca en ese espacio.
 > ni una palabra. Eso es lo que la búsqueda por palabras clave no puede hacer.
 
 ### Similitud coseno
+Los umbrales de la tabla son ilustrativos, no universales: deben calibrarse con el modelo
+de embeddings, la normalización y el corpus usados.
+
 Medida de cercanía entre dos vectores, de -1 a 1. Es cómo se decide qué fragmento responde mejor
 a una consulta.
 

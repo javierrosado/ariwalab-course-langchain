@@ -1,10 +1,12 @@
 # Curso "IA Agent Building" — Construcción de agentes con LangChain
 
 Curso en español para **ingenieros de software con poco conocimiento de LLMs**.
-Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-beginners`](../langchain-for-beginners).
+Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-beginners`](https://github.com/microsoft/langchain-for-beginners).
 
-> **Estado: PLAN CURRICULAR v2.0 — pendiente de aprobación.**
-> Las carpetas de sesiones están creadas pero aún vacías de contenido.
+> **Estado: curso construido, en revisión de consistencia.**
+> Incluye S0, S1–S11, seminario y bonus. La disponibilidad de servicios y la aprobación
+> académica siguen sujetas a los bloqueos del [reporte](docs/COURSE-CONSISTENCY-REPORT.md).
+> Navegación: [mapa pedagógico](docs/COURSE-MAP.md) · [glosario canónico](docs/GLOSSARY.md).
 
 ---
 
@@ -13,7 +15,7 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 | | |
 |---|---|
 | **Open source** | Modelo, framework, embeddings, vector store, observabilidad y evaluación son de código abierto |
-| **Todo en línea** | Nada corre en la laptop del alumno: se usan las nubes gestionadas de esos productos, en planes gratuitos |
+| **Todo en línea** | La inferencia y los servicios se consumen en línea; Python, clientes y demos pueden correr en la laptop. Verificar cuotas de los planes antes del dictado |
 | **Excepción** | El **módulo bonus asíncrono** es el *plus*: el mismo agente desplegado en Microsoft Foundry, como puerta de entrada al Curso 2 |
 
 ---
@@ -27,7 +29,7 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 | Balance | 40 % teoría / 60 % práctica |
 | Laboratorios | 4 tracks en paralelo, incrementales (L1 → L11 + L12 bonus) · **equipos de 2 personas** |
 | Proyecto final | Agente open source desplegado en HF Spaces, monitoreado con Langfuse, con app FastAPI |
-| Plus | El mismo agente en Microsoft Foundry sin cambiar una línea de código de negocio (bonus, no ponderado) |
+| Plus | Cliente de chat conmutable y adaptación de hosting a Microsoft Foundry (bonus no ponderado; ver CONS-009/010) |
 
 ---
 
@@ -103,19 +105,20 @@ Todas las marcas son ficticias y todos los datos sintéticos.
 
 **Aclaración que debió estar desde el Laboratorio 1** (añadida al construir la Sesión 4, cuando
 se hizo evidente el malentendido). `proyecto-final/<track>/` en **este** repositorio es la
-**implementación de referencia del docente**: el aspecto final que debería tener el proyecto de
-un equipo, ya escrita y verificada (`docente/verificar_tools.py`, `docente/matriz_seleccion.py`,
+**catálogo base de tools del docente**. No contiene una aplicación final completa.
+Los checkpoints de cada sesión están en `solucion/<track>/`; S11 aporta el agente, API y web.
+El catálogo base tiene verificadores (`docente/verificar_tools.py`, `docente/matriz_seleccion.py`,
 `docente/verificar_guardrails.py`).
 
 | Qué | Rol |
 |---|---|
-| `proyecto-final/<track>/` **en este repo** | Implementación de referencia del docente — lo que leen los verificadores |
+| `proyecto-final/<track>/` **en este repo** | Catálogo base de tools usado por verificadores; no aplicación final |
 | El repositorio de **cada equipo** | Donde el alumno construye el suyo, del L1 al L11, siguiendo cada enunciado |
 
 **No es tu repositorio.** Si eres alumno: no copies `proyecto-final/` como punto de partida —
 constrúyelo tú, laboratorio a laboratorio, y usa la referencia solo para comparar **después** de
-intentarlo. Los scripts de verificación (`--tools`, `--agente`) siempre apuntan a tu propia
-carpeta de laboratorio, nunca a `proyecto-final/`, por diseño.
+intentarlo. Para evaluar tu trabajo, pasa tu archivo con `--tools` o `--agente`. Algunos verificadores
+usan el catálogo de referencia por defecto; ese resultado no valida tu implementación.
 
 ---
 

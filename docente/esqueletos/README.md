@@ -29,7 +29,7 @@
 | [`bonus-foundry.md`](bonus-foundry.md) | Bonus · el mismo agente en Foundry | ✅ pactado | Fase 7 |
 
 **Curso completo pactado: 11 sesiones + seminario = 72 h lectivas, más el bonus asíncrono.**
-Coherencia verificada con `python docente/validar_coherencia.py`; la revisión pedagógica que
+Coherencia verificada con `python docente/validar_materiales.py` (validación actual de rutas/sintaxis; el script histórico `validar_coherencia.py` no está versionado y su verificación pedagógica no es reproducible aquí); la revisión pedagógica que
 un script no puede hacer está en [`VALIDACION-INTEGRAL.md`](VALIDACION-INTEGRAL.md).
 
 ---
@@ -165,7 +165,7 @@ Las que cambian documentos ya cerrados. El registro completo va en `_memoria/DEC
 |---|---|
 | S1 | El L1 es **entorno + primer script**. 40 de sus 120 min se dedican a dejar entornos en verde |
 | S1 | **El equipo propone su track, el docente balancea.** El track es irrevocable del L2 al L11 |
-| S2 | Structured output se enseña **crudo primero**: la demo falla en vivo antes de introducir `comun/structured.py` |
+| S2 | Structured output se enseña **crudo primero**: se compara la invocación directa con `comun/structured.py`; el fallo reproducible usa simulación |
 | S2 | **Pase de entrada de Pydantic:** sin el ejercicio entregado, no se hace el L2 |
 | S2 | La taxonomía de intención del L2 se alinea **1:1 con las 4 tools núcleo del L4** |
 | S3 | El bucle ReAct manual es **demo de 15 min**, no laboratorio |

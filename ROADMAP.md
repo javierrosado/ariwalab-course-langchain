@@ -497,3 +497,10 @@ del agente no conoce a su proveedor, así que el material se escribe sin depende
 
 El punto de revisión tras la Fase 3 es deliberado: corregir el formato con 27 archivos escritos
 cuesta poco; corregirlo con 114 escritos cuesta mucho.
+
+## Revisión de consistencia — 2026-09-24
+
+La construcción de contenido no equivale a validación final para dictado. Consultar
+[mapa pedagógico](docs/COURSE-MAP.md), [inventario](docs/COURSE-INVENTORY.md) e
+[informe de consistencia](docs/COURSE-CONSISTENCY-REPORT.md). La revisión conserva
+los bloqueadores externos y decisiones del autor; no los marca resueltos por ejecutar pruebas offline.

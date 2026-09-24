@@ -88,7 +88,7 @@ el `system` en español).
 | 6 | Práctica guiada: esquema `Intencion` del track | 35 |
 | 7 | Test 2 | 15 |
 
-**No olvidar:** el bloque 4 tiene que fallar en vivo (Enum inventado, campo vacío) antes de
+**No olvidar:** el bloque 4 compara salida válida y recuperación de errores; no garantiza un fallo en vivo (Enum inventado, campo vacío) antes de
 mostrar la solución del bloque 5 — es el bloque que decide la sesión.
 
 **Errores esperables más frecuentes:** el modelo inventa un valor de Enum (faltan ejemplos

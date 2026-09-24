@@ -29,7 +29,7 @@ para ingenieros de software con poca o ninguna experiencia previa en LLM.
   *IA Agent Building* (Continental Florida University).
 - **4 tracks de industria** con marcas ficticias peruanas: telecomunicaciones (AndesMóvil),
   banca (Banco Inti), retail (MercaSur), seguros (Andina Seguros).
-- **Laboratorios incrementales:** L1 → L8 construyen una sola aplicación; el proyecto final es
+- **Laboratorios incrementales:** L1 → L11 construyen una sola aplicación; el proyecto final es
   el resultado acumulado, no un trabajo aparte.
 - **40 % teoría / 60 % práctica** (29 h / 43 h). Esta proporción es un requisito, no una meta.
 
@@ -40,7 +40,7 @@ para ingenieros de software con poca o ninguna experiencia previa en LLM.
 | # | Restricción | Consecuencia práctica |
 |---|-------------|------------------------|
 | **P1** | **100 % open source** durante todo el curso | Nada de LangSmith, Azure AI Search ni servicios propietarios en la troncal |
-| **P2** | **Nada corre en local.** Todo SaaS, en línea, gratis o de costo mínimo | Nada de Chroma embebido, `sentence-transformers` local ni `localhost` |
+| **P2** | **Inferencia y servicios gestionados en línea.** Clientes y scripts Python locales permitidos | Sin modelos ni bases vectoriales locales; `localhost` se usa para demos de API |
 | **P3** | **Foundry es solo un bonus final**, asíncrono y opcional | Habrá un Curso 2 que sí es 100 % Foundry. Aquí no se adelanta |
 | **P4** | **Todo en español**: prosa, docstrings, comentarios, datasets | Identificadores del código en inglés (D11) |
 | **P5** | **Marcas ficticias.** Cero marcas peruanas reales | `recursos/datasets/verificar_datasets.py` lo comprueba con regex de límite de palabra |
@@ -57,7 +57,7 @@ Las que más condicionan el trabajo diario:
 |----|----------|-------------------------------------|
 | **D28** | Modelo **`Qwen/Qwen3-32B`** con `HF_ENABLE_THINKING=false` | Elegido **por medición**: de 4 candidatos probados contra el endpoint real, fue el único que pasó tool calling. No lo cambies sin volver a medir con `check_stack --candidatos` |
 | **D21** | **Sin fine-tuning** (Camino A) | La personalización por industria vive en el system prompt y en Qdrant. Si escribes que el modelo "sabe" de un sector, está mal |
-| **D20** | **La fiabilidad se compone** | 93 % por llamada = 80 % en 3 pasos. De aquí salen las reglas A1–A6 |
+| **D20** | **La fiabilidad se compone** | 0.93³ ≈ 80 % es un modelo simplificado con supuestos explícitos, no una tasa universal. Reglas A1–A6 |
 | **D13** | `comun/provider.py` abstrae el proveedor | Ningún archivo del curso instancia el modelo directamente ni llama a `os.getenv()` |
 | **D09/D10** | **Qdrant Cloud, sin fallback** | Un solo backend en `comun/vectorstore.py`. No añadas Chroma ni FAISS "por si acaso" |
 | **D19** | **Equipos de 2 personas** | Impuesto por el límite de 2 usuarios de Langfuse Hobby. No es pedagógico, es una restricción de plan |
@@ -68,7 +68,7 @@ Las que más condicionan el trabajo diario:
 
 Salen de D20 y se aplican a todo el código de laboratorio:
 
-- **A1** — máximo 3-4 tools enlazadas por agente. Nunca 6.
+- **A1** — cuatro tools núcleo de negocio en L4; desde L5 se añade un retriever (cinco en total). Las opcionales requieren seleccionar y medir otro catálogo.
 - **A2** — cada docstring dice el verbo, cuándo usarla y **cuándo NO** usarla.
 - **A3** — `with_structured_output()` siempre con validación y un reintento → usa `comun/structured.py`.
 - **A4** — tope duro de iteraciones y errores de tool redactados para que el modelo los entienda.

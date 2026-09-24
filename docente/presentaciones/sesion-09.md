@@ -22,7 +22,7 @@
 ---
 
 ## Anatomía de una traza de agente
-- Trace → spans: modelo, tool, retriever
+- Arquitectura de traza → spans: modelo, tool, retriever; verificar contexto padre en la implementación
 - 3 llamadas al modelo para 1 pregunta: la fiabilidad se compone (D20)
 - El modelo suele ser el cuello, no las tools ni Qdrant
 
@@ -30,12 +30,12 @@
 
 ## Latencia p50/p95 y costo por ejecución
 - Un solo *cold start* distorsiona el promedio
-- p50 = lo típico · p95 = el peor caso frecuente
+- p50 = mediana · p95 = percentil de cola; declarar método y muestra
 
 ---
 
 ## PII dentro de una traza
-- El mismo enmascarador del L6, aplicado antes de exportar a Langfuse
+- Enmascarador de comun/observability.py, aplicado antes de exportar a Langfuse
 - Si el DNI no sale hacia el cliente, tampoco sale hacia un SaaS de terceros
 - Costo real: se pierde capacidad de depuración — se firma a propósito
 

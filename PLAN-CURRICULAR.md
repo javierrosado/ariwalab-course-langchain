@@ -2,13 +2,14 @@
 
 **Basado en:** malla `IA Agent Building` (Continental Florida University) + repo `microsoft/langchain-for-beginners`
 **Audiencia:** ingenieros de software con poco conocimiento de LLMs
-**Principio rector:** **100 % open source y 100 % SaaS.** Nada corre en la máquina del alumno.
+**Principio rector:** stack abierto con inferencia y servicios gestionados en línea;
+los clientes, scripts y demos Python pueden ejecutarse en la máquina del alumno.
 **Foundry:** **módulo bonus asíncrono** al final, como puerta de entrada al Curso 2 (que sí será 100 % Foundry).
 **Duración:** 12 sesiones de 6 h · **72 horas lectivas** · 50 % síncrono / 50 % asíncrono
 **Calendario:** 2 sesiones por semana de 3 h síncronas → **6 semanas** (ver `docente/cronograma.md`)
 **Balance:** 40 % teoría / 60 % práctica
 **Autor:** Javier Rosado · Ariwa Labs · v3.0 — 2026-09-10
-**Estado:** diseño para aprobación (D02)
+**Estado:** material construido; revisión de consistencia y aprobación académica pendientes (D02).
 
 ---
 
@@ -21,7 +22,7 @@
 │  evaluación son productos de código abierto.                         │
 │                                                                       │
 │  PRINCIPIO 2 · TODO EN LÍNEA (SaaS)                                  │
-│  Ninguna pieza corre en la laptop del alumno: se usan las nubes       │
+│  La inferencia y los servicios usan las nubes       │
 │  gestionadas de esos mismos productos, en sus planes gratuitos.       │
 │                                                                       │
 │  EXCEPCIÓN · Módulo bonus = Microsoft Foundry, el "plus" del curso.   │
@@ -58,7 +59,7 @@ GitHub Models. Registro completo en [`_memoria/DECISIONES.md`](_memoria/DECISION
 
 ```dotenv
 # ---------- Modelo (open source, vía Hugging Face) ----------
-AI_PROVIDER=huggingface              # huggingface | foundry  (foundry solo en S12)
+AI_PROVIDER=huggingface              # huggingface | foundry  (foundry solo en bonus)
 HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxx
 HF_EMBEDDING_MODEL=intfloat/multilingual-e5-large
 
@@ -92,8 +93,8 @@ COURSE_TRACK=telecomunicaciones      # telecomunicaciones | banca | retail | seg
 ```
 
 `comun/provider.py` conmuta por `AI_PROVIDER`: durante las 11 sesiones siempre vale `huggingface`;
-en el módulo bonus se cambia a `foundry` y **el resto del código no se toca**. Esa es, precisamente,
-la lección de arquitectura del bloque plus.
+en el bonus se estudia el cambio de cliente de chat a `foundry`. El hosting necesita un
+grafo compatible y el cambio de embeddings requiere una decisión separada (CONS-009/010).
 
 ---
 
@@ -165,12 +166,13 @@ modelo: es que **la fiabilidad se compone a lo largo del bucle ReAct**.
 | 93 % | 80 % | 70 % |
 | 97 % | 91 % | 86 % |
 
-Un agente que acierta el 93 % de las veces falla una de cada cinco tareas de tres pasos. Por eso
+La tabla usa pⁿ bajo supuestos de independencia y probabilidad constante por paso; no es
+una medición del agente. Los fallos pueden estar correlacionados. Por eso
 se reduce el número de pasos y se hace cada paso lo más inequívoco posible:
 
 | # | Regla | Dónde aplica |
 |---|---|---|
-| A1 | **3-4 tools** enlazadas por agente, nunca 6 | L4 en adelante |
+| A1 | **4 tools núcleo de negocio**; desde L5 se añade un retriever. Medir otro catálogo si se incorporan opcionales | L4 en adelante |
 | A2 | Docstrings con verbo + cuándo usarla + **cuándo NO** | Todas las tools |
 | A3 | `with_structured_output()` con validación y un reintento | L2 en adelante |
 | A4 | Tope duro de iteraciones + errores de tool redactados para el modelo | L3 en adelante |
@@ -213,7 +215,7 @@ citarlas, auditarlas y actualizarlas sin tocar el agente.
 
 ## 5. Contenido por sesión
 
-### Módulo 1 · Introducción a los agentes inteligentes (semanas 1–3)
+### Módulo 1 · Introducción a los agentes inteligentes (S1–S3; semanas 1–2)
 
 **S1 — Fundamentos de los agentes inteligentes**
 Teoría: qué es un agente (percepción → razonamiento → acción → entorno); workflow vs agente;
@@ -235,7 +237,7 @@ prompt; diseño de tools; bucle ReAct manual (demo 15 min).
 Práctica: tool contra API externa del track, parsing JSON, manejo de errores; agente básico.
 **Assignment A1 — Agente básico con API externa (100 % del Módulo 1).**
 
-### Módulo 2 · Desarrollo y aplicaciones de agentes (semanas 4–7)
+### Módulo 2 · Desarrollo y aplicaciones de agentes (S4–S7; semanas 2–4)
 
 **S4 — Tools e integración de herramientas**
 Teoría: catálogo de tools y selección dinámica; responsabilidad única aplicada a tools; idempotencia;
@@ -265,7 +267,7 @@ Teoría: cómo se prueba lo no determinístico.
 Práctica: clínica de proyectos, pruebas de estrés, demo en vivo, retroalimentación de pares.
 **Proyecto M2 — Agente avanzado con tools, memoria y RAG. Demo + documento de diseño.**
 
-### Módulo 3 · Implementación y monitoreo en ambientes reales (semanas 8–11)
+### Módulo 3 · Implementación y monitoreo en ambientes reales (S8–S11; semanas 4–6)
 
 **S8 — Despliegue de agentes en producción (HF Spaces)**
 Teoría: 12-Factor; gestión de secretos en la nube; contenedores e imagen Docker; qué significa
@@ -320,7 +322,7 @@ al Curso 2 ("100 % Foundry, recurso por recurso").
 | **Proyecto M2** | S7 | **100 % Módulo 2** | Agente con tools + memoria + RAG · demo + diseño |
 | Ejercicios guiados | S8, S9, S10 | Formativo | Labs L8–L10 |
 | **Proyecto Integrador Final** | S11 | **100 % Módulo 3** | Agente desplegado y monitoreado · panel |
-| Reto plus Foundry | S12 | Certificación adicional / no ponderado | Agente corriendo en Foundry + cuadro comparativo |
+| Reto plus Foundry | Bonus | Certificación adicional / no ponderado | Agente corriendo en Foundry + cuadro comparativo |
 
 Rúbrica de 4 niveles (Insuficiente / En desarrollo / Competente / Destacado) sobre 5 criterios:
 funcionalidad · diseño de tools y prompts · guardrails y manejo de errores · evidencia de
@@ -364,19 +366,13 @@ tiene acompañamiento en vivo: se compensa con una guía paso a paso más detall
 
 ---
 
-## 9. Volumen de construcción
+## 9. Volumen construido y estado verificable
 
-| Artefacto | Cantidad | Estado |
-|---|---|---|
-| READMEs de sesión (teoría en español) | 12 + 1 bonus | Por construir |
-| `conceptos-previos.md` | 12 + 1 bonus | Por construir |
-| Demos en vivo (`code/`) | ~48 archivos `.py` | ~50 % adaptable del repo (baja por el cambio de stack) |
-| Laboratorios (enunciado + starter) × 4 tracks | 12 × 4 = 48 | Por construir |
-| Soluciones de referencia × 4 tracks | 12 × 4 = 48 | Por construir |
-| Datasets sintéticos | ~24 archivos | Por generar |
-| Módulo común (`comun/`) | 5 archivos | Por construir |
-| Rúbricas y plantillas | 8 | Por construir |
-| Glosario español | 1 | Por construir |
+El árbol inicial de esta revisión contiene **425 archivos versionados**, incluidos
+**201 Markdown y 183 Python**. Hay material de S0, las once sesiones numeradas, el seminario
+y el bonus, más recursos comunes, simulador y documentación docente.
 
-**Autoría 100 % nueva:** sesiones 9 y 10 y el bonus de Foundry completos, guardrails de la S6, capa FastAPI + Docker
-+ HF Spaces de la S8, integración de Qdrant Cloud, los 4 dominios de industria y la nivelación de LLMs.
+El [inventario](docs/COURSE-INVENTORY.md) enumera archivos; el [mapa](docs/COURSE-MAP.md)
+conecta introducción, implementación, práctica y evaluación. Construido no significa
+validado contra servicios reales: consultar [hallazgos y bloqueos](docs/COURSE-CONSISTENCY-REPORT.md)
+y `ROADMAP.md` para decisiones y verificaciones pendientes.

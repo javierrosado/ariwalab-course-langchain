@@ -14,8 +14,8 @@
 
 ## La lección, en una línea
 - `.env`: `AI_PROVIDER=huggingface` → `AI_PROVIDER=foundry`
-- No se toca ni una línea del código del agente
-- Único cambio real: el comportamiento del modelo (posible gracias a D21, sin fine-tuning)
+- El cliente de chat conserva su interfaz; el host requiere un grafo compatible
+- Revisar comportamiento, embeddings, memoria y guardrails (CONS-009/010)
 
 ---
 
@@ -26,7 +26,7 @@
 
 ## El momento del bloque — el switch
 - Batería de 5 consultas contra HF → anotar
-- Cambiar una línea del `.env`
+- Configurar cliente Foundry y resolver compatibilidad de embeddings antes del RAG
 - Misma batería contra Foundry → anotar y comparar
 - ¿Qué habría hecho falta cambiar si el agente hubiera instanciado `ChatOpenAI` en cada archivo?
 

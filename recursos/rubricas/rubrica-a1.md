@@ -86,3 +86,10 @@
 Nota = suma ponderada de los 5 criterios, cada uno en escala 1 (Insuficiente) a 4
 (Sobresaliente), sobre 4 — salvo que la regla del piso aplique, en cuyo caso el criterio de
 Funcionalidad no baja de 3 (Competente) si `prueba_tool.py` y la docstring lo sostienen.
+
+## Nomenclatura entre módulos
+
+A1/M2 usan Insuficiente, Básico, Competente y Sobresaliente; la rúbrica final usa
+Insuficiente, En desarrollo, Competente y Destacado. La correspondencia ordinal es 1–4.
+Esta nota no cambia pesos ni descriptores. Unificar los nombres requiere confirmar la
+nomenclatura institucional (CONS-020 del reporte de consistencia).

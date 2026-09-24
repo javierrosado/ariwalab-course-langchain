@@ -31,7 +31,7 @@
 ---
 
 ## Por qué 4 y no 6 (regla A1)
-- Fiabilidad compuesta: 93 % por llamada = 80 % en 3 pasos
+- Fiabilidad compuesta: 0.93³ ≈ 80 % bajo supuestos de independencia; no tasa universal
 - Más tools enlazadas → más pasos potenciales → más error acumulado
 
 ---

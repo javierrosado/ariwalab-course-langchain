@@ -27,8 +27,8 @@
 ## Los 3 evaluators determinísticos
 - Uso correcto de tool (= `matriz_seleccion.py`)
 - Exactitud (¿aparece el dato correcto?)
-- Groundedness por cita (¿la cita existe y sostiene la afirmación?)
-- Se pueden correr mil veces y dan lo mismo
+- Groundedness como proxy léxico; revisar manualmente cita y respaldo
+- Sobre las mismas entradas dan lo mismo; separar casos no aplicables
 
 ---
 
@@ -40,7 +40,7 @@
 
 ## A/B de prompts: cuándo una mejora es real
 - v1: 80 % · v2: 86.7 % — ¿mejoró? Depende: ¿se corrió dos veces? ¿se sabe qué la causó?
-- Con 30 casos, 2 aciertos de diferencia pueden ser ruido
+- Con 30 casos, 2 aciertos de diferencia pueden ser ruido; dos corridas no prueban significancia
 
 *(Pausa · 10 min)*
 
