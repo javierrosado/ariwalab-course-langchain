@@ -92,16 +92,15 @@ bien."* ¿Qué le falta para que sea, en rigor, un agente?
 
 - a) Nada: si responde bien, ya es un agente
 - b) Un modelo más grande
-- c) Al menos una de las cuatro piezas: herramientas, memoria, objetivo o control — sin ellas
-  solo tiene un *chat completion*
+- c) Un bucle de decisión y ejecución de acciones con resultados observables
 - d) Un `temperature` más bajo
 
-**2.** ¿Cuál de estas NO es una de las cuatro piezas que le faltan a un LLM suelto para ser
-agente?
+**2.** ¿Cuál de estas NO es una de las cuatro capacidades que el proyecto del curso añade
+alrededor del modelo?
 
 - a) Herramientas
 - b) Memoria
-- c) **Un vocabulario más grande**
+- c) Un vocabulario más grande
 - d) Control
 
 ---
@@ -113,7 +112,7 @@ decide que necesita el consumo real del ciclo antes de responder, y llama a `get
 ¿Qué paso del bucle es "decide que necesita el consumo real"?
 
 - a) Percepción
-- b) **Razonamiento**
+- b) Razonamiento
 - c) Acción
 - d) Entorno
 
@@ -123,7 +122,7 @@ decide que necesita el consumo real del ciclo antes de responder, y llama a `get
 - a) Percepción
 - b) Razonamiento
 - c) Acción
-- d) **Entorno**
+- d) Entorno
 
 ---
 
@@ -133,7 +132,7 @@ decide que necesita el consumo real del ciclo antes de responder, y llama a `get
 identidad, (3) registrar el reclamo. El orden nunca cambia. ¿Qué construyes?
 
 - a) Un agente, porque hay una tarea que cumplir
-- b) **Un workflow**: los pasos son siempre los mismos, y necesitas garantizar que el paso 3
+- b) Un workflow: los pasos son siempre los mismos, y necesitas garantizar que el paso 3
   ocurra siempre — un agente podría "decidir" saltárselo
 - c) Un agente con `temperature=0` para que sea determinístico
 - d) Ninguno de los dos: esto no se puede automatizar
@@ -141,7 +140,7 @@ identidad, (3) registrar el reclamo. El orden nunca cambia. ¿Qué construyes?
 **6.** Un cliente puede preguntar por su saldo, reportar fraude, pedir un límite más alto o
 simplemente saludar, en cualquier orden y sin avisar qué va a pedir. ¿Qué construyes?
 
-- a) **Un agente**: el orden depende de lo que responda el usuario y no se puede escribir de
+- a) Un agente: el orden depende de lo que responda el usuario y no se puede escribir de
   antemano con un `if/else`
 - b) Un workflow con muchos `if`
 - c) Un menú de opciones numeradas
@@ -156,8 +155,8 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 
 - a) Hubo un error de red la segunda vez
 - b) El modelo necesita un `temperature` más alto para ser preciso
-- c) **El modelo nunca tuvo acceso al tarifario real: respondió con la cifra estadísticamente más
-  probable según su entrenamiento, no con un dato verificado.** Por eso el curso obliga a
+- c) El modelo nunca tuvo acceso al tarifario real: respondió con la cifra estadísticamente más
+  probable según su entrenamiento, no con un dato verificado. Por eso el curso obliga a
   recuperar antes de afirmar tarifas (regla A6, desde la Sesión 5)
 - d) El modelo está mal configurado y hay que reiniciarlo
 
@@ -168,7 +167,7 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 **8.** ¿Qué significa que `Qwen/Qwen3-32B` sea un modelo de "pesos abiertos"?
 
 - a) Que es gratis usarlo sin límite
-- b) **Que sus parámetros son públicos y auditables**, a diferencia de un modelo cerrado del que
+- b) Que sus parámetros son públicos y auditables, a diferencia de un modelo cerrado del que
   solo consumes una API
 - c) Que corre más rápido que un modelo cerrado
 - d) Que fue entrenado solo con datos de código abierto
@@ -182,8 +181,8 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 
 - a) Por una convención de estilo sin efecto real
 - b) Porque `ChatOpenAI` no funciona con Hugging Face
-- c) **Porque esa indirección (decisión D13) es lo que permite, en el bonus de Foundry, cambiar
-  de proveedor con una variable de entorno en vez de reescribir cada archivo del agente**
+- c) Porque esa indirección (decisión D13) es lo que permite, en el bonus de Foundry, cambiar
+  de proveedor con una variable de entorno en vez de reescribir cada archivo del agente
 - d) Porque `get_chat_model()` es más rápido
 
 ---
@@ -193,8 +192,8 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 **10.** ¿Cuál de estas es una buena razón para **no** usar un agente?
 
 - a) El agente es más lento y más caro que un workflow, y el problema que tienes se puede
-  resolver con una secuencia de pasos fija — **si puedes dibujar el diagrama de flujo completo
-  antes de escribir código, no necesitas un agente**
+  resolver con una secuencia de pasos fija — si puedes dibujar el diagrama de flujo completo
+  antes de escribir código, no necesitas un agente
 - b) Los agentes son un tema muy nuevo y da miedo usarlos
 - c) Un agente nunca puede llamar a una API externa
 - d) Los agentes solo sirven para chatbots de atención al cliente
@@ -208,7 +207,7 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 
 | # | Respuesta | Por qué |
 |---|-----------|---------|
-| 1 | **c** | Responder bien no basta: sin herramientas, memoria, objetivo o control, sigue siendo un *chat completion*, por bueno que sea el texto |
+| 1 | **c** | Una respuesta aislada no demuestra un bucle de acciones; memoria persistente no es requisito definitorio de todo agente |
 | 2 | **c** | El tamaño del vocabulario no es una de las cuatro piezas (herramientas, memoria, objetivo, control) |
 | 3 | **b** | Decidir el siguiente paso con el contexto disponible es razonamiento, no percepción ni acción |
 | 4 | **d** | El sistema de facturación es el entorno: el sistema real que responde a la acción del agente |

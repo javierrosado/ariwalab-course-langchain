@@ -24,7 +24,7 @@ No es un trámite: cada pregunta corresponde a algo que usarás desde el primer 
 ¿Qué se envía al modelo en esa llamada?
 
 - a) Solo esas cuatro palabras: el modelo recuerda el resto
-- b) El system prompt, las herramientas, los fragmentos recuperados **y toda la conversación previa**
+- b) El system prompt, las herramientas, los fragmentos recuperados y toda la conversación previa
 - c) Un identificador de sesión que el modelo usa para recuperar el historial de su memoria
 - d) Solo los últimos dos turnos, porque el modelo descarta lo antiguo automáticamente
 
@@ -45,7 +45,7 @@ cuando en realidad es 1 UIT. ¿Qué ocurrió y por qué es peligroso?
 
 - a) Una excepción silenciosa; se detecta con `try/except`
 - b) Un timeout del servicio; se detecta por el código de estado
-- c) Una alucinación; es peligrosa porque **no hay ninguna señal de error**
+- c) Una alucinación; es peligrosa porque no hay ninguna señal de error
 - d) Un error de red; se detecta reintentando
 
 ---
@@ -55,7 +55,7 @@ cuando en realidad es 1 UIT. ¿Qué ocurrió y por qué es peligroso?
 Su similitud coseno es 0.87. ¿Qué significa?
 
 - a) Que el sistema falló: sin palabras comunes la similitud debe ser baja
-- b) Que sus embeddings están cerca porque **significan algo parecido**
+- b) Que sus embeddings están cerca porque significan algo parecido
 - c) Que ambas tienen la misma cantidad de caracteres
 - d) Que el modelo memorizó ambas frases durante el entrenamiento
 
@@ -65,7 +65,7 @@ Su similitud coseno es 0.87. ¿Qué significa?
 
 - a) En el fine-tuning del modelo, para que la sepa de memoria
 - b) En el system prompt, copiada completa
-- c) En el **RAG**, porque cambia, debe citarse y debe poder auditarse
+- c) En el RAG, porque cambia, debe citarse y debe poder auditarse
 - d) En el nombre de las herramientas
 
 ---
@@ -75,7 +75,7 @@ Su similitud coseno es 0.87. ¿Qué significa?
 **7.** El modelo genera `consultar_saldo(numero_linea="987654321")`. ¿Qué pasó exactamente?
 
 - a) El modelo ejecutó la función y ya tiene el resultado
-- b) El modelo **generó una petición**; tu código decide si la ejecuta y le devuelve el resultado
+- b) El modelo generó una petición; tu código decide si la ejecuta y le devuelve el resultado
 - c) El modelo se conectó a la base de datos de la empresa
 - d) El modelo inventó un dato con formato de función
 
@@ -86,7 +86,7 @@ Su similitud coseno es 0.87. ¿Qué significa?
 
 - a) Por convención de estilo de Python
 - b) Para la documentación técnica del proyecto
-- c) Porque **la docstring es el prompt** que el modelo lee para decidir, y un modelo de 7B se
+- c) Porque la docstring es el prompt que el modelo lee para decidir, y un modelo de 7B se
   confunde con descripciones ambiguas
 - d) Porque lo exige LangChain
 
@@ -108,7 +108,7 @@ Su similitud coseno es 0.87. ¿Qué significa?
 
 - a) Lo subo: así mi compañero tiene las credenciales
 - b) Lo subo pero renombrado a `env.txt`
-- c) **No lo subo nunca**; está en `.gitignore` y cada persona usa su propio token
+- c) No lo subo nunca; está en `.gitignore` y cada persona usa su propio token
 - d) Lo subo con las claves parcialmente ocultas
 
 ---

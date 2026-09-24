@@ -85,8 +85,8 @@ escala.
 | 1 | Mensajes, roles y **statelessness** | 25 | T | `system`/`human`/`ai`. El historial como lista. Por qué el turno 10 cuesta 8× el turno 1 |
 | 2 | **Rol + Contexto + Tarea + Formato** | 25 | T | Las 4 partes, una a una, sobre el prompt real del track |
 | 3 | **Few-shot** (regla A5) | 20 | T | Cuándo rinde: enums y campos ambiguos. Cuándo solo gasta tokens |
-| 4 | **Structured output: la demo del fallo** | 25 | T | `with_structured_output()` puro hasta que inventa un enum o deja un campo vacío |
-| 5 | `comun/structured.py` (regla A3) | 20 | T | Validar · reintentar con el error concreto · fallar con claridad |
+| 4 | **Structured output: la demo del fallo** | 25 | T | Comparar esquema válido, error de validación y wrapper; fallo simulado reproducible |
+| 5 | `comun/structured.py` (regla A3) | 20 | T | Comprobar retorno · reintentar con instrucción correctiva · fallar con claridad |
 | — | **Pausa** | 10 | — | |
 | 6 | Práctica guiada: el esquema `Intencion` del track | 35 | P | Cada equipo escribe su Enum de 5 categorías y lo prueba |
 | 7 | **Test 2** | 15 | P | 10 preguntas |
@@ -95,31 +95,22 @@ escala.
 
 ### Bloque 4 — la demo del fallo, en detalle
 
-Es el bloque que decide la sesión, y tiene que fallar **en vivo**:
+El bloque compara validación y recuperación de errores; no se exige que falle una llamada
+real. `with_structured_output(Intencion)` valida mediante Pydantic. Si la demo devuelve un
+objeto válido, discutir su exactitud semántica; para un fallo reproducible ejecutar el
+verificador con modelo simulado.
 
-```
-   1.  Esquema Intencion con Enum de 5 categorías, sin few-shot
-   2.  Consulta ambigua del track
-   3.  El modelo devuelve  categoria="CONSULTA_DE_PLAN"   ← inventó el valor
-                           urgencia=None                   ← campo obligatorio vacío
-   4.  El código revienta tres líneas más abajo, no en la llamada
-```
-
-El mensaje: **el fallo no aparece donde se produce.** Por eso la validación va pegada a la
-extracción y no al final del flujo.
-
-Y entonces entra el bloque 5:
-
-```
-   extraer(modelo, Intencion, consulta)
-        │
-        ├── valida contra el esquema          ¿enum permitido? ¿campos obligatorios?
-        ├── si falla, reintenta UNA vez       devolviéndole al modelo el error concreto
-        └── si vuelve a fallar, ExtraccionFallida     nunca un None que revienta después
+```text
+modelo + esquema → validación Pydantic → objeto válido
+                              ↓ error
+                     wrapper, un reintento
+                              ↓ vuelve al modelo
+                  segundo fallo → ExtraccionFallida
 ```
 
-> **Por qué un solo reintento.** Si el segundo intento también falla, el problema es el esquema o
-> el prompt, no la suerte. Reintentar cinco veces esconde un defecto de diseño y multiplica el costo.
+El wrapper comprueba también `None` y tipo inesperado. Un reintento es el presupuesto
+predeterminado para limitar costo y latencia, no una prueba de que el segundo fallo sea
+necesariamente culpa del prompt. Conservar guion, horas y Test 2 corregido.
 
 ---
 
@@ -127,8 +118,8 @@ Y entonces entra el bloque 5:
 
 | Archivo | Qué demuestra | Qué debe notar el alumno |
 |---|---|---|
-| `01_plantilla_dominio.py` | Rol + Contexto + Tarea + Formato sobre el prompt del track | Que quitar el bloque "Formato" degrada la salida más que quitar el "Rol" |
-| `02_few_shot.py` | El mismo clasificador con 0, 2 y 4 ejemplos | Dónde deja de mejorar: el 3.º y 4.º ejemplo rinden mucho menos que el 1.º y 2.º |
+| `01_plantilla_dominio.py` | Rol + Contexto + Tarea + Formato sobre el prompt del track | Comparar el efecto observado de instrucciones y esquema |
+| `02_few_shot.py` | El mismo clasificador con 0, 2 y 4 ejemplos | Medir si más ejemplos mejoran el acierto y cuánto cuestan |
 | `03_structured_crudo_vs_robusto.py` | La misma extracción por los dos caminos, lado a lado | Cuántos intentos hizo falta en cada uno. Usa `extraer_con_detalle()` |
 | `04_tokens_y_costo.py` | Conteo de tokens de un prompt con y sin few-shot y con historial | Que el few-shot **se paga en cada llamada**, no una sola vez |
 

@@ -97,15 +97,15 @@ hábito se construye hoy, con una sola tool.
 | 401 | `raise HTTPError(401)` | `"Credencial rechazada (401). Reintentar no soluciona un 401."` |
 | 503 | traceback completo | `"El servicio de AndesMóvil no responde en este momento. Informa al cliente y ofrece reintentar más tarde."` |
 
-`comun/api_client.py` ya hace exactamente esto (lo usaste sin saberlo si corriste la demo del
-Laboratorio 1). Hoy escribes el `try/except` de **tu propia** tool con el mismo criterio — no lo
+`comun/api_client.py` traduce errores HTTP para la capa de datos. Se introduce al conectar el
+simulador en esta sesión; el L1 solo consumía el modelo. Hoy escribes el `try/except` de **tu propia** tool con el mismo criterio — no lo
 copias, lo reproduces.
 
 ---
 
 ## 4. Del bucle manual a `create_agent()`
 
-Un agente no es magia: es un `while` que tú podrías escribir. La demo 2 de `code/` te lo muestra
+Un agente no es magia: es un `while` que tú podrías escribir. La demo 3 de `code/` te lo muestra
 en ~20 líneas — invoca al modelo, si propuso una tool_call la ejecuta, le devuelve el resultado,
 repite hasta que el modelo responde texto o se agota el tope de iteraciones. `create_agent()`
 hace exactamente eso en 3 líneas. **La abstracción no añade inteligencia: quita código

@@ -1,13 +1,12 @@
 """Salida estructurada fiable — la regla A3 convertida en código.
 
-`with_structured_output()` de LangChain funciona bien la mayoría de las veces. El
-problema es la minoría: un JSON incompleto, un campo con el tipo equivocado, un
-enum inventado. Y como la fiabilidad se compone a lo largo del bucle del agente,
-un 95 % por llamada se vuelve un 86 % en tres pasos.
+`with_structured_output()` con una clase Pydantic aplica validación del esquema.
+Este wrapper administra errores de la integración y comprueba el contrato del
+retorno. Validez estructural no implica exactitud semántica.
 
 Este módulo añade lo que falta:
 
-  1. **Valida** el resultado contra el esquema Pydantic, no solo confía.
+  1. **Comprueba** el tipo del resultado; la integración realiza la validación Pydantic.
   2. **Reintenta** una vez, devolviéndole al modelo el error concreto que cometió.
   3. **Falla con claridad** si el reintento tampoco sirve, en vez de propagar un
      `None` que reventará tres líneas más abajo.
@@ -85,9 +84,8 @@ def extraer_con_detalle(
         modelo: el chat model, normalmente de `get_chat_model()`.
         esquema: la clase Pydantic que describe la salida esperada.
         entrada: el texto del que se extrae.
-        reintentos: cuántas veces reintentar tras un fallo. 1 es suficiente en la
-            práctica: si el segundo intento falla, el problema es el esquema o el
-            prompt, no la suerte.
+        reintentos: cuántas veces reintentar tras un fallo. 1 es el presupuesto predeterminado
+            del curso para acotar costo y latencia; el fallo final requiere diagnóstico.
         ejemplos: few-shot opcional (regla A5). Pares (texto, objeto esperado).
             Rinde especialmente cuando el esquema tiene enums o campos ambiguos.
 

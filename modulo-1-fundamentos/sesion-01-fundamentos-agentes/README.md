@@ -45,9 +45,11 @@ sesión explica **por qué** pasa esto, y las diez sesiones siguientes construye
 
 ## 3. Un LLM solo no es un agente
 
-Un modelo de lenguaje, solo, hace una cosa: recibe texto y devuelve texto. No sabe si acertó, no
+En las demos de hoy, el modelo recibe mensajes y genera una respuesta textual. También puede
+proponer llamadas estructuradas a tools (S3); esa propuesta no ejecuta la acción. No sabe si acertó, no
 recuerda la conversación anterior salvo que se la reenvíes completa, y no puede tocar ningún
-sistema tuyo. Le faltan cuatro piezas para convertirse en agente:
+sistema tuyo. El curso construye cuatro componentes alrededor del modelo. La memoria persistente no es
+requisito definitorio de todo agente, pero sí una capacidad del proyecto desde S5:
 
 ```
    LLM suelto                        Agente
@@ -119,9 +121,9 @@ ganancia a cambio.** La mitad de los casos reales de un curso de agentes... no n
 | Si… | Necesitas | Por qué |
 |---|---|---|
 | Los pasos son siempre los mismos | **Workflow** | Más barato, más rápido, depurable con un debugger normal |
-| El orden depende de lo que responda el usuario | **Agente** | El modelo decide la ruta en cada turno |
+| La ruta la selecciona el modelo según el contexto | **Agente** | La aplicación delega esa decisión al modelo |
 | Hay que garantizar que un paso ocurra siempre (p. ej. registrar el reclamo) | **Workflow** | Un agente *puede* saltárselo si "decide" que no hace falta |
-| El número de pasos no se conoce de antemano | **Agente** | El bucle termina cuando el objetivo se cumple, no en un paso fijo |
+| Las condiciones y ramas pueden programarse explícitamente | **Workflow** | Puede incluir ciclos y un número variable de pasos |
 
 > **Mensaje que te tienes que llevar hoy:** un agente es más caro, más lento y menos predecible
 > que un workflow. Solo se justifica cuando la ruta no se puede escribir de antemano con un
@@ -133,7 +135,7 @@ ganancia a cambio.** La mitad de los casos reales de un curso de agentes... no n
 ## 6. Anatomía de LangChain 1.x — dónde estás parado en el mapa del curso
 
 LangChain 1.x organiza todo alrededor de cinco objetos. Esta tabla es tu mapa de las 12
-sesiones: cuando en la sesión 5 aparezca "middleware" por primera vez en código, vuelve aquí.
+sesiones: cuando en la sesión 6 aparezca "middleware" por primera vez en código, vuelve aquí.
 
 | Objeto | Qué es | Cuándo lo usas por primera vez |
 |---|---|---|
@@ -197,8 +199,8 @@ print(respuesta.content)
 `get_chat_model()` decide, según `AI_PROVIDER` en tu `.env`, si construye el cliente contra el
 router de Hugging Face o contra un endpoint de Microsoft Foundry — pero desde afuera es
 exactamente el mismo objeto `ChatOpenAI`. Esta indirección es la decisión **D13**, y es la razón
-de que el bonus asíncrono de Foundry (módulo 4, opcional) no requiera reescribir ni una línea de
-tu agente: solo cambia una variable de entorno.
+de que el bonus asíncrono de Foundry (módulo 4, opcional) reutilice el cliente de chat.
+Credenciales, embeddings y adaptación al hosting se revisan por separado: CONS-009/010.
 
 **Por qué te importa esto desde el día 1 y no solo en el bonus:** si en tu laboratorio de hoy
 escribes `ChatOpenAI(model=...)` en vez de `get_chat_model()`, tu script funciona igual — hasta
@@ -251,8 +253,7 @@ Para que sepas qué esperar (y qué no) del laboratorio de hoy:
 | MCP | Sesión 4 |
 
 La palabra "agente" se explicó en las secciones 3 y 4, pero **no vas a construir uno hoy**. Hoy
-construyes el cimiento: un script que llama al modelo correctamente, sin instalar nada en tu
-laptop. El primer agente real es el de la Sesión 3.
+construyes el cimiento: un script que llama al modelo correctamente, sin instalar un motor de inferencia en tu laptop; sí necesitas el entorno Python de S0. El primer agente real es el de la Sesión 3.
 
 ---
 
@@ -262,3 +263,9 @@ laptop. El primer agente real es el de la Sesión 3.
 2. Después de la sesión en vivo, ve al laboratorio: [`lab/`](lab/).
 3. Si te bloqueas, revisa primero la tabla de errores esperables en `conceptos-previos.md` y en
    el `README.md` de `code/`.
+
+## Recurso visual
+
+![IMG-M01-S01-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-1-fundamentos/sesion-01-fundamentos-agentes/01-agentic-loop.png)
+
+Diagrama del mecanismo explicado en esta sesión; consultar el texto para sus límites. [Notas para el docente](../../imagenes/modulo-1-fundamentos/sesion-01-fundamentos-agentes/NOTAS-SLIDES.md).

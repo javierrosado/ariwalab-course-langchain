@@ -30,7 +30,7 @@ track, los 3 escenarios, cómo provocarlos).
 ## Rúbrica · 4 niveles × 5 criterios
 
 Ver el detalle completo con los 4 niveles por criterio en
-[`recursos/rubricas/rubrica-a1.md`](../../../recursos/rubricas/rubrica-a1.md). Resumen de pesos:
+[`recursos/rubricas/rubrica-a1.md`](../../recursos/rubricas/rubrica-a1.md). Resumen de pesos:
 
 | Criterio | Peso |
 |---|---|

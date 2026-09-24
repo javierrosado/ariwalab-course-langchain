@@ -77,7 +77,7 @@ descubrirlo el martes de la semana 2 no.
 **1.** ¿Qué rol de mensaje representa lo que escribe el usuario?
 
 - a) `system`
-- b) **`human`**
+- b) `human`
 - c) `ai`
 - d) `tool`
 
@@ -86,13 +86,13 @@ descubrirlo el martes de la semana 2 no.
 - a) `system`
 - b) `human`
 - c) `ai`
-- d) **`tool`** (se suma en la Sesión 3, cuando el modelo empieza a llamar funciones)
+- d) `tool` (se suma en la Sesión 3, cuando el modelo empieza a llamar funciones)
 
 **3.** Tu agente lleva 9 turnos de conversación. ¿Por qué el turno 10 cuesta más tokens que el
 turno 1, si el usuario escribió lo mismo de largo en ambos?
 
 - a) El modelo "aprendió" durante la conversación y ahora piensa más
-- b) **Tu código reenvía el historial completo en cada llamada; el turno 10 arrastra los 9 anteriores**
+- b) Tu código reenvía el historial completo en cada llamada; el turno 10 arrastra los 9 anteriores
 - c) Los mensajes más recientes cuestan más tokens por definición
 - d) Es un error de configuración
 
@@ -104,15 +104,15 @@ del cliente."* ¿Cuál?
 - a) Rol
 - b) Contexto
 - c) Tarea
-- d) **Formato** (no dice cómo debe verse la salida)
+- d) Formato (no dice cómo debe verse la salida)
 
-**5.** ¿Qué parte de Rol+Contexto+Tarea+Formato es la que más se degrada al quitarla, cuando ya
-existe un esquema Pydantic detrás?
+**5.** ¿Qué parte describe explícitamente cómo debe presentarse la respuesta, además del
+contrato que puede aportar una integración de salida estructurada?
 
 - a) Rol
 - b) Contexto
 - c) Tarea
-- d) **Formato** — sin especificarlo, el modelo no sabe que debe ceñirse a la estructura pedida
+- d) Formato
 
 ### Parte C · Few-shot (pregunta 6)
 
@@ -120,7 +120,7 @@ existe un esquema Pydantic detrás?
 
 - a) Un Enum con categorías parecidas entre sí
 - b) Un campo con un formato específico que hay que replicar
-- c) **Una categoría que ya es obvia por el vocabulario de la consulta** — el few-shot solo
+- c) Una categoría que ya es obvia por el vocabulario de la consulta — el few-shot solo
   gastaría tokens sin mejorar el acierto
 - d) Un campo ambiguo que el modelo confunde seguido
 
@@ -129,7 +129,7 @@ existe un esquema Pydantic detrás?
 **7.** ¿Qué recibe el modelo cuando le pides una salida con un esquema Pydantic?
 
 - a) Tu clase Python tal cual
-- b) **El JSON Schema que Pydantic genera a partir de la clase**
+- b) El JSON Schema que Pydantic genera a partir de la clase
 - c) Un archivo `.py` serializado
 - d) Nada especial: el modelo adivina la estructura
 
@@ -137,15 +137,15 @@ existe un esquema Pydantic detrás?
 
 - a) Es una función experimental que no funciona
 - b) No existe en la versión del curso
-- c) **Funciona la mayoría de las veces, pero la minoría de fallos (enum inventado, campo vacío)
-  no se valida ni se reintenta: el error revienta más adelante en el código**
+- c) Con Pydantic valida el esquema, pero el curso añade manejo uniforme de errores,
+  comprobación de None/tipo inesperado y un reintento correctivo por defecto
 - d) Solo funciona con modelos cerrados
 
-**9.** `comun/structured.py` reintenta como máximo **una vez** tras un fallo. ¿Por qué no cinco?
+**9.** `comun/structured.py` reintenta por defecto **una vez** tras un fallo. ¿Por qué no cinco?
 
 - a) Por limitar el costo de infraestructura del curso
-- b) **Si el segundo intento también falla, el problema es el esquema o el prompt, no la suerte:
-  reintentar más veces esconde un defecto de diseño y multiplica el costo**
+- b) Es el presupuesto del curso para limitar costo y latencia; agotarlo exige diagnosticar
+  la causa del fallo, que también puede ser del proveedor
 - c) Por una limitación técnica de LangChain
 - d) Porque el modelo se satura después de dos intentos
 
@@ -156,7 +156,7 @@ costo total en tokens?
 
 - a) La última pregunta del usuario
 - b) La respuesta del modelo
-- c) **El historial acumulado (incluido el few-shot, que se reenvía en cada llamada)**
+- c) El historial acumulado (incluido el few-shot, que se reenvía en cada llamada)
 - d) El nombre de las herramientas
 
 ---
@@ -172,11 +172,11 @@ costo total en tokens?
 | 2 | d | `tool` aparece recién en la Sesión 3 |
 | 3 | b | El modelo es stateless: "recordar" es tu código reenviando todo el historial |
 | 4 | d | Falta decir cómo debe verse la salida |
-| 5 | d | Sin el Formato, un esquema Pydantic detrás no tiene ancla en el prompt |
+| 5 | d | Formato explicita la presentación; el esquema estructurado también impone restricciones |
 | 6 | c | El few-shot rinde en lo ambiguo, no en lo ya obvio |
 | 7 | b | El modelo ve el JSON Schema, no la clase Python |
-| 8 | c | Falla en la minoría de casos, y esa minoría es la que rompe un agente real |
-| 9 | b | Un segundo fallo indica un problema de diseño, no de suerte |
+| 8 | c | Pydantic valida; el wrapper añade recuperación acotada y un error uniforme |
+| 9 | b | El presupuesto limita costo; el fallo requiere diagnóstico, no una causa asumida |
 | 10 | c | El historial (con el few-shot dentro) se paga en cada llamada, no una sola vez |
 
 </details>

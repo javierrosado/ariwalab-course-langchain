@@ -3,14 +3,13 @@
 Ejecutar desde la raíz del curso:
     python modulo-1-fundamentos/sesion-02-ecosistema-langchain/code/03_structured_crudo_vs_robusto.py
 
-Requiere HF_TOKEN. ES LA DEMO QUE TIENE QUE FALLAR EN VIVO (ver README.md, bloque 4):
-con una consulta ambigua y un esquema sin few-shot, `with_structured_output()` solo
-puede devolver un enum inventado o un campo vacío que revienta más adelante.
+Requiere HF_TOKEN. El fallo no está garantizado: con esquema Pydantic, la integración
+valida durante invoke. Una consulta ambigua también puede producir un objeto válido.
+Para fallos reproducibles, ver docente/verificar_structured.py.
 
 Qué deberías observar:
-  1. El camino CRUDO puede fallar de forma silenciosa: no lanza una excepción clara,
-     simplemente el objeto queda con datos inválidos o el código revienta después.
-  2. El camino ROBUSTO (extraer_con_detalle) valida, reintenta con el error concreto,
+  1. El camino CRUDO puede lanzar errores de validación o del proveedor durante invoke.
+  2. El camino ROBUSTO (extraer_con_detalle) comprueba el retorno y reintenta,
      y si de verdad no se puede, falla con ExtraccionFallida — nunca en silencio.
 """
 
@@ -53,21 +52,21 @@ CONSULTA_AMBIGUA = "Oye, esto que me está pasando con mi línea ya me tiene mal
 
 
 def camino_crudo(modelo, consulta: str) -> None:
-    print("  CAMINO CRUDO — with_structured_output() directo, sin validar")
+    print("  CAMINO CRUDO — with_structured_output() directo, sin wrapper de recuperación")
     print("  " + "-" * 68)
     estructurado = modelo.with_structured_output(Intencion)
     try:
         resultado = estructurado.invoke(consulta)
     except Exception as e:  # noqa: BLE001
         print(f"  El proveedor devolvió un error: {type(e).__name__}: {e}")
-        print("  (con with_structured_output() solo, este error no se distingue de uno de red)")
+        print("  (el tipo de excepción ayuda a distinguir validación, parser o proveedor)")
         return
     if resultado is None:
         print("  ⚠️  El modelo devolvió None. El siguiente código que use resultado.categoria")
         print("      va a reventar con AttributeError, TRES LÍNEAS MÁS ABAJO de aquí.")
         return
     print(f"  Resultado: {resultado}")
-    print("  (si llegaste hasta aquí, esta vez no falló — pero nada te avisó de que PODÍA)")
+    print("  (salida válida estructuralmente; comprobar también si la clasificación es correcta)")
 
 
 def camino_robusto(modelo, consulta: str) -> None:
@@ -97,10 +96,9 @@ def main() -> None:
 
     print("""
 
-  La diferencia no es que uno "funcione mejor": es que el camino robusto SIEMPRE
-  termina en uno de dos estados conocidos (un Intencion válido, o una excepción
-  controlada), mientras que el crudo puede terminar en un tercer estado -silencioso-
-  que revienta en otro archivo, minutos después, sin ninguna pista de dónde vino.
+  Ambos caminos usan la validación del esquema Pydantic. El wrapper añade
+  comprobación del retorno, un reintento correctivo y ExtraccionFallida al agotar
+  ese presupuesto. Un esquema válido no garantiza una clasificación correcta.
 """)
 
 

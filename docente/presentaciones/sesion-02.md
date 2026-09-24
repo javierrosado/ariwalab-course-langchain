@@ -19,13 +19,13 @@
 ## Mensajes, roles y *statelessness*
 - `system` / `human` / `ai`
 - El historial es una lista que **tú** reenvías
-- Por qué el turno 10 cuesta 8× el turno 1
+- Medir cuánto crece el costo al reenviar historial; no hay multiplicador fijo
 
 ---
 
 ## Rol + Contexto + Tarea + Formato
 - Las 4 partes, sobre el prompt real del track
-- Quitar "Formato" degrada más la salida que quitar "Rol"
+- Distinguir instrucciones de formato del esquema que aporta la integración
 
 ---
 
@@ -37,14 +37,14 @@
 
 ## Structured output: la demo del fallo
 - `with_structured_output()` puro, sin few-shot, con una consulta ambigua
-- El modelo inventa un valor de Enum o deja un campo vacío
-- El fallo no aparece donde se produce — revienta tres líneas más abajo
+- La integración valida el esquema Pydantic; observar resultados válidos o errores
+- No garantizar un fallo en vivo; usar el verificador simulado para reproducirlo
 
 ---
 
 ## `comun/structured.py` (regla A3)
-- `extraer()`: valida, reintenta UNA vez con el error concreto, o falla con `ExtraccionFallida`
-- Por qué un solo reintento: si falla dos veces, el problema es el esquema, no la suerte
+- `extraer()`: comprueba el retorno, reintenta una vez por defecto o falla con `ExtraccionFallida`
+- Por qué un solo reintento: limitar costo y latencia; diagnosticar la causa al agotar el presupuesto
 
 *(Pausa · 10 min)*
 
