@@ -7,10 +7,10 @@
 > final. Los cuatro tracks comparten el mismo esqueleto de código (`comun/`) y difieren en
 > dominio, datos y herramientas.
 >
-> **4 tools núcleo por track (decisión D20/A1):** la precisión de selección cae pasadas 4-5
+> **4 tools núcleo por track:** la precisión de selección cae pasadas 4-5
 > herramientas, y la fiabilidad se compone a lo largo del bucle del agente. Las 2 restantes quedan como reto opcional.
 >
-> **Marcas ficticias por decisión D12.** Los casos son reconocibles en el mercado peruano,
+> **Marcas ficticias.** Los casos son reconocibles en el mercado peruano,
 > pero ninguna empresa real es nombrada ni representada, y todos los datos son sintéticos.
 
 ---

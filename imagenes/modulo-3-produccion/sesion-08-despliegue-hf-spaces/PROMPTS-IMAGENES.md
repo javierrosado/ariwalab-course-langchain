@@ -12,16 +12,16 @@
 - **Formato:** 16:9; objetivo 1536 × 864 o equivalente; PNG.
 - **Restricciones:** distinguir propuesta/ejecución; evitar cruces de flechas y exceso de texto.
 - **NO deben aparecer:** fotografías, robots, 3D, sombras pesadas, gradientes, credenciales, tecnologías ajenas o métricas inventadas.
-- **Archivo previsto:** `01-despliegue.png`.
-- **Estado:** GENERATED. Revisada visualmente el 2026-09-24.
+- **Archivo:** `01-despliegue.png`.
+- **Uso:** Recurso disponible para las diapositivas.
 
-### Prompt completo enviado a la herramienta
+### Prompt para adaptar el recurso
 
 ```text
 Create one educational technical infographic for AriwaLabs, in Spanish, landscape 16:9, target 1536x864 or equivalent. Finished PNG bitmap, crisp vector-like flat design, rounded white cards, generous whitespace, clear labelled arrows, high legibility for projected PowerPoint. Background #F4F6F8, text and outlines #1E293B, cards #FFFFFF, accent #FF5733. Concept: Despliegue y observabilidad. Pedagogical goal: Situar fronteras de API, agente y servicios gestionados. Composition and exact directional relationships: Cliente → caja HF Spaces que contiene FastAPI → Agente. GET /health público junto a FastAPI; POST /chat con X-API-Key hacia Agente. Agente se conecta por flechas separadas a Modelo remoto, Simulador API y Qdrant. Una flecha discontinua desde Agente pasa por Enmascarador y llega a Langfuse con etiqueta S9. No poner credenciales reales. Visible labels verbatim in Spanish: Cliente, HF Spaces, FastAPI, Agente, GET /health, POST /chat, X-API-Key, Modelo remoto, Simulador API, Qdrant, Enmascarador, Langfuse, S9. Title: Despliegue y observabilidad. Visual hierarchy: title then main flow then one short explanatory note. Consistent icons: user outline, LLM chip, runtime square, tool wrench, database cylinder, history stacked cards, documents pages, observability tree, evaluation checklist. Solid arrows for execution/data and dashed for telemetry; keep arrows unambiguous and non-crossing. No photographs, humanoid robots, 3D, heavy shadows, gradients, stock imagery, extra technologies, real company logos, fabricated metrics, API keys, or paragraphs. Do not add components not requested. Clearly distinguish the model proposing and the runtime executing actions. This is a precise teaching diagram, not decorative art.
 ```
 
-### Ajustes de aceptación y regeneración
+### Criterios visuales
 
 Fondo opaco; representar LLM con chip. Incluir solo los nodos del mecanismo, sin leyendas
 de iconos adicionales. Las flechas de datos y ejecución son sólidas; telemetría solo en

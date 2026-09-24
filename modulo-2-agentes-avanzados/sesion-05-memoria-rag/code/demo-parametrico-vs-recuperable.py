@@ -4,7 +4,7 @@ Ejecutar desde la raíz del curso, DESPUÉS de 01_ingesta.py (usa la misma colec
     python modulo-2-agentes-avanzados/sesion-05-memoria-rag/code/demo-parametrico-vs-recuperable.py
 
 Requiere HF_TOKEN y Qdrant configurados. Dura 5 minutos en vivo. NO LA RECORTES: sostiene
-la decisión D21 (camino A, sin fine-tuning) del curso entero.
+la personalización con prompts y RAG del curso entero.
 
 ────────────────────────────── GUION PARA EL DOCENTE ──────────────────────────────
 
@@ -25,7 +25,7 @@ la decisión D21 (camino A, sin fine-tuning) del curso entero.
 
   Este es el argumento completo de por qué el conocimiento que cambia con frecuencia
   (tarifas, coberturas, políticas) vive en el RAG, y el prompt/modelo solo aportan el
-  tono y el comportamiento (D21, D26).
+  tono y el comportamiento.
 ─────────────────────────────────────────────────────────────────────────────────────
 """
 
@@ -115,7 +115,7 @@ def main() -> None:
     de horas o días — para cambiar UN precio. Aquí bastó con editar texto.)
   ─────────────────────────────────────────────────────────────────────────
 
-  Esto es la decisión D21 (camino A, sin fine-tuning) hecha física: el conocimiento
+  Esto es la personalización con prompts y RAG hecha física: el conocimiento
   que cambia va al RAG; el modelo y el prompt solo aportan tono y comportamiento.
 """)
 

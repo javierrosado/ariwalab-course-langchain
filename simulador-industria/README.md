@@ -62,7 +62,7 @@ Documentación interactiva en `http://localhost:8000/docs`.
 | `/retail` | MercaSur | Post-venta de e-commerce |
 | `/seguros` | Andina Seguros | SOAT y siniestros vehiculares |
 
-Todos los datos son sintéticos y todas las empresas son ficticias (decisión D12).
+Todos los datos son sintéticos y todas las empresas son ficticias.
 
 ---
 
@@ -96,9 +96,9 @@ enseñar que **la fuente de datos cambia y la tool no**.
 
 ### Decisiones de diseño
 
-**Un solo servicio para las 4 industrias** (D22). Un despliegue, un mantenimiento, una guía.
+**Un solo servicio para las 4 industrias**. Un despliegue, un mantenimiento, una guía.
 
-**SQLite reconstruido en cada arranque** (D24). El simulador vuelve a un estado conocido al
+**SQLite reconstruido en cada arranque**. El simulador vuelve a un estado conocido al
 reiniciarse y los datos base nunca se corrompen. Las escrituras de los equipos se pierden en un
 reinicio, y ningún laboratorio depende de datos creados en la sesión anterior.
 

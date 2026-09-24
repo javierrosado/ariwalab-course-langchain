@@ -60,4 +60,4 @@
 ## Qué NO entra hoy
 - El cliente web y la demo final → S11
 - RAGAS en profundidad → mención y enlace
-- Fine-tuning como vía de mejora → descartado por D21
+- Fine-tuning como vía de mejora → fuera del alcance; se trabaja con prompts y RAG

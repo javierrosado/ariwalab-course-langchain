@@ -11,8 +11,7 @@ los DESACUERDOS entre columnas, no el veredicto final — es donde aparece el se
 **El juez responde con `Veredicto`, extraído con `comun.structured.extraer()` (regla
 A3) — no con texto libre parseado a mano.** Un juez que se usa para enseñar por qué
 `assert respuesta == "esperado"` no sirve, y que él mismo devuelve un "SI"/"NO" sin
-validar, contradice lo que la propia sesión enseña (hallazgo H7 de
-`docente/esqueletos/VALIDACION-INTEGRAL.md`).
+validar, contradice lo que la propia sesión enseña.
 """
 
 from __future__ import annotations

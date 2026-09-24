@@ -32,7 +32,7 @@ construye.
 
 FastAPI define rutas con decoradores (`@app.get`, `@app.post`), valida el cuerpo de la petición
 con modelos Pydantic (lo mismo que ya usaste en `comun/structured.py`, regla A3), y corre sobre
-ASGI (el protocolo asíncrono que sucede a WSGI) vía `uvicorn`. Es la decisión D08 del curso.
+ASGI (el protocolo asíncrono que sucede a WSGI) vía `uvicorn`.
 
 ## 4. Health check: por qué una plataforma lo exige
 

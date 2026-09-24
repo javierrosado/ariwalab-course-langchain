@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 10 — Optimización continua y evaluación
 
-> Contrato de la S10. Insumo de la sesión de Claude Code que escribe la Fase 5 · S10.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Módulo 3
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-3-produccion/` para la sesión 10 |
+| Carpeta | `modulo-3-produccion/sesion-10-evaluacion-optimizacion/` |
 | Semana · día | Semana 5 · jueves |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L10 · Evaluación y optimización** |
 | Hitos | **Avance 3 del M3** |
-| Estado en el mapeo | `NULA` — se escribe entero. Complemento con RAGAS (D18) |
 
 ---
 
@@ -39,7 +35,7 @@ construye nada nuevo: se usa por cuarta vez, ahora completo.
 > hoy descubre que eran un *golden dataset* desde el primer día. Es la mejor manera de enseñar que
 > un conjunto de evaluación no se improvisa al final: se construye mientras se construye el sistema.
 
-⚠️ **Prerrequisito:** las 10 consultas `OTRO` por track (tarea *k* del README de esqueletos) y el
+⚠️ **Prerrequisito:** las 10 consultas `OTRO` por track y el
 campo `respuesta_esperada` en los 30. Sin eso no hay evaluación automática.
 
 ---
@@ -97,7 +93,7 @@ campo `respuesta_esperada` en los 30. Sin eso no hay evaluación automática.
 
 ### Bloque 3 — LLM-as-judge: se enseña, no califica
 
-**Decidido: el juez es demo. La nota la sostienen los tres evaluators determinísticos.**
+**El juez es demo. La nota la sostienen los tres evaluators determinísticos.**
 
 Cómo se enseña el sesgo, en vivo y en 10 minutos:
 
@@ -196,26 +192,9 @@ Debe ser **uno solo y trazable a un cuello del Avance 2**. Ejemplos por cuello:
 | No entra | Va en |
 |---|---|
 | El cliente web y la demo final | S11 |
-| RAGAS en profundidad | mención y enlace; complemento opcional (D18) |
+| RAGAS en profundidad | mención y enlace; complemento opcional |
 | Evaluación en CI / pipeline automatizado | se menciona como cierre, no se implementa |
-| Fine-tuning como vía de mejora | descartado por D21; se explica por qué |
-
----
-
-## 9. Archivos a producir y trabajo previo
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | Bloques 0 a 4, con el diagrama de la espina dorsal y la tabla de sesgos del juez |
-| `conceptos-previos.md` | Los 6 conceptos + verificación de las unidades restantes de Langfuse |
-| `code/` | Las 4 demos + README de carpeta |
-| `lab/` + `solucion/` | L10 × 4 tracks |
-
-| # | Trabajo previo | Por qué |
-|---|---|---|
-| aa | Añadir `respuesta_esperada` a los 30 casos × 4 tracks en `recursos/golden/` | Sin eso el evaluator de exactitud no existe |
-| ab | `comun/evaluadores.py` con los 3 evaluators determinísticos | El alumno los usa; no los reescribe desde cero |
-| ac | Comprobar las unidades de Langfuse que quedan tras la S9 | 30 casos × 2 versiones × 15 equipos contra un plan de 50 000/mes |
+| Fine-tuning como vía de mejora | fuera del alcance; se trabaja con prompts y RAG |
 
 ---
 

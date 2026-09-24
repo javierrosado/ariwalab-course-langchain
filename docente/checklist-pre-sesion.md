@@ -45,7 +45,7 @@ que sí va a bloquear la sesión que sí lo necesita.
 
 ## Bloqueantes con fecha, por sesión
 
-Estos ya están decididos en los esqueletos (`docente/esqueletos/sesion-NN.md`) con su propio
+Estos requisitos se detallan en los guiones (`docente/esqueletos/sesion-NN.md`) con su propio
 plazo — no son parte del comando de arriba, pero son parte del mismo hábito de verificar con
 margen:
 
@@ -74,7 +74,7 @@ python docente/verificar_guardrails.py --simular                                
 
 ## Si algo falla y no hay tiempo de arreglarlo
 
-El modo degradado ya está decidido por servicio — no se improvisa:
+Usar el modo degradado correspondiente al servicio:
 
 | Servicio caído | Modo degradado |
 |---|---|

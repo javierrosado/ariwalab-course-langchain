@@ -28,7 +28,7 @@ implementados por el agente del curso. Los ejemplos ejecutables viven en `code/0
 | Un solo intento | **5 intentos**, y se mide cuántos pasaron |
 
 > Lo último es lo que más cuesta aceptar a un ingeniero: **una prueba que pasa 4 de 5 veces no
-> está rota, está midiendo.** Es la misma idea de la fiabilidad compuesta (D20) aplicada al
+> está rota, está midiendo.** Es la misma idea de la fiabilidad compuesta aplicada al
 > testing: si tu agente pasa el 93 % de las veces por invariante, y tu prueba de estrés encadena
 > 3 invariantes, el resultado esperado no es "siempre pasa", es "pasa la mayoría de las veces, y
 > tú sabes cuánto".
@@ -63,7 +63,7 @@ azar, con `CHAOS_RATE>0` sin especificar `_fallo`, solo se inyectan `error503` o
 
 ## 1. Qué hace distinta a esta sesión
 
-**Decidido: clínica, sin ataque cruzado entre equipos.** Cada equipo prueba su propio agente. La
+**Clínica, sin ataque cruzado entre equipos.** Cada equipo prueba su propio agente. La
 pregunta que esto deja abierta —si nadie ataca a nadie, ¿en qué se diferencia del L6?— se
 responde así: **cambia el adversario**.
 

@@ -13,12 +13,14 @@ Las soluciones de cada sesión son checkpoints incrementales. Inspeccionar el co
 ## Fuentes de verdad
 
 Leer [mapa](docs/COURSE-MAP.md), [glosario](docs/GLOSSARY.md),
-[guía editorial](docs/CONTENT-GUIDELINES.md) e [informe](docs/COURSE-CONSISTENCY-REPORT.md).
+[guía editorial](docs/CONTENT-GUIDELINES.md).
 El código y sus pruebas determinan el comportamiento implementado; `docente/esqueletos/`
 documenta el contrato pedagógico; `PLAN-CURRICULAR.md` fija horas y evaluaciones;
-`_memoria/DECISIONES.md` conserva decisiones y `ROADMAP.md` registra construcción y bloqueos.
+La guía docente y los checklists describen la preparación operativa de cada sesión.
 Si estas fuentes contradicen entre sí, registrar evidencia, sin declarar una validación inexistente.
-Los documentos históricos sobre el repositorio base no describen automáticamente este curso.
+El contenido publicado se dirige al docente y al alumno. No incluir historia de creación,
+bitácoras, códigos de decisiones internas, tareas para asistentes de IA ni informes de entrega.
+La trazabilidad de los cambios permanece en Git. Conservar las atribuciones de autoría.
 
 ## Revisión pedagógica obligatoria
 
@@ -55,12 +57,12 @@ No publicar secretos, salidas con credenciales, ni resultados inventados.
 
 Trabajar únicamente en `feature/curso-final` para esta revisión. Comprobar rama y estado
 antes de editar. Conservar cambios previos del usuario y sus finales de línea; no incluirlos
-accidentalmente en commits. Commits pequeños y semánticos relacionados con IDs `CONS-NNN`.
+accidentalmente en commits. Commits pequeños y semánticos.
 Revisar diff contra `main`; no modificar ni fusionar `main`, borrar historial, hacer force
 push ni squash automático. Preparar o crear PR hacia `main` sin aprobarlo ni hacer merge.
 
-Registrar decisiones pedagógicas o arquitectónicas importantes como `DECISION REQUIRED`
-con alternativas, impacto y recomendación; el autor las decide. La revisión y aprobación
+Consultar al autor sobre cambios pedagógicos o arquitectónicos importantes; no introducir
+debates internos en el material de clase. Expresar límites técnicos como instrucciones verificables. La revisión y aprobación
 humana del PR es necesaria para integrar. Esto no impide las correcciones y validaciones
 ya autorizadas por el encargo. Despliegues y comunicaciones a terceros requieren alcance explícito.
 

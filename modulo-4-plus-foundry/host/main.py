@@ -1,12 +1,10 @@
 """Bonus · Foundry — host/main.py (checkpoint de referencia)
 
 Envuelve el agente del curso con `ResponsesHostServer` de `langchain_azure_ai.agents.hosting`
-(paquete `langchain-azure-ai[hosting]`, en preview — ver el riesgo R8 en
-`docente/esqueletos/bonus-foundry.md` §8: **re-verifícalo contra tu propio proyecto de
-Foundry antes de confiar en este archivo**, la API de un paquete en preview puede cambiar
-entre versiones).
+(paquete `langchain-azure-ai[hosting]`). Probarlo contra el proyecto Foundry de la
+edición antes de la práctica: las APIs del paquete pueden cambiar entre versiones.
 
-LO QUE SÍ PORTA SIN TOCARSE: `comun.provider.get_chat_model()` (decisión D13), las 4 tools
+LO QUE SÍ PORTA SIN TOCARSE: `comun.provider.get_chat_model()`, las 4 tools
 núcleo del track (L4) y el retriever (L5) — se siguen importando exactamente igual que en
 el resto del curso. Cambiar `AI_PROVIDER=huggingface` a `AI_PROVIDER=foundry` en el `.env`
 (o como variable del entorno de Foundry) es el único cambio real.

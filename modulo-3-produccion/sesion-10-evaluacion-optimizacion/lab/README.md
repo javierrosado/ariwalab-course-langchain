@@ -30,8 +30,8 @@ actual recibe un solo nombre, por lo que no representa toda la secuencia de llam
 
 Cuando `respuesta_esperada` es `None`, los evaluadores devuelven `True` por convención.
 Reportar también cuántos casos son no aplicables: ese valor no demuestra un acierto.
-Groundedness es un proxy de subcadena; revisar manualmente fuente y afirmación. CONS-014
-mantiene pendiente la decisión de modificar el contrato de métricas que alimenta la nota.
+Groundedness es un proxy de subcadena; revisar manualmente fuente y afirmación.
+El docente debe comunicar cómo tratar los casos no aplicables antes de calificar.
 
 La demo `code/04_ab_prompts.py` compara llamadas directas sin retriever: sirve para leer una
 tabla A/B, pero no valida mejora de recuperación ni sustituye esta evaluación del agente.

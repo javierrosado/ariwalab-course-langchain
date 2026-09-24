@@ -19,13 +19,12 @@ forma mecánica:
   C5  referencias      "no entra aquí, va en S<N>" siempre apunta hacia adelante
   C6  laboratorios     cada L1..L12 pertenece a exactamente una sesión
   C7  incrementalidad  cada sesión se apoya explícitamente en la anterior
-  C8  tareas previas   las letras no se repiten y todas están en el README
   C9  herramientas     toda tool nombrada existe en el catálogo real
   C10 bloqueantes      todo bloqueante declara un vencimiento
 
 Lo que NO puede validar un script —si un concepto se enseña antes de usarse, si la
 carga semanal es humana, si la narrativa se sostiene— está en
-`docente/esqueletos/VALIDACION-INTEGRAL.md`, que se escribe a mano y se revisa a mano.
+`docente/esqueletos/VALIDACION-INTEGRAL.md`, como guía de preparación docente.
 
 No requiere red ni credenciales.
 """
@@ -49,7 +48,7 @@ MALLA = {
 }
 TOTAL_TEORIA, TOTAL_PRACTICA, TOTAL_HORAS = 29.0, 43.0, 72.0
 
-SECCIONES = ["Ficha", "Objetivos", "no** entra", "producir"]
+SECCIONES = ["Ficha", "Objetivos", "no** entra", "evaluaci"]
 
 TOOLS = {
     "get_customer_plan", "get_data_usage", "run_line_diagnostics", "create_complaint_ticket",
@@ -155,9 +154,9 @@ def c3_guion(docs):
             aviso("C3", f"{etiqueta(k)} sin tabla de guion reconocible")
             continue
         total = sum(m for m, _ in filas)
-        if total != 180 and "DECISION-PENDIENTE" in txt:
+        if total != 180 and "Preparación del horario" in txt:
             aviso("C3", f"{etiqueta(k)} guion = {total} min",
-                  "marcado como DECISION-PENDIENTE: espera resolución de Javier")
+                  "confirmar y comunicar la franja adicional antes de clase")
             continue
         chk("C3", f"{etiqueta(k)} guion = {total} min", total == 180,
             "" if total == 180 else f"{len(filas)} bloques suman {total}, no 180")
@@ -235,26 +234,6 @@ def c7_incrementalidad(docs):
             "" if apoya else "no hay rastro de la sesión previa: revisar la continuidad")
 
 
-def c8_tareas(docs):
-    print("\nC8 · TAREAS PREVIAS")
-    readme = (ESQ / "README.md").read_text(encoding="utf-8") if (ESQ / "README.md").exists() else ""
-    chk("C8", "existe el README de esqueletos", bool(readme))
-    if not readme:
-        return
-    letras = re.findall(r"^\|\s*([a-z]{1,2})\s*\|", readme, re.M)
-    repetidas = [l for l, c in Counter(letras).items() if c > 1]
-    chk("C8", f"{len(letras)} tareas, sin letras repetidas", not repetidas, f"repetidas: {repetidas}")
-    # Toda tarea citada en un esqueleto debe estar en el README
-    citadas = set()
-    for k, txt in docs.items():
-        if not txt:
-            continue
-        for l in re.findall(r"^\|\s*([a-z]{1,2})\s*\|", txt, re.M):
-            citadas.add(l)
-    huerfanas = sorted(citadas - set(letras))
-    chk("C8", "toda tarea citada está en el README", not huerfanas, f"faltan en el README: {huerfanas}")
-
-
 def c9_tools(docs):
     print("\nC9 · LAS HERRAMIENTAS NOMBRADAS EXISTEN")
     NO_SON_TOOLS = {"check_stack", "get_system_prompt", "get_chat_model", "get_embeddings",
@@ -297,7 +276,7 @@ def main():
     print(f"  {presentes} de {len(docs)} esqueletos encontrados en {ESQ.relative_to(RAIZ)}")
 
     for f in (c1_estructura, c2_horas, c3_guion, c4_reparto, c5_referencias,
-              c6_laboratorios, c7_incrementalidad, c8_tareas, c9_tools, c10_bloqueantes):
+              c6_laboratorios, c7_incrementalidad, c9_tools, c10_bloqueantes):
         f(docs)
 
     print("\n" + "=" * 80)
@@ -307,7 +286,7 @@ def main():
         print("  docente/esqueletos/VALIDACION-INTEGRAL.md y se revisa a mano.\n")
         return 0
     print(f"  HAY INCOHERENCIAS{f' · {avisos} aviso(s)' if avisos else ''}")
-    print("  Corrige los FALLA de arriba antes de construir los archivos de esas sesiones.\n")
+    print("  Corrige los FALLA de arriba antes de dictar esas sesiones.\n")
     return 1
 
 

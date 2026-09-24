@@ -134,7 +134,7 @@ completa. Aun así, hay efectos que conviene gestionar.
 
 | Cuándo | Qué verificar | Si falla |
 |--------|---------------|----------|
-| **2 semanas antes** | **Tool calling del modelo**, probado contra el endpoint real | Bloqueante del curso completo: cambiar de modelo (R1) |
+| **2 semanas antes** | **Tool calling del modelo**, probado contra el endpoint real | Bloqueante del curso completo: cambiar de modelo |
 | **2 semanas antes** | Simulador desplegado en HF Spaces y respondiendo | Se dicta con `uvicorn` local, perdiendo el realismo |
 | **1 semana antes** | Límites vigentes del free tier de HF Inference y HF Spaces | Cuenta PRO del docente para las demos |
 | **1 semana antes** | API keys de equipo generadas y repartidas | Sin ellas no hay L3 |

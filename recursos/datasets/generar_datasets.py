@@ -6,7 +6,7 @@ Ejecutar desde la raíz del curso:
 
 Semilla fija: regenerar produce exactamente los mismos datos.
 
-REGLA DE MARCAS (decisión D12): todas las empresas, comercios, couriers, tiendas,
+REGLA DE MARCAS: todas las empresas, comercios, couriers, tiendas,
 billeteras y clínicas son FICTICIAS. La única excepción son las marcas de vehículos
 en el track de seguros, porque la marca de un auto es un atributo factual del bien
 asegurado (como el año o el color), no un proveedor de servicio suplantado.
@@ -98,7 +98,7 @@ cuentas = [[f"191-{random.randint(1000000,9999999)}-0-{random.randint(10,99)}", 
 escribir_csv("banca","cuentas.csv",
              ["numero_cuenta","titular","dni","tipo_cuenta","moneda","saldo","estado","fecha_apertura"], cuentas)
 
-# Comercios ficticios (D12)
+# Comercios ficticios
 COMERCIOS = ["Supermercado Kori","Grifo Wayra","Farmacia Pacha","Delivery Ñam","StreamAndina",
              "TaxiYa","Minimarket Tumi","Mercado Inti","Cine Estelar","Café Andino",
              "Ferretería Nexo","Tienda Aurora","Transferencia P2P","Cajero Banco Inti","Botica Sumaq"]
@@ -184,7 +184,7 @@ print("\nSEGUROS (Andina Seguros)")
 L = "ABCDEFGHJKLMNPQRSTUVWXYZ"
 placas = list(dict.fromkeys(
     f"{random.choice(L)}{random.choice(L)}{random.choice(L)}-{random.randint(100,999)}" for _ in range(60)))[:45]
-# Excepción documentada a D12: la marca del vehículo es un atributo factual del bien asegurado.
+# Excepción de la política de marcas: la marca del vehículo es un atributo factual del bien asegurado.
 MARCAS_V = [("Toyota",["Yaris","Corolla","Hilux","RAV4"]),("Hyundai",["Accent","Tucson","Elantra"]),
             ("Kia",["Rio","Sportage","Picanto"]),("Nissan",["Versa","Sentra","Frontier"]),
             ("Suzuki",["Swift","Vitara"]),("Chevrolet",["Sail","Onix"])]

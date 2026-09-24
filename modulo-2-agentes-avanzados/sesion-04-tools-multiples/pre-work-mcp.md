@@ -16,7 +16,7 @@ un cliente (tu agente) descubra y llame herramientas expuestas por un servidor, 
 cliente necesite conocer cómo están implementadas. La ventaja frente a escribir `@tool` a mano:
 el mismo servidor MCP puede servir a cualquier agente compatible, y el mismo agente puede
 conectarse a cualquier servidor MCP, sin reescribir nada — es la misma idea de indirección que ya
-viste en `comun/provider.py` (D13), aplicada a herramientas en vez de a modelos.
+viste en `comun/provider.py`, aplicada a herramientas en vez de a modelos.
 
 ## 2. Los dos transportes · 15 min
 

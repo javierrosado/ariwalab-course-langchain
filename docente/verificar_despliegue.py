@@ -18,7 +18,7 @@ Los puntos del criterio de aceptación de la S8 (ver `docente/esqueletos/sesion-
 De paso mide la latencia del primer request contra la del segundo, para detectar el
 *cold start* del tier gratuito que el equipo debe documentar en `DESPLIEGUE.md`.
 
-Por qué existe (tarea v de `sesion-08.md`): calificar 15 despliegues a mano —abrir cada
+Por qué existe: calificar 15 despliegues a mano —abrir cada
 URL, probar con y sin key— no escala. Esto lo convierte en 4 comprobaciones deterministas.
 
 CUOTA

@@ -3,7 +3,7 @@
 > Punto 4 del encargo. La audiencia son **ingenieros de software con poco conocimiento de LLMs**:
 > se asume solidez en programación y arquitectura, y **cero** en la parte de modelos de lenguaje.
 >
-> Cada sesión abre con un bloque asíncrono obligatorio de *Conceptos previos* (decisión D07),
+> Cada sesión abre con un bloque asíncrono obligatorio de *Conceptos previos*,
 > entregable como `sesion-NN/conceptos-previos.md` con tres partes fijas:
 > **(a)** glosario mínimo · **(b)** mini-lectura de 20–40 min · **(c)** autoevaluación de 5 preguntas
 > con umbral de 80 % para entrar a la sesión síncrona.
@@ -114,8 +114,8 @@ determinística. La sesión 1 debe romper esa expectativa explícitamente.
 | **Chunking**: tamaño y solapamiento, y su trade-off | Determina la calidad del RAG |
 | Índices y recuperación en base de datos | Analogía con lo que ya saben |
 | Estado conversacional: `thread_id`, checkpointer | Base de la memoria del agente |
-| Nociones de base vectorial gestionada: colección, punto, payload, filtro (Qdrant) | Decisión D09 |
-| Modelo de embeddings multilingüe y por qué importa en español | Todos los datasets del curso son en español (D15) |
+| Nociones de base vectorial gestionada: colección, punto, payload, filtro (Qdrant) | Base vectorial para L5 |
+| Modelo de embeddings multilingüe y por qué importa en español | Todos los datasets del curso son en español |
 | Costo de embeber un corpus | Se re-embebe en cada cambio de chunking |
 
 ---
@@ -151,7 +151,7 @@ determinística. La sesión 1 debe romper esa expectativa explícitamente.
 |---|---|
 | 12-Factor App (config por entorno) | Marco mental del despliegue |
 | **Contenedores**: imagen, capa, `Dockerfile`, `EXPOSE`, `CMD` | Se escribe un `Dockerfile` real; **no se corre Docker en local** (P2), lo construye el Space |
-| **FastAPI**: rutas, Pydantic como request/response, ASGI, `uvicorn` | Decisión D08 |
+| **FastAPI**: rutas, Pydantic como request/response, ASGI, `uvicorn` | API del proyecto |
 | Puerto, health check y por qué una plataforma lo exige | `/health` es requisito del Space |
 | Gestión de secretos en la nube (*Space secrets*) vs `.env` local | Nunca subir credenciales al repo (invariante I7) |
 | Git remoto y `git push` a un remote distinto de GitHub | Es el mecanismo de despliegue de HF Spaces |

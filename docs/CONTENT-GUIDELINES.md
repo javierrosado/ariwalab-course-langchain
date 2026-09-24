@@ -8,7 +8,7 @@ Usar español claro, términos técnicos canónicos y ejemplos sintéticos de la
 
 Incluir prerrequisitos verificables, objetivos observables, conexión con el incremento anterior,
 teoría, ejemplos, demos enlazadas, laboratorio, criterios de aceptación y siguiente paso.
-Conservar las horas y pesos pactados. Las secciones usan encabezados únicos y enlaces a
+Conservar las horas y pesos del plan. Las secciones usan encabezados únicos y enlaces a
 títulos estables; evitar referencias numéricas que no correspondan al documento publicado.
 Los guiones del docente, slides y quizzes deben corregirse junto con la teoría afectada.
 
@@ -49,7 +49,7 @@ no demuestra precisión del modelo. Reportar experimentos negativos con igual tr
 
 Consultar [COURSE-MAP](COURSE-MAP.md) y [GLOSSARY](GLOSSARY.md) antes de editar.
 Un enlace relativo parte del archivo que lo contiene. Comprobar archivos y anclas, excluyendo
-plantillas dentro de bloques de código. Enlaces al repo base deben ser portables en GitHub.
+plantillas dentro de bloques de código. Enlaces a fuentes externas deben ser portables en GitHub.
 Las referencias a material futuro nombran sesión y alcance: introducción, implementación,
 práctica o evaluación. No afirmar cobertura de Multi-agent si no existe actividad correspondiente.
 
@@ -58,5 +58,12 @@ práctica o evaluación. No afirmar cobertura de Multi-agent si no existe activi
 Usar una imagen solo si aclara una relación, flujo, arquitectura o decisión. Los prompts,
 catálogo y speaker notes evolucionan con el contenido. Las notas explican el mensaje,
 el ejemplo, la pregunta al alumno y el error frecuente, además de los elementos que señalar.
-Registrar cada corrección importante y cualquier ambigüedad en
-[COURSE-CONSISTENCY-REPORT](COURSE-CONSISTENCY-REPORT.md).
+
+## Audiencia y contenido publicado
+
+Publicar orientación para docentes y alumnos: conceptos, ejemplos, ejercicios, criterios de
+evaluación y preparación de clase. Excluir historia de creación del repositorio, alternativas
+editoriales descartadas, códigos de decisiones internas, conversaciones con asistentes e
+informes de entrega o PR. Conservar atribuciones y límites técnicos relevantes para la práctica.
+La historia de edición se consulta en Git; las decisiones de arquitectura que debe justificar
+el alumno sí forman parte de las actividades.

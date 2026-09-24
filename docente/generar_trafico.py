@@ -14,7 +14,7 @@ Envía las 20 consultas "con tool" de `recursos/golden/consultas-<track>.json` c
 no de desarrollo) y reporta p50/p95 de latencia — la misma lectura que enseña el
 bloque 3 del `README.md` de la sesión ("por qué el promedio miente").
 
-Por qué existe (tarea y de `sesion-09.md`): la parte 3 del laboratorio necesita
+Por qué existe: la parte 3 del laboratorio necesita
 volumen para que p50/p95 signifiquen algo. Una sola llamada no tiene percentil.
 
 CUOTA

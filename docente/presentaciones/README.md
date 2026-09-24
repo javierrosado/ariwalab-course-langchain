@@ -1,11 +1,8 @@
 # Presentaciones de aula
 
-> Cierra el punto 8.9 del `ROADMAP.md`. Formato decidido con Javier: **esqueleto en Markdown**,
-> uno por sesión — sin herramienta de diapositivas específica. Cada archivo es una diapositiva
-> por bloque del guion (separadas por `---`), con título y 2-4 bullets resumidos del contenido
-> pactado en `docente/esqueletos/`. Cero dependencias nuevas: se pega tal cual en Google Slides,
-> PowerPoint, Marp o reveal.js — los tres primeros aceptan Markdown de importación directa o
-> casi directa, y Marp/reveal.js lo consumen nativo.
+Cada archivo contiene una diapositiva por bloque del guion, separada por `---`, con título
+y puntos de apoyo. El docente puede trasladarlos a su herramienta de presentaciones y usar
+el [catálogo de imágenes](../../imagenes/CATALOGO-IMAGENES.md) para ilustrar los mecanismos.
 
 ## Cómo se usan
 

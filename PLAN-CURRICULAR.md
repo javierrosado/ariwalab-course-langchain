@@ -8,8 +8,7 @@ los clientes, scripts y demos Python pueden ejecutarse en la máquina del alumno
 **Duración:** 12 sesiones de 6 h · **72 horas lectivas** · 50 % síncrono / 50 % asíncrono
 **Calendario:** 2 sesiones por semana de 3 h síncronas → **6 semanas** (ver `docente/cronograma.md`)
 **Balance:** 40 % teoría / 60 % práctica
-**Autor:** Javier Rosado · Ariwa Labs · v3.0 — 2026-09-10
-**Estado:** material construido; revisión de consistencia y aprobación académica pendientes (D02).
+**Autor:** Javier Rosado · Ariwa Labs
 
 ---
 
@@ -40,7 +39,7 @@ nube gestionada, plan gratuito— es la única que cumple ambas condiciones.
 | Capa | Tecnología | Licencia | Modalidad | Plan gratuito |
 |---|---|---|---|---|
 | Orquestación | LangChain 1.x / LangGraph | MIT ✅ | librería | — |
-| Modelo de chat | **HF** · `Qwen3-32B` — **el mismo para las 4 industrias** | Apache 2.0 ✅ | SaaS | **verificado**: único candidato que pasó |
+| Modelo de chat | **HF** · `Qwen3-32B` — **el mismo para las 4 industrias** | Apache 2.0 ✅ | SaaS | verificar disponibilidad y cuota antes de clase |
 | Personalización | **System prompt por industria** (`comun/prompts_industria.py`) + colección Qdrant | — | código | sin costo |
 | Embeddings | **HF Inference API** · `intfloat/multilingual-e5-large` | MIT ✅ | SaaS | créditos mensuales · ⚠️ verificar |
 | Vector store | **Qdrant Cloud** | Apache 2.0 ✅ | SaaS | **1 GB RAM / 4 GB disco · gratis para siempre, sin tarjeta** ✔ verificado |
@@ -52,9 +51,6 @@ nube gestionada, plan gratuito— es la única que cumple ambas condiciones.
 | Repositorio | GitHub | — | SaaS | gratuito |
 | **Plus (bonus)** | **Microsoft Foundry** hosted agent + `azd` | propietario | SaaS | requiere suscripción Azure |
 
-**Lo que salió del plan v1:** Azure AI Search, embeddings de Foundry, LangSmith, Chroma local,
-GitHub Models. Registro completo en [`_memoria/DECISIONES.md`](_memoria/DECISIONES.md).
-
 ### `.env` unificado del curso
 
 ```dotenv
@@ -63,7 +59,7 @@ AI_PROVIDER=huggingface              # huggingface | foundry  (foundry solo en b
 HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxx
 HF_EMBEDDING_MODEL=intfloat/multilingual-e5-large
 
-# Un solo modelo para las 4 industrias (D21 · camino A).
+# Un solo modelo para las 4 industrias.
 # La personalización vive en el system prompt y en la colección de Qdrant.
 HF_CHAT_MODEL=Qwen/Qwen3-32B
 HF_ENABLE_THINKING=false
@@ -94,7 +90,7 @@ COURSE_TRACK=telecomunicaciones      # telecomunicaciones | banca | retail | seg
 
 `comun/provider.py` conmuta por `AI_PROVIDER`: durante las 11 sesiones siempre vale `huggingface`;
 en el bonus se estudia el cambio de cliente de chat a `foundry`. El hosting necesita un
-grafo compatible y el cambio de embeddings requiere una decisión separada (CONS-009/010).
+grafo compatible y el cambio de embeddings requiere comprobar compatibilidad y reindexar si cambia el modelo.
 
 ---
 
@@ -142,7 +138,7 @@ Detalle en [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-s
 | | **TOTAL LECTIVO** | | **29.0** | **43.0** | **72** | |
 | B | **BONUS asíncrono · Foundry** *(no computa horas lectivas)* | M4 | ~2 | ~4 | ~6 | L12 |
 
-> **Calendario (2026-09-10):** 2 sesiones por semana de 3 h síncronas → el curso se completa en
+> **Calendario:** 2 sesiones por semana de 3 h síncronas → el curso se completa en
 > **6 semanas**, con 12 h semanales de dedicación por alumno. La malla, las horas y el balance no
 > cambian: solo el reparto en el calendario. Detalle y riesgos del ritmo en `docente/cronograma.md`.
 
@@ -150,12 +146,12 @@ Detalle en [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-s
 **Síncrono/asíncrono:** 36 h / 36 h = **50 / 50** ✅
 **Malla oficial:** 11 semanas + Seminario = 72 h ✅ **sin cambios, no requiere aprobación académica**
 
-> El bloque de Foundry es **bonus asíncrono** (decisión D17 v2): guía autoguiada fuera de las horas
+> El bloque de Foundry es **bonus asíncrono**: guía autoguiada fuera de las horas
 > lectivas, disponible desde el cierre de la S11. No condiciona ninguna evaluación ponderada.
 
 ---
 
-## 4bis. Diseñar para que la fiabilidad se componga (decisión D20)
+## 4bis. Diseñar para que la fiabilidad se componga
 
 Las 4 industrias comparten `Qwen3-32B`. La razón de estas seis reglas no es el tamaño del
 modelo: es que **la fiabilidad se compone a lo largo del bucle ReAct**.
@@ -183,11 +179,11 @@ se reduce el número de pasos y se hace cada paso lo más inequívoco posible:
 > descripciones ambiguas y el alumno nunca descubre por qué importan. Un 7B no perdona: obliga
 > a diseñar bien las herramientas, que es exactamente lo que un curso de agentes debe enseñar.
 
-Especificación completa de los modelos: [`_memoria/ESPEC-MODELOS-INDUSTRIA.md`](_memoria/ESPEC-MODELOS-INDUSTRIA.md)
+Especificación completa de los modelos: [Personalización por industria](docente/modelos-por-industria.md)
 
 ---
 
-## 4ter. Cómo se personaliza cada industria (decisión D21 · camino A)
+## 4ter. Cómo se personaliza cada industria
 
 Los cuatro tracks usan **el mismo modelo**. Lo que hace que un agente suene a telco, banco,
 retailer o aseguradora son dos piezas, ambas editables como texto:
@@ -207,9 +203,8 @@ agente = create_agent(get_chat_model(), tools=TOOLS_NUCLEO,
 **Ninguna cifra de negocio está en el prompt.** Todas viven en los documentos, para poder
 citarlas, auditarlas y actualizarlas sin tocar el agente.
 
-> **Por qué no se afinan modelos por industria:** habría multiplicado por cuatro el riesgo de
-> perder tool calling, roto la justificación del RAG de la S5 y roto la portabilidad del bonus.
-> El análisis completo está en [`_memoria/IMPACTO-LLM-PERSONALIZADOS.md`](_memoria/IMPACTO-LLM-PERSONALIZADOS.md).
+> El curso personaliza el comportamiento con prompts y recupera el conocimiento mediante RAG;
+> no incluye entrenamiento de pesos.
 
 ---
 
@@ -283,7 +278,7 @@ Práctica: instrumentar el agente con el callback de Langfuse, leer trazas del a
 hallar 2 cuellos de botella reales.
 Avance 2 M3.
 *Nota de trazabilidad con la malla:* el PDF nombra LangSmith; se cumple el objetivo pedagógico
-—observabilidad y trazabilidad de agentes— con la herramienta open source equivalente (D05 v2).
+—observabilidad y trazabilidad de agentes— con la herramienta open source equivalente.
 
 **S10 — Optimización continua y evaluación**
 Teoría: golden dataset; evaluators; groundedness; LLM-as-judge y sus sesgos; A/B de prompts.
@@ -335,7 +330,7 @@ observabilidad y evaluación · comunicación técnica. Plantillas en `recursos/
 ```
 ariwalab-course-langchain/
 ├── README.md · PLAN-CURRICULAR.md
-├── _memoria/            CONTEXTO-REPO · DECISIONES · MAPEO-SYLLABUS-REPO
+├── docs/                mapa pedagógico, glosario y guía editorial
 ├── comun/               provider.py · vectorstore.py · observability.py · utils
 ├── 00-preparacion/      Sesión 0: nivelación de LLMs + alta de las 3 cuentas SaaS
 ├── modulo-1-fundamentos/           sesiones 01–03
@@ -351,28 +346,9 @@ Cada `sesion-NN/` contiene `README.md` (teoría), `conceptos-previos.md`, `code/
 
 ---
 
-## 8. Por qué el bloque de Foundry es bonus y no sesión formal
+## 8. Bonus y preparación del dictado
 
-| Opción | Horas | Cómo queda | Estado |
-|---|---|---|---|
-| A · Sesión 12 formal | 78 | 12 sesiones + seminario | Descartada: requiere aprobación académica |
-| **B · Bonus asíncrono** | **72** | **Guía autoguiada, fuera de horas lectivas** | ✅ **ELEGIDA** |
-| C · Dentro del Seminario Internacional | 72 | El seminario se dedica a Foundry | Descartada: se pierde el seminario |
-| D · Comprimir 13 semanas en 72 h | 72 | Bloques de 5.5 h | Descartada: rompe el ritmo semanal |
-
-**Consecuencia de la opción B:** la malla del PDF queda intacta, no hay trámite académico, y ningún
-alumno sin suscripción de Azure queda en desventaja en su nota. El costo es que el bloque plus no
-tiene acompañamiento en vivo: se compensa con una guía paso a paso más detallada y capturas de pantalla.
-
----
-
-## 9. Volumen construido y estado verificable
-
-El árbol inicial de esta revisión contiene **425 archivos versionados**, incluidos
-**201 Markdown y 183 Python**. Hay material de S0, las once sesiones numeradas, el seminario
-y el bonus, más recursos comunes, simulador y documentación docente.
-
-El [inventario](docs/COURSE-INVENTORY.md) enumera archivos; el [mapa](docs/COURSE-MAP.md)
-conecta introducción, implementación, práctica y evaluación. Construido no significa
-validado contra servicios reales: consultar [hallazgos y bloqueos](docs/COURSE-CONSISTENCY-REPORT.md)
-y `ROADMAP.md` para decisiones y verificaciones pendientes.
+Foundry es un bloque asíncrono opcional, fuera de las 72 horas y de la nota.
+El docente verifica servicios, cuotas y acceso antes de cada edición con la
+[guía de verificación](VERIFICACION.md) y el [checklist previo](docente/checklist-pre-sesion.md).
+El [mapa pedagógico](docs/COURSE-MAP.md) relaciona conceptos, prácticas y evaluaciones.

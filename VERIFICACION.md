@@ -1,13 +1,8 @@
-# Verificación del stack — hazlo antes de construir los laboratorios
+# Verificación del entorno antes de clase
 
-> **Por qué existe este paso.** Todo el curso, de la sesión 3 en adelante, depende de que el
-> modelo haga *tool calling* de forma confiable. No todos los modelos ni todos los proveedores
-> de inferencia lo soportan bien. Construir 44 laboratorios sobre un modelo no verificado es
-> el riesgo R1 del ADR, y es el único bloqueante técnico del proyecto.
->
-> **No pude ejecutarlo por ti:** el entorno de trabajo tiene bloqueado el acceso de red a
-> `huggingface.co`, `cloud.qdrant.io` y `cloud.langfuse.com`. Tienes que correrlo desde tu
-> terminal normal de Windows, que sí tiene salida a internet.
+El docente ejecuta estas comprobaciones con las credenciales del curso y acceso a los
+servicios. Repetirlas antes de cada edición y revisar los servicios necesarios antes de cada
+sesión. Una simulación comprueba el instrumento, no la calidad del modelo remoto.
 
 ---
 
@@ -22,7 +17,7 @@
 ## Paso 2 · Preparar el entorno
 
 ```powershell
-cd C:\personal\microsoft\ariwalab-course-langchain
+cd ruta\al\ariwalab-course-langchain
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -77,45 +72,9 @@ te dice cuál sirve.
 python -m comun.check_stack --candidatos
 ```
 
-La escalera por defecto, en orden de preferencia:
-
-```dotenv
-HF_CHAT_MODEL=Qwen/Qwen3-32B                      # ✅ verificado 2026-09-10
-HF_CHAT_MODEL=Qwen/Qwen3-30B-A3B                  # ❌ falló la verificación
-HF_CHAT_MODEL=Qwen/Qwen3-8B                       # ❌ falló la verificación
-HF_CHAT_MODEL=meta-llama/Llama-3.3-70B-Instruct   # ❌ falló la verificación
-```
-
-Si **ninguno** funciona por el router de HF, el diseño del curso necesita revisión:
-la alternativa sería usar Foundry como proveedor troncal (rompiendo el principio open source)
-o buscar otro proveedor de inferencia de modelos abiertos.
-
----
-
-## Qué hacer con el resultado
-
-Pégame la salida completa del comando en el chat. Con eso:
-
-- cierro los riesgos **R1, R2, R4 y R5** del ADR con evidencia real;
-- fijo el modelo definitivo en todo el material;
-- arranco la construcción del Módulo 1.
-
-
----
-
-## Resultado de la verificación · 2026-09-10
-
-```
-VEREDICTO: 1 de 4 candidatos sirven para el curso.
-Recomendado por velocidad: Qwen/Qwen3-32B
-```
-
-`Qwen3-32B` quedó fijado como modelo del curso (decisión D28). Los otros tres candidatos no
-superaron las comprobaciones críticas contra el endpoint real.
-
-**Repetir esta verificación 2 semanas antes de cada dictado.** La disponibilidad de un modelo en
-los *inference providers* de Hugging Face puede cambiar entre ediciones del curso, y un modelo
-que hoy responde puede dejar de hacerlo.
+Revisar la salida de cada candidato y comprobar el que se utilizará en clase con las
+mismas herramientas y credenciales del laboratorio. Registrar modelo, fecha, configuración y
+resultado en la preparación de la edición. No presentar una medición pasada como garantía.
 
 ---
 
@@ -133,10 +92,9 @@ esté bien, y ninguno necesita red ni credenciales: puedes correrlos ahora mismo
 
 ---
 
-## Paso 4 · Matriz de selección de herramientas — **pendiente, la corres tú**
+## Matriz de selección de herramientas
 
-Es lo único que queda para cerrar el riesgo **R11**, y es la pregunta que `check_stack` no
-responde: *el modelo hace tool calling, sí — pero ¿elige la herramienta correcta?*
+`check_stack` comprueba la capacidad de llamar herramientas. La matriz responde otra pregunta: *el modelo hace tool calling, sí — pero ¿elige la herramienta correcta?*
 
 Primero pruébalo sin gastar cuota, para ver la forma de la salida:
 

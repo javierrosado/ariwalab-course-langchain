@@ -12,5 +12,5 @@ se atasca, compara tu script contra el de tu track — **después** de intentarl
 | Seguros — Andina Seguros | [`seguros/primer_contacto.py`](seguros/primer_contacto.py) |
 
 Los 4 scripts comparten el mismo esqueleto (invariante I4): cambian la lista de preguntas y el
-track. Ninguno usa Pydantic, tools ni `create_agent()` — eso sale del alcance decidido del L1
+track. Ninguno usa Pydantic, tools ni `create_agent()` — eso sale del alcance del L1
 (ver `README.md` de la sesión, sección 11).

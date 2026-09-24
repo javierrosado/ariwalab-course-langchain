@@ -9,11 +9,11 @@
 
 | Cuándo | Qué | Tarea |
 |---|---|---|
-| 3 semanas antes | Convocar 3 panelistas de sectores distintos (o de los 4 tracks) | ai (Javier) |
-| Al confirmar cada uno | Enviar `brief-panelistas.md` | aj (Javier) |
-| 48 h antes | Confirmar asistencia y probar conexión si alguno es remoto | ak (Javier) |
+| 3 semanas antes | Convocar 3 panelistas de sectores distintos (o de los 4 tracks) | Docente |
+| Al confirmar cada uno | Enviar `brief-panelistas.md` | Docente |
+| 48 h antes | Confirmar asistencia y probar conexión si alguno es remoto | Docente |
 | 48 h antes | Los equipos entregan sus 3 preguntas cada uno (`preparacion.md`) | — |
-| 24 h antes | Curar las preguntas de los equipos (agrupar, descartar sí/no, ordenar por tema) | al (Javier) |
+| 24 h antes | Curar las preguntas de los equipos (agrupar, descartar sí/no, ordenar por tema) | Docente |
 
 **Plan B, escrito de antemano:** si el día del seminario solo llega un panelista, la sesión se
 reconvierte: el docente presenta 2 casos públicos documentados y el bloque 2 (preguntas) se

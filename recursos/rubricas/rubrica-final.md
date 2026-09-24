@@ -56,7 +56,7 @@ hay penalización: el fallo no es del free tier, es de no haber previsto que pod
 | Insuficiente | Alguna tool no tiene `args_schema`, o el system prompt no usa `get_system_prompt(track)` |
 | En desarrollo | Las 4 tools funcionan, pero al menos una docstring no dice "cuándo NO usarla" (regla A2) |
 | Competente | Las 4 tools núcleo + el retriever cumplen A2, el system prompt del track está intacto (identidad, jerga, límites, A6) |
-| Destacado | El equipo argumenta, con datos de `docente/matriz_seleccion.py`, por qué su catálogo quedó en 4 tools y no más (D20) |
+| Destacado | El equipo argumenta, con datos de `docente/matriz_seleccion.py`, por qué su catálogo quedó en 4 tools y no más |
 
 ## Guardrails y manejo de errores — 20 %
 
@@ -98,5 +98,4 @@ evidencia de las 24 h antes.
 
 A1/M2 usan Insuficiente, Básico, Competente y Sobresaliente; la rúbrica final usa
 Insuficiente, En desarrollo, Competente y Destacado. La correspondencia ordinal es 1–4.
-Esta nota no cambia pesos ni descriptores. Unificar los nombres requiere confirmar la
-nomenclatura institucional (CONS-020 del reporte de consistencia).
+Aplicar los pesos, criterios y descriptores de la rúbrica correspondiente a cada evaluación.

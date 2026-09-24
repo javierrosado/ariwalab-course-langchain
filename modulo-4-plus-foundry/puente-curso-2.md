@@ -27,10 +27,10 @@ El Curso 2 es **100 % Foundry**: no solo el modelo, sino la arquitectura complet
 
 Tres razones, ya conocidas del resto del curso:
 
-1. **P1/P3**: la troncal del curso es 100 % open source; Foundry es un bonus asíncrono
-   deliberadamente acotado (decisión D17).
-2. **D21**: sin fine-tuning por industria, el switch de modelo es honesto y simple — adelantar
-   más piezas de Azure aquí habría complicado esa demostración sin necesidad.
+1. **Alcance**: la troncal del curso es 100 % open source; Foundry es un bonus asíncrono
+   deliberadamente acotado.
+2. **Portabilidad**: comparar proveedores de chat y comprobar por separado embeddings,
+   memoria, guardrails y hosting.
 3. Este curso te deja con un **agente completo, portable y medido**. El Curso 2 parte de esa
    base y construye la versión "todo en Azure" — no tiene sentido construirla dos veces.
 

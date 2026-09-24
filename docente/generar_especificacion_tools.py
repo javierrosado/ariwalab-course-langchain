@@ -50,7 +50,7 @@ out = ["""# Especificación de las tools del curso
 > **Generado automáticamente** por `docente/generar_especificacion_tools.py` a partir del código
 > real. No editar a mano: regenerar tras cualquier cambio en las tools.
 >
-> **Para el profesor:** el curso usa un modelo genérico sin afinar (decisión D21), así que
+> **Para el profesor:** el curso usa un modelo genérico sin afinar, así que
 > **la única guía que tiene el modelo para elegir bien una herramienta es lo que está escrito
 > aquí**. Si `docente/matriz_seleccion.py` reporta una confusión entre dos tools, la corrección
 > se hace sobre la docstring de este documento, no sobre el modelo.

@@ -1,9 +1,6 @@
 # Esqueleto · Seminario Internacional — Panel de casos reales
 
-> Contrato del Seminario. Insumo de la sesión de Claude Code que escribe sus archivos.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Semana 6
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,15 +8,14 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | `modulo-3-produccion/seminario-internacional/` |
+| Carpeta | `modulo-3-produccion/seminario-internacional/` |
 | Semana · día | Semana 6 · jueves *(después de la sustentación final del martes)* |
 | Horas | **1.5 h teoría · 4.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (30 T / 140 P / 10 pausa) + 2 h de contraste (P) |
 | Laboratorio | Ninguno. El entregable es un **documento de contraste** |
 | Evaluación | **Formativa, no ponderada** |
-| Estado en el mapeo | Sin contraparte en el repo ni en el PDF: se diseña entero |
 
-**Formato decidido: panel de casos reales de la industria.** Dos o tres profesionales cuentan
+**Formato: panel de casos reales de la industria.** Dos o tres profesionales cuentan
 implantaciones de agentes en sus empresas, y cada equipo contrasta su propio diseño contra esos casos.
 
 ---
@@ -184,19 +180,7 @@ sistema aprendió más que uno que sale creyendo que no fallará.
 
 ---
 
-## 9. Archivos a producir
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | El bloque 0 completo: cómo se escucha un caso, con el cuadro de qué anotar |
-| `preparacion.md` | El pre-work: plantilla de pregunta, ejemplos por track, plazo de 48 h |
-| `plantilla-contraste.md` | Las 4 secciones del entregable |
-| `brief-panelistas.md` | **Documento del docente**, no del alumno: el brief de 1 página |
-| `guion-docente.md` | Cómo conducir: tiempos, curaduría de preguntas, qué hacer si un panelista se extiende |
-
----
-
-## 10. Tareas de Javier, con fecha
+## 10. Preparación del docente, con fecha
 
 | # | Tarea | Para cuándo | Si falta |
 |---|---|---|---|

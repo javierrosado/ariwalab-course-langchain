@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 6 — Automatización, asistentes y guardrails
 
-> Contrato de la sesión 6. Insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 4.11–4.15 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Fase 4 · Módulo 2
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,17 +8,15 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-2-agentes-avanzados/` para la sesión 6 |
+| Carpeta | `modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/` |
 | Semana · día | Semana 3 · jueves |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L6 · Guardrails y límites** |
 | Hitos | **Avance 3 del proyecto** |
-| Estado en el mapeo | `PARCIAL` — **el repo no cubre guardrails**: se escribe desde cero |
 
-> **Es la sesión que separa un demo de un sistema desplegable.** Los tracks de banca y seguros no
-> serían presentables sin ella, y es la única del curso cuyo contenido no tiene contraparte en el
-> repo de Microsoft.
+> Explicar los controles de entrada, acción y salida con ejemplos de banca y seguros.
+> Una demostración exitosa no garantiza cobertura frente a todos los ataques.
 
 ---
 
@@ -118,14 +113,14 @@ el alumno ya lo entendió como arquitectura, ahora lo entiende como defensa.
 
 Los tres son código, ninguno es prompt. El prompt ayuda; el código decide.
 
-> **Corrección VALIDACION-INTEGRAL H1 (2026-09-16).** El bloque 4 debe cerrar mencionando que
+> El bloque 4 debe cerrar mencionando que
 > el **few-shot (A5)** es la primera capa de defensa, antes del código: un par de ejemplos de
 > ataques ya bloqueados en el system prompt entrena al modelo para reconocer el patrón — pero
 > sin reemplazar los 3 guardrails de código, igual que en el bloque 2 de la S4 (A5 aplicado a
 > selección de tools, no a seguridad). Sin negociar minutos: es una idea que cierra el bloque 4
 > ya existente, no un bloque nuevo.
 >
-> **Corrección VALIDACION-INTEGRAL H4 (2026-09-16).** El bloque 4 cierra con una mención de 2-3
+> El bloque 4 cierra con una mención de 2-3
 > minutos, dentro de sus 20 min ya asignados (sin abrir un bloque nuevo ni recortar otro): *"Lo
 > que viste hoy — enganchar guardrails antes/después del modelo — deja de alcanzar cuando el
 > agente necesita ramificarse en pasos condicionales explícitos y persistentes (por ejemplo,
@@ -148,7 +143,7 @@ Los tres son código, ninguno es prompt. El prompt ayuda; el código decide.
 
 ## 6. Laboratorio L6 · Guardrails y límites
 
-### La batería de ataques · decidido
+### La batería de ataques
 
 > **15 ataques del curso, iguales para todos, + 5 propios del alumno.**
 
@@ -229,26 +224,6 @@ irreversible, y una estimación de indemnización crea expectativa contractual.
 > El L6 defiende contra un **adversario deliberado**. El L7 defiende contra el **mundo real sin
 > malicia**: servicios caídos, datos ausentes, preguntas ambiguas. Son dos ejes distintos, y
 > conviene decirlo para que la S7 no parezca una repetición.
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **4.11** | `README.md` | Bloques 0 a 4, con el diagrama de los 3 puntos de enganche |
-| **4.12** | `conceptos-previos.md` | Inyección, PII, Ley 29733, entrada vs salida |
-| **4.13** | `code/` | Las 4 demos + `README.md` |
-| **4.14** | `lab/` + `solucion/` | L6 × 4 tracks, con su lista de prohibidos |
-| **4.15** | `recursos/ataques/bateria-<track>.json` | Los 15 ataques × 4 tracks |
-
-### Trabajo previo
-
-| # | Tarea | Por qué |
-|---|---|---|
-| a | `docente/verificar_guardrails.py`, con `--simular` y código de salida | Sin instrumento, "0 filtraciones" es una opinión |
-| b | Redactar los 15 ataques × 4 tracks con su `filtracion_si` | Es el golden set de esta sesión |
-| c | Añadir la lista de prohibidos de cada track a `comun/prompts_industria.py` si no está | El prompt es la primera capa; el código es la segunda |
 
 ---
 

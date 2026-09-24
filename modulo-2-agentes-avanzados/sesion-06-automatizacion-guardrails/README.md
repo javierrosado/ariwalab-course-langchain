@@ -1,8 +1,7 @@
 # Sesión 6 — Automatización, asistentes y guardrails
 
-> Semana 3 · jueves · **2.5 h teoría + 3.5 h práctica = 6 h**. Es la sesión que separa un demo de
-> un sistema desplegable: los tracks de banca y seguros no serían presentables sin ella, y es la
-> única del curso cuyo contenido no tiene contraparte en el repo de Microsoft.
+> Semana 3 · jueves · **2.5 h teoría + 3.5 h práctica = 6 h**.
+> La sesión enseña controles de entrada, acción y salida, y cómo comprobar sus límites.
 
 ---
 

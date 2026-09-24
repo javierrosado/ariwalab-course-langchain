@@ -169,7 +169,7 @@ anterior.
 
 ## 7. Modo degradado — qué hacer si el Space cae
 
-Este es el riesgo **R14** del ADR: el simulador es un punto único de fallo. Si cae durante una
+El simulador es un punto único de fallo. Si cae durante una
 sesión, se caen los laboratorios de todos los equipos a la vez.
 
 **La mitigación ya está en el código.** Indica a los alumnos:
@@ -230,4 +230,3 @@ Si quieres agregar una ruta nueva:
 | [`GUIA-ALUMNO.md`](GUIA-ALUMNO.md) | Alumnos — cómo conectar su agente |
 | [`GUIA-MCP.md`](GUIA-MCP.md) | Alumnos — transportes stdio y HTTP |
 | [`../README.md`](../README.md) | Arquitectura interna del simulador |
-| [`../../_memoria/DECISIONES.md`](../../_memoria/DECISIONES.md) | Decisiones D22 a D25 y riesgo R14 |

@@ -1,7 +1,6 @@
 # Brief para panelistas — Seminario Internacional
 
-> Documento del docente, no del alumno. Se envía **3 semanas antes** de la sesión (tarea aj de
-> `seminario.md`). Una página.
+> Guía del docente para enviar a los panelistas tres semanas antes de la sesión.
 
 ---
 

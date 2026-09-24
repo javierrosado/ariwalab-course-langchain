@@ -1,11 +1,7 @@
 # Documento de diseño — [equipo] · [track]
 
-> Plantilla del entregable de la Sesión 11 (tarea ae de
-> `docente/esqueletos/sesion-11.md`), citada desde
-> `modulo-3-produccion/sesion-11-sustentacion-final/README.md` y su `lab/README.md`. Vive en
-> `recursos/plantillas/` porque es un archivo compartido, igual que las rúbricas y el golden
-> set — no un archivo propio de esa sesión. 4 páginas, no más. Completa cada sección con
-> información real de tu proyecto — borra las instrucciones entre `< >`.
+> Entregable de la Sesión 11: máximo cuatro páginas. Completa cada sección con
+> información real de tu proyecto y borra las instrucciones entre `< >`.
 
 ---
 

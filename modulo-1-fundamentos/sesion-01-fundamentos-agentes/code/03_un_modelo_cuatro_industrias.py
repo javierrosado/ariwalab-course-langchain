@@ -1,14 +1,11 @@
-"""Demo 3 · Un solo modelo, cuatro industrias — D21 en vivo.
+"""Demo 3 · Un solo modelo, cuatro industrias.
 
 Ejecutar desde la raíz del curso:
     python modulo-1-fundamentos/sesion-01-fundamentos-agentes/code/03_un_modelo_cuatro_industrias.py
 
 Requiere HF_TOKEN en el .env.
 
-Sustituye a la demo `03_model_comparison.py` del repo de Microsoft, que compara MODELOS
-distintos. Con la decisión D28 este curso usa un solo modelo para las 4 industrias, así
-que esa comparación perdería sentido aquí. En su lugar, esta demo compara PROMPTS de
-industria — que es la decisión que sí gobierna este curso (D21, camino A: sin fine-tuning).
+Compara los system prompts de las cuatro industrias manteniendo el mismo modelo.
 
 Qué deberías observar:
   1. La misma pregunta, el mismo modelo (`Qwen/Qwen3-32B`), cuatro respuestas distintas.
@@ -71,9 +68,9 @@ def main() -> None:
     print("""
   Qué significa esto para el curso
 
-    · Un solo modelo verificado (D28) en vez de cuatro modelos por afinar.
+    · Un solo modelo verificado en vez de cuatro modelos por afinar.
     · Cambiar el tono de un agente es editar texto en prompts_industria.py, no
-      reentrenar nada (decisión D26: 5 bloques por industria — identidad, jerga,
+      reentrenar nada (cinco bloques por industria: identidad, jerga,
       estilo, recuperación obligatoria y límites).
     · Esto es exactamente lo que vas a usar en tu laboratorio de hoy: tu
       `primer_contacto.py` importa `get_system_prompt()` con TU track, no los cuatro.

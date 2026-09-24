@@ -149,36 +149,21 @@ No memorices esta tabla: vuelve a ella cada vez que empieces una sesión nueva d
 
 ---
 
-## 7. Modelos abiertos vs cerrados — y cómo se eligió el de este curso
+## 7. Modelos abiertos, modelos cerrados y configuración del curso
 
-El curso usa **modelos de pesos abiertos** ("open-weights"): los parámetros del modelo son
-descargables y auditables, a diferencia de un modelo cerrado (GPT, Claude, Gemini) donde solo
-consumes una API. Esto no es una preferencia ideológica: es la restricción **P1** del curso
-(100 % open source), y tiene una consecuencia técnica directa que vas a comprobar tú mismo en el
-laboratorio de hoy.
+Un modelo de pesos abiertos permite descargar sus parámetros bajo las condiciones de su
+licencia. En un modelo cerrado, el acceso habitual se realiza mediante una API del proveedor.
+El curso utiliza `Qwen/Qwen3-32B` a través de Hugging Face; el alumno consume inferencia remota.
 
-**Cómo se eligió `Qwen/Qwen3-32B`: midiendo, no por catálogo.** Se probaron 4 candidatos contra
-el endpoint real de Hugging Face con `check_stack --candidatos`, verificando dos cosas críticas
-para un curso de agentes: que el modelo soporte **tool calling** de forma confiable y que
-sostenga el **bucle ReAct** (razonar → actuar → observar, la sección 4 de hoy) sin romperse.
+Antes de las prácticas, ejecuta `python -m comun.check_stack --solo-modelo`. Comprueba que
+el endpoint responda y permita llamar herramientas. La disponibilidad del proveedor puede
+cambiar; un resultado anterior no garantiza que la ejecución de hoy funcione.
 
-| Candidato | ¿Pasó tool calling + ReAct? |
-|---|---|
-| `Qwen/Qwen3-32B` | ✅ **Sí — el único de los 4** |
-| `Qwen/Qwen3-30B-A3B` | ❌ No |
-| `Qwen/Qwen3-8B` | ❌ No |
-| `meta-llama/Llama-3.3-70B-Instruct` | ❌ No |
+La configuración incluye `HF_ENABLE_THINKING=false`. Observa las llamadas a herramientas y
+sus argumentos; no confundas un texto explicativo con una llamada estructurada.
 
-Esta es la decisión **D28** del curso, y la razón de que el `.env` traiga
-`HF_ENABLE_THINKING=false`: Qwen3 alterna entre modo "pensando en voz alta" y modo directo, y el
-modo directo es el que no interfiere con el parseo de las llamadas a herramientas. Si algún día
-te preguntas por qué el curso no usa "el modelo más grande" o "el más nuevo", la respuesta está
-aquí: se usa el que **demostradamente funciona** para lo que este curso necesita.
-
-> Nota importante para las próximas 10 sesiones: **las 4 industrias comparten este mismo
-> modelo** (decisión D21). Nada de fine-tuning por sector. Lo que hace que el agente "suene a"
-> AndesMóvil o a Banco Inti es el *system prompt* de `comun/prompts_industria.py`, no los pesos
-> del modelo — lo vas a comprobar tú mismo con la demo 3 de hoy.
+Las cuatro industrias comparten el modelo. El system prompt de `comun/prompts_industria.py`
+configura identidad, vocabulario y límites; la demo 3 compara estas respuestas sin entrenar pesos.
 
 ---
 
@@ -198,9 +183,8 @@ print(respuesta.content)
 
 `get_chat_model()` decide, según `AI_PROVIDER` en tu `.env`, si construye el cliente contra el
 router de Hugging Face o contra un endpoint de Microsoft Foundry — pero desde afuera es
-exactamente el mismo objeto `ChatOpenAI`. Esta indirección es la decisión **D13**, y es la razón
-de que el bonus asíncrono de Foundry (módulo 4, opcional) reutilice el cliente de chat.
-Credenciales, embeddings y adaptación al hosting se revisan por separado: CONS-009/010.
+exactamente el mismo objeto `ChatOpenAI`. Esta abstracción permite que el bonus asíncrono de Foundry (módulo 4, opcional) reutilice el cliente de chat.
+Credenciales, embeddings y adaptación al hosting requieren comprobaciones adicionales.
 
 **Por qué te importa esto desde el día 1 y no solo en el bonus:** si en tu laboratorio de hoy
 escribes `ChatOpenAI(model=...)` en vez de `get_chat_model()`, tu script funciona igual — hasta

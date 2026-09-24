@@ -1,7 +1,6 @@
 # Mapa pedagógico del curso
 
-Inventario del árbol de trabajo al 2026-09-24. El recorrido se reconstruye desde sesiones,
-laboratorios, checkpoints, rúbricas y código; no desde el nombre de las carpetas solamente.
+Recorrido para planificar clases y ubicar conceptos, laboratorios y evaluaciones.
 S0 es nivelación; S1–S11 y el seminario constituyen las 72 h; Foundry es bonus opcional.
 
 ## Recorrido y trazabilidad
@@ -95,4 +94,4 @@ S11 fragmenta una respuesta ya validada: no transmite tokens mientras el modelo 
 - `recursos/golden/`: 30 consultas por track, compartidas por clasificación, selección y evaluación.
 - `recursos/ataques/`: 15 ataques por track; L6 pide otros cinco propios.
 - [Rúbrica A1](../recursos/rubricas/rubrica-a1.md), [M2](../recursos/rubricas/rubrica-m2.md) y [final](../recursos/rubricas/rubrica-final.md).
-- [Inventario](COURSE-INVENTORY.md) e [inconsistencias](COURSE-CONSISTENCY-REPORT.md) conservan evidencia y decisiones pendientes.
+- [Preparación del docente](../docente/checklist-pre-sesion.md) y [verificación del entorno](../VERIFICACION.md).

@@ -23,7 +23,7 @@
 
 ## Anatomía de una traza de agente
 - Arquitectura de traza → spans: modelo, tool, retriever; verificar contexto padre en la implementación
-- 3 llamadas al modelo para 1 pregunta: la fiabilidad se compone (D20)
+- 3 llamadas al modelo para 1 pregunta: la fiabilidad se compone
 - El modelo suele ser el cuello, no las tools ni Qdrant
 
 ---

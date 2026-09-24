@@ -7,7 +7,7 @@ Requiere HF_TOKEN. Usa el agente de referencia de la Sesión 6 (telecomunicacion
 
 Qué deberías observar: la misma pregunta, repetida varias veces, no siempre
 cumple el mismo invariante. Eso NO es un bug de tu agente ni de esta demo — es
-la fiabilidad compuesta (D20) medida en testing en vez de en selección de tools.
+la fiabilidad compuesta medida en testing en vez de en selección de tools.
 Un 4/5 es información ("¿por qué falló esa vez?"), no un fallo binario.
 """
 

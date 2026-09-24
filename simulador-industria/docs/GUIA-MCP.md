@@ -26,7 +26,7 @@ ninguno va a reescribir sus funciones dentro de tu agente.
 MCP es un estándar abierto: el agente **descubre** qué herramientas hay en tiempo de ejecución,
 con sus nombres, descripciones y esquemas. No las conoce de antemano.
 
-> La analogía del repo base: MCP es el **USB-C** de las herramientas de IA. Un conector, muchos
+> Analogía para la clase: MCP es el **USB-C** de las herramientas de IA. Un conector, muchos
 > dispositivos.
 
 ---
@@ -77,7 +77,6 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 
 from comun.provider import get_chat_model
 
-
 async def main():
     cliente = MultiServerMCPClient({
         "simulador": {
@@ -97,7 +96,6 @@ async def main():
         {"messages": [HumanMessage(content="¿Hay cobertura en Los Olivos?")]}
     )
     print(salida["messages"][-1].content)
-
 
 asyncio.run(main())
 ```

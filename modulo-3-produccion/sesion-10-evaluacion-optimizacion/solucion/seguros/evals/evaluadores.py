@@ -1,7 +1,7 @@
 """L10 · Seguros — Andina Seguros · evals/evaluadores.py (checkpoint de referencia)
 
 Reexporta los 3 evaluators determinísticos de `comun/evaluadores.py` — no se
-reescriben desde cero (tarea ab de sesion-10.md). Mismo patrón que
+reescriben desde cero. Mismo patrón que
 `observability.py` en la S9: un archivo por track que expone lo compartido, para
 que `agent.py` y los scripts de evaluación de este track no importen `comun/`
 directamente.

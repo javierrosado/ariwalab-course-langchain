@@ -17,7 +17,7 @@ El ejercicio de `00-preparacion/conceptos-previos/python-y-entorno.md`, sección
 
 POR QUÉ EXISTE
 --------------
-**Regla decidida: sin este ejercicio entregado, el equipo no hace el L2** (recibe el
+**Regla: sin este ejercicio entregado, el equipo no hace el L2** (recibe el
 checkpoint y usa las 2 h de laboratorio para resolverlo). Con 15 equipos, revisar el
 archivo a ojo no escala — y un `BaseModel` que "casi" cumple es peor que uno que no
 compila: pasa desapercibido hasta que falla en la S3, con el Assignment A1 encima.

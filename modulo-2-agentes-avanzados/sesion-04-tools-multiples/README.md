@@ -96,7 +96,7 @@ Sesión 2).
 
 ## 3. Por qué 4 y no 6 (regla A1)
 
-La fiabilidad puede acumularse a lo largo de una tarea (D20). Bajo el supuesto simplificado
+La fiabilidad puede acumularse a lo largo de una tarea. Bajo el supuesto simplificado
 de pasos independientes con probabilidad de éxito 0.93, todos aciertan con probabilidad
 0.93³ ≈ 80 % en tres pasos y 0.93⁵ ≈ 70 % en cinco. No es una tasa medida del agente ni una
 ley universal: los fallos reales pueden estar correlacionados.
@@ -128,7 +128,7 @@ la matriz mide el catálogo concreto. Las opcionales se prueban con una selecci�
 
 En los tracks con escritura, es la primera vez que escribes una tool que **modifica algo**.
 La confirmación del checkpoint es un booleano en los argumentos del modelo: ilustra el
-contrato, pero no demuestra aprobación humana autenticada (CONS-006). Tampoco evita por sí
+contrato, pero no demuestra aprobación humana autenticada. Tampoco evita por sí
 sola duplicados ante reintentos. La regla, para toda tool de
 escritura: exige confirmación explícita del usuario antes de ejecutarse. Se implementa **hoy**,
 no se pospone a los guardrails de la Sesión 6.

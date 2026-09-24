@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 8 — Despliegue en producción con HF Spaces
 
-> Contrato de la S8. Insumo de la sesión de Claude Code que escribe la Fase 5 · S8.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Módulo 3
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-3-produccion/` para la sesión 8 |
+| Carpeta | `modulo-3-produccion/sesion-08-despliegue-hf-spaces/` |
 | Semana · día | Semana 4 · jueves |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L8 · Contenedor y despliegue en HF Spaces** |
 | Hitos | **Avance 1 del M3**: arquitectura de despliegue |
-| Estado en el mapeo | `PARCIAL` — del cap. 09 solo sirve el discurso; la plataforma cambia (D16) |
 
 ---
 
@@ -25,10 +21,10 @@
 
 | Riesgo | Estado | Impacto en esta sesión |
 |---|---|---|
-| **R5** · Límites del free tier de HF Spaces | **Sin verificar** | 15 Spaces simultáneos podrían no caber. Alternativa preparada: Render |
-| **R2 / R18** · Cuota de HF Inference | Sin verificar | Un endpoint público mal protegido la agota en horas — por eso la decisión de §6 |
+| Límites del free tier de HF Spaces | **Sin verificar** | 15 Spaces simultáneos podrían no caber. Alternativa preparada: Render |
+| Cuota de HF Inference | Sin verificar | Un endpoint público mal protegido la agota en horas — por eso la decisión de §6 |
 
-> **Acción de Javier antes de la semana 4:** crear un Space de prueba y confirmar límites de CPU,
+> **Acción del docente antes de la semana 4:** crear un Space de prueba y confirmar límites de CPU,
 > RAM, almacenamiento y tiempo de inactividad del tier gratuito.
 
 ---
@@ -52,7 +48,7 @@
 |---|---|---|
 | 1 | 12-Factor App: config por entorno | Marco mental de todo el despliegue |
 | 2 | Contenedores: imagen, capa, `Dockerfile`, `EXPOSE`, `CMD` | Se escribe uno real; lo construye el Space |
-| 3 | FastAPI: rutas, Pydantic como request/response, ASGI | Decisión D08 |
+| 3 | FastAPI: rutas, Pydantic como request/response, ASGI | API del proyecto |
 | 4 | Health check: por qué una plataforma lo exige | `/health` es requisito del Space |
 | 5 | *Space secrets* vs `.env` local | Invariante: nunca credenciales en el repo |
 | 6 | `git push` a un remote que no es GitHub | Es el mecanismo de despliegue |
@@ -105,13 +101,10 @@
 
 **Qué se protege: la cuota, no el secreto.** Los datos son sintéticos y las marcas ficticias; no
 hay nada confidencial detrás. Lo que hay detrás es el token de HF Inference del equipo: un `/chat`
-abierto que alguien descubra agota en horas un free tier que, además, todavía no está medido
-(R2/R18).
+abierto que alguien descubra agota en horas un free tier que, además, todavía no está medido.
 
-> ⚠️ **Corregir el criterio del L8 en `docente/labs-incrementales.md`**, que hoy dice
-> *"cualquiera puede invocar el agente por HTTP desde fuera, sin credenciales del alumno en el
-> código"*. Sigue siendo cierto —no hay credenciales en el código— pero hay que añadir que la
-> invocación va autenticada.
+> Para evaluar L8, pedir la URL y la API key del agente al equipo. La invocación debe
+> estar autenticada y las credenciales del proveedor no deben estar en el código.
 
 ---
 
@@ -169,24 +162,6 @@ resultado antes de desplegar el suyo.
 | Cliente web con streaming | S11 |
 | Foundry | bonus asíncrono |
 | Docker en local, Kubernetes, CI/CD | fuera de alcance (P2) |
-
----
-
-## 10. Archivos a producir y trabajo previo
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | Bloques 0 a 5, con el diagrama de qué va autenticado |
-| `conceptos-previos.md` | Los 6 conceptos + verificación del Space vacío |
-| `code/` | Las 4 demos + README de carpeta |
-| `lab/` + `solucion/` | L8 × 4 tracks |
-
-| # | Trabajo previo | Por qué |
-|---|---|---|
-| t | **Javier:** verificar los límites del free tier de HF Spaces (R5) | Condiciona si 15 Spaces caben |
-| u | Desplegar el Space de referencia del docente | La demo 4 se corre contra él |
-| v | `docente/verificar_despliegue.py` — comprueba `/health` sin key, `/chat` con y sin key, desde fuera | Calificar 15 despliegues a mano no escala |
-| w | Corregir el criterio del L8 en `docente/labs-incrementales.md` | Hoy no menciona la autenticación |
 
 ---
 

@@ -4,7 +4,7 @@
 > Nada se tira: cada lab recibe el artefacto del anterior y le agrega una capa.
 > Stack **100 % open source y 100 % SaaS**; nada corre en la laptop del alumno salvo Python.
 > El Lab 12 es el *plus* **opcional y asíncrono**: el mismo agente, sin cambios de código, en Microsoft Foundry.
-> **Equipos de 2 personas** (D19), por el límite del plan gratuito de Langfuse.
+> **Equipos de 2 personas**, por el límite del plan gratuito de Langfuse.
 
 ---
 
@@ -85,8 +85,7 @@ proyecto-final/<track>/
   urgencia + entidades) con Pydantic, clasificando **obligatoriamente** con `extraer()` de
   `comun/structured.py` — `with_structured_output()` directo está prohibido en el lab.
 - **Taxonomía — alineada 1:1 con las 4 tools núcleo del L4** (`docente/esqueletos/sesion-02.md`
-  §6; corregido aquí: la versión anterior de esta fila listaba `PORTABILIDAD`, que es una tool
-  **opcional**, y omitía el consumo, que sí es núcleo):
+  §6):
   - **telecomunicaciones:** `CONSULTA_PLAN` · `CONSULTA_CONSUMO` · `AVERIA` · `RECLAMO` · `OTRO`
   - **banca:** `CONSULTA_SALDO` · `CONSULTA_MOVIMIENTOS` · `CONSULTA_TARJETA` · `SOSPECHA_FRAUDE` · `OTRO`
   - **retail:** `SEGUIMIENTO_PEDIDO` · `CONSULTA_PRODUCTO` · `CONSULTA_STOCK` · `DEVOLUCION` · `OTRO`
@@ -98,13 +97,13 @@ proyecto-final/<track>/
 ### L3 · Primera tool + API externa
 - **Objetivo:** el modelo deja de "saber" y empieza a "consultar".
 - **Criterio:** 3 escenarios documentados (éxito, dato inexistente, API caída) — es el **Assignment A1**.
-- **Riesgo a vigilar:** aquí se prueba por primera vez el tool calling del modelo de HF (R1 del ADR).
+- **Riesgo a vigilar:** aquí se prueba por primera vez el tool calling del modelo de HF.
 
 ### L4 · Catálogo de 4 tools
 - **Objetivo:** selección dinámica de herramienta según la tarea.
 - **Por qué 4 y no 6 (A1):** la precisión de selección cae notoriamente pasadas 4-5 herramientas, y los errores se multiplican a lo largo del bucle. Las 2 tools restantes de cada track quedan como reto opcional.
 - **Criterio:** matriz consulta × tool esperada con ≥ 85 % de selección correcta.
-- **Pre-work asíncrono (decidido en `docente/esqueletos/sesion-04.md`): MCP se consume, no se
+- **Pre-work asíncrono (ver `docente/esqueletos/sesion-04.md`): MCP se consume, no se
   construye.** El alumno conecta su agente al servidor MCP que el simulador ya expone (6 tools,
   transportes stdio y HTTP) con `langchain-mcp-adapters` / `MultiServerMCPClient` — ver
   `simulador-industria/docs/GUIA-MCP.md`. Construir un servidor MCP propio con 2 tools pasa a ser
@@ -115,7 +114,7 @@ proyecto-final/<track>/
 - **Objetivo:** el agente responde con la documentación real del negocio y recuerda la conversación.
 - **Incremento:** corpus del track embebido con `multilingual-e5-large` (HF Inference) e indexado en una colección de **Qdrant Cloud**; `thread_id` para la memoria.
 - **Salvaguarda A6:** el system prompt de la industria (`comun/prompts_industria.py`) obliga a recuperar y citar ante cualquier afirmación sobre tarifas, coberturas o políticas. No es solo una defensa técnica: es un requisito de auditoría — una respuesta sin fuente no es verificable.
-- **Prerrequisito bloqueante:** cluster de Qdrant operativo **antes** de la sesión 5. Sin fallback (D10).
+- **Prerrequisito bloqueante:** cluster de Qdrant operativo **antes** de la sesión 5. Sin fallback.
 - **Criterio:** el agente **decide** cuándo buscar (RAG agéntico) y **cita la fuente**; 10 preguntas con cita verificable.
 
 ### L6 · Guardrails y límites
@@ -169,7 +168,7 @@ proyecto-final/<track>/
 | I6 | **Nada se instala en la laptop** salvo Python y las librerías cliente | Principio P2 del curso |
 | I7 | Las credenciales viven en `.env` (local) y en *secrets* del Space (nube), **nunca en el repo** | Se enseña desde el L1, no desde el L8 |
 | I8 | El código del agente **no conoce a su proveedor**: todo pasa por `provider.py` | Es lo que hace posible el L12 sin reescribir nada |
-| I9 | Máximo **4 tools** enlazadas a la vez y toda docstring dice **cuándo NO** usar la tool | La fiabilidad se compone a lo largo del bucle (D20) |
+| I9 | Máximo **4 tools** enlazadas a la vez y toda docstring dice **cuándo NO** usar la tool | La fiabilidad se compone a lo largo del bucle |
 
 > **I8 es la columna vertebral del curso.** Si se rompe en cualquier lab, el bloque plus de Foundry
 > deja de funcionar y se pierde la lección de arquitectura que justifica todo el diseño.

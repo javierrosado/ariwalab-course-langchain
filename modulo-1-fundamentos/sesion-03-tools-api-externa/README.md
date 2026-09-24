@@ -4,7 +4,7 @@
 > la primera que toca el simulador de verdad, la primera con tool calling real, y su laboratorio
 > **es** la nota del Módulo 1.
 
-**Bloqueante con fecha (responsabilidad de Javier):** simulador desplegado y respondiendo
+**Bloqueante con fecha (responsabilidad del docente):** simulador desplegado y respondiendo
 `/health`, API key de tu equipo repartida, `CHAOS_RATE=0.0` confirmado — los tres, antes de esta
 sesión. Sin ellos no hay L3, y sin L3 no hay Assignment A1.
 

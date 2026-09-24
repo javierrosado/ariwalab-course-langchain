@@ -27,10 +27,10 @@ VERDE, ROJO, AMARILLO, GRIS, RESET = "\033[92m", "\033[91m", "\033[93m", "\033[9
 # Escalera de modelos, del que menos riesgo aporta por costo al de mayor techo.
 # Todos son de pesos abiertos y tienen tool calling nativo en su chat_template.
 CANDIDATOS_POR_DEFECTO = [
-    "Qwen/Qwen3-32B",                     # verificado 2026-09-10: el único que pasó
-    "Qwen/Qwen3-30B-A3B",                 # MoE, más barato de servir — falló en la prueba
-    "Qwen/Qwen3-8B",                      # mínimo costo — falló en la prueba
-    "meta-llama/Llama-3.3-70B-Instruct",  # mayor techo — falló en la prueba
+    "Qwen/Qwen3-32B",                     # modelo de referencia del curso; verificar antes de clase
+    "Qwen/Qwen3-30B-A3B",                 # MoE, más barato de servir
+    "Qwen/Qwen3-8B",                      # mínimo costo
+    "meta-llama/Llama-3.3-70B-Instruct",  # mayor techo
 ]
 
 

@@ -55,8 +55,7 @@ y, en teoría, correr en tu propia infraestructura. Un modelo cerrado (GPT, Clau
 te da una API. El curso usa pesos abiertos por la restricción **P1** (100 % open source), pero
 consumidos **en línea** vía Hugging Face — no instalas ningún motor de inferencia en tu laptop
 (restricción **P2**). Esto justifica todo el stack que vas a usar hoy: `comun/provider.py`
-apuntando al router de Hugging Face, con `Qwen/Qwen3-32B` como modelo elegido **por medición**
-(decisión D28, detalle en `README.md` sección 7).
+apuntando al router de Hugging Face, con `Qwen/Qwen3-32B` como modelo de referencia.
 
 ---
 
@@ -181,7 +180,7 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 
 - a) Por una convención de estilo sin efecto real
 - b) Porque `ChatOpenAI` no funciona con Hugging Face
-- c) Porque esa indirección (decisión D13) es lo que permite, en el bonus de Foundry, cambiar
+- c) Porque esa indirección es lo que permite, en el bonus de Foundry, cambiar
   de proveedor con una variable de entorno en vez de reescribir cada archivo del agente
 - d) Porque `get_chat_model()` es más rápido
 
@@ -215,7 +214,7 @@ responde con total seguridad dos cifras distintas, ninguna real. ¿Por qué pas�
 | 6 | **a** | Orden impredecible y dependiente del usuario es exactamente cuándo se justifica un agente |
 | 7 | **c** | Es una alucinación: el modelo nunca consultó una fuente real. Es el antipatrón central de la sesión |
 | 8 | **b** | Pesos abiertos = parámetros públicos y auditables. No implica gratuidad ni velocidad |
-| 9 | **c** | La indirección de `comun/provider.py` (D13) es lo que hace posible cambiar de proveedor sin tocar el código del agente |
+| 9 | **c** | La indirección de `comun/provider.py` es lo que hace posible cambiar de proveedor sin tocar el código del agente |
 | 10 | **a** | Si el flujo se puede dibujar de antemano, un workflow es más barato, más rápido y más predecible |
 
 </details>

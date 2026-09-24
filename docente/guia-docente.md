@@ -2,7 +2,7 @@
 
 > **Qué es esto.** Un resumen operativo, sesión por sesión, para tener a mano **mientras se
 > dicta**: horario, guion minuto a minuto y los errores más frecuentes. Se deriva de los
-> contratos pactados en `docente/esqueletos/` — **no los reemplaza**. Ante cualquier duda de
+> guiones en `docente/esqueletos/` — **no los reemplaza**. Ante cualquier duda de
 > contenido, guion completo o justificación de una decisión, el esqueleto de la sesión es la
 > fuente de verdad; esta guía es el resumen de mesa, no el original.
 >
@@ -55,7 +55,7 @@
 | 3 | Workflow vs agente | 20 |
 | — | Pausa | 10 |
 | 4 | Anatomía de LangChain 1.x | 30 |
-| 5 | Modelos abiertos vs cerrados (D28, elegido por medición) | 20 |
+| 5 | Modelos abiertos vs cerrados | 20 |
 | 6 | `comun/provider.py` en vivo | 15 |
 | 7 | Test 1 + elección de track | 15 |
 
@@ -130,12 +130,9 @@ reemitir) · el agente reintenta sin parar ante el 503 (falta tope de iteracione
 
 **Esqueleto:** [`sesion-04.md`](esqueletos/sesion-04.md) · **Carpeta:** `modulo-2-agentes-avanzados/sesion-04-tools-multiples/`
 
-> ⚠️ **Decisión pendiente de Javier, no de Code (`DECISION-PENDIENTE` en el esqueleto):** los
-> primeros 20 min son la sustentación del A1, y sumados a los 180 min del guion dan 200 —
-> descuadre de 20 min sin resolver. El esqueleto propone 3 salidas (A: la sustentación no
-> computa en las 6 h de la S4 · B: recortar 20 min del guion · C: sustentación asíncrona
-> grabada) y dice explícitamente que **la decide Javier**. Hasta que se resuelva, el guion de
-> abajo asume la salida A.
+> **Preparación del horario:** la sustentación A1 requiere 20 minutos además de los 180
+> del guion S4. Confirmar con coordinación académica una franja compatible y comunicarla
+> antes de clase; no anunciar que ambas actividades caben en tres horas.
 
 | # | Bloque | Min |
 |---|---|---|
@@ -183,7 +180,7 @@ se solapan) · dos reclamos duplicados (tool de escritura sin confirmación) · 
 **No olvidar la demo clave** (`demo-parametrico-vs-recuperable.py`, 5 minutos, no se recorta):
 preguntar una tarifa, editar el documento en Qdrant, preguntar lo mismo y mostrar que la
 respuesta cambia citando el mismo documento — es la demostración física de por qué el
-conocimiento va al RAG y no al fine-tuning (D21).
+conocimiento va al RAG y no al fine-tuning.
 
 **Errores esperables más frecuentes:** la ingesta falla a mitad (cuota de embeddings agotada →
 usar la colección de respaldo) · el agente busca ante "hola" (falta "cuándo NO" en la docstring
@@ -249,8 +246,8 @@ propio.
 
 **Esqueleto:** [`sesion-08.md`](esqueletos/sesion-08.md) · **Carpeta:** `modulo-3-produccion/sesion-08-despliegue-hf-spaces/`
 
-> ⚠️ Verificar antes de la semana 4: límites del free tier de HF Spaces (riesgo R5, tarea de
-> Javier) y el Space de referencia del docente ya desplegado (la demo 4 corre contra él).
+> Antes de la semana 4, comprobar cuotas de HF Spaces y desplegar el Space de referencia
+> del docente para ejecutar la demo 4.
 
 | # | Bloque | Min |
 |---|---|---|
@@ -278,9 +275,8 @@ aparece en el historial de git (revocar y regenerar, no basta con borrar el comm
 
 **Esqueleto:** [`sesion-09.md`](esqueletos/sesion-09.md) · **Carpeta:** `modulo-3-produccion/sesion-09-observabilidad-langfuse/`
 
-> ⚠️ **Bloqueante:** proyecto de Langfuse Cloud operativo con los 2 integrantes, para el lunes de
-> la semana 5. Desviación documentada del PDF (riesgo R6): el sílabo nombra LangSmith
-> (propietario); el curso usa Langfuse por P1 — decirlo en 2 minutos de arquitectura.
+> Preparar el proyecto de Langfuse Cloud con acceso para los dos integrantes del equipo
+> antes del lunes de la semana 5. Comprobar cuotas, envío de trazas y acceso a la interfaz.
 
 | # | Bloque | Min |
 |---|---|---|
@@ -345,8 +341,7 @@ groundedness = 100 % siempre (el evaluator solo comprueba que hay cita, no que l
 | 2 | Sustentaciones ante panel | 105 |
 | 3 | Cierre del módulo (se libera el bonus de Foundry) | 5 |
 
-**No olvidar la aritmética de la ronda antes del día** (tarea ag de Javier, con el número real
-de inscritos): 8 min por equipo es el piso — por debajo no hay Q&A de verdad. Regla de
+**No olvidar la aritmética de la ronda antes del día** (con el número real de inscritos): 8 min por equipo es el piso — por debajo no hay Q&A de verdad. Regla de
 contingencia: si el Space cae y el equipo entregó la evidencia de 24 h, se sustenta en local
 **sin penalización**; si no la entregó y además el Space falla, ahí sí hay penalización.
 
@@ -376,16 +371,16 @@ acción del docente es liberar el bloque al cerrar la S11 y estar disponible par
 1 h opcional que menciona `docente/cronograma.md`.
 
 > ⚠️ Antes de liberarlo cada edición: re-verificar `langchain-azure-ai[hosting]` contra un
-> proyecto Foundry real (riesgo R8, tarea am) — es un paquete en preview.
+> proyecto Foundry real — es un paquete en preview.
 
 ---
 
-## Decisiones pendientes que el docente debe cerrar antes de dictar
+## Preparación antes del dictado
 
-Estas no las resuelve Code — están señaladas así en sus propios esqueletos:
+Confirmar estos aspectos con coordinación académica antes de convocar las actividades:
 
-| Sesión | Qué falta decidir | Dónde está el detalle |
+| Sesión | Qué confirmar | Dónde está el detalle |
 |---|---|---|
-| S4 | El descuadre de 20 min entre la sustentación del A1 y el guion de 180 min (3 salidas propuestas) | `sesion-04.md` §4, nota `DECISION-PENDIENTE` |
-| Bonus Foundry | Si el proyecto compartido de la Vía B ya tiene cuota definida y fecha de cierre | `bonus-foundry.md` §10, tareas an/ap |
-| Seminario | Convocatoria de panelistas, confirmación y curaduría final de preguntas | `guion-docente.md` del Seminario, tareas ai-aj-ak-al |
+| S4 | El descuadre de 20 min entre la sustentación del A1 y el guion de 180 min | [Guion S4](esqueletos/sesion-04.md) |
+| Bonus Foundry | Si el proyecto compartido de la Vía B ya tiene cuota definida y fecha de cierre | [Acceso a Azure](../modulo-4-plus-foundry/acceso-azure.md) |
+| Seminario | Convocatoria de panelistas, confirmación y curaduría final de preguntas | [Guion del seminario](../modulo-3-produccion/seminario-internacional/guion-docente.md) |

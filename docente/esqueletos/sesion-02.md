@@ -1,10 +1,6 @@
 # Esqueleto · Sesión 2 — Ecosistema LangChain: prompts, cadenas y modelos
 
-> **Qué es este documento.** El contrato de la sesión 2: qué enseña, en qué orden, qué produce
-> el alumno y qué **no** entra. Es el insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 3.6–3.10 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-15 · Fase 3 · Módulo 1
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -12,20 +8,15 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | `modulo-1-fundamentos/sesion-02-ecosistema-langchain/` |
+| Carpeta | `modulo-1-fundamentos/sesion-02-ecosistema-langchain/` |
 | Semana · día | Semana 1 · jueves |
 | Horas | **3.0 h teoría · 3.0 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (120 T / 50 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L2 · Clasificador de intención** |
 | Hitos | **Test 2** · **pase de entrada de Pydantic** |
-| Estado en el mapeo | `COMPLETA` — el repo **sobra**: 8 ejemplos + 4 samples + 2 soluciones para 3 h |
 
-> **Convención horaria (fijar también en la S1).** La sesión en vivo son 3 h de reloj = **170 min
-> de contenido + 10 min de pausa**. El reparto teoría/práctica de la malla se calcula sobre las 6 h
-> completas, y la pausa queda fuera de ese reparto.
->
-> ⚠️ `docente/esqueletos/sesion-01.md` declara "150 min de teoría" pero sus bloques suman **140**.
-> Corregir esa línea en el mismo commit: la S1 es 140 T / 30 P / 10 pausa.
+> **Convención horaria:** tres horas en vivo = 170 minutos de contenido y diez de pausa.
+> El reparto teoría/práctica de la malla se calcula sobre las seis horas completas.
 
 ---
 
@@ -58,7 +49,7 @@ El 1, 2, 3 y 5 se verifican con el **Test 2**; el 4 y el 6 con el **L2**.
 
 ### Pase de entrada · Pydantic
 
-> **Regla decidida: sin el ejercicio entregado, no se hace el L2.**
+> **Regla: sin el ejercicio entregado, no se hace el L2.**
 
 - El ejercicio es el `Reclamo` de `00-preparacion/conceptos-previos/python-y-entorno.md` §6.
 - Se entrega **antes** de la S2: el archivo `.py` más la salida de `Reclamo.model_json_schema()`.
@@ -70,7 +61,7 @@ alumno que no sabe definir un `BaseModel` no puede escribir el `args_schema` de 
 le cueste el A1, es que no puede empezarlo. Descubrirlo el jueves de la semana 1 deja margen;
 descubrirlo el martes de la semana 2 no.
 
-**Herramienta para el docente (alcance añadido):** `docente/verificar_ejercicio_pydantic.py`, que
+**Herramienta para el docente:** `docente/verificar_ejercicio_pydantic.py`, que
 recibe el archivo del alumno y comprueba las 4 restricciones del enunciado (Enum de 3 valores,
 longitud 10-200, exactamente 9 dígitos, booleano con default). Con 15 equipos, revisar a ojo no
 escala.
@@ -123,11 +114,6 @@ necesariamente culpa del prompt. Conservar guion, horas y Test 2 corregido.
 | `03_structured_crudo_vs_robusto.py` | La misma extracción por los dos caminos, lado a lado | Cuántos intentos hizo falta en cada uno. Usa `extraer_con_detalle()` |
 | `04_tokens_y_costo.py` | Conteo de tokens de un prompt con y sin few-shot y con historial | Que el few-shot **se paga en cada llamada**, no una sola vez |
 
-> **Selección respecto del repo.** El mapeo ofrece 8 ejemplos de `03-prompts-messages-outputs`.
-> Se toman 4 (`03_basic_template`, `05_few_shot`, `07_structured_output`, `08_pydantic_schemas`) y
-> se funden en estas cuatro demos. Los otros 4 quedan enlazados como material asíncrono opcional,
-> **sin traducir**: el alumno debe acostumbrarse a leer la documentación de LangChain en inglés.
-
 ---
 
 ## 6. Laboratorio L2 · Clasificador de intención
@@ -154,15 +140,11 @@ herramienta que debe elegir. La progresión L2 → L4 deja de ser temática y pa
 políticas — exactamente las que en la S5 se responden con RAG. El alumno construye en el L2 la
 etiqueta que en la S5 dispara el recuperador.
 
-> ⚠️ **Corregir `docente/labs-incrementales.md`**, que hoy lista para telco
-> `CONSULTA_PLAN | AVERIA | RECLAMO | PORTABILIDAD`: `PORTABILIDAD` corresponde a una tool
-> **opcional**, y falta el consumo, que sí es tool núcleo.
-
 ### El conjunto de prueba — una sola fuente para el L2 y el L4
 
-`docente/matriz_seleccion.py` ya tiene **20 consultas por track** con su tool esperada. Como la
-taxonomía es 1:1, esas mismas consultas sirven para medir el L2. **Hay que extraerlas a un archivo
-compartido antes de escribir el lab**, o los dos conjuntos derivarán:
+Usar el subconjunto de 20 consultas por track de `recursos/golden/consultas-<track>.json`
+que comparten el clasificador L2 y la matriz de selección L4. Comparar las tareas con
+las mismas entradas permite interpretar sus resultados:
 
 ```
 recursos/golden/consultas-<track>.json
@@ -178,7 +160,7 @@ recursos/golden/consultas-<track>.json
              clasificación               selección de tools
 ```
 
-`matriz_seleccion.py` pasa a leer de ahí en vez de llevar las consultas embebidas.
+`matriz_seleccion.py` lee las consultas del archivo compartido.
 
 **Efecto pedagógico:** el alumno ve las **mismas 20 consultas** dos veces — en el L2 clasificándolas
 y en el L4 resolviéndolas — y entiende que el clasificador y el agente resuelven el mismo problema
@@ -201,8 +183,8 @@ con distinta profundidad.
   primer dato de fiabilidad que el alumno mide con sus manos, y se retoma en la S10.
 
 > ⚠️ **El umbral del 90 % está sin verificar.** Con 5 clases, un modelo genérico y few-shot es
-> plausible, pero nadie lo ha medido contra el endpoint real. **Acción para Javier:** correr el
-> `medir_clasificador.py` de un track antes del dictado, igual que se hizo con `check_stack`. Si
+> plausible, pero nadie lo ha medido contra el endpoint real. **Acción para el docente:** correr el
+> `medir_clasificador.py` de un track antes del dictado, junto con `check_stack`. Si
 > sale 80 %, se baja el umbral o se mejora el few-shot — pero se decide con el número delante,
 > no el día de la clase.
 
@@ -238,27 +220,6 @@ con distinta profundidad.
 > El L2 **no llama a ninguna API ni al simulador**: entra texto, sale estructura. Es la única
 > sesión del curso en la que el modelo trabaja solo, y conviene decirlo para que el alumno note el
 > contraste cuando la S3 conecte el primer dato real.
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **3.6** | `sesion-02-ecosistema-langchain/README.md` | Bloques 0 a 5 del guion, con los dos diagramas del bloque 4 |
-| **3.7** | `sesion-02-ecosistema-langchain/conceptos-previos.md` | Los 5 conceptos del pre-work + el pase de entrada de Pydantic + Test 2 |
-| **3.8** | `sesion-02-ecosistema-langchain/code/` | Las 4 demos + `README.md` de la carpeta |
-| **3.9** | `sesion-02-ecosistema-langchain/lab/` | Enunciado del L2 **× 4 tracks**, con su taxonomía y su golden set |
-| **3.10** | `sesion-02-ecosistema-langchain/solucion/` | `schemas.py`, `prompts.py`, `clasificar.py`, `medir_clasificador.py` × 4 tracks |
-
-### Trabajo previo que hay que hacer primero
-
-| # | Tarea | Por qué antes |
-|---|---|---|
-| **a** | Extraer `CONSULTAS` de `matriz_seleccion.py` a `recursos/golden/consultas-<track>.json`, añadiendo el campo `intencion`, y hacer que el script lea de ahí | El lab y la matriz deben compartir fuente o derivarán |
-| **b** | `docente/verificar_ejercicio_pydantic.py` | Sostiene el pase de entrada con 15 equipos |
-| **c** | Corregir la taxonomía de telco en `docente/labs-incrementales.md` | Hoy contradice las tools núcleo |
-| **d** | Corregir "150 min" → "140 min" en `docente/esqueletos/sesion-01.md` | Los bloques no suman lo declarado |
 
 ---
 

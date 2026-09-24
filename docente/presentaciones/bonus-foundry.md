@@ -15,7 +15,7 @@
 ## La lección, en una línea
 - `.env`: `AI_PROVIDER=huggingface` → `AI_PROVIDER=foundry`
 - El cliente de chat conserva su interfaz; el host requiere un grafo compatible
-- Revisar comportamiento, embeddings, memoria y guardrails (CONS-009/010)
+- Revisar comportamiento, embeddings, memoria y guardrails
 
 ---
 

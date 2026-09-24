@@ -70,7 +70,7 @@
 | Insuficiente | La demo se pasa del tiempo asignado o el equipo no puede explicar una decisión de arquitectura básica |
 | Básico | Cumple el tiempo, pero las respuestas a preguntas técnicas son vagas ("lo hicimos así porque sí") |
 | Competente | Cumple el tiempo y defiende con claridad las 4 tools, el RAG y los guardrails ante preguntas del panel |
-| Sobresaliente | Además, conecta sus decisiones con las restricciones del curso (P1–P6, D20, A1–A6) sin que se lo pidan |
+| Sobresaliente | Además, conecta sus decisiones con las restricciones del curso (stack abierto, servicios gestionados y reglas A1–A6) sin que se lo pidan |
 
 ---
 
@@ -85,5 +85,4 @@ sostiene, aunque la demo en vivo haya salido mal por el caos.
 
 A1/M2 usan Insuficiente, Básico, Competente y Sobresaliente; la rúbrica final usa
 Insuficiente, En desarrollo, Competente y Destacado. La correspondencia ordinal es 1–4.
-Esta nota no cambia pesos ni descriptores. Unificar los nombres requiere confirmar la
-nomenclatura institucional (CONS-020 del reporte de consistencia).
+Aplicar los pesos, criterios y descriptores de la rúbrica correspondiente a cada evaluación.

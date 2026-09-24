@@ -9,12 +9,6 @@ Ejecuta siempre **desde la raíz del curso**, con el entorno virtual activado.
 | 3 | `python .../code/03_structured_crudo_vs_robusto.py` | `HF_TOKEN` | **La demo del fallo**: `with_structured_output()` crudo vs `extraer_con_detalle()` |
 | 4 | `python .../code/04_tokens_y_costo.py` | No | El few-shot se paga en cada llamada; el historial crece más rápido |
 
-> **Selección respecto del repo de Microsoft.** El mapeo ofrecía 8 ejemplos de
-> `03-prompts-messages-outputs`. Se tomaron 4 (`03_basic_template`, `05_few_shot`,
-> `07_structured_output`, `08_pydantic_schemas`) y se fundieron en estas cuatro demos. Los
-> otros 4 quedan como material asíncrono opcional, sin traducir — acostúmbrate a leer
-> documentación de LangChain en inglés.
-
 ## Qué deberías notar en cada una
 
 **Demo 1.** La respuesta sin FORMATO puede tener la categoría correcta "escondida" en una frase,

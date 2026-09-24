@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 4 — Tools e integración de herramientas
 
-> Contrato de la sesión 4. Insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 4.1–4.5 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Fase 4 · Módulo 2
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,15 +8,14 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-2-agentes-avanzados/` para la sesión 4 — **no crear carpeta nueva** |
+| Carpeta | `modulo-2-agentes-avanzados/sesion-04-tools-multiples/` |
 | Semana · día | Semana 2 · jueves |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L4 · Catálogo de 4 tools** |
 | Hitos | Sustentación del **A1** (4 equipos, 20 min) · **Avance 1 del proyecto** |
-| Estado en el mapeo | `COMPLETA` + adición de MCP |
 
-> **Ojo con el arranque.** Los primeros 20 min son la sustentación del A1 decidida en la S3. El
+> **Ojo con el arranque.** Los primeros 20 min son la sustentación del A1 descrita en la S3. El
 > guion de abajo empieza *después* de esos 20 min, así que el bloque de contenido son 160 min y no
 > 180. Está descontado del bloque 5.
 
@@ -38,7 +34,7 @@
 
 ## 3. Con qué llega el alumno
 
-**Pre-work de 1 h — MCP, decidido: conectarse, no construir.**
+**Pre-work de 1 h — MCP: conectarse, no construir.**
 
 | # | Contenido | Tiempo |
 |---|---|---|
@@ -52,9 +48,6 @@
 > igual conectándose: **el agente no nota la diferencia** — mismas tools, distinto transporte.
 >
 > Construir un servidor MCP con 2 tools propias queda como **reto del L4**, no como requisito.
-
-⚠️ Corregir `docente/labs-incrementales.md`, que hoy dice «exponer 2 de las 6 tools como servidor
-MCP» en el pre-work.
 
 ---
 
@@ -76,15 +69,9 @@ MCP» en el pre-work.
 **Teoría 90 · práctica 80 · pausa 10 = 180 min de S4.** Los 20 min del A1 **no caben dentro**
 de esos 180: sumarían 200.
 
-> ⚠️ **Descuadre a resolver — lo decide Javier, no Code.** `DECISION-PENDIENTE`
->
-> | Salida | Efecto |
-> |---|---|
-> | **A** *(propuesta)* · La sustentación del A1 **no computa en las 6 h de la S4**: pertenece al Módulo 1. La franja del jueves es de 3 h 20 min, o la sustentación ocurre en una ventana aparte antes de clase | La S4 conserva sus 180 min y la malla no se toca |
-> | **B** · Recortar 20 min del guion (bloques 2, 4, 5 y 7) | La S4 baja a 2.17 h de teoría: la malla se descuadra |
-> | **C** · Sustentación asíncrona grabada | Se pierde la sustentación en vivo, uno de los 5 criterios de la rúbrica |
->
-> Hasta que se decida, el guion de arriba asume la salida **A**.
+> **Preparación del horario:** la sustentación A1 requiere 20 minutos además de los 180
+> del guion S4. Confirmar con coordinación académica una franja compatible y comunicarla
+> antes de clase; no anunciar que ambas actividades caben en tres horas.
 
 ### Bloque 2 — los tres tipos de confusión
 
@@ -129,7 +116,7 @@ el bloque 6 pone en práctica.
 | `02_matriz_didactica.py` | 5 consultas y su matriz, en 30 segundos | La versión corta de `docente/matriz_seleccion.py`, para entender la lectura |
 | `03_tope_iteraciones.py` | El mismo agente con y sin tope, ante un `?_fallo=error503` | Sin tope, el agente reintenta hasta agotar la cuota. Con tope, avisa y para |
 
-Más `pre-work-mcp.md` como material asíncrono (paso 4.4 del ROADMAP).
+Más `pre-work-mcp.md` como material asíncrono.
 
 ---
 
@@ -152,7 +139,7 @@ La primera ya está escrita: es la del L3. El L4 añade las otras tres, **una de
 - La tool de escritura **no se ejecuta sin confirmación**.
 - Hay tope de iteraciones y los errores están redactados para el modelo (A4, heredado del L3).
 
-### El instrumento es el mismo que cerró el riesgo R11
+### Medir el catálogo del equipo
 
 ```
    docente/matriz_seleccion.py --track <suyo> --tools lab/<track>/domain_tools.py
@@ -160,23 +147,14 @@ La primera ya está escrita: es la del L3. El L4 añade las otras tres, **una de
         20 consultas ──► matriz de confusión ──► "corrige la docstring de X"
 ```
 
-> ⚠️ **Cambio necesario en el script.** Hoy `matriz_seleccion.py` carga las tools desde
-> `proyecto-final/<track>/app/tools/domain_tools.py`, que es **la solución**. Para que el alumno
-> mida *su* catálogo hace falta una opción `--tools <ruta>`. Es una tarea previa, no del lab.
+> Usar `--tools <ruta>` para medir el catálogo del equipo. La ruta por defecto mide el
+> catálogo de referencia del curso y no acredita el trabajo del alumno.
 
-### Hallazgo estructural: qué es `proyecto-final/`
+### Catálogo de referencia y proyecto del equipo
 
-Las 24 tools ya están escritas y verificadas en `proyecto-final/<track>/app/tools/domain_tools.py`.
-Pero `proyecto-final/` se describe hoy como *la carpeta del proyecto del alumno*: tal como está, la
-solución del L4 vive dentro del repositorio del estudiante.
-
-| Qué | Rol |
-|---|---|
-| `proyecto-final/<track>/` **en este repo** | **Implementación de referencia**: el aspecto final del proyecto, y lo que leen `verificar_tools.py` y `matriz_seleccion.py` |
-| El repositorio de **cada equipo** | Donde el alumno construye el suyo, del L1 al L11 |
-
-Hay que decirlo en `README.md`, en `docente/labs-incrementales.md` y en el enunciado del L1: **no
-es un detalle de la S4, es una aclaración que debió estar desde el L1.**
+`proyecto-final/<track>/` contiene las tools de referencia que usan los verificadores.
+Cada equipo implementa su agente en su propio repositorio, del L1 al L11. Los checkpoints
+en `solucion/<track>/` permiten comparar el trabajo después de intentar cada práctica.
 
 **Reto opcional:** las 2 tools opcionales del track, y exponer 2 de las propias como servidor MCP.
 
@@ -204,25 +182,6 @@ El punto 3 es el que prepara la S5: el alumno descubre el hueco antes de que se 
 | Guardrails, PII, prompt injection | S6 |
 | Construir un servidor MCP propio | reto opcional |
 | Langfuse | S9 |
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **4.1** | `README.md` | Bloques 0 a 4, con el diagrama de los 3 tipos de confusión y la tabla de idempotencia |
-| **4.2** | `conceptos-previos.md` | ReAct, async, límite de iteraciones |
-| **4.3** | `code/` | Las 3 demos + `README.md` de la carpeta |
-| **4.4** | `pre-work-mcp.md` | MCP: lectura + conexión al servidor del simulador (30 min de práctica) |
-| **4.5** | `lab/` + `solucion/` | L4 × 4 tracks |
-
-### Trabajo previo
-
-| # | Tarea | Por qué |
-|---|---|---|
-| a | Añadir `--tools <ruta>` a `docente/matriz_seleccion.py` | Sin eso el alumno mide la solución, no su trabajo |
-| b | Corregir el pre-work de MCP en `docente/labs-incrementales.md` | Hoy pide construir un servidor en 1 h |
 
 ---
 

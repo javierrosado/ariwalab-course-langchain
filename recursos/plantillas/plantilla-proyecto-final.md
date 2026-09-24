@@ -124,4 +124,4 @@ Ver [`documento-diseno.md`](documento-diseno.md) (plantilla en
 | `.env` con credenciales reales | Higiene de secretos, desde el L1 |
 | Copias de `proyecto-final/<track>/` de este repo | Es la referencia del docente, no el punto de partida — construir desde cero enseña, copiar no |
 | Marcas peruanas reales | Restricción P5 del curso, aunque el proyecto sea un ejercicio |
-| Datos de clientes reales | El curso usa datos 100 % sintéticos (decisión D12); no hay razón para desviarse |
+| Datos de clientes reales | El curso usa datos 100 % sintéticos; no hay razón para desviarse |

@@ -20,8 +20,7 @@ Regla A2: cada docstring dice QUÉ hace, CUÁNDO usarla y CUÁNDO NO.
 
 Regla A3: `create_complaint_ticket` normaliza su `tipo` con `extraer()` de
 `comun/structured.py` antes de pedir confirmación — el mismo módulo del L2, aplicado
-aquí por primera vez fuera del clasificador (hallazgo H7 de
-`docente/esqueletos/VALIDACION-INTEGRAL.md`).
+aquí por primera vez fuera del clasificador.
 """
 
 from __future__ import annotations

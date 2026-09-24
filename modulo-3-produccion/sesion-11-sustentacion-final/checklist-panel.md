@@ -1,6 +1,6 @@
 # Checklist del panel — Sustentación S11
 
-> Documento del docente/panel (tarea af de `sesion-11.md`), una página. Se usa durante la
+> Documento del docente/panel, una página. Se usa durante la
 > demo de cada equipo, no se entrega al alumno.
 
 ---
@@ -14,7 +14,7 @@
 - [ ] Despertar los Spaces de los equipos que sustentan primero, 5 minutos antes (*cold start*)
 - [ ] Tener a mano `recursos/rubricas/rubrica-final.md` y una copia por evaluador
 - [ ] Confirmar los minutos por equipo (aritmética de `sesion-11.md` §5, con el número real de
-      inscritos — tarea ag)
+      inscritos)
 
 ## Durante cada demo (por equipo)
 

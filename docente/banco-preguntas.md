@@ -49,7 +49,7 @@ la S1.
 Verifica los objetivos de aprendizaje 1 y 2 de la S1: las 4 piezas que le faltan a un LLM para
 ser agente, el bucle percepción→razonamiento→acción→entorno, workflow vs agente, el antipatrón
 de tratar al modelo como una API determinística, modelos de pesos abiertos, y por qué existe
-`comun/provider.py` (D13).
+`comun/provider.py`.
 
 ### Test 2 (Sesión 2)
 
@@ -64,6 +64,6 @@ larga.
 ## Si se corrige una pregunta
 
 Corrígela **en el archivo original** (nunca aquí) y, si cambia lo que el instrumento mide,
-actualiza la fila correspondiente de la tabla de arriba en el mismo commit — es la misma
+actualiza la fila correspondiente de la tabla de arriba al revisar el instrumento — es la misma
 disciplina que exige `CLAUDE.md` para los documentos generados, aplicada a un índice curado a
 mano en vez de a un script.

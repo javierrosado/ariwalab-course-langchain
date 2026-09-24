@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 7 — Hackathon, clínica y sustentación del Proyecto M2
 
-> Contrato de la sesión 7. Insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 4.16–4.19 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Fase 4 · Módulo 2
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,19 +8,18 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-2-agentes-avanzados/` para la sesión 7 |
+| Carpeta | `modulo-2-agentes-avanzados/sesion-07-hackathon-m2/` |
 | Semana · día | Semana 4 · martes |
 | Horas | **1.5 h teoría · 4.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (30 T / 140 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L7 · Pruebas de estrés** |
 | Evaluación | **Proyecto M2 · 100 % del Módulo 2** |
-| Estado en el mapeo | `AULA` — sin contraparte en el repo |
 
 ---
 
 ## 2. Qué hace distinta a esta sesión
 
-**Decidido: clínica, sin ataque cruzado entre equipos.** Cada equipo prueba su propio agente.
+**Clínica, sin ataque cruzado entre equipos.** Cada equipo prueba su propio agente.
 
 Eso deja una pregunta abierta que hay que resolver por diseño: *si nadie ataca a nadie, ¿en qué se
 diferencia el L7 del L6?* La respuesta es que **cambia el adversario**:
@@ -146,16 +142,9 @@ cabe** y hay que partirla entre la S7 y los primeros 20 min de la S8 — igual q
 | **Evidencia de pruebas** | 20 % | `INFORME-L7.md` con ≥ 10 casos reales, no descritos. Las pruebas corren |
 | **Comunicación técnica** | 10 % | La demo y la defensa del documento de diseño |
 
-> **Corrección VALIDACION-INTEGRAL H2 (2026-09-16).** La regla A4 (tope de iteraciones) se
-> enseña en la S3 y la S4 y hasta ahora no se medía en ningún sitio. El criterio
-> **"Guardrails y manejo de errores"** de arriba incluye, explícitamente, esta comprobación de
-> la familia 3 (servicio caído): *ante `?_fallo=error503` sostenido durante toda la conversación
-> (o, en `tests/`, con la tool parcheada para fallar siempre), el agente debe terminar en
-> **como máximo `MAX_ITERATIONS`** llamadas al modelo y emitir un mensaje explícito al usuario
-> — nunca colgarse, nunca reintentar en silencio hasta agotar la cuota.* Es una línea de código
-> en el enunciado del L7, no un capítulo nuevo: `docente/esqueletos/README.md` §"Trabajo previo"
-> ya lo trae como tarea, y `solucion/<track>/tests/test_casos_borde.py` de esta sesión lo
-> implementa como parte de la familia 3.
+> **Evaluar el tope de iteraciones:** ante un error 503 sostenido, el agente debe terminar
+> en como máximo `MAX_ITERATIONS` llamadas al modelo y emitir un mensaje explícito.
+> La familia 3 de `solucion/<track>/tests/test_casos_borde.py` comprueba este comportamiento.
 
 **La regla del piso del A1 sigue vigente**, adaptada: si las pruebas de `tests/` pasan con el
 agente llamado directamente y el informe documenta los 10 casos, el equipo no baja de *Competente*
@@ -189,35 +178,7 @@ un sistema no determinístico se juzga por su diseño y su evidencia, no por una
 | Despliegue, Docker, FastAPI | S8 |
 | Langfuse y trazas | S9 |
 | Métricas formales y golden dataset de evaluación | S10 |
-| Ataque entre equipos | descartado por decisión: esta sesión es clínica |
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **4.16** | `README.md` | El bloque 0 completo: invariantes, familias, cuántas repeticiones |
-| **4.17** | `conceptos-previos.md` | Testing no determinístico + los 6 fallos del simulador |
-| **4.18** | `lab/` | L7 × 4 tracks: guion de la clínica y plantilla de `INFORME-L7.md` |
-| **4.19** | `proyecto-m2.md` | Enunciado, entregables, rúbrica 4×5, regla del piso y calendario |
-
-> ⚠️ **Ampliación 2026-09-16.** El pacto original de esta sesión no incluía `code/` ni
-> `solucion/` (bloque 2 de §5 dice que la "ronda de demos" es de los propios equipos, no de
-> Code). Por pedido explícito se añadieron los pasos **4.20** y **4.21** para que el bloque 0
-> (invariantes, familias, repetición) tenga demos ejecutables y para que el criterio de
-> `tests/` del §7 tenga un checkpoint de referencia, igual que las demás sesiones del módulo.
-
-| **4.20** | `code/` | 3 demos: por qué falla `assert ==`, invariantes en aislamiento, repetir y medir + `README.md` |
-| **4.21** | `solucion/` | `tests/invariantes.py` + `tests/test_casos_borde.py` × 4 tracks, con las 4 familias del bloque 0 medidas por repetición e invariantes |
-
-### Trabajo previo
-
-| # | Tarea | Por qué |
-|---|---|---|
-| a | `recursos/rubricas/rubrica-m2.md` | La cita el enunciado y la usa el docente |
-| b | Plantilla de `INFORME-L7.md` y de documento de diseño | Sin plantilla, 15 informes con 15 estructuras distintas |
-| c | Añadir al `docente/cronograma.md` el recordatorio de `CHAOS_RATE=0.1` → `0.0` | Ya está en la lista de verificación; conviene que también esté en la sesión |
+| Ataque entre equipos | fuera de alcance: cada equipo prueba su propio agente |
 
 ---
 

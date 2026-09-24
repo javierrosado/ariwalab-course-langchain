@@ -1,4 +1,4 @@
-"""Base vectorial del curso — Qdrant Cloud, backend único (decisión D10).
+"""Base vectorial del curso — Qdrant Cloud, backend único.
 
 No hay fallback local a propósito: el curso es 100 % SaaS. Si el cluster de
 Qdrant no responde, el laboratorio debe fallar de forma ruidosa, no degradarse

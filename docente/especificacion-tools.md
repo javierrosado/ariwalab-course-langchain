@@ -3,7 +3,7 @@
 > **Generado automáticamente** por `docente/generar_especificacion_tools.py` a partir del código
 > real. No editar a mano: regenerar tras cualquier cambio en las tools.
 >
-> **Para el profesor:** el curso usa un modelo genérico sin afinar (decisión D21), así que
+> **Para el profesor:** el curso usa un modelo genérico sin afinar, así que
 > **la única guía que tiene el modelo para elegir bien una herramienta es lo que está escrito
 > aquí**. Si `docente/matriz_seleccion.py` reporta una confusión entre dos tools, la corrección
 > se hace sobre la docstring de este documento, no sobre el modelo.
@@ -21,11 +21,9 @@ enlazarse junto a las 4 núcleo.
 
 ---
 
-
 ## Track `telecomunicaciones` — AndesMóvil
 
 *Atención al cliente móvil postpago*
-
 
 ### Tools núcleo (Laboratorio 4)
 
@@ -143,13 +141,11 @@ enlazarse junto a las 4 núcleo.
 ```
 </details>
 
-
 ---
 
 ## Track `banca` — Banco Inti
 
 *Banca personal y detección de operación sospechosa*
-
 
 ### Tools núcleo (Laboratorio 4)
 
@@ -259,13 +255,11 @@ enlazarse junto a las 4 núcleo.
 ```
 </details>
 
-
 ---
 
 ## Track `retail` — MercaSur
 
 *Post-venta de e-commerce*
-
 
 ### Tools núcleo (Laboratorio 4)
 
@@ -378,13 +372,11 @@ enlazarse junto a las 4 núcleo.
 ```
 </details>
 
-
 ---
 
 ## Track `seguros` — Andina Seguros
 
 *Asesoría SOAT y reporte de siniestros*
-
 
 ### Tools núcleo (Laboratorio 4)
 
@@ -503,7 +495,6 @@ enlazarse junto a las 4 núcleo.
 ]
 ```
 </details>
-
 
 ---
 

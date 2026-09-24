@@ -2,7 +2,7 @@
 
 Todos los datos de esta carpeta son **sintéticos y generados por script**. Las empresas son
 ficticias (AndesMóvil, Banco Inti, MercaSur, Andina Seguros) y ninguna persona, cuenta, placa o
-documento corresponde a alguien real. Decisión D12 del ADR.
+documento corresponde a alguien real.
 
 ## Cómo se usa cada tipo de archivo
 
@@ -62,14 +62,7 @@ que intenta recordar un tarifario en vez de recuperarlo es el error que el curso
 | `tabla_coberturas.md` | — | RAG |
 | `procedimiento_siniestro.md` | — | RAG |
 
-## Nota para el fine-tuning de los modelos
-
-Si se sigue el camino B de `_memoria/ESPEC-MODELOS-INDUSTRIA.md`, el dataset de entrenamiento
-**no debe contener** las tarifas, coberturas ni políticas de los archivos `.md` de esta carpeta.
-Ese conocimiento vive en el RAG. Si el modelo lo memoriza, dejará de llamar al retriever y se
-romperá el criterio de aceptación C6 y la lección central de la sesión 5.
-
-## Política de marcas (decisión D12)
+## Política de marcas
 
 Ninguna empresa, comercio, courier, tienda, billetera ni clínica de estos datos es real. Dos
 excepciones deliberadas y documentadas:

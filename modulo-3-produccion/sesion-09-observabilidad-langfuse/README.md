@@ -5,12 +5,8 @@
 Antes de esta sesión: pre-work de 1 h ([`conceptos-previos.md`](conceptos-previos.md)) y tu
 Space del L8 ya desplegado y respondiendo.
 
-> **Desviación documentada del PDF (riesgo R6).** El sílabo original nombra *LangSmith*. El
-> curso cumple el mismo objetivo —observabilidad y trazabilidad de agentes— con **Langfuse**,
-> por el principio P1: LangSmith es propietario, Langfuse es open source y tiene un plan Hobby
-> gratuito suficiente para el curso. Es una decisión de arquitectura, no una excusa: el alumno
-> debe salir sabiendo que la herramienta del sílabo existe y por qué el curso usó la equivalente
-> abierta.
+> La sesión usa Langfuse para observar llamadas, latencias y errores del agente.
+> Comprobar la conexión y las cuotas del proyecto antes del laboratorio.
 
 ---
 
@@ -66,7 +62,7 @@ Tres lecturas que debes hacer solo:
 
 | Lo que se ve | Lo que significa |
 |---|---|
-| 3 llamadas al modelo para 1 pregunta | La fiabilidad se compone: 3 oportunidades de fallar (D20) |
+| 3 llamadas al modelo para 1 pregunta | La fiabilidad se compone: 3 oportunidades de fallar |
 | El modelo cuesta 2 570 ms de 3 420 | El cuello no son las tools ni Qdrant: **es el modelo** |
 | El retriever se llamó | ¿Hacía falta? Si se llama siempre, el RAG agéntico de la S5 degeneró en tradicional |
 

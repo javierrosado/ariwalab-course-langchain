@@ -71,5 +71,4 @@ Guardrails y manejo de errores 20 %, Observabilidad y evaluación 20 %, Comunica
 | S11, bloque 3 (5 min) | Cierre del módulo: se libera el bonus de Foundry |
 
 La aritmética de la ronda (minutos por equipo según el número de equipos inscritos) se calcula
-antes de la sesión — ver `docente/esqueletos/sesion-11.md` §5, y la tarea **ag** (Javier, con el
-número real de inscritos).
+antes de la sesión — ver `docente/esqueletos/sesion-11.md` §5.

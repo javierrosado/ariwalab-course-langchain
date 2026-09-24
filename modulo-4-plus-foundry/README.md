@@ -8,7 +8,7 @@
 > principio P2 se mantiene íntegro dentro de las 72 h.
 
 **Asíncrono, liberado al cerrar la S11. No ponderado — certificación adicional.**
-~2 h teoría · ~4 h práctica ≈ 6 h, que **no computan** horas lectivas (decisión D17).
+~2 h teoría · ~4 h práctica ≈ 6 h, que **no computan** horas lectivas.
 
 ---
 
@@ -26,10 +26,9 @@ igual comportamiento: repetir las consultas y registrar diferencias.
 | Embeddings y colección Qdrant | `AI_PROVIDER` también cambia embeddings; reutilizar la colección exige conservar el mismo espacio vectorial o reindexar |
 | Hosting | `ResponsesHostServer` recibe un grafo construido por `create_agent()`; no envuelve directamente `responder()` |
 
-**CONS-010 — decisión pendiente:** mantener embeddings HF independientemente del chat, o
-migrarlos y reindexar en una colección distinta. No usar vectores generados por otro modelo
-como si fueran compatibles por compartir dimensión. No presentar el bonus completo como
-validado mientras esa decisión y la prueba en Foundry sigan pendientes.
+**Antes de ejecutar RAG:** comprobar el modelo de embeddings de indexación y de consulta.
+Si cambia, reindexar en una colección compatible. Igual dimensión no implica igual espacio
+vectorial. El docente debe probar esta configuración en Foundry antes de la práctica.
 
 ---
 

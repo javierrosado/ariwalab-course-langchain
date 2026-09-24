@@ -37,7 +37,7 @@ El mismo código, tres entornos, cero cambios de código:
    QDRANT_URL=...             QDRANT_URL=...                  QDRANT_URL=...
 ```
 
-`comun/settings.py` ya lee todo por variable de entorno desde el L1 (decisión D13): hoy no se
+`comun/settings.py` ya lee todo por variable de entorno desde el L1: hoy no se
 escribe una sola línea de config nueva en el agente, solo se cambia **dónde vive** esa
 configuración.
 

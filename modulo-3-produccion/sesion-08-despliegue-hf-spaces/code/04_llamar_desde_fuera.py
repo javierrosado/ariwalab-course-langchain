@@ -6,8 +6,7 @@ Ejecutar desde la raíz del curso:
 
 Sin --url, corre en modo --simular: una app FastAPI en memoria (fastapi.testclient),
 para que la demo funcione en el aula aunque el Space de referencia del docente no esté
-desplegado en este momento (tarea 'u' de sesion-08.md — es responsabilidad de Javier
-desplegarlo antes de la semana 4; ver nota en ROADMAP.md).
+desplegado y accesible antes de la clase. El docente prepara la URL y la API key.
 
 La demo se corre contra el Space del DOCENTE, ya desplegado — el alumno ve el resultado
 antes de desplegar el suyo propio en el laboratorio.

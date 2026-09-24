@@ -1,6 +1,6 @@
 # Laboratorio L1 · Entorno y primer script
 
-**Alcance decidido:** entorno verde y tu primer script del track. **Sin tools, sin Pydantic,
+**Alcance:** entorno verde y tu primer script del track. **Sin tools, sin Pydantic,
 sin agente.** Eso llega en las sesiones 2 y 3 — hoy es, deliberadamente, más simple.
 
 **Duración:** 2 h, en 4 partes.

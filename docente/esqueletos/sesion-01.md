@@ -1,10 +1,6 @@
 # Esqueleto · Sesión 1 — Fundamentos de los agentes inteligentes
 
-> **Qué es este documento.** El contrato de la sesión 1: qué enseña, en qué orden, qué produce
-> el alumno y qué **no** entra. Es el insumo de la sesión de Claude Code que escribe los 5
-> archivos (pasos 3.1–3.5 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-15 · Fase 3 · Módulo 1
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -12,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | `modulo-1-fundamentos/sesion-01-fundamentos-agentes/` |
+| Carpeta | `modulo-1-fundamentos/sesion-01-fundamentos-agentes/` |
 | Semana · día | Semana 1 · martes |
 | Horas | **3.5 h teoría · 2.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (teoría) + 3 h en vivo (2.5 teoría / 0.5 práctica) + 2 h lab (práctica) |
 | Laboratorio | **L1 · Entorno y primer script** |
 | Hitos | **Test 1** · **elección de track** |
-| Estado en el mapeo | `PARCIAL` — el marco conceptual se escribe desde cero |
 
 ---
 
@@ -48,10 +43,6 @@ La Sesión 0 ya cubrió esto. **No se repite en clase**, se da por sabido:
 | `venv`, `.env`, higiene de secretos, Pydantic básico | `00-preparacion/conceptos-previos/python-y-entorno.md` |
 | Las 3 cuentas creadas y el `.env` completo | `00-preparacion/conceptos-previos/alta-de-cuentas.md` |
 | Las 4 demos ejecutadas | `00-preparacion/code/` |
-
-> ⚠️ **Corrección de referencias.** `docente/prerrequisitos-por-sesion.md` cita
-> `secretos-y-env.md` y `python-refresco.md`, que **no existen**. Los archivos reales son los
-> tres de la tabla. Corregir ese documento en el mismo commit que la sesión 1.
 
 **Pre-work de 1 h** (`conceptos-previos.md` de esta sesión, no de la S0):
 
@@ -86,7 +77,7 @@ verdadera. El resto de la sesión explica por qué, y las 10 siguientes construy
 | 3 | **Workflow vs agente** | 20 | T | Cuadro de decisión. *Cuándo NO necesitas un agente* — la mitad de los casos reales |
 | — | **Pausa** | 10 | — | |
 | 4 | Anatomía de LangChain 1.x | 30 | T | `model` · `message` · `tool` · `agent` · `middleware`, y en qué sesión se ve cada uno |
-| 5 | Modelos abiertos vs cerrados | 20 | T | Por qué `Qwen3-32B`, **y cómo se eligió: midiendo** (1 de 4 candidatos pasó) |
+| 5 | Modelos abiertos vs cerrados | 20 | T | Pesos abiertos, inferencia remota y verificación con `check_stack` |
 | 6 | `comun/provider.py` en vivo | 15 | P | Correr `describe_provider()` y el primer llamado. La indirección y el bonus de Foundry |
 | 7 | **Test 1** + **elección de track** | 15 | P | 10 preguntas · cada equipo declara su track |
 
@@ -133,12 +124,7 @@ repite en la apertura de las sesiones 3, 4, 5 y 6.
 |---|---|---|
 | `01_primer_llamado.py` | `describe_provider()` + un llamado al modelo vía `comun/provider.py` | Que ningún archivo del curso instancia el modelo directamente |
 | `02_tipos_de_mensaje.py` | `system` / `human` / `ai`: el mismo `human` con y sin `system` | Que el `system` cambia el tono y los límites sin cambiar la pregunta |
-| `03_un_modelo_cuatro_industrias.py` | La misma pregunta contra los 4 `get_system_prompt(track)` | Que **un solo modelo** suena a telco, banco, retailer o aseguradora — es D21 en vivo |
-
-> **Sustitución respecto del repo.** El mapeo asignaba aquí `01-introduction/code/03_model_comparison.py`,
-> que compara modelos distintos. Con D28 el curso usa **un solo modelo**, así que esa demo
-> perdería sentido. Se reemplaza por la comparación de **prompts de industria**, que enseña la
-> decisión que sí gobierna el curso.
+| `03_un_modelo_cuatro_industrias.py` | La misma pregunta contra los 4 `get_system_prompt(track)` | Que **un solo modelo** suena a telco, banco, retailer o aseguradora mediante el system prompt |
 
 Las tres corren con solo `HF_TOKEN`. Ninguna necesita Qdrant, Langfuse ni el simulador.
 
@@ -146,7 +132,7 @@ Las tres corren con solo `HF_TOKEN`. Ninguna necesita Qdrant, Langfuse ni el sim
 
 ## 7. Laboratorio L1 · Entorno y primer script
 
-**Alcance decidido:** entorno verde y primer script del track. Sin tools, sin Pydantic, sin agente.
+**Alcance:** entorno verde y primer script del track. Sin tools, sin Pydantic, sin agente.
 
 | Parte | Min | Qué hace el alumno |
 |---|---|---|
@@ -183,16 +169,12 @@ qué se inventó. Esa nota se retoma en la S5 como el "antes" del RAG.
 
 ## 8. Elección de track
 
-**Regla decidida: el equipo propone, el docente balancea.**
+**Regla: el equipo propone, el docente balancea.**
 
 - Cada equipo de 2 declara su track al cerrar la sesión en vivo.
 - El docente ajusta para que los **4 tracks estén representados** en la sustentación final y para
   que **Banca** —el más exigente en guardrails y structured output— no caiga en el equipo más débil.
 - El track es **irrevocable**: todos los laboratorios del L2 al L11 se construyen sobre él.
-
-> ⚠️ **Contradicción a corregir.** `docente/labs-incrementales.md` dice que el equipo elige, y
-> `docente/casos-de-uso-industrias.md` recomienda que el docente asigne por dificultad. Ambos
-> deben reescribirse con esta regla, en el mismo commit.
 
 ---
 
@@ -215,7 +197,7 @@ comentadas al final, no solo la letra correcta.
 
 ## 10. Qué **no** entra en esta sesión
 
-Esta lista existe para que la sesión de Code no se desborde:
+Mantener la clase dentro de este alcance:
 
 | No entra | Va en |
 |---|---|
@@ -226,26 +208,10 @@ Esta lista existe para que la sesión de Code no se desborde:
 | El simulador de industria | S3 |
 | Qdrant y Langfuse (más allá de tener la cuenta) | S5 y S9 |
 | MCP | S4 |
-| Las reglas A1–A6 | se nombran en la S1, se aplican desde la S2 |
+| Las reglas A1–A6 | Aplicación desde S2; aquí solo se nombran |
 
 > La palabra "agente" se explica en la S1, pero **el alumno no construye uno hasta la S3**. Decirlo
 > explícitamente en el README evita la frustración de quien espera un agente el primer día.
-
----
-
-## 11. Los 5 archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **3.1** | `sesion-01-fundamentos-agentes/README.md` | Los bloques 0 a 5 del guion, con los dos diagramas y los dos cuadros de decisión |
-| **3.2** | `sesion-01-fundamentos-agentes/conceptos-previos.md` | Los 4 conceptos del pre-work + enlaces a los archivos reales de la S0 + Test 1 |
-| **3.3** | `sesion-01-fundamentos-agentes/code/` | Las 3 demos de la sección 6 + un `README.md` de la carpeta |
-| **3.4** | `sesion-01-fundamentos-agentes/lab/` | Enunciado del L1 **× 4 tracks**, con las 3 preguntas de dominio propias de cada uno |
-| **3.5** | `sesion-01-fundamentos-agentes/solucion/` | `primer_contacto.py` de referencia × 4 tracks |
-
-**Convenciones que aplican** (ver `CLAUDE.md`): todo en español, identificadores en inglés,
-marcas ficticias, nada que corra en local, y ningún archivo llama a `os.getenv()` fuera de
-`comun/settings.py`.
 
 ---
 

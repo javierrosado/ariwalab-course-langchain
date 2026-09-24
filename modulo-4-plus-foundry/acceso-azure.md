@@ -1,9 +1,7 @@
 # Acceso a Azure — las dos vías
 
-> ⚠️ **Capturas del portal pendientes.** Este documento trae el paso a paso en texto; las
-> capturas de pantalla del portal de Azure/Foundry son tarea **ao** de
-> `docente/esqueletos/bonus-foundry.md` (Javier, con su propia cuenta) — se añaden en cuanto
-> estén disponibles, sin cambiar la numeración de los pasos.
+> Sigue los pasos con el docente. Los nombres y la ubicación de las opciones del portal
+> pueden cambiar; comprobar el acceso antes de iniciar la práctica.
 
 ---
 
@@ -53,19 +51,18 @@ AI_MODEL=<nombre de tu deployment, ej. gpt-4.1-mini>
 
 ## Vía B · Proyecto del docente
 
-Para quien no quiera o no pueda registrar una tarjeta. Javier despliega un proyecto de Foundry
-compartido y reparte claves temporales (tarea **an** de `bonus-foundry.md`) — te saltas la
-creación de recursos, y en su lugar recorres el portal en modo lectura con las capturas de
-`acceso-azure.md` (pendientes, ver nota de arriba).
+Para quien no quiera o no pueda registrar una tarjeta. El docente despliega un proyecto de Foundry
+compartido y reparte claves temporales — te saltas la
+creación de recursos y revisas con el docente los pasos de esta guía.
 
 | Qué | Detalle |
 |---|---|
-| Quién paga | Javier, con el consumo del proyecto compartido |
+| Quién paga | El docente, con el consumo del proyecto compartido |
 | Claves | Temporales, rotadas al cerrar el periodo del bonus |
 | Límite | Un `deployment` pequeño; se anuncia la cuota disponible al momento de repartir claves |
 | Qué se pierde | La creación de recursos (pasos 2-4 de la Vía A) — se sustituye por el recorrido guiado |
 
-Con la Vía B, completas tu `.env` con las variables que Javier reparta directamente
+Con la Vía B, completas tu `.env` con las variables que el docente reparta directamente
 (`AI_ENDPOINT`, `AI_API_KEY`, `AI_MODEL`) y saltas directo al **paso 4** del `README.md` (el
 switch).
 

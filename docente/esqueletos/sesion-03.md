@@ -1,10 +1,6 @@
 # Esqueleto · Sesión 3 — Herramientas, integración externa y Assignment A1
 
-> **Qué es este documento.** El contrato de la sesión 3: qué enseña, en qué orden, qué produce
-> el alumno y qué **no** entra. Es el insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 3.11–3.16 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-15 · Fase 3 · Módulo 1
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -12,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | `modulo-1-fundamentos/sesion-03-tools-api-externa/` |
+| Carpeta | `modulo-1-fundamentos/sesion-03-tools-api-externa/` |
 | Semana · día | Semana 2 · martes |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L3 · Primera tool contra el simulador** = **Assignment A1** |
 | Evaluación | **Assignment A1 · 100 % del Módulo 1** |
-| Estado en el mapeo | `COMPLETA` — repo `04-function-calling-tools` + `05-agents` |
 
 > **Es la sesión más cara del módulo.** Es la primera que toca el simulador, la primera que
 > ejerce tool calling de verdad, y su laboratorio **es** la nota del Módulo 1. Todo lo que pueda
@@ -30,12 +25,11 @@
 
 | Qué | Quién | Para cuándo | Si falta |
 |---|---|---|---|
-| Simulador desplegado en HF Spaces y respondiendo `/health` | **Javier** | Lunes semana 2 | Se dicta con `DATA_SOURCE=csv`: el L3 pierde la API real y el escenario "API caída" deja de ser demostrable |
-| **API key por equipo** repartida | **Javier** | Lunes semana 2 | Sin ella no hay L3, y sin L3 no hay A1 |
-| `CHAOS_RATE=0.0` confirmado | Javier | Martes, antes de clase | Fallos aleatorios durante la evaluación del módulo |
+| Simulador desplegado en HF Spaces y respondiendo `/health` | **el docente** | Lunes semana 2 | Se dicta con `DATA_SOURCE=csv`: el L3 pierde la API real y el escenario "API caída" deja de ser demostrable |
+| **API key por equipo** repartida | **el docente** | Lunes semana 2 | Sin ella no hay L3, y sin L3 no hay A1 |
+| `CHAOS_RATE=0.0` confirmado | el docente | Martes, antes de clase | Fallos aleatorios durante la evaluación del módulo |
 
-Es la tarea **2B.19** del `ROADMAP.md`, que hoy está en ⏸️. Deja de ser "pendiente" y pasa a tener
-fecha: el martes de la semana 2 es su vencimiento real.
+Confirmar estas condiciones antes de la clase y repartir las credenciales por equipo.
 
 ---
 
@@ -230,7 +224,7 @@ puente natural hacia los guardrails de la S6.
 | **Evidencia** | 10 % | `EVIDENCIA-A1.md` con las 3 trazas reales, no descritas |
 | **Comunicación técnica** | 10 % | La sustentación de 5 min: explica la decisión, no narra el código |
 
-**Regla del piso (decidida):**
+**Regla del piso:**
 
 > Si `prueba_tool.py` pasa los 3 escenarios y la docstring cumple A2, el equipo **no baja de
 > Competente**, aunque en la sustentación el modelo no haya elegido la tool.
@@ -252,11 +246,9 @@ diseñó el sistema para que esa varianza no se convierta en un fallo silencioso
 | **Miércoles 23:59** | Entrega del paquete completo (código + `EVIDENCIA-A1.md`) |
 | **Jueves** (S4), primeros 20 min | Sustentación de **4 equipos, uno por track**, 5 min cada uno |
 
-> ⚠️ **Corrección de la aritmética.** Al plantear esta opción calculé "~25 min de la S4", pero con
-> 8-15 equipos a 5 min serían 40-75 min: se comería la sesión del catálogo de tools. Por eso
-> **sustentan 4 equipos, uno por track, en rotación**: los demás entregan el paquete y el docente
-> califica de forma asíncrona. A lo largo del curso (A1 · Proyecto M2 · Integrador) cada equipo
-> sustenta al menos una vez, y el aula ve las 4 industrias en cada hito.
+> Sustentan cuatro equipos, uno por track, durante cinco minutos cada uno. Los demás
+> entregan el paquete para evaluación asíncrona. Rotar los equipos entre A1, Proyecto M2
+> e Integrador para que cada equipo sustente al menos una vez.
 
 ---
 
@@ -273,27 +265,6 @@ diseñó el sistema para que esa varianza no se convierta en un fallo silencioso
 
 > El L3 usa **una sola tool y de lectura**. La primera tool que escribe algo llega en el L4, ya
 > con el hábito de manejar errores adquirido.
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **3.11** | `sesion-03-tools-api-externa/README.md` | Bloques 0 a 4 del guion, con el diagrama del bloque 1 y el antes/después de la docstring |
-| **3.12** | `sesion-03-tools-api-externa/conceptos-previos.md` | Los 6 conceptos del pre-work + la verificación de entrada con `salud()` |
-| **3.13** | `sesion-03-tools-api-externa/code/` | Las 4 demos + `README.md` de la carpeta |
-| **3.14** | `sesion-03-tools-api-externa/lab/` | Enunciado del L3 **× 4 tracks**, con su tool, sus identificadores reales y los 3 escenarios |
-| **3.15** | `sesion-03-tools-api-externa/solucion/` | `external_api.py`, `agent.py` v1, `prueba_tool.py` × 4 tracks |
-| **3.16** | `sesion-03-tools-api-externa/assignment-a1.md` | Enunciado, entregables, rúbrica de 4×5, regla del piso y calendario de entrega |
-
-### Trabajo previo
-
-| # | Tarea | Por qué |
-|---|---|---|
-| **a** | `recursos/rubricas/rubrica-a1.md` — la rúbrica como archivo propio | La cita el assignment y la usará el docente al calificar |
-| **b** | Anotar en `recursos/rubricas/` que el criterio de observabilidad no aplica antes de la S9 | Evita que se califique algo que aún no se enseñó |
-| **c** | Fijar fecha a la tarea **2B.19** del ROADMAP: lunes semana 2 | Hoy está en ⏸️ sin vencimiento, y bloquea la nota del módulo |
 
 ---
 

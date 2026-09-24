@@ -1,8 +1,8 @@
 # Sesión 4 — Tools e integración de herramientas
 
 > Esqueleto de diapositivas. Fuente: `docente/esqueletos/sesion-04.md`.
-> ⚠️ Descuadre de 20 min sin resolver (sustentación A1 + guion) — ver `docente/guia-docente.md`,
-> sección de decisiones pendientes, antes de dictar.
+> Confirmar una franja para los 20 minutos de sustentación A1 además del guion de 180 minutos.
+> Comunicar el horario antes de clase; consultar la guía docente.
 
 ---
 

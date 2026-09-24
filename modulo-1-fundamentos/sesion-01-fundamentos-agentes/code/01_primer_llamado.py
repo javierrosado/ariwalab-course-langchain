@@ -10,7 +10,7 @@ Qué deberías observar:
      sin que este script sepa nada de Hugging Face ni de URLs.
   2. El modelo responde a una pregunta real de tu industria.
   3. Ningún archivo de este curso escribe `ChatOpenAI(...)` directamente: todo pasa por
-     `comun/provider.py` (decisión D13). Búscalo en este archivo: no está.
+     `comun/provider.py`. Búscalo en este archivo: no está.
 """
 
 from __future__ import annotations

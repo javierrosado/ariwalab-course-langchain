@@ -1,9 +1,6 @@
 # Esqueleto · Bonus — El mismo agente en Microsoft Foundry
 
-> Contrato del bloque bonus. Insumo de la sesión de Claude Code que escribe la Fase 6.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Módulo 4 · **fuera de las 72 h**
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,62 +8,42 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | `modulo-4-plus-foundry/` |
+| Carpeta | `modulo-4-plus-foundry/` |
 | Cuándo | **Asíncrono**, liberado al cerrar la S11 |
-| Horas | ~2 h teoría · ~4 h práctica ≈ 6 h · **no computan horas lectivas** (D17) |
+| Horas | ~2 h teoría · ~4 h práctica ≈ 6 h · **no computan horas lectivas** |
 | Laboratorio | **L12 · El mismo agente en Foundry** |
 | Evaluación | **No ponderado.** Certificación adicional |
-| Estado en el mapeo | `COMPLETA` — repo `09-deploy-to-microsoft-foundry` |
 
-> **Por qué es bonus y no sesión.** La malla oficial son 72 h y añadir una sesión formal la llevaba
-> a 78, lo que exigía aprobación académica (D17 v2). Como bloque asíncrono, la malla queda intacta
-> y el alumno que quiera lo hace a su ritmo. Habrá un **Curso 2 que es 100 % Foundry**: este bloque
-> es el puente, no el sustituto.
+> Este bloque asíncrono es opcional, no ponderado y queda fuera de las 72 horas lectivas.
+> El alumno lo completa a su ritmo como introducción a Foundry.
 
 ---
 
-## 2. La lección, en una línea
+## 2. Alcance de la portabilidad
 
-Todo el curso se construyó para que este bloque sea **aburrido**:
-
-```
-   .env:   AI_PROVIDER=huggingface   ──────►   AI_PROVIDER=foundry
-
-   Y no se toca ni una línea del código del agente.
-```
-
-| Pieza | ¿Porta? | Por qué |
-|---|---|---|
-| `comun/provider.py` | ✅ | Abstrae la interfaz desde el L1 (D13) |
-| System prompt del track | ✅ | Es texto (D21 · camino A) |
-| Colección de Qdrant | ✅ | Es un servicio externo, no depende del proveedor del modelo |
-| Las 4 tools + retriever | ✅ | Solo hablan HTTP con el simulador |
-| Guardrails | ✅ | Código propio |
-| **El comportamiento del modelo** | ⚠️ **No** | Otro modelo responde distinto. Es lo único que cambia, y es el contenido del cuadro comparativo |
-
-> **Esta promesa es literalmente cierta gracias a D21.** Si el curso hubiera afinado un modelo por
-> industria, apuntar a Foundry habría cambiado el cerebro del agente y la frase "no cambió nada"
-> habría sido refutable mirando la pantalla. Conviene decirlo en el bloque: es la consecuencia
-> práctica de una decisión de diseño tomada en la semana 0.
+Cambiar `AI_PROVIDER` selecciona el proveedor del cliente. Probar las mismas consultas permite
+comparar comportamiento. Para el hosting, el ejemplo crea un grafo nuevo: adaptar memoria y
+guardrails. Para RAG, indexación y consulta deben usar embeddings compatibles; reindexar si cambia
+el modelo. Seguir el [alcance del bonus](../../modulo-4-plus-foundry/README.md).
 
 ---
 
 ## 3. Objetivos
 
 1. Situar el **modelo de recursos de Azure**: suscripción → grupo → recurso → proyecto → deployment.
-2. Ejecutar el mismo agente contra Foundry cambiando **una variable de entorno**.
+2. Configurar el cliente Foundry y explicar qué piezas requieren adaptación.
 3. Explicar qué es un *hosted agent* y el protocolo **Responses**.
 4. Desplegar con `azd` y obtener un endpoint gestionado.
 5. **Comparar con evidencia** Hugging Face y Foundry en 7 dimensiones.
 
 ---
 
-## 4. Acceso a Azure · decidido: ambas vías, documentadas
+## 4. Acceso a Azure: ambas vías, documentadas
 
 | Vía | Para quién | Qué implica |
 |---|---|---|
 | **A · Suscripción propia** *(recomendada)* | Quien pueda registrar una tarjeta | Usa el crédito inicial gratuito. Aprende el modelo de recursos completo — que es **prerrequisito del Curso 2** — y queda con su propio entorno |
-| **B · Proyecto del docente** | Quien no quiera o no pueda registrar tarjeta | Javier despliega un proyecto y reparte claves temporales. Se salta la parte de creación de recursos: se lee, no se hace |
+| **B · Proyecto del docente** | Quien no quiera o no pueda registrar tarjeta | el docente despliega un proyecto y reparte claves temporales. Se salta la parte de creación de recursos: se lee, no se hace |
 
 > **Es la primera y única vez que el curso menciona una tarjeta de crédito.** Hay que decirlo sin
 > rodeos en la primera línea del bloque, junto con la vía B, para que nadie llegue a la mitad de la
@@ -77,7 +54,7 @@ Todo el curso se construyó para que este bloque sea **aburrido**:
 
 | Qué | Detalle |
 |---|---|
-| Quién paga | Javier, con el consumo del proyecto compartido |
+| Quién paga | El docente, con el consumo del proyecto compartido |
 | Claves | Temporales, rotadas al cerrar el periodo del bonus |
 | Límite | Un `deployment` pequeño; se anuncia la cuota disponible |
 | Qué se pierde | La creación de recursos. Se sustituye por un recorrido guiado del portal, en capturas |
@@ -155,7 +132,7 @@ adicional; quien no, se gradúa igual.
 
 | Riesgo | Estado | Qué hacer |
 |---|---|---|
-| **R8** · `langchain-azure-ai[hosting]` en versión preview | Marcado como resuelto en el ADR, pero **el bonus depende de él** | **Re-verificar antes de liberar el bloque.** Una API en preview cambia entre versiones, y el `ResponsesHostServer` es el núcleo de los pasos 6 y 7 |
+| `langchain-azure-ai[hosting]` en versión preview | El host del bonus depende de este paquete | **Re-verificar antes de liberar el bloque.** Una API en preview cambia entre versiones, y el `ResponsesHostServer` es el núcleo de los pasos 6 y 7 |
 | Cuota del proyecto compartido (vía B) | Sin medir | Anunciar el límite y cerrar el periodo del bonus con fecha |
 | El crédito gratuito de Azure cambia de condiciones | Fuera de control | La guía nombra el concepto, no la cifra: las cifras caducan |
 
@@ -174,23 +151,3 @@ adicional; quien no, se gradúa igual.
 > se movió el modelo; allá se moverá todo lo demás, recurso por recurso.
 
 ---
-
-## 10. Archivos a producir
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | Los 8 pasos, con el diagrama del switch y la advertencia de la tarjeta en la primera línea |
-| `acceso-azure.md` | Las dos vías, paso a paso, con capturas del portal |
-| `host/main.py` | `ResponsesHostServer` envolviendo el agente del L11 |
-| `host/azure.yaml` | Configuración de `azd` |
-| `plantilla-comparativa.md` | Las 7 dimensiones, con cómo medir cada una |
-| `puente-curso-2.md` | Qué sigue y por qué se dejó fuera de aquí |
-
-### Tareas previas
-
-| # | Tarea | Por qué |
-|---|---|---|
-| am | **Re-verificar `langchain-azure-ai[hosting]`** contra un proyecto Foundry real | R8: es preview y sostiene los pasos 6 y 7 |
-| an | Desplegar el proyecto Foundry compartido de la vía B y definir su cuota | Sin él, la vía B no existe |
-| ao | Capturas del portal de Azure para `acceso-azure.md` | Es lo que sustituye a la creación de recursos en la vía B |
-| ap | Definir la fecha de cierre del periodo del bonus | Las claves temporales necesitan vencimiento |

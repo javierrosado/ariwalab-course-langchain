@@ -3,10 +3,8 @@
 Curso en español para **ingenieros de software con poco conocimiento de LLMs**.
 Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-beginners`](https://github.com/microsoft/langchain-for-beginners).
 
-> **Estado: curso construido, en revisión de consistencia.**
-> Incluye S0, S1–S11, seminario y bonus. La disponibilidad de servicios y la aprobación
-> académica siguen sujetas a los bloqueos del [reporte](docs/COURSE-CONSISTENCY-REPORT.md).
-> Navegación: [mapa pedagógico](docs/COURSE-MAP.md) · [glosario canónico](docs/GLOSSARY.md).
+> **Recorrido:** preparación S0, once sesiones, seminario y bonus opcional.
+> Consulta el [mapa pedagógico](docs/COURSE-MAP.md) y el [glosario](recursos/glosario.md).
 
 ---
 
@@ -29,7 +27,7 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 | Balance | 40 % teoría / 60 % práctica |
 | Laboratorios | 4 tracks en paralelo, incrementales (L1 → L11 + L12 bonus) · **equipos de 2 personas** |
 | Proyecto final | Agente open source desplegado en HF Spaces, monitoreado con Langfuse, con app FastAPI |
-| Plus | Cliente de chat conmutable y adaptación de hosting a Microsoft Foundry (bonus no ponderado; ver CONS-009/010) |
+| Plus | Cliente de chat conmutable y adaptación de hosting a Microsoft Foundry (bonus no ponderado) |
 
 ---
 
@@ -63,9 +61,8 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 | Si eres… | Lee esto |
 |---|---|
-| **Javier / diseñador del curso** | [`PLAN-CURRICULAR.md`](PLAN-CURRICULAR.md) → [`_memoria/DECISIONES.md`](_memoria/DECISIONES.md) |
+| **Docente** | [Plan curricular](PLAN-CURRICULAR.md) → [Guía docente](docente/guia-docente.md) → [Verificación del entorno](VERIFICACION.md) |
 | **Docente que va a dictar** | [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-sesion.md) → [`docente/labs-incrementales.md`](docente/labs-incrementales.md) → [`docente/casos-de-uso-industrias.md`](docente/casos-de-uso-industrias.md) |
-| **Quien retome esto en otra sesión** | [`_memoria/CONTEXTO-REPO.md`](_memoria/CONTEXTO-REPO.md) — evita reanalizar el repo base |
 | **Alumno** | `00-preparacion/` (obligatorio antes de la Sesión 1) |
 
 ---
@@ -74,16 +71,12 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 | Documento | Responde a |
 |---|---|
-| [`PLAN-CURRICULAR.md`](PLAN-CURRICULAR.md) | Malla, horas, balance 40/60, stack, evaluación, alternativas de 72 h |
-| [`_memoria/CONTEXTO-REPO.md`](_memoria/CONTEXTO-REPO.md) | **Punto 1** — entendimiento del repo, persistido |
-| [`_memoria/MAPEO-SYLLABUS-REPO.md`](_memoria/MAPEO-SYLLABUS-REPO.md) | **Punto 2** — qué cubre el repo y qué agregar |
-| [`_memoria/DECISIONES.md`](_memoria/DECISIONES.md) | 21 decisiones vigentes, 4 derogadas, 13 riesgos (2 resueltos) |
-| [`_memoria/ESPEC-MODELOS-INDUSTRIA.md`](_memoria/ESPEC-MODELOS-INDUSTRIA.md) | El modelo del curso y cómo se personaliza cada industria |
-| [`_memoria/IMPACTO-LLM-PERSONALIZADOS.md`](_memoria/IMPACTO-LLM-PERSONALIZADOS.md) | Por qué NO se afinan modelos por industria (decisión D21) |
-| [`VERIFICACION.md`](VERIFICACION.md) | Cómo verificar el stack antes de construir laboratorios |
-| [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-sesion.md) | **Puntos 3 y 4** — audiencia y conceptos previos |
-| [`docente/labs-incrementales.md`](docente/labs-incrementales.md) | **Puntos 6 y 9** — labs incrementales y proyecto acumulativo |
-| [`docente/casos-de-uso-industrias.md`](docente/casos-de-uso-industrias.md) | **Punto 6** — los 4 casos peruanos |
+| [`PLAN-CURRICULAR.md`](PLAN-CURRICULAR.md) | Malla, horas, balance 40/60, stack y evaluación |
+| [Personalización por industria](docente/modelos-por-industria.md) | Modelo compartido, prompts, herramientas y RAG por track |
+| [`VERIFICACION.md`](VERIFICACION.md) | Cómo verificar el stack antes de las clases |
+| [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-sesion.md) | audiencia y conceptos previos |
+| [`docente/labs-incrementales.md`](docente/labs-incrementales.md) | labs incrementales y proyecto acumulativo |
+| [`docente/casos-de-uso-industrias.md`](docente/casos-de-uso-industrias.md) | los 4 casos peruanos |
 | [`docente/cronograma.md`](docente/cronograma.md) | Semana a semana + puntos de control de riesgo |
 
 ---
@@ -103,9 +96,7 @@ Todas las marcas son ficticias y todos los datos sintéticos.
 
 ## `proyecto-final/`: qué es y qué no es
 
-**Aclaración que debió estar desde el Laboratorio 1** (añadida al construir la Sesión 4, cuando
-se hizo evidente el malentendido). `proyecto-final/<track>/` en **este** repositorio es la
-**catálogo base de tools del docente**. No contiene una aplicación final completa.
+`proyecto-final/<track>/` contiene el **catálogo base de tools del docente**. No contiene una aplicación final completa.
 Los checkpoints de cada sesión están en `solucion/<track>/`; S11 aporta el agente, API y web.
 El catálogo base tiene verificadores (`docente/verificar_tools.py`, `docente/matriz_seleccion.py`,
 `docente/verificar_guardrails.py`).
@@ -124,19 +115,16 @@ usan el catálogo de referencia por defecto; ese resultado no valida tu implemen
 
 ## Cuentas que necesita cada equipo
 
-| Servicio | Para qué | Plan | Verificado |
-|---|---|---|---|
-| Hugging Face | Modelo de chat, embeddings y despliegue en Spaces | Gratuito | ⚠️ pendiente |
-| Qdrant Cloud | Base vectorial del RAG | 1 GB RAM / 4 GB disco · gratis para siempre, sin tarjeta | ✔ 2026-09-05 |
-| Langfuse Cloud | Trazabilidad y evaluación | 50k unidades/mes · sin tarjeta · 2 usuarios | ✔ 2026-09-05 |
-| GitHub | Repositorio del proyecto | Gratuito | — |
-| Azure (solo bonus) | Bloque plus de Foundry — **opcional** | Requiere suscripción | — |
+| Servicio | Para qué | Preparación |
+|---|---|---|
+| Hugging Face | Modelo de chat, embeddings y despliegue en Spaces | Configurar token y comprobar disponibilidad y cuota |
+| Qdrant Cloud | Base vectorial del RAG | Crear cluster y comprobar límites del plan |
+| Langfuse Cloud | Trazabilidad y evaluación | Crear proyecto del equipo y comprobar límites del plan |
+| GitHub | Repositorio del proyecto | Crear repositorio del equipo |
+| Azure (solo bonus) | Bloque plus de Foundry — **opcional** | Revisar acceso y presupuesto antes del bonus |
 
 ---
 
-## Relación con el repo base
+## Referencias y atribución
 
-Este curso **no modifica** `../langchain-for-beginners`. El repo de Microsoft queda intacto
-para poder actualizarlo con `git pull`. Todo el material derivado vive aquí.
-
-Licencia del repo base: MIT — se reconoce la autoría de Microsoft en los materiales adaptados.
+Material adaptado de [Microsoft LangChain for Beginners](https://github.com/microsoft/langchain-for-beginners), con licencia MIT.

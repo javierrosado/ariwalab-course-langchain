@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 5 — Memoria contextual y RAG con Qdrant Cloud
 
-> Contrato de la sesión 5. Insumo de la sesión de Claude Code que escribe los archivos
-> (pasos 4.6–4.10 del `ROADMAP.md`). No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Fase 4 · Módulo 2
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-2-agentes-avanzados/` para la sesión 5 |
+| Carpeta | `modulo-2-agentes-avanzados/sesion-05-memoria-rag/` |
 | Semana · día | Semana 3 · martes |
 | Horas | **3.0 h teoría · 3.0 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (120 T / 50 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L5 · Memoria + RAG del dominio** |
 | Hitos | **Avance 2** · **Qdrant operativo en todos los equipos** |
-| Estado en el mapeo | `COMPLETA`, con sustitución de vector store |
 
 > **Es la sesión con más teoría del Módulo 2 y la más frágil operativamente.** Depende de un
 > servicio externo que cada equipo aprovisionó en la semana 0 y que hasta hoy no ha usado.
@@ -29,7 +25,7 @@
 | Qué | Quién | Para cuándo | Si falta |
 |---|---|---|---|
 | Cluster de Qdrant **Healthy** en cada equipo | Cada equipo | Lunes semana 3 | Sin L5. Y el L6 y el L7 se construyen sobre el agente con RAG: el daño se propaga 3 sesiones |
-| **Colecciones de respaldo** `kb-<track>-respaldo` indexadas y en solo lectura | **Javier** | Lunes semana 3 | Un fallo de ingesta deja al equipo sin laboratorio |
+| **Colecciones de respaldo** `kb-<track>-respaldo` indexadas y en solo lectura | **el docente** | Lunes semana 3 | Un fallo de ingesta deja al equipo sin laboratorio |
 | Embeddings de HF respondiendo (`check_stack` nº 6) | Cada equipo | Lunes semana 3 | No hay ingesta posible |
 
 **Pase de entrada**, mismo patrón que Pydantic en la S2:
@@ -41,21 +37,20 @@ python -m comun.check_stack
 Comprobaciones **6 y 7 en verde** (embeddings y Qdrant) antes del martes. Quien falle, avisa el
 lunes — no el martes a las 19:05.
 
-### La colección de respaldo · decidido
+### La colección de respaldo
 
 > **El alumno indexa, pero hay red.** Indexar es la lección: chunking, embeddings, payload. Si la
 > ingesta de un equipo falla, apunta `QDRANT_COLLECTION` a la colección de respaldo del docente y
 > sigue el laboratorio; la parte de ingesta la recupera después con el checkpoint.
 
-- Cuatro colecciones, una por track, en el cluster de Javier: `kb-telecomunicaciones-respaldo`,
+- Cuatro colecciones, una por track, en el cluster del docente: `kb-telecomunicaciones-respaldo`,
   `kb-banca-respaldo`, `kb-retail-respaldo`, `kb-seguros-respaldo`.
 - **Solo lectura** para los alumnos (API key de lectura del cluster).
 - Se indexan con el **mismo** `ingest.py` que usarán los alumnos: si el respaldo se construye con
   otro código, deja de ser una red y pasa a ser una segunda versión que puede contradecir.
 
-> Esto matiza D10 (Qdrant sin fallback) sin romperlo: **no hay fallback de tecnología** — sigue
-> siendo Qdrant y solo Qdrant. Lo que hay es una colección alternativa dentro del mismo servicio.
-> Anotarlo en `_memoria/DECISIONES.md` para que no se lea como una contradicción.
+> La colección de respaldo usa Qdrant y el mismo modelo de embeddings que las consultas.
+> Permite continuar la práctica mientras el equipo recupera su propia ingesta.
 
 ---
 
@@ -98,7 +93,7 @@ lunes — no el martes a las 19:05.
 
 **Teoría 120 · práctica 50 · pausa 10** → con pre-work y lab: **3.0 h / 3.0 h** ✅
 
-### Bloque 3 — chunking: parámetros **fijos**, decidido
+### Bloque 3 — chunking: parámetros **fijos**
 
 El curso fija el tamaño y el solapamiento por track. El alumno entiende el compromiso y sabe
 defenderlo, pero **no experimenta con él en el L5**.
@@ -116,12 +111,12 @@ defenderlo, pero **no experimenta con él en el L5**.
 | Equilibrado (350-600) | — | — |
 | Muy grande (~1500) | Nunca parte una idea | Cada resultado arrastra ruido, y se paga en tokens **en cada llamada** |
 
-> **Por qué se fijan y no se experimentan.** Re-indexar consume cuota de embeddings, y los riesgos
-> **R2 y R18 siguen sin verificar**. Con 15 equipos, un experimento de dos configuraciones duplica
+> **Por qué se fijan y no se experimentan.** Re-indexar consume cuota de embeddings, y las cuotas
+> deben comprobarse antes de la práctica. Con 15 equipos, un experimento de dos configuraciones duplica
 > el consumo en la semana más cargada del curso. Quien quiera optimizar el chunking lo hace en el
 > **proyecto M2 (S7)**, donde hay tiempo de clínica y el equipo decide dónde invertir.
 
-⚠️ Estos valores son una **propuesta razonada, no medida**. Tarea previa: indexar una vez cada
+⚠️ Estos valores son una **propuesta razonada, no medida**. Antes de clase, indexar una vez cada
 corpus, anotar cuántos chunks produce y ajustar si alguno queda absurdo.
 
 ### Bloque 5 — el cuadro que estructura la sesión
@@ -182,7 +177,7 @@ telco el regulador pregunta de dónde salió esa tarifa; en seguros, de dónde s
        si el precio estuviera en los pesos del modelo?
 ```
 
-Es la demostración física de por qué el conocimiento va al RAG y no al fine-tuning (D21). Dura
+Es la demostración física de por qué el conocimiento va al RAG y no al fine-tuning. Dura
 5 minutos y sostiene una decisión de arquitectura del curso entero. **No la recortes.**
 
 ---
@@ -220,9 +215,8 @@ Del mismo `recursos/golden/consultas-<track>.json` del L2 y el L4: las consultas
          └── categoría OTRO      ──►  L5 recupera y cita
 ```
 
-> ⚠️ Hoy hay **4 consultas `OTRO` por track** y el criterio pide 10. Tarea previa: subirlas a 10
-> por track en el mismo archivo. Son preguntas sobre el corpus que ya existe, así que se escriben
-> leyendo los 3 `.md` del track.
+> Usar las diez consultas `OTRO` de cada track y comprobar que las respuestas citen
+> los documentos recuperados del corpus.
 
 **Reto opcional:** filtro por metadatos en el payload (por ejemplo, recuperar solo del tarifario
 vigente y no del histórico).
@@ -240,26 +234,6 @@ vigente y no del histórico).
 
 > La S5 hace que el agente **cite**. Medir si la cita realmente sostiene la respuesta —
 > *groundedness*— es la S10. Decirlo evita que el alumno intente evaluar hoy lo que aún no sabe medir.
-
----
-
-## 9. Los archivos a producir
-
-| # | Archivo | Contenido pactado |
-|---|---|---|
-| **4.6** | `README.md` | Bloques 0 a 6, con el cuadro tradicional vs agéntico |
-| **4.7** | `conceptos-previos.md` | Coseno, chunking, vocabulario de Qdrant, pase de entrada |
-| **4.8** | `code/` | Las 4 demos + `README.md` |
-| **4.9** | `demo-parametrico-vs-recuperable.py` | La demo clave, con guion para el docente |
-| **4.10** | `lab/` + `solucion/` | L5 × 4 tracks |
-
-### Trabajo previo
-
-| # | Tarea | Por qué |
-|---|---|---|
-| a | Subir a **10** las consultas `OTRO` por track en `recursos/golden/` | El criterio pide 10 y hoy hay 4 |
-| b | Indexar las 4 colecciones de respaldo con el mismo `ingest.py` | Es la red de seguridad decidida |
-| c | Anotar en `_memoria/DECISIONES.md` que la colección de respaldo **no** contradice D10 | Mismo servicio, otra colección |
 
 ---
 

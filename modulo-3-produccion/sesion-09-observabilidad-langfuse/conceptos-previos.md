@@ -55,4 +55,4 @@ python -m comun.check_stack
 ```
 
 Debe pasar en verde la comprobación de Langfuse (nº 8). La cuenta se creó en la Sesión 0; el
-plan Hobby admite 2 usuarios por proyecto (por eso los equipos son de 2, decisión D19).
+plan Hobby admite 2 usuarios por proyecto (los equipos del curso son de dos personas).

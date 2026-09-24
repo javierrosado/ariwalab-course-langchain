@@ -47,6 +47,5 @@ El glosario de S0 anticipa términos que se desarrollan después; consultar el
 | Streaming / SSE | Envío progresivo de eventos al cliente | S11 | Checkpoint transmite fragmentos después de validar respuesta completa | “Tokens en vivo del modelo” para el checkpoint actual |
 | Idempotencia | Repetir una operación conserva el efecto de una sola ejecución | S4 | Una lectura puede devolver datos nuevos; confirmación no deduplica escrituras | “Idempotente = siempre devuelve idéntico texto” |
 
-Los nombres técnicos en código conservan su forma original. Las variantes históricas de los
-niveles de rúbrica se corresponden por posición (1–4), pero su unificación requiere confirmar
-la nomenclatura institucional: CONS-020. No cambiar pesos ni criterios por una normalización editorial.
+Los nombres técnicos en código conservan su forma original. Los niveles de las rúbricas
+se corresponden por posición (1–4); aplicar los criterios, pesos y descriptores de cada rúbrica.

@@ -202,8 +202,8 @@ Este curso corre **100 % sobre modelos de pesos abiertos**, servidos en línea.
 | Capacidad tope | Alta | Normalmente mayor |
 
 El modelo del curso es **`Qwen3-32B`**: licencia Apache 2.0, soporte nativo de function calling,
-más de 100 idiomas y 32 768 tokens de contexto. Se eligió midiendo: de cuatro candidatos
-probados contra el endpoint real, fue el único que superó las pruebas de uso de herramientas.
+más de 100 idiomas y 32 768 tokens de contexto. Verifica su disponibilidad y capacidad de
+llamar herramientas con `python -m comun.check_stack --solo-modelo` antes de las prácticas.
 
 > **La fiabilidad se compone.** Un agente encadena varias llamadas al modelo por consulta, y
 > los aciertos se multiplican: con 93 % de precisión por llamada, una tarea de tres pasos sale

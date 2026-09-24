@@ -85,8 +85,7 @@ def familia_2_dato_ausente(n: int) -> tuple[float, list[str]]:
 def familia_3_servicio_caido(n: int, chaos: bool) -> tuple[float, list[str]]:
     """El agente no debe entrar en bucle ni caerse si la tool subyacente falla.
 
-    Aquí es donde se MIDE la regla A4 (VALIDACION-INTEGRAL H2: hasta ahora se
-    enseñaba y nunca se comprobaba). El parche de abajo hace que la tool falle
+    Aquí se mide la regla A4 (tope de iteraciones). El parche de abajo hace que la tool falle
     SIEMPRE, no una vez — así el agente agota su tope de iteraciones
     (MAX_ITERATIONS en agent.py) en cada intento. `responder()` es una función
     síncrona con un `for _ in range(MAX_ITERATIONS)`: por construcción, no puede

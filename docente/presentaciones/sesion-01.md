@@ -48,13 +48,13 @@
 
 ## Modelos abiertos vs cerrados
 - Pesos abiertos: parámetros públicos y auditables
-- `Qwen/Qwen3-32B` elegido **por medición** (1 de 4 candidatos pasó — decisión D28)
+- `Qwen/Qwen3-32B`: verificar disponibilidad y Tool Calling antes de las prácticas
 
 ---
 
 ## `comun/provider.py` en vivo
 - `describe_provider()` y el primer llamado
-- Por qué ningún archivo instancia el modelo directamente (decisión D13)
+- Por qué ningún archivo instancia el modelo directamente
 - La indirección es lo que hace posible el bonus de Foundry sin reescribir código
 
 ---

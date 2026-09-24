@@ -21,7 +21,7 @@ from . import settings as cfg
 def resolve_chat_model_id() -> str:
     """Resuelve qué modelo usar.
 
-    Las cuatro industrias comparten el MISMO modelo (decisión D21, camino A): lo que
+    Las cuatro industrias comparten el MISMO modelo: lo que
     las diferencia es el system prompt y la colección de Qdrant, no los pesos.
 
     `TRACK_MODELS` queda como punto de extensión por si en una edición futura se

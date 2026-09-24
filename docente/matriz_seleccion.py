@@ -19,7 +19,7 @@ esto dice si el problema está en la elección o en la ejecución.
 
 POR QUÉ IMPORTA
 ---------------
-El curso usa un modelo genérico sin afinar (D21). Lo único que guía su elección son las
+El curso usa un modelo genérico sin afinar. Lo único que guía su elección son las
 docstrings de las tools (regla A2). Y como la fiabilidad se compone —93 % por llamada es
 80 % en una tarea de tres pasos— un 70 % de acierto en la selección hace que el
 laboratorio 4 no funcione, sin ningún error visible en el código.

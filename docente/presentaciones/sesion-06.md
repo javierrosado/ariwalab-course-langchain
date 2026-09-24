@@ -6,7 +6,7 @@
 
 ## Sesión 6 · Guardrails y límites
 - Semana 3 · jueves · 6 h (2.5 T / 3.5 P)
-- La única sesión sin contraparte en el repo base — se escribe desde cero
+- Controles de entrada, acción y salida; cobertura y límites de los guardrails
 - Hito: Avance 3 del proyecto
 
 ---

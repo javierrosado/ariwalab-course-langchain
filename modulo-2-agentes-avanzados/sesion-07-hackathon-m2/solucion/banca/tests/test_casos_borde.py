@@ -66,7 +66,7 @@ def familia_2_dato_ausente(n: int) -> tuple[float, list[str]]:
 
 
 def familia_3_servicio_caido(n: int, chaos: bool) -> tuple[float, list[str]]:
-    """Mide la regla A4 (VALIDACION-INTEGRAL H2): con la tool fallando siempre,
+    """Mide la regla A4: con la tool fallando siempre,
     el agente agota MAX_ITERATIONS en agent.py y debe devolver un mensaje
     explícito, no colgarse ni propagar una excepción sin capturar.
     """

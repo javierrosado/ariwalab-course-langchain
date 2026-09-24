@@ -39,7 +39,7 @@ alrededor.
 
 ## Pase de entrada · Pydantic
 
-> **Regla decidida: sin este ejercicio entregado, no haces el L2 hoy.** Quien no lo entregue
+> **Regla: sin este ejercicio entregado, no haces el L2 hoy.** Quien no lo entregue
 > antes de la sesión dedica sus 2 h de laboratorio a resolverlo (con el checkpoint de la S1 como
 > apoyo) y retoma el L2 en la S3 con el checkpoint de la solución.
 

@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 9 — Monitoreo y trazabilidad con Langfuse
 
-> Contrato de la S9. Insumo de la sesión de Claude Code que escribe la Fase 5 · S9.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Módulo 3
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,18 +8,15 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-3-produccion/` para la sesión 9 |
+| Carpeta | `modulo-3-produccion/sesion-09-observabilidad-langfuse/` |
 | Semana · día | Semana 5 · martes |
 | Horas | **2.5 h teoría · 3.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (90 T / 80 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L9 · Trazabilidad del agente desplegado** |
 | Hitos | **Avance 2 del M3** |
-| Estado en el mapeo | `NULA` — no hay nada de observabilidad en el repo; se escribe entero |
 
-> **Desviación documentada del PDF (R6).** La malla nombra *LangSmith*. Se cumple el mismo objetivo
-> —observabilidad y trazabilidad de agentes— con Langfuse, por el principio P1 (D05 v2). Decirlo en
-> clase en 2 minutos: el alumno debe saber que la herramienta del sílabo es propietaria y por qué
-> el curso usó la equivalente abierta. Es contenido de arquitectura, no una excusa.
+> Usar Langfuse para estudiar observabilidad y trazabilidad. Comprobar que los equipos
+> puedan consultar sus trazas antes de iniciar la práctica.
 
 ---
 
@@ -34,7 +28,7 @@
 
 La cuenta se creó en la **Sesión 0**. Aquí solo se verifica: `python -m comun.check_stack` en verde
 en la comprobación 8. El plan Hobby admite **2 usuarios por proyecto** — que es exactamente por
-lo que los equipos son de 2 (D19).
+lo que los equipos son de 2.
 
 ---
 
@@ -96,7 +90,7 @@ Tres lecturas que el alumno debe hacer solo:
 
 | Lo que se ve | Lo que significa |
 |---|---|
-| 3 llamadas al modelo para 1 pregunta | La fiabilidad se compone: 3 oportunidades de fallar (D20) |
+| 3 llamadas al modelo para 1 pregunta | La fiabilidad se compone: 3 oportunidades de fallar |
 | El modelo cuesta 2 570 ms de 3 420 | El cuello no son las tools ni Qdrant: **es el modelo** |
 | El retriever se llamó | ¿Hacía falta? Si se llama siempre, el RAG agéntico de la S5 degeneró en tradicional |
 
@@ -207,23 +201,6 @@ es exactamente el insumo del A/B de prompts de la siguiente sesión.
 | Optimizar de verdad (solo se identifica) | S10 |
 | Alertas y on-call | fuera de alcance |
 | Azure Monitor / OTel exporters | Curso 2 |
-
----
-
-## 11. Archivos a producir y trabajo previo
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | Bloques 0 a 4, con el diagrama de la traza y el cuadro del promedio |
-| `conceptos-previos.md` | Los 6 conceptos + verificación de Langfuse |
-| `code/` | Las 3 demos + README de carpeta |
-| `lab/` + `solucion/` | L9 × 4 tracks |
-
-| # | Trabajo previo | Por qué |
-|---|---|---|
-| x | Añadir el *hook* de enmascaramiento a `comun/observability.py` | Hoy el callback envía el prompt tal cual |
-| y | Script de generación de tráfico: 20 consultas del golden set contra una URL | La parte 3 del lab necesita volumen para que p50/p95 signifiquen algo |
-| z | Verificar el consumo de unidades de Langfuse con 15 equipos × 20 consultas | El plan Hobby da 50 000 al mes; conviene saber cuánto queda para la S10 |
 
 ---
 

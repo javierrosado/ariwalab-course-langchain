@@ -2,7 +2,6 @@
 
 Seis mecanismos seleccionados por utilidad pedagógica. Las sesiones restantes reutilizan
 estos assets con notas específicas; una sesión no necesita una imagen nueva por cada sección.
-Las rutas PENDING_GENERATION son especificaciones, no enlaces a un archivo final.
 
 | ID | Módulo | Sesión | Sección | Concepto | Archivo | Tipo | Nivel | Objetivo pedagógico | Prioridad | Reutilizable | Industria | Sesiones relacionadas | Estado |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -13,6 +12,5 @@ Las rutas PENDING_GENERATION son especificaciones, no enlaces a un archivo final
 | IMG-M03-S08-001 | modulo-3-produccion | sesion-08-despliegue-hf-spaces | Mecanismo central | Despliegue y observabilidad | `imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/01-despliegue.png` | Arquitectura | L2 | Situar fronteras de API, agente y servicios gestionados | HIGH | Sí | Transversal; ejemplos en notas | S8; S9; S11; Seminario; Bonus | GENERATED |
 | IMG-M03-S10-001 | modulo-3-produccion | sesion-10-evaluacion-optimizacion | Mecanismo central | Evaluation | `imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/01-evaluacion.png` | Flujo | L2 | Comparar versiones con evidencia y límites de medición | HIGH | Sí | Transversal; ejemplos en notas | S10; S11 | GENERATED |
 
-Los seis archivos fueron generados con la herramienta integrada imagegen y revisados visualmente.
-Formato observado: 1672 × 941, equivalente aproximado a 16:9. No se modificaron píxeles con scripts.
+Formato de las imágenes: 1672 × 941, aproximadamente 16:9.
 S0 no requiere imagen nueva; S3/S4/S7/S9/S11/seminario/bonus reutilizan estos archivos.

@@ -59,7 +59,7 @@ los hace aptos para calificar, y lo que los distingue del juez.
 
 ## 3. LLM-as-judge: se enseña, no califica
 
-**Decidido: el juez es demo. La nota la sostienen los tres evaluators determinísticos.**
+**El juez es demo. La nota la sostienen los tres evaluators determinísticos.**
 
 ```
    1.  Tomar 10 casos ya puntuados por los evaluators determinísticos
@@ -108,9 +108,9 @@ el Laboratorio 10 completo (dataset en Langfuse, línea base v1, un cambio dirig
 | No entra | Va en |
 |---|---|
 | El cliente web y la demo final | S11 |
-| RAGAS en profundidad | mención y enlace; complemento opcional (D18) |
+| RAGAS en profundidad | mención y enlace; complemento opcional |
 | Evaluación en CI / pipeline automatizado | se menciona como cierre, no se implementa |
-| Fine-tuning como vía de mejora | descartado por D21; se explica por qué |
+| Fine-tuning como vía de mejora | fuera del alcance; se trabaja con prompts y RAG |
 
 ## Recurso visual
 

@@ -14,7 +14,7 @@
 
 **Mensaje clave:** conservar una interfaz no demuestra conservar el comportamiento.
 
-**Explicación sugerida:** Usar el diagrama como línea base HF que se compara con Foundry, no como arquitectura del host. Señalar las piezas que deben adaptarse: memoria, guardrails y compatibilidad de embeddings. La política de embeddings sigue en CONS-010.
+**Explicación sugerida:** Usar el diagrama como línea base HF que se compara con Foundry, no como arquitectura del host. Señalar las piezas que deben adaptarse: memoria, guardrails y compatibilidad de embeddings. Comprobar que indexación y consulta usen el mismo modelo de embeddings.
 
 **Elementos que debe señalar el docente:** límite HF Spaces, API y agente, servicios externos y telemetría.
 

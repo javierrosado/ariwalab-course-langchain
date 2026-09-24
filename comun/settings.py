@@ -23,8 +23,8 @@ AI_PROVIDER: str = os.getenv("AI_PROVIDER", "huggingface").strip().lower()
 # ---------- Hugging Face (open source, en línea) ----------
 HF_TOKEN: str = os.getenv("HF_TOKEN", "")
 HF_BASE_URL: str = os.getenv("HF_BASE_URL", "https://router.huggingface.co/v1")
-# Verificado empíricamente el 2026-09-10: único candidato de la escalera que pasó
-# las comprobaciones críticas de tool calling y bucle ReAct (decisión D28).
+# Modelo de referencia. Verificar disponibilidad, Tool Calling y bucle ReAct
+# antes de cada edición con python -m comun.check_stack --solo-modelo.
 HF_CHAT_MODEL: str = os.getenv("HF_CHAT_MODEL", "Qwen/Qwen3-32B")
 
 # Qwen3 alterna entre modo "thinking" y "non-thinking". Para agentes conviene
@@ -33,7 +33,7 @@ HF_CHAT_MODEL: str = os.getenv("HF_CHAT_MODEL", "Qwen/Qwen3-32B")
 HF_ENABLE_THINKING: bool = os.getenv("HF_ENABLE_THINKING", "false").strip().lower() == "true"
 HF_EMBEDDING_MODEL: str = os.getenv("HF_EMBEDDING_MODEL", "intfloat/multilingual-e5-large")
 
-# Decisión D21 · camino A: las 4 industrias comparten el MISMO modelo.
+# Personalización por industria: las 4 industrias comparten el MISMO modelo.
 # Lo que las diferencia es el system prompt (comun/prompts_industria.py) y su
 # colección de Qdrant, no los pesos.
 #
@@ -52,7 +52,7 @@ AI_API_KEY: str = os.getenv("AI_API_KEY", "")
 AI_MODEL: str = os.getenv("AI_MODEL", "gpt-5-mini")
 AI_EMBEDDING_MODEL: str = os.getenv("AI_EMBEDDING_MODEL", "text-embedding-3-small")
 
-# ---------- Fuente de datos de las tools (decisión D22) ----------
+# ---------- Fuente de datos de las tools ----------
 # "csv" → datasets locales (Laboratorios 1 y 2)
 # "api" → simulador de industria (Laboratorio 3 en adelante)
 DATA_SOURCE: str = os.getenv("DATA_SOURCE", "csv").strip().lower()

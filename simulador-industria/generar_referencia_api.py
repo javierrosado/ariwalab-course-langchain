@@ -231,7 +231,7 @@ def main() -> None:
 
         doc += ["---", "",
                 "## Nota sobre los datos", "",
-                "Todas las empresas son ficticias y todos los datos son sintéticos (decisión D12).",
+                "Todas las empresas son ficticias y todos los datos son sintéticos.",
                 "Los identificadores de los ejemplos provienen de los datasets del curso, así que",
                 "puedes copiarlos y ejecutarlos tal cual.", ""]
 

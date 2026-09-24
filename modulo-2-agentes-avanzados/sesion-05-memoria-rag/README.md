@@ -149,7 +149,7 @@ que en Retail, pero aplica a los cuatro tracks.
 ## La demo clave: por qué el conocimiento va al RAG y no al fine-tuning
 
 Ver [`code/demo-parametrico-vs-recuperable.py`](code/demo-parametrico-vs-recuperable.py). Es la
-demostración física de la decisión D21 (camino A, sin fine-tuning): cambiar un dato en Qdrant es
+demostración física de la personalización con prompts y RAG: cambiar un dato en Qdrant es
 editar un documento; cambiarlo en los pesos del modelo sería reentrenar. Dura 5 minutos y
 sostiene una decisión de arquitectura de todo el curso.
 

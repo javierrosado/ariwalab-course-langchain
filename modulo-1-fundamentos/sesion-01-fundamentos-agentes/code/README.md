@@ -31,15 +31,7 @@ que la pregunta del cliente (`human`) haya cambiado una sola palabra. Este es el
 que usa `comun/prompts_industria.py` para "personalizar" el agente por industria.
 
 **Demo 3 — Un modelo, cuatro industrias.** Que **un solo modelo** puede sonar a telco, a banco, a
-retailer o a aseguradora según el `system` que reciba. Es la decisión D21 (camino A, sin
-fine-tuning) en vivo: la personalización vive en texto editable, no en los pesos del modelo.
-
-## Sustitución respecto del repo de Microsoft
-
-El mapeo original asignaba aquí `01-introduction/code/03_model_comparison.py`, que compara
-modelos distintos entre sí. Con la decisión D28 este curso usa **un solo modelo**
-(`Qwen/Qwen3-32B`), así que esa comparación perdería sentido: se reemplaza por la comparación de
-**prompts de industria**, que enseña la decisión que sí gobierna el curso.
+retailer o a aseguradora según el `system` que reciba. La demo muestra que la personalización vive en texto editable, no en los pesos del modelo.
 
 ## Si algo falla
 

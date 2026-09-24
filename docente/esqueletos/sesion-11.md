@@ -1,9 +1,6 @@
 # Esqueleto · Sesión 11 — Sustentación final integradora
 
-> Contrato de la S11. Insumo de la sesión de Claude Code que escribe la Fase 5 · S11.
-> No es material de alumno.
->
-> Decidido con Javier el 2026-09-16 · Módulo 3
+Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 
 ---
 
@@ -11,13 +8,12 @@
 
 | Campo | Valor |
 |---|---|
-| Carpeta destino | la que ya exista bajo `modulo-3-produccion/` para la sesión 11 |
+| Carpeta | `modulo-3-produccion/sesion-11-sustentacion-final/` |
 | Semana · día | Semana 6 · martes |
 | Horas | **1.5 h teoría · 4.5 h práctica = 6 h** |
 | Reparto | 1 h pre-work (T) + 3 h en vivo (30 T / 140 P / 10 pausa) + 2 h lab (P) |
 | Laboratorio | **L11 · Aplicación final** |
 | Evaluación | **Proyecto Integrador Final · 100 % del Módulo 3** |
-| Estado en el mapeo | `AULA` — gestión de aula y entrega; se aportan rúbrica, guion y checklist |
 
 ---
 
@@ -182,26 +178,6 @@ Cuatro niveles: Insuficiente · En desarrollo · Competente · Destacado.
 | Foundry | bonus asíncrono, liberado al cerrar hoy |
 | Contenido nuevo de agentes | ninguno: hoy se cierra |
 | Seminario Internacional | sesión aparte, semana 6 |
-
----
-
-## 10. Archivos a producir y trabajo previo
-
-| Archivo | Contenido |
-|---|---|
-| `README.md` | Bloque 0: cómo se argumenta, los 4 movimientos, el guion de demo |
-| `conceptos-previos.md` | C4, OpenAPI, streaming, argumentación |
-| `code/` | Cliente HTML de referencia con streaming + README |
-| `lab/` + `solucion/` | L11 × 4 tracks |
-| `proyecto-integrador.md` | Enunciado, entregables, rúbrica, regla de contingencia y calendario |
-
-| # | Trabajo previo | Por qué |
-|---|---|---|
-| ad | `recursos/rubricas/rubrica-final.md` | La cita el enunciado y la usa el panel |
-| ae | Plantilla del documento de diseño (4 secciones) | Sin plantilla, 15 documentos con 15 estructuras |
-| af | Checklist de entregables del panel, en una página | Lo usa el panel durante la demo |
-| ag | Calcular los minutos por equipo con el número real de inscritos | La aritmética de §5 se hace antes, no el día |
-| ah | Decidir si el panel lleva invitados externos | Afecta la convocatoria, no el contenido. **Lo decide Javier** |
 
 ---
 

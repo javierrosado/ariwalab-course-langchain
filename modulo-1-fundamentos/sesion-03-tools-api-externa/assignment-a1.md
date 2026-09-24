@@ -51,7 +51,7 @@ Ver el detalle completo con los 4 niveles por criterio en
 > usarla · cuándo NO), tu equipo **no baja de Competente** en Funcionalidad, aunque en la
 > sustentación en vivo el modelo no haya elegido la tool.
 
-**Por qué existe esta regla.** Con 93 % de acierto por llamada (la cifra medida en D20), una
+**Por qué existe esta regla.** Con 93 % de acierto por llamada (ejemplo simplificado con pasos independientes y probabilidad constante), una
 tarea de tres pasos sale bien el 80 % de las veces. Penalizar a tu equipo por la varianza del
 modelo enseñaría exactamente lo contrario de lo que este curso quiere enseñar. Lo que sí se
 evalúa es si diseñaste el sistema para que esa varianza no se convierta en un fallo silencioso —

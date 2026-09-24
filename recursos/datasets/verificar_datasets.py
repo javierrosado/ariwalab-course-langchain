@@ -5,7 +5,7 @@ Ejecutar desde la raíz del curso:
     python recursos/datasets/verificar_datasets.py
 
 Comprueba coherencia referencial entre archivos, rangos válidos y ausencia de
-marcas comerciales reales (decisión D12).
+marcas comerciales reales.
 """
 import csv, json, pathlib, re, sys
 
@@ -69,7 +69,7 @@ for t in ["telecomunicaciones", "banca", "retail", "seguros"]:
     total = sum(len(m.read_text(encoding="utf-8").split()) for m in mds)
     print(f"  {t:<20} {len(mds)} docs · {total:>5} palabras · ~{round(total/300)} chunks estimados")
 
-print("\nPOLÍTICA DE MARCAS (decisión D12)")
+print("\nPOLÍTICA DE MARCAS")
 # Marcas comerciales reales que NO deben aparecer. Se excluyen deliberadamente:
 #  - reguladores y organismos públicos (OSIPTEL, Indecopi, SBS): son contexto normativo, no marcas
 #  - marcas de vehículos en seguros: atributo factual del bien asegurado
