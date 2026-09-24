@@ -5,9 +5,9 @@
 **Principio rector:** stack abierto con inferencia y servicios gestionados en línea;
 los clientes, scripts y demos Python pueden ejecutarse en la máquina del alumno.
 **Foundry:** **módulo bonus asíncrono** al final, como puerta de entrada al Curso 2 (que sí será 100 % Foundry).
-**Duración:** 12 sesiones de 6 h · **72 horas lectivas** · 50 % síncrono / 50 % asíncrono
-**Calendario:** 2 sesiones por semana de 3 h síncronas → **6 semanas** (ver `docente/cronograma.md`)
-**Balance:** 40 % teoría / 60 % práctica
+**Duración:** 11 sesiones de 6 h · **66 horas lectivas** · 50 % síncrono / 50 % asíncrono
+**Calendario:** **6 semanas**: 2 sesiones por semana en semanas 1–5 y una en semana 6 (ver `docente/cronograma.md`)
+**Balance:** 41,7 % teoría / 58,3 % práctica
 **Autor:** Javier Rosado · Ariwa Labs
 
 ---
@@ -96,7 +96,7 @@ grafo compatible y el cambio de embeddings requiere comprobar compatibilidad y r
 
 ## 3. Modelo semanal
 
-Cada una de las 12 sesiones tiene la misma forma de 6 horas, y se dictan **2 por semana**:
+Cada sesión tiene 6 horas: **dos sesiones por semana durante cinco semanas y una en la sexta**:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -109,7 +109,7 @@ Cada una de las 12 sesiones tiene la misma forma de 6 horas, y se dictan **2 por
         TEORÍA              MIXTO                    PRÁCTICA
 ```
 
-El bloque de **Conceptos previos** (punto 4 del encargo) es **bloqueante**: sin 80 % en la
+El bloque de **Conceptos previos** es **bloqueante**: sin 80 % en la
 autoevaluación el alumno no entra a la sesión síncrona.
 Detalle en [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-sesion.md).
 
@@ -134,17 +134,16 @@ Detalle en [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-s
 | 10 | Optimización continua y evaluación | M3 | 2.5 | 3.5 | 6 | L10 |
 | 11 | Sustentación final integradora | M3 | 1.5 | 4.5 | 6 | L11 |
 | | **Subtotal Módulo 3** | | **9.0** | **15.0** | **24** | |
-| S | Seminario Internacional | — | 1.5 | 4.5 | 6 | — |
-| | **TOTAL LECTIVO** | | **29.0** | **43.0** | **72** | |
+| | **TOTAL LECTIVO** | | **27.5** | **38.5** | **66** | |
 | B | **BONUS asíncrono · Foundry** *(no computa horas lectivas)* | M4 | ~2 | ~4 | ~6 | L12 |
 
-> **Calendario:** 2 sesiones por semana de 3 h síncronas → el curso se completa en
-> **6 semanas**, con 12 h semanales de dedicación por alumno. La malla, las horas y el balance no
-> cambian: solo el reparto en el calendario. Detalle y riesgos del ritmo en `docente/cronograma.md`.
+> **Calendario:** cinco semanas de dos sesiones y una sexta de una sesión.
+> Dedicación: 12 h por semana en semanas 1–5 y 6 h en semana 6.
+> Consultar el [cronograma](docente/cronograma.md).
 
-**Balance:** 29 / 72 = **40.3 % teoría** · 43 / 72 = **59.7 % práctica** ✅
-**Síncrono/asíncrono:** 36 h / 36 h = **50 / 50** ✅
-**Malla oficial:** 11 semanas + Seminario = 72 h ✅ **sin cambios, no requiere aprobación académica**
+**Balance:** 27,5 / 66 = **41,7 % teoría** · 38,5 / 66 = **58,3 % práctica**.
+**Síncrono/asíncrono:** 33 h / 33 h = **50 / 50**.
+**Malla:** 11 sesiones de 6 horas = **66 horas lectivas**.
 
 > El bloque de Foundry es **bonus asíncrono**: guía autoguiada fuera de las horas
 > lectivas, disponible desde el cierre de la S11. No condiciona ninguna evaluación ponderada.
@@ -290,7 +289,7 @@ Avance 3 M3.
 Práctica: entrega de la solución desplegada y monitoreada; demo ante panel; Q&A técnico.
 **Proyecto Integrador Final — Agente open source desplegado y monitoreado.**
 
-### Módulo 4 · PLUS · bonus asíncrono (fuera de las 72 h)
+### Módulo 4 · PLUS · bonus asíncrono (fuera de las 66 h)
 
 **Bonus — Despliegue en Microsoft Foundry**
 
@@ -348,7 +347,7 @@ Cada `sesion-NN/` contiene `README.md` (teoría), `conceptos-previos.md`, `code/
 
 ## 8. Bonus y preparación del dictado
 
-Foundry es un bloque asíncrono opcional, fuera de las 72 horas y de la nota.
+Foundry es un bloque asíncrono opcional, fuera de las 66 horas y de la nota.
 El docente verifica servicios, cuotas y acceso antes de cada edición con la
 [guía de verificación](VERIFICACION.md) y el [checklist previo](docente/checklist-pre-sesion.md).
 El [mapa pedagógico](docs/COURSE-MAP.md) relaciona conceptos, prácticas y evaluaciones.

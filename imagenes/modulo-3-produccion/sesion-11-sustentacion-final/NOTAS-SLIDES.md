@@ -29,7 +29,7 @@ orden; detenerse en la frontera que cambia en esta sesión. Cliente → caja HF 
 
 **Conexión con sesión anterior:** S10: retomar el incremento anterior del COURSE-MAP.
 
-**Conexión con sesión posterior:** Seminario: contrastar decisiones; bonus opcional: portabilidad y límites.
+**Conexión con sesión posterior:** Bonus opcional: portabilidad y límites.
 
 **Duración sugerida:** 5 min dentro del bloque existente; no agrega tiempo al guion.
 

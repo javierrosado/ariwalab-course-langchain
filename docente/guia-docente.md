@@ -38,7 +38,6 @@
 | 5 | martes | S9 · Observabilidad Langfuse | 2.5 / 3.5 | Avance 2 del M3 |
 | 5 | jueves | S10 · Evaluación y optimización | 2.5 / 3.5 | Avance 3 del M3 |
 | 6 | martes | S11 · Sustentación final | 1.5 / 4.5 | **Proyecto Integrador** (100 % Módulo 3) |
-| 6 | jueves | Seminario Internacional | 1.5 / 4.5 | Documento de contraste (formativo) |
 | asíncrono | — | Bonus Foundry | ~2 / ~4 | No ponderado |
 
 ---
@@ -352,16 +351,6 @@ objetivo 1, se anota pero no invalida la demo).
 
 ---
 
-## Seminario Internacional
-
-**Esqueleto:** [`seminario.md`](esqueletos/seminario.md) · **Carpeta:** `modulo-3-produccion/seminario-internacional/`
-
-Ver [`guion-docente.md`](../modulo-3-produccion/seminario-internacional/guion-docente.md) de la
-propia sesión — ya es una guía de conducción completa (tiempos, curaduría de preguntas, Plan B
-si solo llega un panelista) y no se duplica aquí.
-
----
-
 ## Bonus · El mismo agente en Microsoft Foundry
 
 **Esqueleto:** [`bonus-foundry.md`](esqueletos/bonus-foundry.md) · **Carpeta:** `modulo-4-plus-foundry/`
@@ -383,4 +372,3 @@ Confirmar estos aspectos con coordinación académica antes de convocar las acti
 |---|---|---|
 | S4 | El descuadre de 20 min entre la sustentación del A1 y el guion de 180 min | [Guion S4](esqueletos/sesion-04.md) |
 | Bonus Foundry | Si el proyecto compartido de la Vía B ya tiene cuota definida y fecha de cierre | [Acceso a Azure](../modulo-4-plus-foundry/acceso-azure.md) |
-| Seminario | Convocatoria de panelistas, confirmación y curaduría final de preguntas | [Guion del seminario](../modulo-3-produccion/seminario-internacional/guion-docente.md) |

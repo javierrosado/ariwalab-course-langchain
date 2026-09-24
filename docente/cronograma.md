@@ -1,7 +1,8 @@
 # Cronograma de dictado
 
-**6 semanas · 12 sesiones · 72 horas lectivas**
-**2 sesiones por semana de 3 horas síncronas** (ejemplo: martes y jueves)
+**6 semanas · 11 sesiones · 66 horas lectivas**
+**Semanas 1–5: 2 sesiones por semana de 3 horas síncronas** (ejemplo: martes y jueves).
+**Semana 6: 1 sesión de 3 horas síncronas** (ejemplo: martes).
 **+ módulo bonus asíncrono de Foundry**, liberado al cerrar la sesión 11
 **Equipos de 2 personas**
 
@@ -20,8 +21,9 @@
         TEORÍA                   MIXTO                 PRÁCTICA
 ```
 
-**6 horas por sesión × 12 sesiones = 72 horas.**
-Con 2 sesiones por semana, el alumno dedica **12 horas semanales** durante 6 semanas.
+**6 horas por sesión × 11 sesiones = 66 horas.**
+El alumno dedica **12 horas semanales en semanas 1–5 y 6 horas en semana 6**.
+Total: **33 horas síncronas y 33 asíncronas**.
 
 > Este ritmo es exigente pero compatible con una jornada laboral: entre sesiones hay 3 o 4 días
 > para resolver 1 h de pre-work y 2 h de laboratorio. Ver §"Efectos del ritmo".
@@ -97,7 +99,6 @@ Con 2 sesiones por semana, el alumno dedica **12 horas semanales** durante 6 sem
 | Día | Sesión | Pre-work (1 h) | Sesión en vivo (3 h) | Laboratorio (2 h) | Hito |
 |-----|--------|----------------|----------------------|-------------------|------|
 | Mar | **S11** | Diagramas de arquitectura | Sustentación ante panel | **L11** app final | **Proyecto Integrador · 100 % del M3** |
-| Jue | **Sem** | — | Seminario Internacional | — | Cierre del certificado |
 
 ---
 
@@ -119,7 +120,7 @@ completa. Aun así, hay efectos que conviene gestionar.
 
 | # | Efecto | Por qué importa | Cómo se gestiona |
 |---|--------|-----------------|------------------|
-| **1** | **12 horas semanales de dedicación** | Es compatible con una jornada laboral, pero no es poco | Declararlo con claridad **antes de la inscripción**. Nadie debe descubrirlo en la semana 2 |
+| **1** | **12 h/semana en semanas 1–5; 6 h en semana 6** | Es compatible con una jornada laboral, pero no es poco | Declararlo con claridad **antes de la inscripción**. Nadie debe descubrirlo en la semana 2 |
 | **2** | **Margen de recuperación de 3-4 días** | Un equipo que se atrasa el martes tiene hasta el jueves | Suficiente para retomar con el **checkpoint de recuperación** (`solucion/` de cada lab), que el docente reparte proactivamente |
 | **3** | **Los módulos no cierran en frontera de semana** | El M1 cierra el martes de la semana 2 y el M2 el martes de la semana 4 | No es un problema pedagógico, pero conviene anunciarlo: el alumno espera que "módulo" y "semana" coincidan |
 | **4** | **El pre-work compite con el laboratorio** | 1 h de pre-work + 2 h de lab en 3-4 días | El pre-work debe ser **estrictamente de 1 hora**. Si no cabe, se recorta contenido, no se estira el tiempo |
@@ -163,8 +164,8 @@ La misma malla admite otros repartos sin cambiar el contenido ni las horas:
 
 | Modalidad | Semanas | Sesiones/semana | Horas/semana | Perfil de alumno |
 |-----------|---------|-----------------|--------------|------------------|
-| Intensiva | 4 | 3 | 18 h | Dedicación completa o bootcamp |
-| **Equilibrada** *(actual)* | **6** | **2** | **12 h** | **Profesional con jornada laboral** |
-| Extendida | 12 | 1 | 6 h | Profesional con poca disponibilidad |
+| Intensiva | 4 | 3 en semanas 1–3; 2 en semana 4 | 18 h en semanas 1–3; 12 h en semana 4 | Dedicación completa o bootcamp |
+| **Equilibrada** *(actual)* | **6** | **2 en semanas 1–5; 1 en semana 6** | **12 h en semanas 1–5; 6 h en semana 6** | **Profesional con jornada laboral** |
+| Extendida | 11 | 1 | 6 h | Profesional con poca disponibilidad |
 
-Las tres suman 72 horas y respetan el balance 40/60. Solo cambia el calendario.
+Las tres suman 66 horas y mantienen 27,5 h de teoría y 38,5 h de práctica. Solo cambia el calendario.

@@ -14,7 +14,7 @@ Guía para el docente: objetivos, secuencia de aula, prácticas y evaluación.
 | Laboratorio | **L12 · El mismo agente en Foundry** |
 | Evaluación | **No ponderado.** Certificación adicional |
 
-> Este bloque asíncrono es opcional, no ponderado y queda fuera de las 72 horas lectivas.
+> Este bloque asíncrono es opcional, no ponderado y queda fuera de las 66 horas lectivas.
 > El alumno lo completa a su ritmo como introducción a Foundry.
 
 ---
@@ -48,7 +48,7 @@ el modelo. Seguir el [alcance del bonus](../../modulo-4-plus-foundry/README.md).
 > **Es la primera y única vez que el curso menciona una tarjeta de crédito.** Hay que decirlo sin
 > rodeos en la primera línea del bloque, junto con la vía B, para que nadie llegue a la mitad de la
 > guía y se encuentre con el muro. Las 11 sesiones lectivas siguen sin pedir tarjeta: el principio
-> P2 se mantiene íntegro dentro de las 72 h.
+> P2 se mantiene íntegro dentro de las 66 h.
 
 ### Operación de la vía B
 

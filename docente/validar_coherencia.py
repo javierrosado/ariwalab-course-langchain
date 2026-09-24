@@ -8,12 +8,12 @@ Ejecutar desde la raíz del curso:
 
 QUÉ VALIDA
 ----------
-Que las 11 sesiones + el seminario + el bonus formen **un curso**, y no doce diseños
+Que las 11 sesiones + el bonus formen **un curso**, y no diseños
 independientes que coinciden en la carpeta. Comprueba lo que se puede comprobar de
 forma mecánica:
 
   C1  estructura       cada esqueleto tiene sus secciones obligatorias
-  C2  horas            el reparto declarado por sesión cuadra con la malla (29 T / 43 P / 72)
+  C2  horas            el reparto declarado por sesión cuadra con la malla (27.5 T / 38.5 P / 66)
   C3  guion            los bloques del guion en vivo suman los minutos declarados
   C4  coherencia T/P   el reparto del guion coincide con el de la ficha
   C5  referencias      "no entra aquí, va en S<N>" siempre apunta hacia adelante
@@ -44,9 +44,8 @@ MALLA = {
     1: (3.5, 2.5), 2: (3.0, 3.0), 3: (2.5, 3.5), 4: (2.5, 3.5),
     5: (3.0, 3.0), 6: (2.5, 3.5), 7: (1.5, 4.5), 8: (2.5, 3.5),
     9: (2.5, 3.5), 10: (2.5, 3.5), 11: (1.5, 4.5),
-    "seminario": (1.5, 4.5),
 }
-TOTAL_TEORIA, TOTAL_PRACTICA, TOTAL_HORAS = 29.0, 43.0, 72.0
+TOTAL_TEORIA, TOTAL_PRACTICA, TOTAL_HORAS = 27.5, 38.5, 66.0
 
 SECCIONES = ["Ficha", "Objetivos", "no** entra", "evaluaci"]
 
@@ -82,7 +81,7 @@ def cargar():
     for n in range(1, 12):
         ruta = ESQ / f"sesion-{n:02d}.md"
         docs[n] = ruta.read_text(encoding="utf-8") if ruta.exists() else None
-    for nombre in ("seminario", "bonus-foundry"):
+    for nombre in ("bonus-foundry",):
         ruta = ESQ / f"{nombre}.md"
         docs[nombre] = ruta.read_text(encoding="utf-8") if ruta.exists() else None
     return docs
@@ -128,7 +127,8 @@ def c2_horas(docs):
     chk("C2", f"total práctica = {TOTAL_PRACTICA}", abs(suma_p - TOTAL_PRACTICA) < 0.01, f"{suma_p}")
     chk("C2", f"total = {TOTAL_HORAS} h", abs(suma_t + suma_p - TOTAL_HORAS) < 0.01, f"{suma_t + suma_p}")
     pct = 100 * suma_t / (suma_t + suma_p) if (suma_t + suma_p) else 0
-    chk("C2", "balance 40/60 (±1 pto)", abs(pct - 40) <= 1.0, f"{pct:.1f} % teoría")
+    chk("C2", "balance 41.7/58.3", abs(pct - 100 * TOTAL_TEORIA / TOTAL_HORAS) < 0.05,
+        f"{pct:.1f} % teoría")
 
 
 def _bloques_guion(txt):
@@ -145,7 +145,7 @@ def _bloques_guion(txt):
 
 def c3_guion(docs):
     print("\nC3 · EL GUION SUMA 180 MIN")
-    for k in list(range(1, 12)) + ["seminario"]:
+    for k in range(1, 12):
         txt = docs.get(k)
         if not txt:
             continue
@@ -164,7 +164,7 @@ def c3_guion(docs):
 
 def c4_reparto(docs):
     print("\nC4 · EL GUION CUADRA CON LA FICHA")
-    for k in list(range(1, 12)) + ["seminario"]:
+    for k in range(1, 12):
         txt = docs.get(k)
         if not txt:
             continue

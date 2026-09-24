@@ -3,7 +3,7 @@
 Curso en español para **ingenieros de software con poco conocimiento de LLMs**.
 Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-beginners`](https://github.com/microsoft/langchain-for-beginners).
 
-> **Recorrido:** preparación S0, once sesiones, seminario y bonus opcional.
+> **Recorrido:** preparación S0, once sesiones y bonus opcional.
 > Consulta el [mapa pedagógico](docs/COURSE-MAP.md) y el [glosario](recursos/glosario.md).
 
 ---
@@ -22,9 +22,9 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 | | |
 |---|---|
-| Duración | 12 sesiones de 6 h · **2 por semana → 6 semanas** + bonus asíncrono |
-| Horas lectivas | **72 h** · 36 síncronas / 36 asíncronas · **12 h semanales** por alumno |
-| Balance | 40 % teoría / 60 % práctica |
+| Duración | 11 sesiones de 6 h · **6 semanas: 2 sesiones/semana y 1 en la última** + bonus asíncrono |
+| Horas lectivas | **66 h** · 33 síncronas / 33 asíncronas · **12 h/semana en semanas 1–5 y 6 h en semana 6** |
+| Balance | 41,7 % teoría / 58,3 % práctica |
 | Laboratorios | 4 tracks en paralelo, incrementales (L1 → L11 + L12 bonus) · **equipos de 2 personas** |
 | Proyecto final | Agente open source desplegado en HF Spaces, monitoreado con Langfuse, con app FastAPI |
 | Plus | Cliente de chat conmutable y adaptación de hosting a Microsoft Foundry (bonus no ponderado) |
@@ -59,6 +59,8 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 ## Por dónde empezar
 
+Para abrir el curso: [bienvenida con guion docente y ocho prompts visuales](docente/presentaciones/apertura.md).
+
 | Si eres… | Lee esto |
 |---|---|
 | **Docente** | [Plan curricular](PLAN-CURRICULAR.md) → [Guía docente](docente/guia-docente.md) → [Verificación del entorno](VERIFICACION.md) |
@@ -71,7 +73,7 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 | Documento | Responde a |
 |---|---|
-| [`PLAN-CURRICULAR.md`](PLAN-CURRICULAR.md) | Malla, horas, balance 40/60, stack y evaluación |
+| [`PLAN-CURRICULAR.md`](PLAN-CURRICULAR.md) | Malla, horas, balance teoría/práctica, stack y evaluación |
 | [Personalización por industria](docente/modelos-por-industria.md) | Modelo compartido, prompts, herramientas y RAG por track |
 | [`VERIFICACION.md`](VERIFICACION.md) | Cómo verificar el stack antes de las clases |
 | [`docente/prerrequisitos-por-sesion.md`](docente/prerrequisitos-por-sesion.md) | audiencia y conceptos previos |

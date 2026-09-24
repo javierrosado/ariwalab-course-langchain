@@ -2,7 +2,7 @@
 
 > **Obligatoria y asíncrona.** Se completa antes de la Sesión 1.
 > Duración estimada: **4 a 5 horas**, repartibles en varios días.
-> No computa dentro de las 72 horas lectivas: es preparación.
+> No computa dentro de las 66 horas lectivas: es preparación.
 
 ---
 

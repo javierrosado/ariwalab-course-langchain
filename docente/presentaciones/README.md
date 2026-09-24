@@ -20,6 +20,7 @@ el [catálogo de imágenes](../../imagenes/CATALOGO-IMAGENES.md) para ilustrar l
 
 | Sesión | Archivo |
 |---|---|
+| Bienvenida · alcance, metodología y próximos pasos | [Guion y prompts](apertura.md) |
 | S1 · Fundamentos de los agentes | [`sesion-01.md`](sesion-01.md) |
 | S2 · Ecosistema LangChain | [`sesion-02.md`](sesion-02.md) |
 | S3 · Tools y API externa (A1) | [`sesion-03.md`](sesion-03.md) |
@@ -31,5 +32,4 @@ el [catálogo de imágenes](../../imagenes/CATALOGO-IMAGENES.md) para ilustrar l
 | S9 · Observabilidad Langfuse | [`sesion-09.md`](sesion-09.md) |
 | S10 · Evaluación y optimización | [`sesion-10.md`](sesion-10.md) |
 | S11 · Sustentación final | [`sesion-11.md`](sesion-11.md) |
-| Seminario Internacional | [`seminario.md`](seminario.md) |
 | Bonus Foundry | [`bonus-foundry.md`](bonus-foundry.md) |

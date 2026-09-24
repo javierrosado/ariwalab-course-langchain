@@ -177,7 +177,6 @@ Cuatro niveles: Insuficiente · En desarrollo · Competente · Destacado.
 |---|---|
 | Foundry | bonus asíncrono, liberado al cerrar hoy |
 | Contenido nuevo de agentes | ninguno: hoy se cierra |
-| Seminario Internacional | sesión aparte, semana 6 |
 
 ---
 

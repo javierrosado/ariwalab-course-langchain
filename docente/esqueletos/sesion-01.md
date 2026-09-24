@@ -24,7 +24,7 @@ Al terminar, el alumno puede:
 1. Explicar por qué **un LLM solo no es un agente**, nombrando las cuatro piezas que le faltan.
 2. Decidir, ante un problema dado, si necesita un **workflow** o un **agente** — y justificarlo.
 3. Situar cada objeto de LangChain 1.x (`model`, `message`, `tool`, `agent`, `middleware`) en el
-   mapa de las 12 sesiones.
+   mapa de las 11 sesiones.
 4. Ejecutar un script que llama a un modelo de pesos abiertos **en línea**, sin instalar ningún
    motor de inferencia.
 5. Explicar qué hace `comun/provider.py` y por qué el curso no instancia el modelo en cada archivo.

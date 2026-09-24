@@ -18,7 +18,6 @@ Consultar también la [guía docente](../guia-docente.md) y el [checklist previo
 | [`sesion-09.md`](sesion-09.md)  |  Monitoreo y trazabilidad con Langfuse |
 | [`sesion-10.md`](sesion-10.md)  |  Optimización continua y evaluación |
 | [`sesion-11.md`](sesion-11.md)  |  Sustentación final · **Proyecto Integrador** |
-| [`seminario.md`](seminario.md)  |  Seminario Internacional · **panel de casos reales** |
 | [`bonus-foundry.md`](bonus-foundry.md)  |  Bonus · el mismo agente en Foundry |
 
 ## Uso en clase

@@ -3,8 +3,8 @@
 ## Propósito y estructura
 
 Curso en español de Agentic AI y LangChain para ingenieros de software: nivelación S0,
-M1 (S1–S3), M2 (S4–S7), M3 (S8–S11 y seminario), M4 (bonus Foundry).
-Son 11 sesiones numeradas más un seminario: 72 horas; el bonus no computa.
+M1 (S1–S3), M2 (S4–S7), M3 (S8–S11), M4 (bonus Foundry).
+Son 11 sesiones numeradas: 66 horas; el bonus no computa.
 `comun/` concentra infraestructura; `simulador-industria/` implementa servicios sintéticos;
 `recursos/` contiene datos, rúbricas y plantillas; `docente/` contiene guiones y verificadores.
 Las soluciones de cada sesión son checkpoints incrementales. Inspeccionar el contenido de

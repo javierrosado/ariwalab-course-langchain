@@ -1,7 +1,7 @@
 # Mapa pedagógico del curso
 
 Recorrido para planificar clases y ubicar conceptos, laboratorios y evaluaciones.
-S0 es nivelación; S1–S11 y el seminario constituyen las 72 h; Foundry es bonus opcional.
+S0 es nivelación; S1–S11 constituyen las 66 h; Foundry es bonus opcional.
 
 ## Recorrido y trazabilidad
 
@@ -19,7 +19,6 @@ S0 es nivelación; S1–S11 y el seminario constituyen las 72 h; Foundry es bonu
 | S9 | [Observabilidad](../modulo-3-produccion/sesion-09-observabilidad-langfuse/README.md) | [Demos](../modulo-3-produccion/sesion-09-observabilidad-langfuse/code/README.md) y [checkpoint](../modulo-3-produccion/sesion-09-observabilidad-langfuse/solucion/) | [L9](../modulo-3-produccion/sesion-09-observabilidad-langfuse/lab/README.md): Instrumentación y dos cuellos de botella | INFORME-L9; integrador |
 | S10 | [Evaluación y optimización](../modulo-3-produccion/sesion-10-evaluacion-optimizacion/README.md) | [Demos](../modulo-3-produccion/sesion-10-evaluacion-optimizacion/code/README.md) y [checkpoint](../modulo-3-produccion/sesion-10-evaluacion-optimizacion/solucion/) | [L10](../modulo-3-produccion/sesion-10-evaluacion-optimizacion/lab/README.md): 30 casos; comparación v1/v2 | INFORME-L10; integrador |
 | S11 | [Cliente web y sustentación](../modulo-3-produccion/sesion-11-sustentacion-final/README.md) | [Demos](../modulo-3-produccion/sesion-11-sustentacion-final/code/README.md) y [checkpoint](../modulo-3-produccion/sesion-11-sustentacion-final/solucion/) | [L11](../modulo-3-produccion/sesion-11-sustentacion-final/lab/README.md): Cliente SSE, diseño y demo | Integrador (100 % M3) |
-| Seminario | [Contraste de casos reales](../modulo-3-produccion/seminario-internacional/README.md) | Panel y decisiones | Documento de contraste | Formativo, no ponderado |
 | Bonus | [Microsoft Foundry](../modulo-4-plus-foundry/README.md) | `host/main.py` | Comparativa y hosting | Acreditación adicional, no ponderada |
 
 ## Progresión por concepto
@@ -75,7 +74,6 @@ flowchart LR
   S8 --> S9["S9: trazas"]
   S9 --> S10["S10: evaluación"]
   S10 --> S11["S11: SSE y sustentación"]
-  S11 --> SEM["Seminario: contraste"]
   S11 --> BONUS["Bonus: Foundry"]
 ```
 

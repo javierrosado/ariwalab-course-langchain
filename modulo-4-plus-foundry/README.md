@@ -5,7 +5,7 @@
 > registrar una tarjeta. Si no puedes o no quieres, usa la **Vía B**: el docente despliega un
 > proyecto compartido y reparte claves temporales — te saltas la creación de recursos, pero
 > puedes hacer todo lo demás. Las 11 sesiones lectivas del curso siguen sin pedir tarjeta: el
-> principio P2 se mantiene íntegro dentro de las 72 h.
+> principio P2 se mantiene íntegro dentro de las 66 h.
 
 **Asíncrono, liberado al cerrar la S11. No ponderado — certificación adicional.**
 ~2 h teoría · ~4 h práctica ≈ 6 h, que **no computan** horas lectivas.
