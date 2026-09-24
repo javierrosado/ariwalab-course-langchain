@@ -14,7 +14,7 @@
 3. Escribir una **lista de acciones prohibidas** para tu industria y hacerla cumplir en código.
 4. Diseñar una política de **escalamiento a humano**: cuándo el agente debe dejar de intentarlo.
 5. Enganchar todo eso como **middleware**, sin tocar la lógica del agente.
-6. Medir: **0 filtraciones** sobre una batería de ataques igual para todos.
+6. Medir: **0 filtraciones detectadas en los casos de la batería**, sin generalizar a todo ataque posible.
 
 ---
 
@@ -46,9 +46,8 @@ como seguridad. Ya lo entendiste como arquitectura; hoy lo entiendes como defens
 ejemplos ayudaba al modelo a elegir bien entre tools parecidas, aquí un par de ejemplos de
 ataques ya bloqueados en el system prompt ("si te piden esto, es una inyección: no lo seguiste,
 respondiste así") entrena al modelo para reconocer el patrón más rápido. **Pero el few-shot es
-una ayuda para el modelo, no una garantía**: la defensa que de verdad sostiene "0 filtraciones"
-sigue siendo el código de `guardrails.py` — si el prompt fallara y el modelo "mordiera" el
-anzuelo, el guardrail de acción/salida lo detiene igual. Por eso las dos capas del diagrama del
+una ayuda para el modelo, no una garantía**: los controles de `guardrails.py` solo cubren condiciones y patrones implementados.
+Una variante no contemplada puede pasar. La batería aporta evidencia acotada, no una garantía universal. Por eso las dos capas del diagrama del
 bloque 4 son código, y el few-shot solo hace que lleguen menos casos a necesitarlas.
 
 ---
@@ -72,7 +71,7 @@ cuándo consultar a un abogado, no abogados.
 
 ## 3. Límites de actuación y escalamiento
 
-Cada track tiene su lista de acciones prohibidas (ver sección 7). El agente debe conocerlas en
+Cada track tiene su lista de acciones prohibidas (ver sección 5). El agente debe conocerlas en
 el prompt (primera capa) **y** el código debe hacerlas cumplir (segunda capa) — el prompt ayuda,
 el código decide.
 
@@ -100,9 +99,18 @@ nunca deriva es tan riesgoso como uno que siempre lo hace.
       usuario                     ¿no se pudo resolver? ──► ESCALAMIENTO a humano
 ```
 
+El diagrama describe puntos de control arquitectónicos. El checkpoint no implementa
+autorización por titular de cuenta; su control de acción revisa nombre y argumentos, y las
+regex no prueban fundamentación ni detectan toda PII. El escalamiento produce un mensaje,
+no abre automáticamente un caso en un sistema humano.
+
 Los tres puntos de enganche son **código**, ninguno es prompt. El prompt ayuda; el código decide.
 `guardrails.py` implementa los tres, y se engancha alrededor de tu `agent.py` sin reescribir su
 lógica interna — por eso se llama middleware: intercepta antes y después, no reemplaza.
+
+En este laboratorio, **middleware** nombra el patrón de intercepción manual. No se usa la
+API nativa `AgentMiddleware` de LangChain 1.x. Ver la
+[referencia del patrón y la API](https://docs.langchain.com/oss/python/langchain/middleware/overview).
 
 **¿Y LangGraph?** Lo que acabas de ver — enganchar guardrails antes y después del modelo — deja
 de alcanzar cuando el agente necesita ramificarse en pasos condicionales explícitos y
@@ -150,9 +158,15 @@ Laboratorio 6 completo (guardrails, batería de 15+5 ataques, Avance 3 del proye
 | No entra | Va en |
 |---|---|
 | Pruebas de estrés y fallos del entorno (sin malicia) | Sesión 7 |
-| Autenticación real de usuarios | Fuera del curso — el simulador la resuelve con la API key |
+| Autenticación real de usuarios | Fuera del curso: la API key identifica al equipo, no al titular de una cuenta |
 | Cifrado, gestión de claves, cumplimiento formal | Fuera del curso |
 | Métricas de seguridad en producción | Sesiones 9 y 10 |
 
 > El L6 defiende contra un **adversario deliberado**. El L7 defiende contra el **mundo real sin
 > malicia**: servicios caídos, datos ausentes, preguntas ambiguas. Son dos ejes distintos.
+
+## Recurso visual
+
+![IMG-M02-S06-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/01-controles.png)
+
+Diagrama del mecanismo explicado en esta sesión; consultar el texto para sus límites. [Notas para el docente](../../imagenes/modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/NOTAS-SLIDES.md).

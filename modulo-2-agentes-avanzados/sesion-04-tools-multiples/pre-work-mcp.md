@@ -60,16 +60,16 @@ Ejecuta esto **desde la raíz del curso** (no desde `simulador-industria/`) con
 `check_portability_eligibility`, `get_coverage_by_district`, `get_transfer_limits`,
 `estimate_delivery`, `list_affiliated_clinics`, `get_vehicle_info`.
 
-**Con qué te quedas:** solo 2 de esas 6 tools son de tu track — las otras 4 son de las otras
-industrias. Parte de "conectarte, no construir" es también **filtrar**: tu agente no debería
-enlazar las 6, solo las tuyas (regla A1: máximo 4-6 tools en total contando las de MCP).
+**Con qué te quedas:** el servidor expone dos tools de telco, una de banca, una de retail y dos de seguros. Parte de "conectarte, no construir" es también **filtrar**: tu agente no debería
+enlazar las 6, las pertinentes. La práctica de descubrimiento no exige enlazar todas al agente.
+El catálogo troncal L4 conserva cuatro tools de negocio; L5 añade un retriever.
 
 ---
 
 ## Antes de la sesión en vivo
 
 - [ ] Ejecutaste el script de arriba y viste las 6 tools listadas.
-- [ ] Identificaste cuáles 2 son de tu track.
+- [ ] Identificaste la herramienta o las herramientas de tu track.
 - [ ] Instalaste `langchain-mcp-adapters` (`pip install -r requirements.txt` ya lo incluye).
 
 ## Si algo falla
@@ -79,4 +79,4 @@ enlazar las 6, solo las tuyas (regla A1: máximo 4-6 tools en total contando las
 | `FileNotFoundError` al lanzar el subproceso | Ejecutas desde `simulador-industria/`, no desde la raíz | Ejecuta desde la raíz del curso |
 | Lista de tools vacía | El servidor no llegó a arrancar | Revisa que `mcp` esté instalado (`pip show mcp`) |
 | Timeout con `MCP_TRANSPORT=http` | El Space está dormido (free tier) | Prueba primero `GET /health`; reintenta en 1-2 min |
-| El agente elige mal entre 6+ tools | Demasiadas tools enlazadas a la vez | Filtra: enlaza solo las 2 de tu track + tus 4 núcleo |
+| El agente elige mal entre 6+ tools | Demasiadas tools enlazadas a la vez | Selecciona un catálogo pequeño para la tarea y vuelve a medir; no sumes todas las MCP a las cuatro núcleo |

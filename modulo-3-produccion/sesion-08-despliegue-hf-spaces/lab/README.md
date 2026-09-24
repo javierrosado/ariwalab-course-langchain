@@ -75,7 +75,7 @@ a propósito: son la estructura que debes llenar con la evidencia de **tu** Spac
 
 | Track | Enunciado |
 |---|---|
-| Telecomunicaciones · AndesMóvil | [`telecomunicaciones.md`](telecomunicaciones.md) |
-| Banca · Banco Inti | [`banca.md`](banca.md) |
-| Retail · MercaSur | [`retail.md`](retail.md) |
-| Seguros · Andina Seguros | [`seguros.md`](seguros.md) |
+| Telecomunicaciones · AndesMóvil | [`telecomunicaciones.md`](telecomunicaciones/enunciado.md) |
+| Banca · Banco Inti | [`banca.md`](banca/enunciado.md) |
+| Retail · MercaSur | [`retail.md`](retail/enunciado.md) |
+| Seguros · Andina Seguros | [`seguros.md`](seguros/enunciado.md) |

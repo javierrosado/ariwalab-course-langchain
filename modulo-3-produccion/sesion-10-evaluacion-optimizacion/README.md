@@ -10,7 +10,7 @@ Antes de esta sesión: pre-work de 1 h ([`conceptos-previos.md`](conceptos-previ
 ## 1. Objetivos de aprendizaje
 
 1. Explicar por qué `assert respuesta == "esperado"` no sirve, y qué lo reemplaza.
-2. Construir evaluators **determinísticos** para exactitud, uso de tool y *groundedness*.
+2. Aplicar evaluators **determinísticos** y explicar las limitaciones de sus proxies de exactitud y groundedness.
 3. Explicar qué es **LLM-as-judge**, cuándo sirve y cuáles son sus sesgos.
 4. Comparar dos versiones de prompt sobre el mismo dataset y decidir con el número.
 5. Distinguir una mejora real de ruido de muestreo.
@@ -50,7 +50,7 @@ construye mientras se construye el sistema.
 |---|---|---|
 | **Uso correcto de tool** | ¿Llamó a la herramienta esperada? | Comparar el `tool_call` contra `tool_esperada` del dataset. **Es `matriz_seleccion.py`**, que existe desde el L4 |
 | **Exactitud** | ¿La respuesta contiene el dato correcto? | ¿Aparece `respuesta_esperada` (o su valor clave) en el texto? |
-| **Groundedness por cita** | ¿La cita existe y sostiene la afirmación? | El dato afirmado está tanto en la respuesta como en el chunk recuperado — las dos cosas a la vez, o no cuenta |
+| **Groundedness por cita** | ¿Aparece el dato esperado en respuesta y contexto? | Busca una subcadena en ambos: no verifica cita, atribución, negación ni respaldo semántico |
 
 Ver `comun/evaluadores.py` — los 3 se pueden correr mil veces y dan lo mismo. Eso es lo que
 los hace aptos para calificar, y lo que los distingue del juez.
@@ -91,8 +91,8 @@ un cliente, sin decir su margen de error.
 ```
 
 Con 30 casos, **dos aciertos de diferencia pueden ser ruido.** La regla del curso: una mejora se
-reporta cuando se sostiene en dos corridas y se puede señalar **qué cambio la produjo**. Si no
-se sabe qué la causó, no es una mejora: es una casualidad que todavía no falla.
+reporta cuando se sostiene en dos corridas y se puede señalar **qué cambio la produjo**. Esta es una regla exploratoria del curso, no una prueba de significancia ni una demostración
+causal. Registrar variabilidad y evitar conclusiones generales con una muestra pequeña.
 
 ---
 
@@ -111,3 +111,9 @@ el Laboratorio 10 completo (dataset en Langfuse, línea base v1, un cambio dirig
 | RAGAS en profundidad | mención y enlace; complemento opcional (D18) |
 | Evaluación en CI / pipeline automatizado | se menciona como cierre, no se implementa |
 | Fine-tuning como vía de mejora | descartado por D21; se explica por qué |
+
+## Recurso visual
+
+![IMG-M03-S10-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/01-evaluacion.png)
+
+Flujo de reporte recomendado: la separación de casos no aplicables se registra además del resultado del evaluador actual. [Notas para el docente](../../imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/NOTAS-SLIDES.md).

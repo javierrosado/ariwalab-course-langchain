@@ -19,8 +19,9 @@ def evaluar_tool(tool_llamada: str | None, tool_esperada: str | None) -> bool:
 
     Es el mismo criterio de `docente/matriz_seleccion.py` (existe desde el L4):
     comparar el nombre de la tool invocada contra `tool_esperada`. `None` en
-    cualquiera de los dos lados significa "no llamó a ninguna tool" — así se
-    evalúan también las 10 consultas OTRO, donde lo correcto es NO llamar nada.
+    cualquiera de los dos lados significa "no llamó a ninguna tool" — el runner debe
+    separar las tools de negocio del retriever. OTRO no requiere una tool de negocio,
+    pero desde L5 puede requerir recuperación RAG.
     """
     return (tool_llamada or None) == (tool_esperada or None)
 
@@ -41,11 +42,14 @@ def evaluar_exactitud(respuesta: str, respuesta_esperada: str | None) -> bool:
 
 def evaluar_groundedness(respuesta: str, contexto_recuperado: str | None,
                           respuesta_esperada: str | None) -> bool:
-    """¿La cita existe y sostiene la afirmación?
+    """Proxy léxico: ¿el dato esperado aparece en respuesta y contexto?
+
+    No valida la cita ni la atribución y no detecta negaciones o contradicciones.
+    La revisión semántica de las fuentes sigue siendo necesaria.
 
     No basta con que el retriever haya devuelto algo (eso solo prueba que se llamó
     a la tool), y no basta con que el dato correcto exista EN ALGÚN LUGAR del
-    corpus (eso no prueba que el agente lo haya usado). Groundedness exige las dos
+    corpus (eso no prueba que el agente lo haya usado). Este proxy exige las dos
     cosas a la vez: que la respuesta afirme el dato correcto, Y que ese dato esté
     también en el texto que de verdad se recuperó — si el agente acierta por
     casualidad pero el chunk recuperado no lo respalda, o si el chunk lo respalda

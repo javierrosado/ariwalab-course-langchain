@@ -20,6 +20,22 @@ Usa `evals/evaluadores.py` (checkpoint de referencia: reexporta `comun.evaluador
 30 consultas contra tu `agent.py` actual. Registra las 3 métricas (uso de tool, exactitud,
 groundedness) en `INFORME-L10.md`.
 
+El checkpoint `evals/evaluadores.py` reexporta funciones; **no es un runner end-to-end**.
+El equipo debe recoger por caso: respuesta, nombres de tools ejecutadas y texto realmente
+recuperado, aislando el historial entre casos. No sustituirlo por respuestas inventadas.
+
+`tool_esperada` describe las tools de negocio del L4: `None` para OTRO no prohíbe llamar al
+retriever desde L5. Separar recuperación y tool de negocio en el registro. El comparador
+actual recibe un solo nombre, por lo que no representa toda la secuencia de llamadas.
+
+Cuando `respuesta_esperada` es `None`, los evaluadores devuelven `True` por convención.
+Reportar también cuántos casos son no aplicables: ese valor no demuestra un acierto.
+Groundedness es un proxy de subcadena; revisar manualmente fuente y afirmación. CONS-014
+mantiene pendiente la decisión de modificar el contrato de métricas que alimenta la nota.
+
+La demo `code/04_ab_prompts.py` compara llamadas directas sin retriever: sirve para leer una
+tabla A/B, pero no valida mejora de recuperación ni sustituye esta evaluación del agente.
+
 ## Parte 3 · Aplicar UN cambio dirigido a un cuello del L9 (40 min)
 
 Debe ser **uno solo y trazable** al Avance 2:

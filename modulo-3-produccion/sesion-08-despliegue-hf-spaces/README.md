@@ -11,7 +11,7 @@ cuenta de Hugging Face con un Space **vacío** ya creado (`git remote -v` debe m
 
 1. Explicar qué significa "producción" para un agente, y en qué se diferencia de un script que corre.
 2. Escribir un `Dockerfile` **sin ejecutar Docker en local** (principio P2), y explicar cada línea.
-3. Exponer el agente por **FastAPI** con `/chat` y `/health`, y saber por qué la plataforma exige el segundo.
+3. Exponer el agente por **FastAPI** con `/chat` y `/health`, y explicar cómo el curso utiliza el segundo para verificar disponibilidad.
 4. Gestionar secretos **en la plataforma**, no en el repositorio.
 5. Proteger un endpoint público y explicar qué se protege: no el secreto, **la cuota**.
 6. Explicar el *cold start* y por qué el primer request de un tier gratuito tarda.
@@ -55,8 +55,8 @@ para la versión completa, comentada línea por línea.
 
 ```
    GET  /health   ──► SIN autenticación
-                      La plataforma lo llama para saber si el Space vive.
-                      Si pide credencial, el Space queda marcado como caído.
+                      El verificador del curso lo usa para comprobar disponibilidad.
+                      No demuestra que los servicios externos estén sanos.
 
    POST /chat     ──► CON autenticación   (X-API-Key)
                       Cada llamada gasta cuota de HF Inference del equipo.
@@ -116,3 +116,9 @@ Laboratorio 8 completo (`app/api.py`, `Dockerfile`, despliegue real y Avance 1 d
 | Cliente web con streaming | S11 |
 | Foundry | bonus asíncrono |
 | Docker en local, Kubernetes, CI/CD | fuera de alcance (P2) |
+
+## Recurso visual
+
+![IMG-M03-S08-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/01-despliegue.png)
+
+Langfuse se incorpora en S9; /health verifica el proceso, no todos los servicios externos. [Notas para el docente](../../imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/NOTAS-SLIDES.md).

@@ -12,8 +12,8 @@ conectado tu agente al servidor MCP del simulador.
 ## 1. Objetivos de aprendizaje
 
 1. Diseñar un catálogo de tools con **responsabilidad única**: una tool, una pregunta.
-2. Explicar por qué la precisión de selección cae al pasar de 4 herramientas, y por qué eso se
-   agrava a lo largo del bucle del agente.
+2. Explicar por qué el tamaño y la ambigüedad del catálogo deben medirse, y cómo los errores
+   pueden acumularse a lo largo del bucle.
 3. **Medir** el acierto de selección de tu propio agente y leer una matriz de confusión.
 4. Distinguir una tool **idempotente** de una que no lo es, y proteger la segunda.
 5. Conectar el agente a un servidor **MCP** y explicar qué cambia y qué no.
@@ -96,11 +96,15 @@ Sesión 2).
 
 ## 3. Por qué 4 y no 6 (regla A1)
 
-La fiabilidad se compone (decisión D20): si el modelo acierta el 93 % de las veces en una sola
-llamada, una tarea de 3 pasos sale bien el 80 % de las veces, y una de 5 pasos, el 70 %. Cuantas
-más tools enlazadas, más pasos potenciales, y más se multiplica el error. La precisión de
-selección cae de forma notoria al pasar de 4-5 herramientas — por eso el curso fija **4 tools
-núcleo** por track y dos más quedan como reto opcional, nunca enlazadas junto a las cuatro.
+La fiabilidad puede acumularse a lo largo de una tarea (D20). Bajo el supuesto simplificado
+de pasos independientes con probabilidad de éxito 0.93, todos aciertan con probabilidad
+0.93³ ≈ 80 % en tres pasos y 0.93⁵ ≈ 70 % en cinco. No es una tasa medida del agente ni una
+ley universal: los fallos reales pueden estar correlacionados.
+
+El curso usa **cuatro tools núcleo de negocio en L4** por alcance didáctico. Desde L5 añade
+un retriever: cinco tools enlazadas. Tamaño del catálogo y cantidad de iteraciones son
+variables distintas. No existe aquí evidencia de un umbral universal de cuatro herramientas;
+la matriz mide el catálogo concreto. Las opcionales se prueban con una selección explícita.
 
 ---
 
@@ -108,9 +112,9 @@ núcleo** por track y dos más quedan como reto opcional, nunca enlazadas junto 
 
 | Tool | ¿Idempotente? | Qué pasa si se reintenta | Protección |
 |---|---|---|---|
-| `get_customer_plan` (telco) | Sí | Nada: misma respuesta | Ninguna |
+| `get_customer_plan` (telco) | Sí | No modifica estado; la respuesta puede cambiar si cambian los datos | No necesita deduplicación de escrituras |
 | `get_account_balance` (banca) | Sí | Nada | Ninguna |
-| `create_complaint_ticket` (telco) | **No** | **Dos reclamos duplicados** | Confirmación explícita antes de llamar |
+| `create_complaint_ticket` (telco) | **No** | **Puede duplicar reclamos** | Confirmación; en producción, deduplicación/idempotency key |
 | `open_claim` (seguros) | **No** | Dos expedientes del mismo siniestro | Confirmación explícita |
 | `start_return_request` (retail) | **No** | Dos solicitudes de devolución | Confirmación explícita |
 
@@ -122,7 +126,10 @@ núcleo** por track y dos más quedan como reto opcional, nunca enlazadas junto 
 > menor (un reclamo o una devolución duplicados se pueden anular; una tarjeta bloqueada, no). El
 > guardrail de banca sobre `request_card_block` se retoma en la Sesión 6.
 
-Es la primera vez que escribes una tool que **modifica algo**. La regla, para toda tool de
+En los tracks con escritura, es la primera vez que escribes una tool que **modifica algo**.
+La confirmación del checkpoint es un booleano en los argumentos del modelo: ilustra el
+contrato, pero no demuestra aprobación humana autenticada (CONS-006). Tampoco evita por sí
+sola duplicados ante reintentos. La regla, para toda tool de
 escritura: exige confirmación explícita del usuario antes de ejecutarse. Se implementa **hoy**,
 no se pospone a los guardrails de la Sesión 6.
 
@@ -136,8 +143,8 @@ avisar y derivar — nunca fallar en silencio ni repetir para siempre. Ver `code
 ## `proyecto-final/`: qué es y qué no es
 
 **Aclaración que debió estar desde el Laboratorio 1.** `proyecto-final/<track>/` en **este**
-repositorio (el del curso) es la **implementación de referencia del docente** — el aspecto final
-que debería tener tu proyecto, ya escrita y verificada (`docente/verificar_tools.py`,
+repositorio (el del curso) es la **catálogo base de referencia del docente**, no una aplicación final completa. Las
+soluciones de cada sesión muestran su checkpoint; los verificadores comprueban el catálogo (`docente/verificar_tools.py`,
 `docente/matriz_seleccion.py`). **No es tu repositorio.** Tu propio proyecto vive en el
 repositorio de tu equipo, y lo construyes del L1 al L11 siguiendo cada enunciado — no copiando
 `proyecto-final/`.

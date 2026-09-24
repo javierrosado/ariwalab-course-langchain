@@ -16,7 +16,9 @@
 
 ## 0. Cómo se prueba lo no determinístico
 
-**El concepto central, en una tabla:**
+**El concepto central, en una tabla de pseudocódigo:**
+`llamo_tool()` y `cita_fuente()` son propiedades que queremos comprobar, no métodos
+implementados por el agente del curso. Los ejemplos ejecutables viven en `code/02_invariantes.py`.
 
 | No se prueba así | Se prueba así |
 |---|---|

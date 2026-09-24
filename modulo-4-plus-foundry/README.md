@@ -12,36 +12,31 @@
 
 ---
 
-## La lección, en una línea
+## Alcance de la portabilidad
 
-Todo el curso se construyó para que este bloque sea **aburrido**:
+`comun/provider.py` permite seleccionar el cliente de chat mediante `AI_PROVIDER`, con
+endpoint, credenciales y modelo Foundry configurados. Conservar la interfaz no garantiza
+igual comportamiento: repetir las consultas y registrar diferencias.
 
-```
-   .env:   AI_PROVIDER=huggingface   ──────►   AI_PROVIDER=foundry
+| Pieza | Situación del código actual |
+|---|---|
+| Cliente de chat y system prompt | Reutilizables mediante la abstracción del curso |
+| Tools de negocio L4 | Se importan desde sus checkpoints |
+| Memoria y guardrails L5/L6 | El host no los incorpora: requiere adaptación al grafo |
+| Embeddings y colección Qdrant | `AI_PROVIDER` también cambia embeddings; reutilizar la colección exige conservar el mismo espacio vectorial o reindexar |
+| Hosting | `ResponsesHostServer` recibe un grafo construido por `create_agent()`; no envuelve directamente `responder()` |
 
-   Y no se toca ni una línea del código del agente.
-```
-
-| Pieza | ¿Porta? | Por qué |
-|---|---|---|
-| `comun/provider.py` | ✅ | Abstrae la interfaz desde el L1 (D13) |
-| System prompt del track | ✅ | Es texto (D21 · camino A) |
-| Colección de Qdrant | ✅ | Es un servicio externo, no depende del proveedor del modelo |
-| Las 4 tools + retriever | ✅ | Solo hablan HTTP con el simulador |
-| Guardrails | ✅ | Código propio |
-| **El comportamiento del modelo** | ⚠️ **No** | Otro modelo responde distinto. Es lo único que cambia, y es el contenido del cuadro comparativo |
-
-**Esta promesa es literalmente cierta gracias a D21.** Si el curso hubiera afinado un modelo por
-industria, apuntar a Foundry habría cambiado el cerebro del agente y "no cambió nada" habría sido
-refutable mirando la pantalla. Es la consecuencia práctica de una decisión de diseño tomada en la
-semana 0.
+**CONS-010 — decisión pendiente:** mantener embeddings HF independientemente del chat, o
+migrarlos y reindexar en una colección distinta. No usar vectores generados por otro modelo
+como si fueran compatibles por compartir dimensión. No presentar el bonus completo como
+validado mientras esa decisión y la prueba en Foundry sigan pendientes.
 
 ---
 
 ## Objetivos
 
 1. Situar el **modelo de recursos de Azure**: suscripción → grupo → recurso → proyecto → deployment.
-2. Ejecutar el mismo agente contra Foundry cambiando **una variable de entorno**.
+2. Configurar el cliente de chat Foundry y explicar qué piezas requieren adaptación.
 3. Explicar qué es un *hosted agent* y el protocolo **Responses**.
 4. Desplegar con `azd` y obtener un endpoint gestionado.
 5. **Comparar con evidencia** Hugging Face y Foundry en 7 dimensiones.
@@ -69,9 +64,9 @@ Se hace **antes** de todo lo de hosting, y a propósito: es el paso más corto y
 
 ```
    1.  Correr la batería de 5 consultas del track contra HF     → anotar respuestas
-   2.  Cambiar UNA línea del .env
+   2.  Configurar proveedor, endpoint, credenciales y modelo; resolver embeddings si se usa RAG
    3.  Correr LA MISMA batería contra Foundry                   → anotar respuestas
-   4.  Comparar: el código es idéntico, la infraestructura no, el comportamiento difiere un poco
+   4.  Comparar: registrar diferencias de comportamiento y configuración, sin asumir equivalencia
 ```
 
 **La pregunta que cierra el paso:** ¿qué habría hecho falta cambiar si el agente hubiera
@@ -82,8 +77,8 @@ todo por qué.
 ### Pasos 5-7 — *hosted agent*
 
 `ResponsesHostServer` (paquete `langchain-azure-ai[hosting]`, en preview) envuelve un grafo de
-LangGraph y lo expone por `/responses`, con streaming, historial y sesiones ya resueltos por la
-plataforma. Ver [`host/main.py`](host/main.py) — reutiliza `comun.provider.get_chat_model()` y
+LangGraph y lo expone por `/responses`, con una interfaz de hosting. Verificar persistencia e identidad de sesión en la versión
+instalada; no asumir que el diccionario de memoria L5 se porta automáticamente. Ver [`host/main.py`](host/main.py) — reutiliza `comun.provider.get_chat_model()` y
 las tools del L4/L5 tal cual, y documenta explícitamente qué NO porta sin cambios (los
 guardrails del L6, escritos como una función Python, no como un grafo).
 
@@ -105,8 +100,8 @@ Ver [`host/azure.yaml`](host/azure.yaml) para la configuración completa.
 
 Ver [`plantilla-comparativa.md`](plantilla-comparativa.md) — 7 dimensiones, con evidencia
 propia medida por ti, no copiada de documentación. **Ninguna dimensión tiene un ganador
-predeterminado**: Foundry gana en gobernanza e integración corporativa; el stack abierto gana en
-costo y portabilidad. El objetivo es que sepas **en qué contexto elegirías cada una**, no que
+predeterminado**: los resultados de gobernanza, integración, costo y portabilidad dependen de requisitos
+y mediciones. El objetivo es que sepas **en qué contexto elegirías cada una**, no que
 memorices cuál es "la buena".
 
 ---
@@ -116,7 +111,7 @@ memorices cuál es "la buena".
 | Requisito | Evidencia |
 |---|---|
 | El agente responde desde Foundry | Captura de las 5 consultas con `AI_PROVIDER=foundry` |
-| Se desplegó como *hosted agent* | Salida de `azd up` y el endpoint respondiendo |
+| Se desplegó como *hosted agent* | Salida del despliegue documentado y endpoint respondiendo |
 | Cuadro comparativo completo | Las 7 dimensiones con datos propios medidos |
 
 **No ponderado.** No afecta ninguna nota del curso. Quien lo complete recibe la certificación

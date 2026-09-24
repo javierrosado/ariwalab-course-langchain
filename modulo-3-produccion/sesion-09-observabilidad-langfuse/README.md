@@ -70,9 +70,10 @@ Tres lecturas que debes hacer solo:
 | El modelo cuesta 2 570 ms de 3 420 | El cuello no son las tools ni Qdrant: **es el modelo** |
 | El retriever se llamó | ¿Hacía falta? Si se llama siempre, el RAG agéntico de la S5 degeneró en tradicional |
 
-> **Los reintentos de `extraer_con_detalle()` aparecen como spans.** Lo que en la S2 fue un
-> número impreso en consola, aquí es una línea en la traza de producción — la misma medida,
-> cinco sesiones después, sobre tráfico real.
+> **Alcance de la instrumentación:** el checkpoint pasa callbacks a cada invocación.
+> No llama a `extraer_con_detalle()` dentro del bucle y ese helper no recibe callbacks
+> explícitos. No esperar sus reintentos en esta traza. Un árbol único por petición requiere
+> un contexto padre: verificarlo en Langfuse antes de interpretar este dibujo como salida real.
 
 ---
 
@@ -82,10 +83,12 @@ Tres lecturas que debes hacer solo:
    10 peticiones:  9 × 800 ms  +  1 × 21 000 ms  (cold start)
    promedio  ──► 2 820 ms      "el agente tarda 3 segundos"   ✗
    p50       ──►   800 ms      lo que vive el usuario típico  ✓
-   p95       ──► 21 000 ms     lo que vive el peor caso       ✓
+   p95       ──► 21 000 ms     cola de latencia (nearest rank en este ejemplo)       ✓
 ```
 
-Un solo *cold start* del L8 distorsiona el promedio de una corrida entera. Los percentiles no.
+Un *cold start* influye en el promedio y también puede cambiar el p95. Con diez muestras,
+el método nearest rank toma ceil(0.95 × 10) = 10: aquí coincide con el máximo. Otros métodos
+interpolan. Declarar método, tamaño de muestra y separación entre arranque frío y tráfico estable.
 
 ---
 
@@ -97,7 +100,7 @@ exportar a Langfuse (ver `comun/observability.py`).
 | Qué | Cómo |
 |---|---|
 | Dónde se aplica | En el cliente de Langfuse, antes de enviar cualquier span |
-| Con qué código | El mismo patrón de `guardrails.check_output` del L6 — no se escribe uno nuevo |
+| Con qué código | Patrones equivalentes para DNI/tarjeta, implementados en comun/observability.py, más teléfono |
 | Qué se enmascara | DNI, número de tarjeta, teléfono |
 | Qué se conserva | La estructura de la traza, las tools, los tiempos, el costo |
 

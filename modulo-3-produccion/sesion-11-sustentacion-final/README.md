@@ -17,6 +17,13 @@ traza en Langfuse, y salida de `docente/verificar_despliegue.py` en verde.
 
 ---
 
+## Alcance del checkpoint web
+
+`responder_streaming()` espera la respuesta completa y aplica el guardrail antes de enviarla
+por fragmentos SSE. Permite una interfaz progresiva, pero no reduce el tiempo hasta completar
+la generación del modelo. El historial heredado de L5 vive en memoria del proceso y se pierde
+al reiniciar el Space; el despliegue del curso no incorpora persistencia durable.
+
 ## 2. Qué se entrega
 
 El proyecto acumulado desde el L1. No hay nada nuevo que inventar: hay que **cerrarlo**.
