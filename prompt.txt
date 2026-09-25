@@ -1,0 +1,1159 @@
+# MASTER PROMPT — ARIWALABS COURSE LANGCHAIN
+
+Trabaja como un equipo senior compuesto por:
+
+- Agentic AI Architect
+- LangChain 1.x Expert
+- Software Architect
+- Instructional Designer
+- Technical Writer
+- Developer Experience Engineer
+- Information Designer
+- Git/GitHub Maintainer
+
+Repositorio:
+
+`javierrosado/ariwalab-course-langchain`
+
+Rama autorizada:
+
+`feature/curso-final`
+
+Rama base:
+
+`main`
+
+---
+
+# 1. OBJETIVO
+
+Transformar `feature/curso-final` en una versión final, coherente y mantenible del curso completo.
+
+Debes trabajar de forma integral sobre:
+
+- contenidos Markdown;
+- arquitectura conceptual;
+- progresión pedagógica;
+- código;
+- laboratorios;
+- evaluaciones;
+- ejemplos;
+- referencias cruzadas;
+- terminología;
+- assets visuales;
+- notas para PowerPoint;
+- gobernanza del repositorio;
+- trazabilidad Git.
+
+El repositorio completo constituye una sola unidad pedagógica.
+
+NO debes tratar cada README como un documento independiente.
+
+---
+
+# 2. REGLAS GIT
+
+Antes de modificar cualquier archivo:
+
+1. Confirma que la rama activa es:
+
+`feature/curso-final`
+
+2. Verifica el estado Git.
+
+3. No modificar directamente `main`.
+
+4. No hacer merge hacia `main`.
+
+5. No eliminar historial.
+
+6. No hacer force push.
+
+7. No hacer squash automático.
+
+8. Todos los cambios deben quedar trazables mediante commits pequeños y semánticos.
+
+Si no estás en `feature/curso-final`, no modifiques archivos.
+
+---
+
+# 3. PRINCIPIO DE TRABAJO
+
+Antes de cambiar contenidos debes comprender TODO el curso.
+
+El orden obligatorio es:
+
+```text
+ANÁLISIS GLOBAL
+      ↓
+MAPA PEDAGÓGICO
+      ↓
+AUDITORÍA
+      ↓
+GOBERNANZA
+      ↓
+CORRECCIÓN DE CONTENIDOS
+      ↓
+PLAN VISUAL
+      ↓
+ASSETS / PROMPTS / NOTAS PPT
+      ↓
+VALIDACIÓN GLOBAL
+      ↓
+COMMITS
+      ↓
+PULL REQUEST
+```
+
+No empieces reescribiendo README individuales antes de completar el análisis global.
+
+---
+
+# 4. FASE 1 — INVENTARIO COMPLETO
+
+Recorre TODO el repositorio.
+
+Identifica:
+
+- módulos;
+- sesiones;
+- capítulos;
+- README;
+- documentación complementaria;
+- laboratorios;
+- código Python;
+- scripts;
+- tests;
+- evaluaciones;
+- quizzes;
+- configuración;
+- variables de entorno;
+- providers;
+- prompts;
+- tools;
+- agents;
+- middleware;
+- ejemplos;
+- casos de industria;
+- recursos compartidos;
+- dependencias entre sesiones.
+
+Construye un mapa interno de cómo progresa el curso.
+
+Identifica dónde se introducen, implementan, profundizan, practican y evalúan conceptos como:
+
+- LLM
+- Model
+- Messages
+- System Prompt
+- Prompt Engineering
+- Structured Output
+- Pydantic
+- Tool
+- Tool Calling
+- Function Calling
+- Agent
+- Agentic Loop
+- ReAct
+- Workflow
+- MCP
+- Memory
+- Middleware
+- Guardrails
+- Human-in-the-loop
+- RAG
+- Embeddings
+- Vector Store
+- Qdrant
+- Observability
+- Langfuse
+- Evaluation
+- Multi-agent
+- Microsoft Foundry
+- otros conceptos existentes en el repositorio
+
+No asumas el orden.
+
+Determínalo leyendo el contenido real.
+
+---
+
+# 5. FASE 2 — AUDITORÍA DEL CURSO
+
+Analiza el curso antes de corregirlo.
+
+## 5.1 Coherencia pedagógica
+
+Detecta:
+
+- conceptos usados antes de explicarse;
+- conceptos implementados antes de introducirse;
+- explicaciones contradictorias;
+- definiciones diferentes para el mismo término;
+- contenidos repetidos sin necesidad;
+- saltos de dificultad;
+- conceptos enseñados pero nunca usados;
+- conceptos evaluados sin haber sido enseñados.
+
+## 5.2 Coherencia entre sesiones
+
+Valida referencias como:
+
+- “esto se verá en S5”;
+- “como vimos en S2”;
+- “se implementará en S6”.
+
+Comprueba que coincidan con el contenido real.
+
+## 5.3 Teoría vs código
+
+Toda afirmación técnica debe corresponder con el código actual.
+
+No documentes:
+
+- funciones inexistentes;
+- clases inexistentes;
+- APIs inexistentes;
+- parámetros inexistentes;
+- comportamientos que no existan.
+
+## 5.4 Teoría vs laboratorio
+
+Cada laboratorio debe practicar conceptos previamente explicados.
+
+## 5.5 Objetivos vs evaluación
+
+Debe existir trazabilidad:
+
+```text
+Objetivo
+   ↓
+Teoría
+   ↓
+Ejemplo
+   ↓
+Laboratorio
+   ↓
+Evaluación
+```
+
+## 5.6 Links y rutas
+
+Valida:
+
+- enlaces Markdown;
+- rutas relativas;
+- referencias a archivos;
+- referencias a laboratorios;
+- referencias a código.
+
+## 5.7 Terminología
+
+Detecta sinónimos innecesarios o inconsistentes.
+
+---
+
+# 6. FASE 3 — REPORTE DE CONSISTENCIA
+
+Crear:
+
+`docs/COURSE-CONSISTENCY-REPORT.md`
+
+Cada hallazgo debe incluir:
+
+- ID
+- tipo
+- severidad
+- módulo
+- sesión
+- archivo
+- descripción
+- evidencia
+- impacto
+- corrección propuesta
+- estado
+
+Formato de ID:
+
+`CONS-001`
+
+`CONS-002`
+
+...
+
+Severidades:
+
+- CRITICAL
+- HIGH
+- MEDIUM
+- LOW
+
+Estados:
+
+- OPEN
+- FIXED
+- DECISION REQUIRED
+- ACCEPTED
+
+No ocultes problemas simplemente corrigiéndolos.
+
+Mantén trazabilidad.
+
+---
+
+# 7. FASE 4 — GOBERNANZA
+
+Crear o actualizar:
+
+```text
+AGENTS.md
+
+docs/
+├── COURSE-MAP.md
+├── GLOSSARY.md
+├── CONTENT-GUIDELINES.md
+└── COURSE-CONSISTENCY-REPORT.md
+```
+
+---
+
+# 8. AGENTS.md
+
+Debe definir instrucciones persistentes para futuros agentes y Codex.
+
+Debe incluir como mínimo:
+
+- propósito del repositorio;
+- estructura;
+- fuente de verdad;
+- reglas pedagógicas;
+- reglas técnicas;
+- terminología;
+- industrias;
+- consistencia código/documentación;
+- estrategia Git;
+- gobernanza visual;
+- human approval.
+
+Regla obligatoria:
+
+> Nunca modificar una sesión considerando únicamente ese archivo.
+
+Antes de modificar una sesión revisar:
+
+1. `COURSE-MAP.md`
+2. `GLOSSARY.md`
+3. sesión anterior
+4. sesión actual
+5. sesión posterior
+6. código asociado
+7. laboratorio asociado
+8. evaluación asociada
+
+---
+
+# 9. COURSE-MAP.md
+
+Construye el mapa pedagógico real.
+
+Incluye:
+
+```text
+Concepto
+   ↓
+Introducción
+   ↓
+Implementación
+   ↓
+Práctica
+   ↓
+Profundización
+   ↓
+Evaluación
+```
+
+Incluye una tabla:
+
+| Concepto | Introducido | Implementado | Practicado | Profundizado | Evaluado |
+
+Los valores deben salir del repositorio.
+
+No inventarlos.
+
+Incluye dependencias entre conceptos.
+
+---
+
+# 10. GLOSSARY.md
+
+Define terminología canónica.
+
+Para cada término:
+
+- término preferido;
+- definición;
+- primera aparición;
+- uso recomendado;
+- sinónimos a evitar cuando generen ambigüedad.
+
+Conserva términos técnicos en inglés cuando sea conveniente.
+
+Ejemplos:
+
+- Tool Calling
+- Structured Output
+- Middleware
+- Guardrail
+- Agentic Loop
+- Human-in-the-loop
+
+No traduzcas términos técnicos si la traducción reduce claridad.
+
+---
+
+# 11. CONTENT-GUIDELINES.md
+
+Define reglas editoriales del curso:
+
+- tono;
+- profundidad;
+- nivel técnico;
+- estructura de sesiones;
+- uso de tablas;
+- ejemplos;
+- código;
+- advertencias;
+- laboratorios;
+- referencias futuras;
+- convenciones Markdown;
+- progresión pedagógica.
+
+Audiencia:
+
+Ingenieros de software/sistemas que están aprendiendo Agentic AI y LangChain.
+
+Prioriza explicaciones arquitectónicas claras.
+
+Evita simplificaciones que produzcan conceptos técnicamente incorrectos.
+
+---
+
+# 12. FASE 5 — CORRECCIÓN DE CONTENIDOS
+
+Después de crear la gobernanza, revisa los `.md`.
+
+No debes limitarte a mejorar redacción.
+
+Corrige cuando corresponda:
+
+- exactitud técnica;
+- coherencia;
+- progresión;
+- terminología;
+- ejemplos;
+- referencias cruzadas;
+- conexión teoría/código;
+- conexión teoría/lab;
+- objetivos/evaluación.
+
+Conserva el propósito original.
+
+No elimines contenido técnico útil solamente para hacerlo más breve.
+
+Cuando un concepto aún no haya sido enseñado:
+
+- no asumir conocimiento previo;
+- indicar dónde será desarrollado.
+
+---
+
+# 13. INDUSTRIAS
+
+Mantén estos nombres de forma consistente:
+
+```text
+AndesMóvil
+→ Telecomunicaciones / Telco
+
+Banco Inti
+→ Banca
+
+MercaSur
+→ Retail
+
+Andina Seguros
+→ Seguros
+```
+
+No renombrarlos.
+
+Usarlos de forma equilibrada cuando aporte valor pedagógico.
+
+No forzar ejemplos de industria cuando un ejemplo técnico genérico sea mejor.
+
+---
+
+# 14. FASE 6 — ANÁLISIS VISUAL
+
+Después de estabilizar contenido, determina qué secciones necesitan imágenes.
+
+No aplicar:
+
+`1 sección = 1 imagen`
+
+Una sección puede requerir:
+
+- 0 imágenes;
+- 1 imagen;
+- varias imágenes.
+
+Genera más de una cuando mejore claramente el aprendizaje.
+
+Evita imágenes meramente decorativas.
+
+---
+
+# 15. TIPOS DE IMÁGENES
+
+Clasifica como:
+
+- Conceptual
+- Arquitectura
+- Flujo
+- Secuencia
+- Comparación
+- Decision Tree
+- Agentic Loop
+- Roadmap
+- Integración
+- Data Flow
+- Component Diagram
+- Ejemplo de industria
+- Evolución conceptual
+
+---
+
+# 16. NIVELES VISUALES
+
+Cuando corresponda utiliza:
+
+## L1 — CONCEPTUAL
+
+Explica qué es.
+
+Ejemplo:
+
+`LLM vs Agent`
+
+## L2 — ARQUITECTURA
+
+Explica cómo funciona.
+
+Ejemplo:
+
+```text
+User
+ ↓
+Agent
+ ↓
+Model
+ ↓
+Tool
+ ↓
+API
+```
+
+## L3 — INDUSTRIA
+
+Explica aplicación real.
+
+Ejemplo:
+
+```text
+Cliente AndesMóvil
+       ↓
+Agent
+       ↓
+get_data_usage()
+       ↓
+Billing API
+```
+
+No es obligatorio usar L1/L2/L3 para todos los temas.
+
+---
+
+# 17. FASE 7 — DESIGN SYSTEM ARIWALABS
+
+Crear:
+
+`imagenes/DESIGN-SYSTEM.md`
+
+Configuración:
+
+## Formato
+
+16:9
+
+Resolución objetivo:
+
+1536 × 864 o equivalente.
+
+## Colores
+
+Background:
+
+`#F4F6F8`
+
+Primary:
+
+`#1E293B`
+
+Cards:
+
+`#FFFFFF`
+
+Accent:
+
+`#FF5733`
+
+## Estilo
+
+- vectorial técnico;
+- flat design;
+- arquitectura limpia;
+- bordes redondeados;
+- iconografía consistente;
+- flechas claras;
+- composición profesional;
+- legible proyectado;
+- legible en GitHub.
+
+Evitar:
+
+- fotografías stock;
+- robots humanoides;
+- 3D innecesario;
+- sombras pesadas;
+- gradientes complejos;
+- exceso de texto.
+
+---
+
+# 18. LENGUAJE VISUAL CANÓNICO
+
+Define una representación consistente para:
+
+- User
+- LLM
+- Agent
+- Tool
+- Memory
+- RAG
+- MCP
+- Middleware
+- Guardrail
+- Human Approval
+- API
+- Database
+- External System
+- Vector Database
+- Observability
+- Evaluation
+
+El alumno debe reconocer visualmente estos elementos a lo largo de todo el curso.
+
+---
+
+# 19. EVOLUCIÓN VISUAL
+
+Reutiliza conceptos visuales cuando evolucionen.
+
+Ejemplo:
+
+```text
+S1
+Arquitectura general del agente
+
+S3
+Misma arquitectura
+→ Tools resaltadas
+
+S5
+Misma arquitectura
+→ Memory resaltada
+
+S6
+Misma arquitectura
+→ Middleware / Guardrails resaltados
+```
+
+No regeneres representaciones incompatibles para el mismo concepto.
+
+---
+
+# 20. FASE 8 — CATÁLOGO DE IMÁGENES
+
+Crear:
+
+`imagenes/CATALOGO-IMAGENES.md`
+
+Columnas mínimas:
+
+| ID | Módulo | Sesión | Sección | Concepto | Archivo | Tipo | Nivel | Objetivo pedagógico | Prioridad | Reutilizable | Industria | Sesiones relacionadas | Estado |
+
+Formato ID:
+
+`IMG-M01-S01-001`
+
+Estados posibles:
+
+- PLANNED
+- GENERATED
+- PENDING_GENERATION
+- REUSED
+- UPDATED
+
+---
+
+# 21. ESTRUCTURA DE ASSETS
+
+Usar:
+
+```text
+imagenes/
+├── DESIGN-SYSTEM.md
+├── CATALOGO-IMAGENES.md
+│
+├── modulo-01/
+│   ├── sesion-01-.../
+│   │   ├── 01-....png
+│   │   ├── 02-....png
+│   │   ├── PROMPTS-IMAGENES.md
+│   │   └── NOTAS-SLIDES.md
+│   │
+│   └── sesion-02-.../
+│
+├── modulo-02/
+│
+└── ...
+```
+
+Adaptar los nombres a la estructura real del repositorio.
+
+---
+
+# 22. PROMPTS DE IMÁGENES
+
+Por cada imagen generar un prompt reproducible.
+
+Guardar en:
+
+`PROMPTS-IMAGENES.md`
+
+Cada entrada debe incluir:
+
+- ID;
+- concepto;
+- objetivo pedagógico;
+- composición;
+- elementos;
+- flujo;
+- texto visible;
+- jerarquía;
+- iconos;
+- paleta;
+- formato;
+- restricciones;
+- elementos que NO deben aparecer.
+
+El prompt debe permitir regenerar la imagen manteniendo el mismo Design System.
+
+---
+
+# 23. GENERACIÓN DE IMÁGENES
+
+Si Codex tiene acceso autorizado a una herramienta/API de generación de imágenes:
+
+generar las imágenes.
+
+Si NO tiene esa capacidad:
+
+NO inventar imágenes.
+
+NO crear placeholders haciéndolos pasar como finales.
+
+Continuar con:
+
+- catálogo;
+- prompts;
+- notas;
+- estructura;
+- especificaciones.
+
+Marcar:
+
+`PENDING_GENERATION`
+
+---
+
+# 24. FASE 9 — POWERPOINT
+
+Las imágenes se utilizarán manualmente en PPTX.
+
+Por cada sesión crear:
+
+`NOTAS-SLIDES.md`
+
+Por cada imagen:
+
+```text
+## Slide XX — Título
+
+ID:
+IMG-...
+
+Archivo:
+...
+
+Sección fuente:
+...
+
+Objetivo pedagógico:
+...
+
+Concepto principal:
+...
+
+Mensaje clave:
+...
+
+Explicación sugerida:
+...
+
+Elementos de la imagen que debe señalar el docente:
+...
+
+Ejemplo:
+...
+
+Ejemplo de industria:
+...
+
+Pregunta al alumno:
+...
+
+Error conceptual frecuente:
+...
+
+Conexión con sesión anterior:
+...
+
+Conexión con sesión posterior:
+...
+
+Duración sugerida:
+...
+
+Notas adicionales:
+...
+```
+
+Estas notas son SPEAKER NOTES.
+
+No deben limitarse a describir visualmente la imagen.
+
+---
+
+# 25. FASE 10 — VALIDACIÓN GLOBAL
+
+Antes de finalizar vuelve a revisar TODO el repositorio.
+
+## Validar contenidos
+
+- progresión;
+- terminología;
+- referencias;
+- coherencia entre módulos;
+- teoría vs código;
+- teoría vs laboratorio;
+- objetivos vs evaluación.
+
+## Validar código
+
+Ejecutar tests existentes cuando sea posible.
+
+No modificar código únicamente para adaptar documentación incorrecta.
+
+## Validar Markdown
+
+Comprobar:
+
+- enlaces;
+- rutas;
+- referencias cruzadas;
+- encabezados;
+- consistencia.
+
+## Validar imágenes
+
+Para cada imagen:
+
+1. exactitud técnica;
+2. correspondencia con contenido;
+3. utilidad pedagógica;
+4. legibilidad;
+5. consistencia visual;
+6. reutilización adecuada;
+7. utilidad en README;
+8. utilidad en PowerPoint;
+9. coherencia con conceptos futuros;
+10. ausencia de información innecesaria.
+
+---
+
+# 26. AMBIGÜEDADES
+
+No inventes decisiones.
+
+Si una duda puede resolverse leyendo:
+
+- código;
+- configuración;
+- tests;
+- documentación;
+- sesiones relacionadas;
+
+hazlo.
+
+Si existen varias opciones válidas y se requiere decisión del autor:
+
+registrar:
+
+`DECISION REQUIRED`
+
+Incluye:
+
+- ID;
+- contexto;
+- alternativas;
+- impacto;
+- recomendación;
+- archivos afectados.
+
+No tomar decisiones pedagógicas importantes arbitrariamente.
+
+---
+
+# 27. TRAZABILIDAD
+
+Todo cambio importante debe poder relacionarse con:
+
+- una inconsistencia;
+- una regla pedagógica;
+- una corrección técnica;
+- una mejora visual;
+- una decisión documentada.
+
+Actualizar:
+
+`COURSE-CONSISTENCY-REPORT.md`
+
+durante todo el proceso.
+
+---
+
+# 28. ESTRATEGIA DE COMMITS
+
+Usar commits pequeños.
+
+Ejemplos:
+
+```text
+docs: add course governance files
+
+docs: add pedagogical course map
+
+docs: align module 1 concepts and terminology
+
+docs: align labs with learning objectives
+
+docs: fix cross-session references
+
+visual: add AriwaLabs design system
+
+visual: add image catalog
+
+visual: add module 1 visual specifications
+
+visual: add module 1 speaker notes
+```
+
+No crear un único commit gigante.
+
+---
+
+# 29. PROHIBICIONES
+
+No:
+
+- modificar `main`;
+- hacer merge;
+- hacer force push;
+- inventar APIs;
+- inventar código;
+- inventar resultados;
+- inventar imágenes;
+- eliminar contenido útil sin justificación;
+- cambiar nombres de industrias;
+- introducir tecnologías nuevas sin necesidad;
+- actualizar dependencias fuera del alcance;
+- refactorizar código que no sea necesario;
+- cambiar decisiones arquitectónicas sin evidencia;
+- simplificar conceptos hasta volverlos incorrectos.
+
+---
+
+# 30. PULL REQUEST
+
+Cuando todo esté validado:
+
+crear o preparar un PR:
+
+```text
+feature/curso-final
+        ↓
+       main
+```
+
+No aprobar.
+
+No hacer merge.
+
+El PR requiere aprobación humana.
+
+---
+
+# 31. DESCRIPCIÓN DEL PR
+
+Incluir:
+
+## Objetivo
+
+## Alcance
+
+## Módulos procesados
+
+## Sesiones procesadas
+
+## Archivos modificados
+
+## Cambios pedagógicos
+
+## Cambios técnicos
+
+## Inconsistencias encontradas
+
+## Inconsistencias corregidas
+
+## DECISION REQUIRED
+
+## Gobernanza creada
+
+## Assets visuales
+
+## Imágenes identificadas
+
+## Imágenes generadas
+
+## Imágenes pendientes
+
+## Speaker Notes
+
+## Tests ejecutados
+
+## Validaciones realizadas
+
+## Riesgos
+
+## Observaciones
+
+## Checklist de revisión humana
+
+---
+
+# 32. CRITERIOS DE ACEPTACIÓN
+
+El trabajo solo está terminado si:
+
+- [ ] Se analizó todo el repositorio.
+- [ ] Existe `AGENTS.md`.
+- [ ] Existe `docs/COURSE-MAP.md`.
+- [ ] Existe `docs/GLOSSARY.md`.
+- [ ] Existe `docs/CONTENT-GUIDELINES.md`.
+- [ ] Existe `docs/COURSE-CONSISTENCY-REPORT.md`.
+- [ ] Se revisó la coherencia entre sesiones.
+- [ ] Se revisó teoría vs código.
+- [ ] Se revisó teoría vs laboratorios.
+- [ ] Se revisó objetivos vs evaluación.
+- [ ] Se validaron enlaces.
+- [ ] Existe `imagenes/DESIGN-SYSTEM.md`.
+- [ ] Existe `imagenes/CATALOGO-IMAGENES.md`.
+- [ ] Cada imagen tiene prompt reproducible.
+- [ ] Cada imagen para PPT tiene speaker notes.
+- [ ] Se identificaron assets reutilizables.
+- [ ] Las imágenes generadas siguen el Design System.
+- [ ] Las imágenes no generadas están marcadas `PENDING_GENERATION`.
+- [ ] Se ejecutaron las validaciones disponibles.
+- [ ] Se revisó el diff contra `main`.
+- [ ] No existen cambios directos en `main`.
+- [ ] Las ambigüedades importantes están identificadas.
+- [ ] Los cambios tienen trazabilidad.
+- [ ] Los commits son semánticos.
+- [ ] El PR está preparado o creado.
+- [ ] El PR no fue mergeado.
+
+---
+
+# 33. INFORME FINAL
+
+Al terminar entregar:
+
+- módulos analizados;
+- sesiones analizadas;
+- Markdown revisados;
+- Markdown modificados;
+- archivos de código revisados;
+- inconsistencias encontradas;
+- inconsistencias corregidas;
+- decisiones pendientes;
+- tests ejecutados;
+- imágenes identificadas;
+- imágenes generadas;
+- imágenes pendientes;
+- imágenes reutilizadas;
+- `NOTAS-SLIDES.md` generados;
+- nuevos archivos creados;
+- commits realizados;
+- estado del PR;
+- recomendaciones finales.
+
+---
+
+# REGLA FINAL
+
+Prioriza en este orden:
+
+1. Exactitud técnica.
+2. Coherencia pedagógica.
+3. Consistencia entre sesiones.
+4. Trazabilidad.
+5. Mantenibilidad.
+6. Calidad visual.
+7. Velocidad.
+
+Primero comprende todo el curso.
+
+Después modifica.
+
+Nunca al revés.
