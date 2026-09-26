@@ -164,8 +164,6 @@ Laboratorio 6 completo (guardrails, batería de 15+5 ataques, Avance 3 del proye
 > El L6 defiende contra un **adversario deliberado**. El L7 defiende contra el **mundo real sin
 > malicia**: servicios caídos, datos ausentes, preguntas ambiguas. Son dos ejes distintos.
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M02-S06-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/01-controles.png)
-
-Diagrama del mecanismo explicado en esta sesión; consultar el texto para sus límites. [Notas para el docente](../../imagenes/modulo-2-agentes-avanzados/sesion-06-automatizacion-guardrails/NOTAS-SLIDES.md).
+La [presentación de la sesión](<S06 · Guardrails y límites — IA Agent Building.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

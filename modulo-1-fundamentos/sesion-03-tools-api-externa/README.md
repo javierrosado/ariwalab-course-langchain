@@ -143,3 +143,7 @@ de la Sesión 4.
 
 > El L3 usa **una sola tool y de lectura**. La primera tool que escribe algo llega en el L4, ya
 > con el hábito de manejar errores que construyes hoy.
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S03 · Herramientas, integración externa y Assignment A1.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

@@ -125,8 +125,6 @@ el Laboratorio 2 completo (clasificador de intención, medido contra el golden s
 > sesión del curso en la que el modelo trabaja solo — nótalo, porque la Sesión 3 rompe ese
 > aislamiento con el primer dato real.
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M01-S02-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-1-fundamentos/sesion-02-ecosistema-langchain/01-structured-output.png)
-
-Diagrama del mecanismo explicado en esta sesión; consultar el texto para sus límites. [Notas para el docente](../../imagenes/modulo-1-fundamentos/sesion-02-ecosistema-langchain/NOTAS-SLIDES.md).
+La [presentación de la sesión](<S02 · Ecosistema LangChain prompts, cadenas y modelos.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

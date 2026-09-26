@@ -127,3 +127,7 @@ documento de diseño.
 | Langfuse y trazas | Sesión 9 |
 | Métricas formales y golden dataset de evaluación | Sesión 10 |
 | Ataque entre equipos | Descartado por diseño: la S7 es clínica, no torneo |
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S07 · Hackathon, clínica y sustentación del Proyecto M2.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

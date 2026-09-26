@@ -248,8 +248,6 @@ construyes el cimiento: un script que llama al modelo correctamente, sin instala
 3. Si te bloqueas, revisa primero la tabla de errores esperables en `conceptos-previos.md` y en
    el `README.md` de `code/`.
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M01-S01-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-1-fundamentos/sesion-01-fundamentos-agentes/01-agentic-loop.png)
-
-Diagrama del mecanismo explicado en esta sesión; consultar el texto para sus límites. [Notas para el docente](../../imagenes/modulo-1-fundamentos/sesion-01-fundamentos-agentes/NOTAS-SLIDES.md).
+La [presentación de la sesión](<S01 · Fundamentos de los agentes inteligentes.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

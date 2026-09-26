@@ -117,8 +117,8 @@ Laboratorio 8 completo (`app/api.py`, `Dockerfile`, despliegue real y Avance 1 d
 | Foundry | bonus asíncrono |
 | Docker en local, Kubernetes, CI/CD | fuera de alcance (P2) |
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M03-S08-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/01-despliegue.png)
+La [presentación de la sesión](<S08 · Despliegue en producción con HF Spaces.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.
 
-Langfuse se incorpora en S9; /health verifica el proceso, no todos los servicios externos. [Notas para el docente](../../imagenes/modulo-3-produccion/sesion-08-despliegue-hf-spaces/NOTAS-SLIDES.md).
+Langfuse se incorpora en S9; /health verifica el proceso, no todos los servicios externos.

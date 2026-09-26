@@ -112,8 +112,8 @@ el Laboratorio 10 completo (dataset en Langfuse, línea base v1, un cambio dirig
 | Evaluación en CI / pipeline automatizado | se menciona como cierre, no se implementa |
 | Fine-tuning como vía de mejora | fuera del alcance; se trabaja con prompts y RAG |
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M03-S10-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/01-evaluacion.png)
+La [presentación de la sesión](<S10 · Optimización continua y evaluación.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.
 
-Flujo de reporte recomendado: la separación de casos no aplicables se registra además del resultado del evaluador actual. [Notas para el docente](../../imagenes/modulo-3-produccion/sesion-10-evaluacion-optimizacion/NOTAS-SLIDES.md).
+Flujo de reporte recomendado: la separación de casos no aplicables se registra además del resultado del evaluador actual.

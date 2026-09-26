@@ -171,3 +171,7 @@ Laboratorio 4 completo (catálogo de 4 tools, medición y Avance 1 del proyecto)
 | Guardrails, PII, prompt injection | Sesión 6 |
 | Construir un servidor MCP propio | Reto opcional del L4 |
 | Langfuse | Sesión 9 |
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S04 · Tools e integración de herramientas.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.
