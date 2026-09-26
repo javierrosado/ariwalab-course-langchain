@@ -127,3 +127,7 @@ el Laboratorio 9 completo (instrumentación, redespliegue y Avance 2 del proyect
 | Optimizar de verdad (solo se identifica) | S10 |
 | Alertas y on-call | fuera de alcance |
 | Azure Monitor / OTel exporters | Curso 2 |
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S09 · Monitoreo y trazabilidad con Langfuse.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

@@ -59,7 +59,8 @@ Basado en la malla `IA Agent Building` y en el repo [`microsoft/langchain-for-be
 
 ## Por dónde empezar
 
-Para abrir el curso: [bienvenida con guion docente y ocho prompts visuales](docente/presentaciones/apertura.md).
+Cada sesión incluye en su carpeta la presentación `.pptx` que se dicta en clase; las notas del
+orador de cada diapositiva contienen las indicaciones para el docente.
 
 | Si eres… | Lee esto |
 |---|---|

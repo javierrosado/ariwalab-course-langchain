@@ -168,8 +168,8 @@ La Sesión 5 hace que el agente **cite**. Medir si esa cita realmente sostiene l
 (*groundedness*) es la Sesión 10 — no intentes evaluarlo hoy con herramientas que todavía no
 tienes.
 
-## Recurso visual
+## Presentación de la sesión
 
-![IMG-M02-S05-001: diagrama del mecanismo de la sesión](../../imagenes/modulo-2-agentes-avanzados/sesion-05-memoria-rag/01-memoria-rag.png)
+La [presentación de la sesión](<S05 · Memoria contextual y RAG con Qdrant Cloud.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.
 
-La consulta y los documentos deben usar el mismo espacio de embeddings. La memoria del checkpoint vive en el proceso. [Notas para el docente](../../imagenes/modulo-2-agentes-avanzados/sesion-05-memoria-rag/NOTAS-SLIDES.md).
+La consulta y los documentos deben usar el mismo espacio de embeddings. La memoria del checkpoint vive en el proceso.

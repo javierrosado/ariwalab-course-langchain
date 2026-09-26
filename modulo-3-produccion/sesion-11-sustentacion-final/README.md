@@ -123,3 +123,7 @@ para el enunciado completo.
 |---|---|
 | Foundry | bonus asíncrono, liberado al cerrar hoy |
 | Contenido nuevo de agentes | ninguno: hoy se cierra |
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S11 · Aplicación final y sustentación.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

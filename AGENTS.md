@@ -68,8 +68,9 @@ ya autorizadas por el encargo. Despliegues y comunicaciones a terceros requieren
 
 ## Gobernanza visual
 
-Seguir `imagenes/DESIGN-SYSTEM.md` y `imagenes/CATALOGO-IMAGENES.md` cuando existan.
-Cada imagen tiene ID, propósito, fuente, prompt reproducible, estado y notas para PPT.
-Reutilizar arquitectura e iconografía. Evitar decoración. Validar texto, flechas, legibilidad
-y correspondencia con el código antes de marcar GENERATED. Los pendientes se marcan
-PENDING_GENERATION; no enlazar archivos inexistentes como si fueran imágenes finales.
+La presentación `.pptx` de la raíz de cada sesión es la versión que se dicta; sus notas del
+orador son las notas del docente. Si una decisión aprobada figura en el deck, prevalece; si no,
+prevalece el repositorio. Corregir README y deck juntos cuando cambie la teoría afectada.
+Conservar la identidad del deck: 16:9, IBM Plex Sans/Mono, fondo `#F4F6F8`, texto `#1E293B`,
+tarjetas `#FFFFFF`, acento `#FF5733`. Usar una imagen solo si aclara un mecanismo; validar texto,
+flechas, legibilidad y correspondencia con el código. No enlazar archivos inexistentes.

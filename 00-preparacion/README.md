@@ -123,3 +123,7 @@ Avisa al docente que completaste la autoevaluación. Llegas a la Sesión 1 con:
 - [ ] Una idea de qué industria te interesa: **telecomunicaciones, banca, retail o seguros**
 
 Esa última decisión la formalizas en el Laboratorio 1, y te acompaña hasta el proyecto final.
+
+## Presentación de la sesión
+
+La [presentación de la sesión](<S00 · Nivelación en modelos de lenguaje.pptx>) es la versión que se dicta en clase; las notas del orador de cada diapositiva contienen las indicaciones para el docente.

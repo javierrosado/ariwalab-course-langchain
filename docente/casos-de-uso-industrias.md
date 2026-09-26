@@ -1,6 +1,6 @@
 # Los 4 tracks de industria — casos de uso peruanos
 
-> Punto 6 del encargo. **Regla de asignación (fijada en la Sesión 1): el equipo propone,
+> **Regla de asignación (fijada en la Sesión 1): el equipo propone,
 > el docente balancea.** Cada equipo propone su track al cerrar la Sesión 1 en vivo; el
 > docente ajusta la propuesta para que los 4 tracks queden representados en la sustentación
 > final. Una vez asignado, el track es **irrevocable** y se mantiene hasta la aplicación
@@ -30,7 +30,7 @@ generar código de reclamo → evaluar portabilidad".
 | Tools núcleo (L4, máx. 4 por A1) | `get_customer_plan`, `get_data_usage`, `run_line_diagnostics`, `create_complaint_ticket` |
 | Tools opcionales (reto) | `check_portability_eligibility`, `get_coverage_by_district` |
 | Base de conocimiento (RAG) | Tarifario de planes, condiciones contractuales, procedimiento de reclamos OSIPTEL, cobertura por distrito de Lima |
-| Datos sintéticos | `clientes.csv`, `planes.json`, `consumo_datos.csv`, `tarifario.md`, `reglamento_reclamos.md`, `cobertura_distritos.csv` |
+| Datos sintéticos | `clientes.csv`, `planes.json`, `consumo_datos.csv`, `tickets_reclamos.csv`, `cobertura_distritos.csv`, `tarifario_planes.md`, `condiciones_portabilidad.md`, `reglamento_reclamos.md` |
 | API externa (Sesión 3) | Servicio mock REST de estado de red por distrito |
 | Guardrail crítico | No prometer compensaciones económicas; no revelar datos de otra línea; enmascarar DNI |
 | Métrica de éxito (Sesión 10) | % de consultas resueltas sin escalamiento + uso correcto de la tool de diagnóstico |
@@ -49,10 +49,10 @@ regulatoria, ideal para enseñar guardrails.
 |---|---|
 | Usuario final | Cliente de cuenta de ahorros / tarjeta de crédito |
 | Objetivo del agente | Consultar movimientos, explicar comisiones, gestionar límites y alertar operaciones sospechosas |
-| Tools núcleo (L4, máx. 4 por A1) | `get_account_balance`, `list_transactions`, `explain_fee`, `score_transaction_risk` |
-| Tools opcionales (reto) | `get_transfer_limits`, `block_card` |
-| Base de conocimiento (RAG) | Tarifario de comisiones, contrato de tarjeta, política de fraude, guía de canales digitales |
-| Datos sintéticos | `cuentas.csv`, `movimientos.csv`, `tarifario_comisiones.md`, `politica_fraude.md`, `contrato_tarjeta.md` |
+| Tools núcleo (L4, máx. 4 por A1) | `get_account_balance`, `list_transactions`, `get_card_info`, `score_transaction_risk` |
+| Tools opcionales (reto) | `get_transfer_limits`, `request_card_block` |
+| Base de conocimiento (RAG) | Tarifario de comisiones, contrato de tarjeta, política de fraude |
+| Datos sintéticos | `cuentas.csv`, `movimientos.csv`, `tarjetas.csv`, `alertas_riesgo.csv`, `tarifario_comisiones.md`, `politica_fraude.md`, `contrato_tarjeta.md` |
 | API externa (Sesión 3) | Servicio mock de tipo de cambio SBS + scoring de riesgo |
 | Guardrail crítico | **Nunca ejecutar transferencias**; jamás mostrar número de tarjeta completo (solo últimos 4); doble confirmación antes de bloquear; escalamiento obligatorio ante sospecha de fraude |
 | Métrica de éxito (Sesión 10) | Tasa de falsos positivos de fraude + cero fugas de PII en 100 conversaciones de prueba |
@@ -75,9 +75,9 @@ conocimiento general.
 | Usuario final | Comprador online con pedido en curso |
 | Objetivo del agente | Informar estado del pedido, gestionar cambio/devolución, verificar stock y registrar reclamo |
 | Tools núcleo (L4, máx. 4 por A1) | `track_order`, `check_stock_by_store`, `start_return_request`, `get_product_details` |
-| Tools opcionales (reto) | `estimate_delivery`, `register_complaint_book` |
+| Tools opcionales (reto) | `estimate_delivery`, `get_return_status` |
 | Base de conocimiento (RAG) | Política de cambios y devoluciones, términos de garantía, preguntas frecuentes de despacho, reglas del Libro de Reclamaciones |
-| Datos sintéticos | `pedidos.csv`, `catalogo_productos.csv`, `stock_tiendas.csv`, `politica_devoluciones.md`, `faq_despacho.md` |
+| Datos sintéticos | `pedidos.csv`, `catalogo_productos.csv`, `stock_tiendas.csv`, `devoluciones.csv`, `politica_devoluciones.md`, `terminos_garantia.md`, `faq_despacho.md` |
 | API externa (Sesión 3) | Servicio mock de courier (estado de tracking) |
 | Guardrail crítico | No autorizar devoluciones fuera de política; no prometer fechas de entrega no confirmadas por el courier |
 | Métrica de éxito (Sesión 10) | Exactitud de la política aplicada (groundedness contra el documento fuente) |
@@ -96,10 +96,10 @@ propietarios de auto.
 |---|---|
 | Usuario final | Propietario de vehículo particular |
 | Objetivo del agente | Cotizar, explicar coberturas y exclusiones, guiar el reporte de siniestro y consultar el estado del trámite |
-| Tools núcleo (L4, máx. 4 por A1) | `quote_soat`, `get_policy_by_plate`, `check_coverage`, `open_claim` |
-| Tools opcionales (reto) | `get_claim_status`, `list_affiliated_clinics` |
+| Tools núcleo (L4, máx. 4 por A1) | `get_policy_by_plate`, `quote_soat`, `get_claim_status`, `open_claim` |
+| Tools opcionales (reto) | `list_affiliated_clinics`, `get_vehicle_info` |
 | Base de conocimiento (RAG) | Condicionado general SOAT, tabla de coberturas y topes en UIT, exclusiones, procedimiento de siniestro, red de clínicas afiliadas |
-| Datos sintéticos | `polizas.csv`, `vehiculos.csv`, `condicionado_soat.md`, `tabla_coberturas.md`, `red_clinicas.csv`, `siniestros.csv` |
+| Datos sintéticos | `polizas.csv`, `vehiculos.csv`, `red_clinicas.csv`, `siniestros.csv`, `condicionado_soat.md`, `tabla_coberturas.md`, `procedimiento_siniestro.md` |
 | API externa (Sesión 3) | Servicio mock de consulta de placa vehicular + valor de la UIT |
 | Guardrail crítico | **No liquidar ni aprobar siniestros**: el agente solo pre-califica e informa; toda cifra debe citar el condicionado; derivar lesiones personales a canal humano de inmediato |
 | Métrica de éxito (Sesión 10) | Citación correcta de la cláusula del condicionado en el 100 % de las respuestas de cobertura |
@@ -122,6 +122,6 @@ propietarios de auto.
 track"): el equipo **propone** su track, no se le asigna de entrada. El docente solo ajusta
 la propuesta cuando hace falta para que los 4 tracks estén representados en la sustentación
 final y para que **Banca** —el más exigente en guardrails y structured output, ver el cuadro
-comparativo abajo— no caiga en el equipo más débil. Retail, por su menor exigencia técnica,
+comparativo de arriba— no caiga en el equipo más débil. Retail, por su menor exigencia técnica,
 es la opción natural para sugerirle a un equipo que parte de cero si ese equipo no tiene
 preferencia propia.
