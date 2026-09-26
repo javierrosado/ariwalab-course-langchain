@@ -10,7 +10,8 @@ Incluir prerrequisitos verificables, objetivos observables, conexión con el inc
 teoría, ejemplos, demos enlazadas, laboratorio, criterios de aceptación y siguiente paso.
 Conservar las horas y pesos del plan. Las secciones usan encabezados únicos y enlaces a
 títulos estables; evitar referencias numéricas que no correspondan al documento publicado.
-Los guiones del docente, slides y quizzes deben corregirse junto con la teoría afectada.
+Los guiones del docente, la presentación `.pptx` de la sesión y los quizzes deben corregirse
+junto con la teoría afectada.
 
 ## Exactitud y profundidad
 
@@ -55,9 +56,10 @@ práctica o evaluación. No afirmar cobertura de Multi-agent si no existe activi
 
 ## Visuales y mantenimiento
 
-Usar una imagen solo si aclara una relación, flujo, arquitectura o decisión. Los prompts,
-catálogo y speaker notes evolucionan con el contenido. Las notas explican el mensaje,
-el ejemplo, la pregunta al alumno y el error frecuente, además de los elementos que señalar.
+Usar una imagen solo si aclara una relación, flujo, arquitectura o decisión. La presentación
+`.pptx` de cada sesión y sus notas del orador evolucionan con el contenido. Las notas explican
+el mensaje, el ejemplo, la pregunta al alumno y el error frecuente, además de los elementos
+que señalar.
 
 ## Audiencia y contenido publicado
 

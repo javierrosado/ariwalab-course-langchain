@@ -9,7 +9,8 @@
 > Si un esqueleto cambia, esta guía queda desactualizada hasta que alguien la revise contra el
 > esqueleto de nuevo — no hay generación automática. Es el mismo riesgo que corren
 > `docente/cronograma.md` y `docente/labs-incrementales.md`, y se gestiona igual: revisarla
-> quede como parte de "cerrar un entregable" cuando se toque un esqueleto (`CLAUDE.md`).
+> forma parte de cualquier cambio a un esqueleto ([`AGENTS.md`](../AGENTS.md), "Revisión
+> pedagógica obligatoria").
 
 ---
 
@@ -18,6 +19,7 @@
 - [ ] `docente/checklist-pre-sesion.md` completado (los 4 servicios SaaS en verde).
 - [ ] Leído el esqueleto completo de la sesión en `docente/esqueletos/sesion-NN.md` — esta guía
       es un resumen, no sustituye una lectura previa la primera vez que se dicta.
+- [ ] Revisada la presentación `.pptx` de la sesión y sus notas del orador.
 - [ ] Revisados los "errores esperables" de la sesión anterior: si algo salió mal ahí, puede
       seguir arrastrándose.
 
