@@ -110,7 +110,7 @@ def main() -> None:
 
    Regla práctica en español:  1 token ≈ 0.75 palabras
 
-   Presupuesto de una llamada del agente que construirás:
+   Presupuesto de una llamada del nuevo agente que construirás en este curso:
 
        system prompt + guardrails    ~1 000 tokens
        4 esquemas de herramientas    ~1 200 tokens
@@ -119,7 +119,7 @@ def main() -> None:
                                      ──────────────
                                      ~5 700 tokens por llamada
 
-   La ventana de Qwen3-32B es de 32 768 tokens: hay margen de sobra.
+   La ventana de contexto del modelo LLM de "Qwen3-32B" es de 32,768 tokens: hay margen de sobra.
    El contexto nunca es el problema en este curso; el razonamiento sí.
 """)
 
