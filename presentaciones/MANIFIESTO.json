@@ -1,0 +1,174 @@
+{
+  "source_commit": "27c24090f1662f9473b673d2020e7bffee04490b",
+  "sessions": 14,
+  "chapters": 122,
+  "slides": 366,
+  "notes_files": 14,
+  "files": [
+    {
+      "name": "00-preparacion-NOTAS-SLIDES.md",
+      "bytes": 277640,
+      "sha256": "0844ca05061d7d598da44bf6c3213ddcb81569df5f25fa3bb5f180d0fcc7b82b"
+    },
+    {
+      "name": "00-preparacion-editable-v2.pptx",
+      "bytes": 509854,
+      "sha256": "1ef394b2418d35fa5bea8931bc328e88c7ccfd1c1b40709d0136b223b8845869"
+    },
+    {
+      "name": "01-fundamentos-agentes-NOTAS-SLIDES.md",
+      "bytes": 119415,
+      "sha256": "7aa14b7ac5464f14d6c52d22294c9d01bc36a24fdb0eda94392d063c096bc6a6"
+    },
+    {
+      "name": "01-fundamentos-agentes-editable-v2.pptx",
+      "bytes": 267656,
+      "sha256": "9f342a3ce26eb4d2cc258bea7ce033c2bbad0b61c8a4fb0ddc0b28155719b87b"
+    },
+    {
+      "name": "02-ecosistema-langchain-NOTAS-SLIDES.md",
+      "bytes": 69721,
+      "sha256": "cf355db7e835547b13cf27e4e617ab9f720259ca946715297806192ef0cfab27"
+    },
+    {
+      "name": "02-ecosistema-langchain-editable.pptx",
+      "bytes": 159611,
+      "sha256": "364713aa12e2351aa1aca3a5f14cafbea3a87557034db9b872707b2b0ff0e8f5"
+    },
+    {
+      "name": "03-tools-api-externa-NOTAS-SLIDES.md",
+      "bytes": 69485,
+      "sha256": "36208cd6a6d0e8830206f4f1a8bee7f7ce5b7175fb2fef4eece2f9b5091fccd4"
+    },
+    {
+      "name": "03-tools-api-externa-editable-v2.pptx",
+      "bytes": 159731,
+      "sha256": "36167d23f717d0559145eaeeb6a0fb41a4f56be842a1ec50991086b17ad2b924"
+    },
+    {
+      "name": "04-tools-multiples-NOTAS-SLIDES.md",
+      "bytes": 79452,
+      "sha256": "5bd9885d326cab2854d2bbd8a5129f58dee9e8fde60f3210670ee18fcd5499bc"
+    },
+    {
+      "name": "04-tools-multiples-editable-v2.pptx",
+      "bytes": 181549,
+      "sha256": "cc8d873f9e4054d3cff54bc650f5584ceeca768e934ce6ce493e5bf9051be833"
+    },
+    {
+      "name": "05-memoria-rag-NOTAS-SLIDES.md",
+      "bytes": 90437,
+      "sha256": "9eb5d38da5e47e32c5921a6526bbd44998bfcaa42d28e75fd1b7513508c62575"
+    },
+    {
+      "name": "05-memoria-rag-editable-v2.pptx",
+      "bytes": 204223,
+      "sha256": "794016012129bcf3f2342c9759eda591483d3ec90c8571b7904b6d9ea7096bbf"
+    },
+    {
+      "name": "06-automatizacion-guardrails-NOTAS-SLIDES.md",
+      "bytes": 81127,
+      "sha256": "85c1475bef1b4e9fbdae473c3c4479a1538268bb4221c0f3e00b3af7f98362d5"
+    },
+    {
+      "name": "06-automatizacion-guardrails-editable-v2.pptx",
+      "bytes": 182263,
+      "sha256": "bf855e84641d4bde28c8859672ece0df2c807a740115be22df2e8becc20f39f2"
+    },
+    {
+      "name": "07-hackathon-m2-NOTAS-SLIDES.md",
+      "bytes": 59759,
+      "sha256": "a577461989216312bae7061635b6ed51f26976fbba74471fae665e25dcdac2de"
+    },
+    {
+      "name": "07-hackathon-m2-editable.pptx",
+      "bytes": 139037,
+      "sha256": "e87f5de3cebfdbae13a6c7a9e57d1064b3d01a46c7e94e5f9a6a83c9849b0079"
+    },
+    {
+      "name": "08-despliegue-hf-spaces-NOTAS-SLIDES.md",
+      "bytes": 79334,
+      "sha256": "ef092e20fb49dc4431e194306dae19d65beac947ca798d5f33c59308f6cc2cee"
+    },
+    {
+      "name": "08-despliegue-hf-spaces-editable-v2.pptx",
+      "bytes": 181666,
+      "sha256": "ce6f4970bf8d6533dc7719f56f3b375c5cdb6ee6a174d2c8ff85fa1e65173529"
+    },
+    {
+      "name": "09-observabilidad-langfuse-NOTAS-SLIDES.md",
+      "bytes": 69576,
+      "sha256": "8e3d93f745c7d6f270134c92ba35f13a0549f39c0d3c6b4241dd69de0e74d804"
+    },
+    {
+      "name": "09-observabilidad-langfuse-editable.pptx",
+      "bytes": 159809,
+      "sha256": "93f08a3c5064f8bd18abbec5cca1227de9b3594b6316e58e036c1cb54fcf671e"
+    },
+    {
+      "name": "10-evaluacion-optimizacion-NOTAS-SLIDES.md",
+      "bytes": 70480,
+      "sha256": "a32d9a8cb91baeb20243d6b9ad766d918391477a36523dad908f72bed29bfbe3"
+    },
+    {
+      "name": "10-evaluacion-optimizacion-editable.pptx",
+      "bytes": 159714,
+      "sha256": "188aed9663ae3af9db6783690aa2c2eb55c9ac842c0ad453020b206f630428bb"
+    },
+    {
+      "name": "11-sustentacion-final-NOTAS-SLIDES.md",
+      "bytes": 71285,
+      "sha256": "34cbb3c967fe37888d5bc2a64055ad4e52319cf8f6033e850d10bf9fddb2c97e"
+    },
+    {
+      "name": "11-sustentacion-final-editable-v2.pptx",
+      "bytes": 160790,
+      "sha256": "6fc8fd6290b9e85eaa15ec3c73031f7721ca5f517e50d256e34dbf9ae5b7bbd2"
+    },
+    {
+      "name": "12-seminario-internacional-NOTAS-SLIDES.md",
+      "bytes": 61027,
+      "sha256": "f4cf2b1856a9c447f580d0e40e4ed33fbb45c60146503f77c005fd199fc94f4c"
+    },
+    {
+      "name": "12-seminario-internacional-editable.pptx",
+      "bytes": 139468,
+      "sha256": "43a6a620e5fffc6ab17bc461bec69a786e4393ab44219059bad384e3461b5f0f"
+    },
+    {
+      "name": "13-bonus-foundry-NOTAS-SLIDES.md",
+      "bytes": 81362,
+      "sha256": "d3db9c283f3aea8c5e9664a632c1f643fa4444014bd370c4e5845fb96f67b8d5"
+    },
+    {
+      "name": "13-bonus-foundry-editable-v2.pptx",
+      "bytes": 183172,
+      "sha256": "fd37a78d8f6a2b3a67534860a3ad0b03f1d7907922b66841b58554c125972f1b"
+    },
+    {
+      "name": "CATALOGO-SLIDES.csv",
+      "bytes": 35280,
+      "sha256": "6796c5c902c7b4ffa03f7a73105ceabd83daed44ab9df9faea1c0bc338b680b6"
+    },
+    {
+      "name": "DESIGN-SYSTEM.md",
+      "bytes": 1833,
+      "sha256": "341791da6ba6408c6cbce4741cf0c22eb54df2f8cc8fd75fba0ccc578347735a"
+    },
+    {
+      "name": "INDICE-PRESENTACIONES.md",
+      "bytes": 35319,
+      "sha256": "5cb99201171e69241a942526b8c38ac4a14206dc5df96270c00b19e47c18142a"
+    },
+    {
+      "name": "INVENTARIO-FUENTES.csv",
+      "bytes": 42878,
+      "sha256": "c7c14c1bcf4b457ada5b2388a32f068a967b33d59136539c1f85bfc5114c780e"
+    },
+    {
+      "name": "OBSERVACIONES-FUENTE.md",
+      "bytes": 3834,
+      "sha256": "cb3ab0aecb946c0da91fe59f6b4bab4d4c9f734c73d8d4dc0c56814720cb2ff8"
+    }
+  ]
+}
