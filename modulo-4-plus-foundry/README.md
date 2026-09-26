@@ -128,3 +128,9 @@ adicional; quien no, se gradúa igual.
 | Migrar Qdrant o Langfuse a servicios de Azure | Curso 2. Aquí se demuestra que **no hace falta** |
 
 El bonus termina donde empieza el Curso 2 — ver [`puente-curso-2.md`](puente-curso-2.md).
+
+## Presentación del bonus
+
+La [presentación del bonus](<Bonus · El mismo agente en Microsoft Foundry.pptx>) acompaña el
+recorrido asíncrono; las notas del orador de cada diapositiva contienen las indicaciones para
+el docente.
