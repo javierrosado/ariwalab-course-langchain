@@ -36,8 +36,9 @@ Los objetivos 1 y 2 se verifican con el **Test 1** (al final de esta sesión, ve
 > bien.
 
 Se rompe con una demo en vivo, no con una diapositiva: el docente le pregunta al modelo una
-tarifa de AndesMóvil dos veces seguidas, y el modelo responde con **total seguridad** dos cifras
-distintas — ninguna real, porque el modelo nunca tuvo acceso al tarifario. El resto de esta
+tarifa de AndesMóvil dos veces seguidas, y el modelo responde con **total seguridad** una cifra,
+que puede cambiar de un intento a otro — y ninguna es real, porque el modelo nunca tuvo acceso
+al tarifario. El resto de esta
 sesión explica **por qué** pasa esto, y las diez sesiones siguientes construyen las defensas
 (tools, RAG, guardrails, evaluación).
 
@@ -134,7 +135,7 @@ ganancia a cambio.** La mitad de los casos reales de un curso de agentes... no n
 
 ## 6. Anatomía de LangChain 1.x — dónde estás parado en el mapa del curso
 
-LangChain 1.x organiza todo alrededor de cinco objetos. Esta tabla es tu mapa de las 12
+LangChain 1.x organiza todo alrededor de cinco objetos. Esta tabla es tu mapa de las 11
 sesiones: cuando en la sesión 6 aparezca "middleware" por primera vez en código, vuelve aquí.
 
 | Objeto | Qué es | Cuándo lo usas por primera vez |
@@ -143,7 +144,7 @@ sesiones: cuando en la sesión 6 aparezca "middleware" por primera vez en códig
 | `message` | `system` / `human` / `ai` / `tool`: el modelo mental de toda conversación | **Hoy** (demo 2) y a fondo en la S2 |
 | `tool` | Una función de tu código que el modelo puede pedir que se ejecute | S3 |
 | `agent` | El bucle que encadena `model` + `tool` + `message` hasta cumplir un objetivo | S3 (`create_agent()`) |
-| `middleware` | Interceptores que se ejecutan antes/después de cada paso del agente (guardrails, logging) | S6 |
+| `middleware` | Interceptores que se ejecutan antes/después de cada paso del agente (guardrails, logging) | S6, como wrapper manual (no se usa la API `AgentMiddleware`) |
 
 No memorices esta tabla: vuelve a ella cada vez que empieces una sesión nueva del módulo 1 y 2.
 
@@ -235,6 +236,7 @@ Para que sepas qué esperar (y qué no) del laboratorio de hoy:
 | El simulador de industria | Sesión 3 |
 | Qdrant y Langfuse (más allá de tener la cuenta creada) | Sesión 5 y Sesión 9 |
 | MCP | Sesión 4 |
+| Las reglas A1–A6 (hoy solo se nombran) | Desde la Sesión 2 |
 
 La palabra "agente" se explicó en las secciones 3 y 4, pero **no vas a construir uno hoy**. Hoy
 construyes el cimiento: un script que llama al modelo correctamente, sin instalar un motor de inferencia en tu laptop; sí necesitas el entorno Python de S0. El primer agente real es el de la Sesión 3.
@@ -245,8 +247,8 @@ construyes el cimiento: un script que llama al modelo correctamente, sin instala
 
 1. Si no lo hiciste, completa el pre-work de 1 h: [`conceptos-previos.md`](conceptos-previos.md).
 2. Después de la sesión en vivo, ve al laboratorio: [`lab/`](lab/).
-3. Si te bloqueas, revisa primero la tabla de errores esperables en `conceptos-previos.md` y en
-   el `README.md` de `code/`.
+3. Si te bloqueas, revisa primero las tablas de errores esperables de
+   [`lab/README.md`](lab/README.md) y [`code/README.md`](code/README.md).
 
 ## Presentación de la sesión
 
