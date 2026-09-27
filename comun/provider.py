@@ -1,8 +1,9 @@
 """Capa de proveedor de modelos — el corazón arquitectónico del curso.
 
 Ningún laboratorio instancia un modelo directamente: todos piden get_chat_model().
-Por eso, en el bonus de Foundry basta con cambiar AI_PROVIDER en el .env y el
-código del agente (agent.py, tools/, guardrails.py, schemas.py) no se toca.
+Por eso, en el bonus de Foundry, cambiar AI_PROVIDER en el .env basta para obtener
+el cliente de chat del otro proveedor. Credenciales, embeddings y adaptación al
+hosting requieren comprobaciones adicionales.
 
 Ambos proveedores se consumen por la API compatible con OpenAI:
   - Hugging Face: router de Inference Providers (https://router.huggingface.co/v1)
