@@ -62,8 +62,8 @@ La Sesión 0 ya cubrió esto. **No se repite en clase**, se da por sabido:
 > sesión 10, cuando intente evaluar el agente con `assert respuesta == "esperado"`.
 
 Se rompe con una **demo en vivo, no con una diapositiva**: preguntarle al modelo una tarifa de
-AndesMóvil dos veces y mostrar que responde con total seguridad dos cifras distintas, ninguna
-verdadera. El resto de la sesión explica por qué, y las 10 siguientes construyen las defensas.
+AndesMóvil dos veces y mostrar que responde con total seguridad una cifra, que puede cambiar de
+un intento a otro, y ninguna es verdadera. El resto de la sesión explica por qué, y las 10 siguientes construyen las defensas.
 
 ---
 
@@ -101,7 +101,7 @@ laboratorio (120 min de práctica): **3.33 h teoría / 2.50 h práctica**.
                                                     └── CONTROL       límites de lo que puede hacer   (S6)
 ```
 
-Cada flecha se etiqueta con la sesión que la construye. Ese diagrama es el mapa del curso y se
+Cada pieza se etiqueta con la sesión que la construye. Ese diagrama es el mapa del curso y se
 repite en la apertura de las sesiones 3, 4, 5 y 6.
 
 ### Contenido del bloque 3 — el cuadro de decisión
@@ -109,9 +109,9 @@ repite en la apertura de las sesiones 3, 4, 5 y 6.
 | Si… | Necesitas | Por qué |
 |---|---|---|
 | Los pasos son siempre los mismos | **Workflow** | Más barato, más rápido, depurable |
-| El orden depende de lo que responda el usuario | **Agente** | El modelo decide la ruta |
+| La ruta la selecciona el modelo según el contexto | **Agente** | La aplicación delega esa decisión al modelo |
 | Hay que garantizar que un paso ocurra siempre | **Workflow** | Un agente *puede* saltárselo |
-| El número de pasos no se conoce de antemano | **Agente** | El bucle termina cuando el objetivo se cumple |
+| Las condiciones y ramas pueden programarse explícitamente | **Workflow** | Puede incluir ciclos y un número variable de pasos |
 
 > Mensaje que el alumno debe llevarse: **un agente es más caro, más lento y menos predecible que
 > un workflow.** Solo se justifica cuando la ruta no se puede escribir de antemano.
@@ -215,7 +215,7 @@ Mantener la clase dentro de este alcance:
 
 ---
 
-## 12. Errores esperables y cómo atenderlos
+## 11. Errores esperables y cómo atenderlos
 
 | Síntoma | Causa | Respuesta del docente |
 |---|---|---|
