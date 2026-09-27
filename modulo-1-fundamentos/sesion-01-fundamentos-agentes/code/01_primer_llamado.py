@@ -57,8 +57,9 @@ def main() -> None:
     print("""
   Fíjate en que:
     · Este script no importa `langchain_openai` ni sabe la URL del proveedor.
-    · Si cambiaras AI_PROVIDER a "foundry" en tu .env, este mismo código seguiría
-      funcionando sin tocar una línea (eso es lo que hace posible el bonus del módulo 4).
+    · Si cambiaras AI_PROVIDER a "foundry" en tu .env, este script obtendría el cliente
+      de chat de Foundry sin tocar una línea (bonus del módulo 4); credenciales,
+      embeddings y hosting requieren comprobaciones adicionales.
     · La respuesta suena convincente, pero el modelo NO consultó ningún sistema real
       todavía: no tiene tools. Vuelve a leer la sección 2 del README de esta sesión.
 """)
