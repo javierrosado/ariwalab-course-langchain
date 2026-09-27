@@ -70,8 +70,9 @@ def main() -> None:
 
     · Un solo modelo verificado en vez de cuatro modelos por afinar.
     · Cambiar el tono de un agente es editar texto en prompts_industria.py, no
-      reentrenar nada (cinco bloques por industria: identidad, jerga,
-      estilo, recuperación obligatoria y límites).
+      reentrenar nada (siete bloques por industria: identidad, jerga, estilo
+      general, recuperación obligatoria, manejo de errores, límites y
+      escalamiento).
     · Esto es exactamente lo que vas a usar en tu laboratorio de hoy: tu
       `primer_contacto.py` importa `get_system_prompt()` con TU track, no los cuatro.
     · Nota: ninguna de estas cuatro respuestas citó una fuente real todavía —eso
